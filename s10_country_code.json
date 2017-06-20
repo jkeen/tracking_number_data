@@ -1,0 +1,1350 @@
+{
+  "_comment_country_code": "The country code is part of the S10 standard for international mail.  The official reference for this is here: http://www.upu.int/uploads/tx_sbdownloader/S10TechnicalStandard.pdf",
+  "_comment_country_code2": "Auto-generated file.  Do not modify.",
+  "country_code": [
+    {
+      "country": "Afghanistan",
+      "country_code": "AF",
+      "courier": "Afghan Post",
+      "courier_url": "http://postalcode.afghanpost.gov.af/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/afghanistan.html"
+    },
+    {
+      "country": "Albania",
+      "country_code": "AL",
+      "courier": "Posta Shqiptare",
+      "courier_url": "http://www.postashqiptare.al/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/albania.html"
+    },
+    {
+      "country": "Algeria",
+      "country_code": "DZ",
+      "courier": "Alg\u00e9rie Poste",
+      "courier_url": "http://www.poste.dz/codepostal/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/algeria.html"
+    },
+    {
+      "country": "Angola",
+      "country_code": "AO",
+      "courier": "Correios de Angola",
+      "courier_url": "http://www.correiosdeangola.co.ao/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/angola.html"
+    },
+    {
+      "country": "Antigua and Barbuda",
+      "country_code": "AG",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/antigua-and-barbuda.html"
+    },
+    {
+      "country": "Argentina",
+      "country_code": "AR",
+      "courier": "Correo Argentino",
+      "courier_url": "http://www.correoargentino.com.ar/formularios/cpa",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/argentina.html"
+    },
+    {
+      "country": "Armenia",
+      "country_code": "AM",
+      "courier": "Haypost - Armenian Postal Service",
+      "courier_url": "http://www.haypost.am/view-lang-eng-page-25.html",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/armenia.html"
+    },
+    {
+      "country": "Aruba, Cura\u00e7ao and Sint Maarten",
+      "country_code": null,
+      "courier": "Post Aruba N.V",
+      "courier_url": "http://www.postaruba.com/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/aruba-curacao-and-sint-maarten.html"
+    },
+    {
+      "country": "Australia",
+      "country_code": "AU",
+      "courier": "Australia Post",
+      "courier_url": "http://www1.auspost.com.au/postcodes/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/australia.html"
+    },
+    {
+      "country": "Austria",
+      "country_code": "AT",
+      "courier": "\u00d6sterreichische Post AG",
+      "courier_url": "http://www.post.at/en/index.php",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/austria.html"
+    },
+    {
+      "country": "Azerbaijan",
+      "country_code": "AZ",
+      "courier": "Azarpo\u00e7t",
+      "courier_url": "http://www.azerpost.az/?options=content&id=188&language=en",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/azerbaijan.html"
+    },
+    {
+      "country": "Bahamas",
+      "country_code": "BS",
+      "courier": "Bahamas Postal Service",
+      "courier_url": "http://www.bahamas.gov.bs/postalservice",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/bahamas.html"
+    },
+    {
+      "country": "Bahrain",
+      "country_code": "BH",
+      "courier": "Bahrain Post",
+      "courier_url": "http://www.transportation.gov.bh/en/modules.php?name=Content&pa=showpage&pid=97",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/bahrain.html"
+    },
+    {
+      "country": "Bangladesh",
+      "country_code": "BD",
+      "courier": "Bangladesh Post Office",
+      "courier_url": "http://www.bangladeshpost.gov.bd/PostCode.asp",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/bangladesh.html"
+    },
+    {
+      "country": "Barbados",
+      "country_code": "BB",
+      "courier": "Barbados Postal Service",
+      "courier_url": "http://www.bps.gov.bb/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/barbados.html"
+    },
+    {
+      "country": "Belarus",
+      "country_code": "BY",
+      "courier": "Belpochta",
+      "courier_url": "http://zip.belpost.by/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/belarus.html"
+    },
+    {
+      "country": "Belgium",
+      "country_code": "BE",
+      "courier": "bpost",
+      "courier_url": "http://www.bpost.be/site/fr/residential/customerservice/search/postal_codes.html",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/belgium.html"
+    },
+    {
+      "country": "Belize",
+      "country_code": "BZ",
+      "courier": "Belize Postal Service",
+      "courier_url": "http://www.belizepostalservice.gov.bz/site/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/belize.html"
+    },
+    {
+      "country": "Benin",
+      "country_code": "BJ",
+      "courier": "La Poste du B\u00e9nin",
+      "courier_url": "http://www.laposte.bj/index1.php?id_page=1",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/benin.html"
+    },
+    {
+      "country": "Bhutan",
+      "country_code": "BT",
+      "courier": "Bhutan Post",
+      "courier_url": "http://www.bhutanpost.com.bt/postcode/postcode.php",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/bhutan.html"
+    },
+    {
+      "country": "Bolivia",
+      "country_code": "BO",
+      "courier": "ECOBOL \u2013 Empresa de Correos de Bolivia",
+      "courier_url": "http://www.correosbolivia.com/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/bolivia.html"
+    },
+    {
+      "country": "Bosnia and Herzegovina",
+      "country_code": "BA",
+      "courier": "JP BH PO\u0160TA d.o.o. Sarajevo",
+      "courier_url": "http://www.post.ba/postanski_brojevi_bih.php",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/bosnia-and-herzegovina.html"
+    },
+    {
+      "country": "Botswana",
+      "country_code": "BW",
+      "courier": "BotswanaPost",
+      "courier_url": "http://www.botspost.co.bw/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/botswana.html"
+    },
+    {
+      "country": "Brazil",
+      "country_code": "BR",
+      "courier": "CORREIOS",
+      "courier_url": "http://www.buscacep.correios.com.br/servicos/dnec/index.do",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/brazil.html"
+    },
+    {
+      "country": "Brunei Darussalam",
+      "country_code": "BN",
+      "courier": "Brunei Postal Services",
+      "courier_url": "http://www.post.gov.bn/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/brunei-darussalam.html"
+    },
+    {
+      "country": "Bulgaria (Rep.)",
+      "country_code": "BG",
+      "courier": "Bulgarian Posts",
+      "courier_url": "http://www.bgpost.bg/?cid=131",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/bulgaria-rep.html"
+    },
+    {
+      "country": "Burkina Faso",
+      "country_code": "BF",
+      "courier": "SONAPOST",
+      "courier_url": "http://www.sonapost.bf/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/burkina-faso.html"
+    },
+    {
+      "country": "Burundi",
+      "country_code": "BI",
+      "courier": "RNP \u2013 R\u00e9gie nationale des postes",
+      "courier_url": "http://www.poste.bi/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/burundi.html"
+    },
+    {
+      "country": "Cambodia",
+      "country_code": "KH",
+      "courier": "Ministry of Posts and Telecommunications",
+      "courier_url": "http://www.mptc.gov.kh/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/cambodia.html"
+    },
+    {
+      "country": "Cameroon",
+      "country_code": "CM",
+      "courier": "CAMPOST \u2013 Cameroon Postal Services",
+      "courier_url": "http://campostonline.com/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/cameroon.html"
+    },
+    {
+      "country": "Canada",
+      "country_code": "CA",
+      "courier": "Canada Post",
+      "courier_url": "http://www.canadapost.ca/cpotools/apps/fpc/personal/findByCity?execution=e1s1",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/canada.html"
+    },
+    {
+      "country": "Cape Verde",
+      "country_code": "CV",
+      "courier": "Correios de Cabo Verde",
+      "courier_url": "http://www.correios.cv/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/cape-verde.html"
+    },
+    {
+      "country": "Central African Rep.",
+      "country_code": "CF",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/central-african-rep.html"
+    },
+    {
+      "country": "Chad",
+      "country_code": "TD",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/chad.html"
+    },
+    {
+      "country": "Chile",
+      "country_code": "CL",
+      "courier": "Correos de Chile",
+      "courier_url": "http://www.correos.cl/SitePages/home.aspx",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/chile.html"
+    },
+    {
+      "country": "China (People's Rep.)",
+      "country_code": "CN",
+      "courier": "China Post",
+      "courier_url": "http://www.cpdc.com.cn/web/index.php?m=postsearch&c=index&a=init&t=addr",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/china-peoples-rep.html"
+    },
+    {
+      "country": "Colombia",
+      "country_code": "CO",
+      "courier": "4-72 La Red Postal de Colombia",
+      "courier_url": "http://visor.codigopostal.gov.co/472/visor/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/colombia.html"
+    },
+    {
+      "country": "Comoros",
+      "country_code": "KM",
+      "courier": "Societ\u00e9 Nationale des Postes et des Services Financiers",
+      "courier_url": "http://www.lapostecomores.com/bureaux.php",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/comoros.html"
+    },
+    {
+      "country": "Congo (Rep.)",
+      "country_code": "CG",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/congo-rep.html"
+    },
+    {
+      "country": "Costa Rica",
+      "country_code": "CR",
+      "courier": "Correos de Costa Rica",
+      "courier_url": "https://www.correos.go.cr/nosotros/codigopostal/busqueda.html",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/costa-rica.html"
+    },
+    {
+      "country": "Croatia",
+      "country_code": "HR",
+      "courier": "Hrvatska Posta - Croatian Post",
+      "courier_url": "http://www.posta.hr/default.aspx?pretpum&id=3417",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/croatia.html"
+    },
+    {
+      "country": "Cuba",
+      "country_code": "CU",
+      "courier": "Ministerio de la Inform\u00e1tica y las comunicaciones de Cuba",
+      "courier_url": "http://www.mic.gov.cu/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/cuba.html"
+    },
+    {
+      "country": "Cyprus",
+      "country_code": "CY",
+      "courier": "Cyprus Post",
+      "courier_url": "http://www.mcw.gov.cy/mcw/dps/dps.nsf/index_en/index_en?OpenDocument",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/cyprus.html"
+    },
+    {
+      "country": "Czech Rep.",
+      "country_code": "CZ",
+      "courier": "\u010cesk\u00e1 Po\u0161ta",
+      "courier_url": "http://psc.cpost.cz/CleanForm.action?request_locale=en",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/czech-rep.html"
+    },
+    {
+      "country": "C\u00f4te d'Ivoire (Rep.)",
+      "country_code": "CI",
+      "courier": "La Poste de C\u00f4te d\u2019Ivoire",
+      "courier_url": "http://www.laposte.ci/bureau.php",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/cote-divoire-rep.html"
+    },
+    {
+      "country": "Dem People's Rep. of Korea",
+      "country_code": "KP",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/dem-peoples-rep-of-korea.html"
+    },
+    {
+      "country": "Democratic Republic of the Congo",
+      "country_code": "CD",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/democratic-republic-of-the-congo.html"
+    },
+    {
+      "country": "Denmark",
+      "country_code": "DK",
+      "courier": "Post Danmark",
+      "courier_url": "http://www.postdanmark.dk/en/find_postcode/Pages/home.aspx",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/denmark.html"
+    },
+    {
+      "country": "Djibouti",
+      "country_code": "DJ",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/djibouti.html"
+    },
+    {
+      "country": "Dominica",
+      "country_code": "DM",
+      "courier": "General Post Office",
+      "courier_url": "http://publicworks.gov.dm/index.php/divisions/general-post-office/20-gpo-about-us",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/dominica.html"
+    },
+    {
+      "country": "Dominican Republic",
+      "country_code": "DO",
+      "courier": "INPOSDOM \u2013 Instituto Postal Dominicano",
+      "courier_url": "http://www.inposdom.gob.do/servicios/codigo-postal",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/dominican-republic.html"
+    },
+    {
+      "country": "Ecuador",
+      "country_code": "EC",
+      "courier": "Correos del Ecuador",
+      "courier_url": "http://www.codigopostal.gob.ec/#",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/ecuador.html"
+    },
+    {
+      "country": "Egypt",
+      "country_code": "EG",
+      "courier": "Egypt Post",
+      "courier_url": "http://www.egyptpost.org/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/egypt.html"
+    },
+    {
+      "country": "El Salvador",
+      "country_code": "SV",
+      "courier": "Correos de El Salvador",
+      "courier_url": "http://www.correos.gob.sv/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/el-salvador.html"
+    },
+    {
+      "country": "Equatorial Guinea",
+      "country_code": "GQ",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/equatorial-guinea.html"
+    },
+    {
+      "country": "Eritrea",
+      "country_code": "ER",
+      "courier": "Eritrean Postal Service",
+      "courier_url": "http://www.eriposta.com/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/eritrea.html"
+    },
+    {
+      "country": "Estonia",
+      "country_code": "EE",
+      "courier": "Eesti Post",
+      "courier_url": "http://www.post.ee/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/estonia.html"
+    },
+    {
+      "country": "Ethiopia",
+      "country_code": "ET",
+      "courier": "Ethiopian postal service",
+      "courier_url": "http://www.ethiopostal.com/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/ethiopia.html"
+    },
+    {
+      "country": "Fiji",
+      "country_code": "FJ",
+      "courier": "Post Fiji",
+      "courier_url": "http://www.postfiji.com.fj/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/fiji.html"
+    },
+    {
+      "country": "Finland (including the \u00c5land Islands)",
+      "country_code": "FI",
+      "courier": "Posti Ltd",
+      "courier_url": "http://www.verkkoposti.com/e3/english/postalcodecatalog",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/finland-including-the-aaland-islands.html"
+    },
+    {
+      "country": "France",
+      "country_code": "FR",
+      "courier": "La Poste",
+      "courier_url": "http://www.laposte.fr/Entreprise/Outils-Indispensables/Outils/Trouvez-un-code-postal",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/france.html"
+    },
+    {
+      "country": "Gabon",
+      "country_code": "GA",
+      "courier": "La Poste SA",
+      "courier_url": "http://www.laposte.ga/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/gabon.html"
+    },
+    {
+      "country": "Gambia",
+      "country_code": "GM",
+      "courier": "Gambia Postal services Corporation",
+      "courier_url": "http://www.gampost.gm/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/gambia.html"
+    },
+    {
+      "country": "Georgia",
+      "country_code": "GE",
+      "courier": "Georgian Post",
+      "courier_url": "http://www.georgianpost.ge/?site-lang=en&site-path=help/zipcodes/&letter=A",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/georgia.html"
+    },
+    {
+      "country": "Germany",
+      "country_code": "DE",
+      "courier": "Deutsche Post",
+      "courier_url": "http://www.postdirekt.de/plzserver/PlzSearchServlet?lang=en_GB&id=viewstreet",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/germany.html"
+    },
+    {
+      "country": "Ghana",
+      "country_code": "GH",
+      "courier": "Ghana Post",
+      "courier_url": "http://www.ghanapostgh.com/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/ghana.html"
+    },
+    {
+      "country": "Great Britain",
+      "country_code": "GB",
+      "courier": "Royal Mail Group plc",
+      "courier_url": "http://www.royalmail.com/postcode-finder?gear=postcode&campaignid=postcodefinder_redirect",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/great-britain.html"
+    },
+    {
+      "country": "Greece",
+      "country_code": "GR",
+      "courier": "Hellenic Post ELTA",
+      "courier_url": "http://www.elta.gr/en-us/findapostcode.aspx",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/greece.html"
+    },
+    {
+      "country": "Grenada",
+      "country_code": "GD",
+      "courier": "Grenada Postal Corporation",
+      "courier_url": "http://www.grenadapostal.com/index.html",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/grenada.html"
+    },
+    {
+      "country": "Guatemala",
+      "country_code": "GT",
+      "courier": "El Correo",
+      "courier_url": "http://www.elcorreo.com.gt/cdgcorreo/index.php?option=com_content&view=article&id=104&Itemid=233",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/guatemala.html"
+    },
+    {
+      "country": "Guinea",
+      "country_code": "GN",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/guinea.html"
+    },
+    {
+      "country": "Guinea-Bissau",
+      "country_code": "GW",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/guinea-bissau.html"
+    },
+    {
+      "country": "Guyana",
+      "country_code": "GY",
+      "courier": "Guyana Post Office Corporation",
+      "courier_url": "http://guypost.gy/gpoc/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/guyana.html"
+    },
+    {
+      "country": "Haiti",
+      "country_code": "HT",
+      "courier": "Office des Postes d\u2019Haiti",
+      "courier_url": "http://postehaiti.gouv.ht/notre-reseau-postal",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/haiti.html"
+    },
+    {
+      "country": "Honduras (Rep.)",
+      "country_code": "HN",
+      "courier": "Honducor",
+      "courier_url": "http://www.honducor.gob.hn/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/honduras-rep.html"
+    },
+    {
+      "country": "Hungary",
+      "country_code": "HU",
+      "courier": "Magyar Posta",
+      "courier_url": "http://www.posta.hu/ugyfelszolgalat/iranyitoszam_kereso",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/hungary.html"
+    },
+    {
+      "country": "Iceland",
+      "country_code": "IS",
+      "courier": "\u00cdslandsp\u00f3stur hf",
+      "courier_url": "http://www.postur.is/en/desktopdefault.aspx/tabid-450/700_read-1715/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/iceland.html"
+    },
+    {
+      "country": "India",
+      "country_code": "IN",
+      "courier": "India Post",
+      "courier_url": "http://www.indiapost.gov.in/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/india.html"
+    },
+    {
+      "country": "Indonesia",
+      "country_code": "ID",
+      "courier": "Pos Indonesia",
+      "courier_url": "http://kodepos.indonesiaweb.info/en/street/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/indonesia.html"
+    },
+    {
+      "country": "Iran (Islamic Rep.)",
+      "country_code": "IR",
+      "courier": "Islamic Republic of Iran Post Co.",
+      "courier_url": "http://www.post.ir/Homepage.aspx?site=PostPortal&lang=fa-IR&tabid=0",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/iran-islamic-rep.html"
+    },
+    {
+      "country": "Iraq",
+      "country_code": "IQ",
+      "courier": "Iraqi Post",
+      "courier_url": "http://www.iraqipost.net/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/iraq.html"
+    },
+    {
+      "country": "Ireland",
+      "country_code": "IE",
+      "courier": "AN Post - regulatory and International affairs Unit",
+      "courier_url": "http://locator.anpost.ie/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/ireland.html"
+    },
+    {
+      "country": "Israel",
+      "country_code": "IL",
+      "courier": "Israel Post",
+      "courier_url": "http://www.israelpost.co.il/zipcode.nsf/demozip?openform",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/israel.html"
+    },
+    {
+      "country": "Italy",
+      "country_code": "IT",
+      "courier": "Poste Italiane",
+      "courier_url": "http://www.poste.it/online/cercacap/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/italy.html"
+    },
+    {
+      "country": "Jamaica",
+      "country_code": "JM",
+      "courier": "Jamaica Post",
+      "courier_url": "http://www.jamaicapost.gov.jm/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/jamaica.html"
+    },
+    {
+      "country": "Japan",
+      "country_code": "JP",
+      "courier": "Japan Post",
+      "courier_url": "http://www.post.japanpost.jp/zipcode/index.html",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/japan.html"
+    },
+    {
+      "country": "Jordan",
+      "country_code": "JO",
+      "courier": "Jordan Post",
+      "courier_url": "http://www.jordanpost.com.jo/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/jordan.html"
+    },
+    {
+      "country": "Kazakhstan",
+      "country_code": "KZ",
+      "courier": "Kazpost",
+      "courier_url": "http://www.kazpost.kz/ru/poisk-pochtovogo-indeksa-0",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/kazakhstan.html"
+    },
+    {
+      "country": "Kenya",
+      "country_code": "KE",
+      "courier": "POSTA KENYA",
+      "courier_url": "http://www.posta.co.ke/postOfficeFind.asp",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/kenya.html"
+    },
+    {
+      "country": "Kiribati",
+      "country_code": "KI",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/kiribati.html"
+    },
+    {
+      "country": "Korea (Rep.)",
+      "country_code": "KR",
+      "courier": "Korea Post",
+      "courier_url": "http://www.epost.go.kr/roadAreaCdEng.retrieveRdEngAreaCdList.comm",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/korea-rep.html"
+    },
+    {
+      "country": "Kuwait",
+      "country_code": "KW",
+      "courier": "Kuwait Ministry of Communications",
+      "courier_url": "http://moc.kw/English/index.html",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/kuwait.html"
+    },
+    {
+      "country": "Kyrgyzstan",
+      "country_code": "KG",
+      "courier": "Kyrgyz Post",
+      "courier_url": "http://kyrgyzpost.kg/ru/news.html",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/kyrgyzstan.html"
+    },
+    {
+      "country": "Lao People's Dem. Rep.",
+      "country_code": "LA",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/lao-peoples-dem-rep.html"
+    },
+    {
+      "country": "Latvia",
+      "country_code": "LV",
+      "courier": "Latvia Post",
+      "courier_url": "http://www.pasts.lv/lv/uzzinas/parbaudit-adresi/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/latvia.html"
+    },
+    {
+      "country": "Lebanon",
+      "country_code": "LB",
+      "courier": "LibanPost",
+      "courier_url": "http://www.libanpost.com.lb/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/lebanon.html"
+    },
+    {
+      "country": "Lesotho",
+      "country_code": "LS",
+      "courier": "Lesotho Post",
+      "courier_url": "http://lesothopost.org.ls/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/lesotho.html"
+    },
+    {
+      "country": "Liberia",
+      "country_code": "LR",
+      "courier": "Ministry of Posts and Telecommunications",
+      "courier_url": "http://www.mopt.gov.lr/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/liberia.html"
+    },
+    {
+      "country": "Libya",
+      "country_code": "LY",
+      "courier": "Libya Post",
+      "courier_url": "http://libyapost.ly/en/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/libya.html"
+    },
+    {
+      "country": "Liechtenstein",
+      "country_code": "LI",
+      "courier": "Liechtensteinische Post AG",
+      "courier_url": "http://www.post.li/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/liechtenstein.html"
+    },
+    {
+      "country": "Lithuania",
+      "country_code": "LT",
+      "courier": "Lietuvos Pastas",
+      "courier_url": "http://www.post.lt/en/help/postal-code-search",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/lithuania.html"
+    },
+    {
+      "country": "Luxembourg",
+      "country_code": "LU",
+      "courier": "Post",
+      "courier_url": "http://www.post.lu/en/particuliers/courrier/rechercher-un-code-postal",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/luxembourg.html"
+    },
+    {
+      "country": "Madagascar",
+      "country_code": "MG",
+      "courier": "PAOSITRA MALAGASY",
+      "courier_url": "http://www.mtpc.gov.mg/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/madagascar.html"
+    },
+    {
+      "country": "Malawi",
+      "country_code": "MW",
+      "courier": "Malawi Posts Corporation",
+      "courier_url": "http://www.malawiposts.com/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/malawi.html"
+    },
+    {
+      "country": "Malaysia",
+      "country_code": "MY",
+      "courier": "Pos Malaysia",
+      "courier_url": "http://www.pos.com.my/pos/homepage.aspx",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/malaysia.html"
+    },
+    {
+      "country": "Maldives",
+      "country_code": "MV",
+      "courier": "Maldives Post",
+      "courier_url": "http://www.maldivespost.com/index.php?lid=10",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/maldives.html"
+    },
+    {
+      "country": "Mali",
+      "country_code": "ML",
+      "courier": "Office national des postes",
+      "courier_url": "http://www.laposte.ml/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/mali.html"
+    },
+    {
+      "country": "Malta",
+      "country_code": "MT",
+      "courier": "Malta Post",
+      "courier_url": "http://postcodes.maltapost.com/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/malta.html"
+    },
+    {
+      "country": "Mauritania",
+      "country_code": "MR",
+      "courier": "MAURIPOST \u2013 Soci\u00e9t\u00e9 Mauritanienne des Postes",
+      "courier_url": "http://www.mauripost.mr/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/mauritania.html"
+    },
+    {
+      "country": "Mauritius",
+      "country_code": "MU",
+      "courier": "Mauritius Post",
+      "courier_url": "http://www.mauritiuspost.mu/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/mauritius.html"
+    },
+    {
+      "country": "Mexico",
+      "country_code": "MX",
+      "courier": "Correos de M\u00e9xico",
+      "courier_url": "http://www.correosdemexico.gob.mx/ServiciosLinea/Paginas/ccpostales.aspx",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/mexico.html"
+    },
+    {
+      "country": "Moldova",
+      "country_code": "MD",
+      "courier": "Posta Moldovei",
+      "courier_url": "http://www.posta.md/ro/postal_code.html",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/moldova.html"
+    },
+    {
+      "country": "Monaco",
+      "country_code": "MC",
+      "courier": "La Poste Monaco",
+      "courier_url": "http://www.lapostemonaco.mc/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/monaco.html"
+    },
+    {
+      "country": "Mongolia",
+      "country_code": "MN",
+      "courier": "Mongol Post - \u041c\u043e\u043d\u0433\u043e\u043b \u0448\u0443\u0443\u0434\u0430\u043d \u043a\u043e\u043c\u043f\u0430\u043d\u0438",
+      "courier_url": "http://www.zipcode.mn/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/mongolia.html"
+    },
+    {
+      "country": "Montenegro (Rep.)",
+      "country_code": "ME",
+      "courier": "Po\u0161ta Crne Gore",
+      "courier_url": "http://www.postacg.me/main.php?idstr=177",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/montenegro-rep.html"
+    },
+    {
+      "country": "Morocco",
+      "country_code": "MA",
+      "courier": "Barid Al-Maghrib \u2013 Poste Maroc",
+      "courier_url": "http://www.codepostal.ma/search_mot.aspx?keyword=",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/morocco.html"
+    },
+    {
+      "country": "Mozambique",
+      "country_code": "MZ",
+      "courier": "Correios de Mo\u00e7ambique",
+      "courier_url": "http://www.correios.co.mz/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/mozambique.html"
+    },
+    {
+      "country": "Myanmar",
+      "country_code": "MM",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/myanmar.html"
+    },
+    {
+      "country": "Namibia",
+      "country_code": "NA",
+      "courier": "NAM Post",
+      "courier_url": "https://www.nampost.com.na/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/namibia.html"
+    },
+    {
+      "country": "Nauru",
+      "country_code": "NR",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/nauru.html"
+    },
+    {
+      "country": "Nepal",
+      "country_code": "NP",
+      "courier": "Nepal Postal Services",
+      "courier_url": "http://www.gpo.gov.np/postalcode.aspx",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/nepal.html"
+    },
+    {
+      "country": "Netherlands",
+      "country_code": "NL",
+      "courier": "PostNL",
+      "courier_url": "http://www.postnl.nl/voorthuis/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/netherlands.html"
+    },
+    {
+      "country": "New Zealand (including the Ross Dependency)",
+      "country_code": "NZ",
+      "courier": "New Zealand Post",
+      "courier_url": "http://www.nzpost.co.nz/Cultures/en-NZ/OnlineTools/PostCodeFinder/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/new-zealand-including-the-ross-dependency.html"
+    },
+    {
+      "country": "Nicaragua",
+      "country_code": "NI",
+      "courier": "Correos de Nicaragua",
+      "courier_url": "http://www.correos.gob.ni/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/nicaragua.html"
+    },
+    {
+      "country": "Niger",
+      "country_code": "NE",
+      "courier": "Niger Poste",
+      "courier_url": "http://www.nigerposte.net/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/niger.html"
+    },
+    {
+      "country": "Nigeria",
+      "country_code": "NG",
+      "courier": "Nigerian Postal Service",
+      "courier_url": "http://www.nigeriapostcodes.com/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/nigeria.html"
+    },
+    {
+      "country": "Norway",
+      "country_code": "NO",
+      "courier": "Posten",
+      "courier_url": "http://adressesok.posten.no/en/postal_codes/search",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/norway.html"
+    },
+    {
+      "country": "Oman",
+      "country_code": "OM",
+      "courier": "Oman Post",
+      "courier_url": "http://www.omanpost.om/Portals/2/Skins/skins//tabid/64/Default.aspx",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/oman.html"
+    },
+    {
+      "country": "Overseas Territories (United Kingdom of Great Britain and Northern Ireland)",
+      "country_code": " None",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/overseas-territories-united-kingdom-of-great-britain-and-northern-ireland.html"
+    },
+    {
+      "country": "Pakistan",
+      "country_code": "PK",
+      "courier": "Pakistan Post",
+      "courier_url": "http://www.pakpost.gov.pk/postcode/postcode.html",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/pakistan.html"
+    },
+    {
+      "country": "Panama (Rep.)",
+      "country_code": "PA",
+      "courier": "Correos de Panam\u00e1",
+      "courier_url": "http://www.correospanama.gob.pa/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/panama-rep.html"
+    },
+    {
+      "country": "Papua New Guinea",
+      "country_code": "PG",
+      "courier": "Post PNG",
+      "courier_url": "http://www.postpng.com.pg/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/papua-new-guinea.html"
+    },
+    {
+      "country": "Paraguay",
+      "country_code": "PY",
+      "courier": "Correo Paraguayo",
+      "courier_url": "http://www.correoparaguayo.gov.py/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/paraguay.html"
+    },
+    {
+      "country": "Peru",
+      "country_code": "PE",
+      "courier": "SERPOST \u2013 Servicios Postales del Per\u00fa",
+      "courier_url": "http://www.mtc.gob.pe/portal/CPOSTAL/Listado_codigo_postal.html",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/peru.html"
+    },
+    {
+      "country": "Philippines",
+      "country_code": "PH",
+      "courier": "PHLPOST \u2013 Philippine Postal Corporation",
+      "courier_url": "https://www.phlpost.gov.ph/zip-code-search.php",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/philippines.html"
+    },
+    {
+      "country": "Poland",
+      "country_code": "PL",
+      "courier": "Poczta Polska",
+      "courier_url": "http://kody.poczta-polska.pl/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/poland.html"
+    },
+    {
+      "country": "Portugal",
+      "country_code": "PT",
+      "courier": "CTT - Correios",
+      "courier_url": "http://www.ctt.pt/feapl_2/app/open/tools.jspx?tool=1",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/portugal.html"
+    },
+    {
+      "country": "Qatar",
+      "country_code": "QA",
+      "courier": "Qatar Post",
+      "courier_url": "http://www.qpost.com.qa/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/qatar.html"
+    },
+    {
+      "country": "Romania",
+      "country_code": "RO",
+      "courier": "Posta Romana",
+      "courier_url": "http://www.posta-romana.ro/postal_codes",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/romania.html"
+    },
+    {
+      "country": "Russian Federation",
+      "country_code": "RU",
+      "courier": "Russian Post",
+      "courier_url": "http://www.russianpost.ru/rp/servise/ru/home/postuslug/searchops",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/russian-federation.html"
+    },
+    {
+      "country": "Rwanda",
+      "country_code": "RW",
+      "courier": "National Post Office (Iposita)",
+      "courier_url": "http://i-posita.rw/spip.php?article1",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/rwanda.html"
+    },
+    {
+      "country": "Saint Christopher (Saint Kitts) and Nevis",
+      "country_code": "KN",
+      "courier": "St. Kitts & Nevis Postal Services",
+      "courier_url": "http://www.post.gov.kn/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/saint-christopher-saint-kitts-and-nevis.html"
+    },
+    {
+      "country": "Saint Lucia",
+      "country_code": "LC",
+      "courier": "Saint Lucia Postal Service",
+      "courier_url": "http://www.stluciapostal.com/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/saint-lucia.html"
+    },
+    {
+      "country": "Saint Vincent and the Grenadines",
+      "country_code": "VC",
+      "courier": "SVG Postal Corporation",
+      "courier_url": "http://www.svgpost.gov.vc/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/saint-vincent-and-the-grenadines.html"
+    },
+    {
+      "country": "Samoa",
+      "country_code": "WS",
+      "courier": "Samoa Post",
+      "courier_url": "http://www.samoapost.ws/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/samoa.html"
+    },
+    {
+      "country": "San Marino",
+      "country_code": "SM",
+      "courier": "Poste San Marino",
+      "courier_url": "http://www.poste.sm/on-line/home.html",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/san-marino.html"
+    },
+    {
+      "country": "Sao Tome and Principe",
+      "country_code": "ST",
+      "courier": "Correios de S\u00e3o Tom\u00e9 e Pr\u00edncipe",
+      "courier_url": "http://www.inh.st/correios.st.htm",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/sao-tome-and-principe.html"
+    },
+    {
+      "country": "Saudi Arabia",
+      "country_code": "SA",
+      "courier": "Saudi Post",
+      "courier_url": "http://maps.address.gov.sa",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/saudi-arabia.html"
+    },
+    {
+      "country": "Senegal",
+      "country_code": "SN",
+      "courier": null,
+      "courier_url": "http://www.laposte.sn/laposte/trouver_codepostal.php",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/senegal.html"
+    },
+    {
+      "country": "Serbia (Rep.)",
+      "country_code": "RS",
+      "courier": "PTT Communications \"Srbija\"",
+      "courier_url": "http://www.posta.rs/struktura/eng/aplikacije/pronadji/nadji-pak-rezultat.asp",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/serbia-rep.html"
+    },
+    {
+      "country": "Seychelles",
+      "country_code": "SC",
+      "courier": "Seychelles Postal Service",
+      "courier_url": "http://www.seychellespost.gov.sc/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/seychelles.html"
+    },
+    {
+      "country": "Sierra Leone",
+      "country_code": "SL",
+      "courier": "Sierra Leone Postal Services",
+      "courier_url": "http://www.salpost.sl/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/sierra-leone.html"
+    },
+    {
+      "country": "Singapore",
+      "country_code": "SG",
+      "courier": "SingPost",
+      "courier_url": "http://www.singpost.com.sg/quick_services/index.htm",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/singapore.html"
+    },
+    {
+      "country": "Slovakia",
+      "country_code": "SK",
+      "courier": "Slovensk\u00e1 Posta",
+      "courier_url": "http://psc.posta.sk/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/slovakia.html"
+    },
+    {
+      "country": "Slovenia",
+      "country_code": "SI",
+      "courier": "Posta Slovenije d.o.o.",
+      "courier_url": "http://www.posta.si/postne-stevilke-doma",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/slovenia.html"
+    },
+    {
+      "country": "Solomon Islands",
+      "country_code": "SB",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/solomon-islands.html"
+    },
+    {
+      "country": "Somalia",
+      "country_code": "SO",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/somalia.html"
+    },
+    {
+      "country": "South Africa",
+      "country_code": "ZA",
+      "courier": "South African Post Office",
+      "courier_url": "http://www.postoffice.co.za/tools/postalcode.html",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/south-africa.html"
+    },
+    {
+      "country": "South Sudan (Rep.)",
+      "country_code": "SS",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/south-sudan-rep.html"
+    },
+    {
+      "country": "Spain",
+      "country_code": "ES",
+      "courier": "Correos y Tel\u00e9grafos",
+      "courier_url": "http://www.correos.es/ss/Satellite/site/pagina-buscador_codigos_postales/sidioma=es_ES",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/spain.html"
+    },
+    {
+      "country": "Sri Lanka",
+      "country_code": "LK",
+      "courier": "Sri Lanka Post",
+      "courier_url": "http://www.slpost.gov.lk/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/sri-lanka.html"
+    },
+    {
+      "country": "Sudan",
+      "country_code": "SD",
+      "courier": "Sudapost",
+      "courier_url": "http://sudapost.sd/index.php/en/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/sudan.html"
+    },
+    {
+      "country": "Suriname",
+      "country_code": "SR",
+      "courier": "SURPOST",
+      "courier_url": "http://www.surpost.com/surpost2/index.php",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/suriname.html"
+    },
+    {
+      "country": "Swaziland",
+      "country_code": "SZ",
+      "courier": "Swaziland Posts & Telecommunications Corporation",
+      "courier_url": "http://www.sptc.co.sz/swazipost/codes.php",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/swaziland.html"
+    },
+    {
+      "country": "Sweden",
+      "country_code": "SE",
+      "courier": "Posten Sweden Post",
+      "courier_url": "http://www.posten.se/oldurls/old_postnummersok.jspv",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/sweden.html"
+    },
+    {
+      "country": "Switzerland",
+      "country_code": "CH",
+      "courier": "La Poste Suisse",
+      "courier_url": "http://www.swisspost.ch/post-startseite.htm",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/switzerland.html"
+    },
+    {
+      "country": "Syrian Arab Rep.",
+      "country_code": "SY",
+      "courier": "Syrian Post",
+      "courier_url": "http://www.syrianpost.gov.sy/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/syrian-arab-rep.html"
+    },
+    {
+      "country": "Tajikistan",
+      "country_code": "TJ",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/tajikistan.html"
+    },
+    {
+      "country": "Tanzania (United Rep.)",
+      "country_code": "TZ",
+      "courier": "Tanzania Posts Corporation",
+      "courier_url": "http://www.posta.co.tz/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/tanzania-united-rep.html"
+    },
+    {
+      "country": "Thailand",
+      "country_code": "TH",
+      "courier": "Thailand Post",
+      "courier_url": "http://www.thailandpost.com/search.php",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/thailand.html"
+    },
+    {
+      "country": "The former Yugoslav Republic of Macedonia",
+      "country_code": "MK",
+      "courier": "Macedonian Post & Telecommunications",
+      "courier_url": "http://www.posta.mk/pravilno_adresiranje.html",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/the-former-yugoslav-republic-of-macedonia.html"
+    },
+    {
+      "country": "Timor-Leste (Dem. Rep.)",
+      "country_code": "TL",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/timor-leste-dem-rep.html"
+    },
+    {
+      "country": "Togo",
+      "country_code": "TG",
+      "courier": "La Poste du Togo",
+      "courier_url": "http://www.laposte.tg/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/togo.html"
+    },
+    {
+      "country": "Tonga (including Niuafo'ou)",
+      "country_code": "TO",
+      "courier": "Tonga Post",
+      "courier_url": "http://tongapost.to/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/tonga-including-niuafoou.html"
+    },
+    {
+      "country": "Trinidad and Tobago",
+      "country_code": "TT",
+      "courier": "Trinidad and Tobago Postal Corporation",
+      "courier_url": "http://www.ttpost.net/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/trinidad-and-tobago.html"
+    },
+    {
+      "country": "Tunisia",
+      "country_code": "TN",
+      "courier": "La Poste Tunisienne",
+      "courier_url": "http://www.poste.tn/codes.php",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/tunisia.html"
+    },
+    {
+      "country": "Turkey",
+      "country_code": "TR",
+      "courier": "Turkey Post",
+      "courier_url": "http://postakodu.ptt.gov.tr/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/turkey.html"
+    },
+    {
+      "country": "Turkmenistan",
+      "country_code": "TM",
+      "courier": "Turkmenpost",
+      "courier_url": "http://www.turkmenpost.gov.tm/about_index.php",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/turkmenistan.html"
+    },
+    {
+      "country": "Tuvalu",
+      "country_code": "TV",
+      "courier": null,
+      "courier_url": null,
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/tuvalu.html"
+    },
+    {
+      "country": "Uganda",
+      "country_code": "UG",
+      "courier": "Posta Uganda",
+      "courier_url": "http://www.ugapost.co.ug/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/uganda.html"
+    },
+    {
+      "country": "Ukraine",
+      "country_code": "UA",
+      "courier": "Ukrposhta",
+      "courier_url": "http://services.ukrposhta.com/postindex_new/default.aspx?lang=en",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/ukraine.html"
+    },
+    {
+      "country": "United Arab Emirates",
+      "country_code": "AE",
+      "courier": "Emirates Post",
+      "courier_url": "http://www.emiratespost.com/content/english/index.jsp;jsessionid=35fbe352a6c441a491929d81d54fa0c6",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/united-arab-emirates.html"
+    },
+    {
+      "country": "United States of America",
+      "country_code": "US",
+      "courier": "United States Postal Service",
+      "courier_url": "http://zip4.usps.com/zip4/welcome.jsp",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/united-states-of-america.html"
+    },
+    {
+      "country": "Uruguay",
+      "country_code": "UY",
+      "courier": "Correo Uruguayo",
+      "courier_url": "http://www.correo.com.uy/index.asp?codPag=codPost&switchMapa=codPost",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/uruguay.html"
+    },
+    {
+      "country": "Uzbekistan",
+      "country_code": "UZ",
+      "courier": "Post of Uzbekistan",
+      "courier_url": "http://www.pochta.uz/index.php/en/postal-indexes/9",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/uzbekistan.html"
+    },
+    {
+      "country": "Vanuatu",
+      "country_code": "VU",
+      "courier": "Vanuatu Post",
+      "courier_url": "http://www.vanuatupost.vu/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/vanuatu.html"
+    },
+    {
+      "country": "Vatican",
+      "country_code": "VA",
+      "courier": "Vatican post",
+      "courier_url": "http://www.vaticanstate.va/EN/Services/Philatelic_and_Numismatic_Office/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/vatican.html"
+    },
+    {
+      "country": "Venezuela",
+      "country_code": "VE",
+      "courier": "IPOSTEL \u2013 Instituto Postal Telegr\u00e1fico de Venezuela",
+      "courier_url": "http://www.ipostel.gob.ve/nlinea/codigo_postal.php",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/venezuela.html"
+    },
+    {
+      "country": "Viet Nam",
+      "country_code": "VN",
+      "courier": "VNPT \u2013 Vietnam Posts and Telecommunications Group",
+      "courier_url": "http://postcode.vnpost.vn/services/search.aspx",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/viet-nam.html"
+    },
+    {
+      "country": "Yemen",
+      "country_code": "YE",
+      "courier": "Yemen Post",
+      "courier_url": "http://www.post.ye/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/yemen.html"
+    },
+    {
+      "country": "Zambia",
+      "country_code": "ZM",
+      "courier": "Zambia Postal Services Corporation (ZAMPOST)",
+      "courier_url": "http://www.zampost.com.zm/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/zambia.html"
+    },
+    {
+      "country": "Zimbabwe",
+      "country_code": "ZW",
+      "courier": "Zimpost \u2013 Zimbabwe Posts",
+      "courier_url": "http://www.zimpost.co.zw/",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/zimbabwe.html"
+    }
+  ]
+}
