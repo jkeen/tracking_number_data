@@ -1,0 +1,58 @@
+{
+"_comment": "regex named groups:   service_indicator country_code serial_number check_digit",
+
+
+"_shared_courier_data": {
+  "dhl": {
+    "check_digit_algo": "mod7",
+    "courier_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s"
+  },
+  "fedex": {
+    "courier_url": "https://www.fedex.com/apps/fedextrack/?tracknumbers=%s"
+  }
+},
+
+"couriers": [
+  {"_inherits": "dhl",
+   "name": "DHL Express",
+   "regex": "(?P<serial>\d{9})(?P<check>\d)"
+  },
+  {"_inherits": "dhl",
+   "name": "DHL Express Air",
+   "regex": "(?P<serial>\d{10})(?P<check>\d)"
+  },
+  {"_inherits": "fedex",
+   "name": "FedEx Express",
+   "regex": "(?P<serial>\d{11})(?P<check>\d)",
+   "check_digit_algo": {"sum_product_weightings_and_modulo": {
+     "weightings": [3,1,7,3,1,7,3,1,7,3,1], "modulo1": 11, "modulo2": 10}}
+  },
+  {"_inherits": "fedex",
+   "name": "FedEx Ground",
+   "regex": "(?P<serial>\d{14})(?P<check>\d)",
+   "check_digit_algo": {"mod10": "evensMultiplier": 1, "oddsMultiplier": 3}
+  },
+  {"_inherits": "fedex",
+   "name": "FedEx Ground 18",
+   "regex": "\d{2}(?P<serial>\d{15})(?P<check>\d)",
+   "check_digit_algo": {"mod10": "evensMultiplier": 1, "oddsMultiplier": 3}
+  },
+  {"_inherits": "fedex",
+  "name": "FedEx Ground 96",
+  "regex": "(?P<application_identifier>96)(?P<SCNC>\d{2})(?P<class_of_service>\d{3})(?P<serial>(?P<shipper_id>\d{7})(?P<package_id>\d{7}))(?P<check>\d)",
+  "check_digit_algo": {"mod10": "evensMultiplier": 1, "oddsMultiplier": 3}
+  },
+  {"_inherits": "fedex",
+  "name": "FedEx SmartPost",
+  "regex": "(?P<application_identifier>92)?(?P<SCNC>\d{2})(?P<class_of_service>\d{3})(?P<serial>(?P<shipper_id>\d{7})(?P<package_id>\d{7}))(?P<check>\d)",
+  "check_digit_algo": {"mod10": "evensMultiplier": 1, "oddsMultiplier": 3},
+  "_notes": ["ensure 92 prepended to serial number before calling check digit"]
+  },
+
+  ... TODO continue from here
+  ontrac
+
+
+]
+
+}
