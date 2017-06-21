@@ -30,14 +30,14 @@ def main():
         "_comment_country_code2": "Auto-generated file.  Do not modify."
     }
     reqs = grequests.imap(
-        fetch_country_data(), size=5, exception_handler=exception_handler)
+        fetch_country_data(), size=10, exception_handler=exception_handler)
     #      (x for n, x in enumerate(fetch_country_data())
     #       if n < 200 and n > 190),
     #      size=3, exception_handler=exception_handler)
     out_dct['country_code'] = sorted(
         [parse_country_page(req) for req in reqs], key=lambda x: x['country'])
     with open(OUT_FILE, 'w') as fout:
-        json.dump(out_dct, fout, indent=2)
+        json.dump(out_dct, fout, indent=2, ensure_ascii=False)
 
 
 def exception_handler(request, exception):
@@ -101,7 +101,7 @@ def _get_value(attr, soup):
         # doesn't have one for us
         value = None
     else:
-        value = child.text
+        value = child.text.encode().decode('utf8')
     if value == 'None':
         value = None
     return value, child
