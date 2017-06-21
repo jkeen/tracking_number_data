@@ -1,5 +1,5 @@
 {
- "_comment_service_indicator": "The service indicator is part of the S10 standard for international mail.  The official reference for this is here: http://www.upu.int/uploads/tx_sbdownloader/S10TechnicalStandard.pdf",
+  "_comment_service_indicator": "The service indicator is part of the S10 standard for international mail.  The official reference for this is here: http://www.upu.int/uploads/tx_sbdownloader/S10TechnicalStandard.pdf",
   "service_indicator": [
     {
       "name": "EMS",
