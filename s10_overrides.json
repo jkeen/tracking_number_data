@@ -1,0 +1,10 @@
+{
+  "United States of America": {
+    "courier_url": "https://tools.usps.com/go/TrackConfirmAction?tLabels=%s",
+    "name": "USPS-S10"
+  },
+  "Great Britain": {
+    "name": "Royal Mail",
+    "courier_url": "https://www.royalmail.com/track-your-item?trackNumber=%s"
+  }
+}
