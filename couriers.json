@@ -1,58 +1,82 @@
 {
-"_comment": "regex named groups:   service_indicator country_code serial_number check_digit",
+  "_comment": "regex named groups:   service_indicator country_code serial_number check_digit",
+  "_comment": "special fields for human readability: _inherits, _comment, _note",
 
 
-"_shared_courier_data": {
-  "dhl": {
-    "check_digit_algo": "mod7",
-    "courier_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s"
-  },
-  "fedex": {
-    "courier_url": "https://www.fedex.com/apps/fedextrack/?tracknumbers=%s"
-  }
-},
-
-"couriers": [
-  {"_inherits": "dhl",
-   "name": "DHL Express",
-   "regex": "(?P<serial>\d{9})(?P<check>\d)"
-  },
-  {"_inherits": "dhl",
-   "name": "DHL Express Air",
-   "regex": "(?P<serial>\d{10})(?P<check>\d)"
-  },
-  {"_inherits": "fedex",
-   "name": "FedEx Express",
-   "regex": "(?P<serial>\d{11})(?P<check>\d)",
-   "check_digit_algo": {"sum_product_weightings_and_modulo": {
-     "weightings": [3,1,7,3,1,7,3,1,7,3,1], "modulo1": 11, "modulo2": 10}}
-  },
-  {"_inherits": "fedex",
-   "name": "FedEx Ground",
-   "regex": "(?P<serial>\d{14})(?P<check>\d)",
-   "check_digit_algo": {"mod10": "evensMultiplier": 1, "oddsMultiplier": 3}
-  },
-  {"_inherits": "fedex",
-   "name": "FedEx Ground 18",
-   "regex": "\d{2}(?P<serial>\d{15})(?P<check>\d)",
-   "check_digit_algo": {"mod10": "evensMultiplier": 1, "oddsMultiplier": 3}
-  },
-  {"_inherits": "fedex",
-  "name": "FedEx Ground 96",
-  "regex": "(?P<application_identifier>96)(?P<SCNC>\d{2})(?P<class_of_service>\d{3})(?P<serial>(?P<shipper_id>\d{7})(?P<package_id>\d{7}))(?P<check>\d)",
-  "check_digit_algo": {"mod10": "evensMultiplier": 1, "oddsMultiplier": 3}
-  },
-  {"_inherits": "fedex",
-  "name": "FedEx SmartPost",
-  "regex": "(?P<application_identifier>92)?(?P<SCNC>\d{2})(?P<class_of_service>\d{3})(?P<serial>(?P<shipper_id>\d{7})(?P<package_id>\d{7}))(?P<check>\d)",
-  "check_digit_algo": {"mod10": "evensMultiplier": 1, "oddsMultiplier": 3},
-  "_notes": ["ensure 92 prepended to serial number before calling check digit"]
+  "_shared_courier_data": {
+    "dhl": {
+      "check_digit_algo": "mod7",
+      "courier_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s"
+    },
+    "fedex": {
+      "courier_url": "https://www.fedex.com/apps/fedextrack/?tracknumbers=%s"
+    }
   },
 
-  ... TODO continue from here
-  ontrac
+  "couriers": [
+    {"_inherits": "dhl",
+      "name": "DHL Express",
+      "regex": "(?P<serial_number>[0-9]{9})(?P<check_digit>[0-9])"
+    },
+    {"_inherits": "dhl",
+      "name": "DHL Express Air",
+      "regex": "(?P<serial_number>[0-9]{10})(?P<check_digit>[0-9])"
+    },
+    {"_inherits": "fedex",
+      "name": "FedEx Express",
+      "regex": "(?P<serial_number>[0-9]{11})(?P<check_digit>[0-9])",
+      "check_digit_algo": {"sum_product_weightings_and_modulo": {
+        "weightings": [3,1,7,3,1,7,3,1,7,3,1], "modulo1": 11, "modulo2": 10}}
+    },
+    {"_inherits": "fedex",
+      "name": "FedEx Ground",
+      "regex": "(?P<serial_number>[0-9]{14})(?P<check_digit>[0-9])",
+      "check_digit_algo": {"mod10": {"evensMultiplier": 1, "oddsMultiplier": 3}}
+    },
+    {"_inherits": "fedex",
+      "name": "FedEx Ground 18",
+      "regex": "(?P<container_type>[0-9]{2})(?P<serial_number>[0-9]{15})(?P<check_digit>[0-9])",
+      "check_digit_algo": {"mod10": {"evensMultiplier": 1, "oddsMultiplier": 3}}
+    },
+    {"_inherits": "fedex",
+      "name": "FedEx Ground 96",
+      "regex": "(?P<application_identifier>96)(?P<SCNC>[0-9]{2})(?P<class_of_service>[0-9]{3})(?P<serial_number>(?P<shipper_id>[0-9]{7})(?P<package_id>[0-9]{7}))(?P<check_digit>[0-9])",
+      "check_digit_algo": {"mod10": {"evensMultiplier": 1, "oddsMultiplier": 3}},
+      "_note": "TODO: does same note for smartpost apply here?  is 96 an optional field?"
+    },
+    {"_inherits": "fedex",
+      "name": "FedEx SmartPost",
+      "regex": "(?P<application_identifier>92)?(?P<SCNC>[0-9]{2})(?P<class_of_service>[0-9]{3})(?P<serial_number>(?P<shipper_id>[0-9]{7})(?P<package_id>[0-9]{7}))(?P<check_digit>[0-9])",
+      "check_digit_algo": {"mod10": {"evensMultiplier": 1, "oddsMultiplier": 3}},
+      "_note": "TODO: ensure 92 prepended to serial number before calling check digit. is this necessary?"
+    },
+    {"name": "OnTrac",
+      "regex": "(?P<service_indicator>[A-Z]{2})(?P<serial_number>[0-9]{8})(?P<check_digit>[0-9])(?<country_code>[A-Z]{2})",
+      "check_digit_algo": {"mod10": {"evensMultiplier": 1, "oddsMultiplier": 2}},
+      "courier_url": "http://www.ontrac.com/trackingres.asp?tracking_number=%s"
+    },
+    {"name": "UPS",
+      "regex": "1Z(?P<serial_number>[A-Z]{15,15})([A-Z])",
+      "check_digit_algo": {"mod10": {"evensMultiplier": 1, "oddsMultiplier": 2}},
+      "courier_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s"
+    },
 
-
-]
-
+    {"name": "USPS13",
+      "regex": "(?P<application_identifier>[A-Z]{2})(?P<serial_number>[0-9]{8})(?P<check_digit>[0-9])(?P<country_code>US)",
+      "check_digit_algo": {"mod10": {"evensMultiplier": 3, "oddsMultiplier": 1}},
+      "courier_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s",
+      "_note": "TODO: verify check 31 or 13 evens/oddsMultiplier"
+    },
+    {"name": "USPS20",
+      "regex": "(?P<application_identifier>[0-9]{2})(?P<shipper_id>[0-9]{9})(?P<serial_number>[0-9]{8})(?P<check_digit>[0-9])",
+      "check_digit_algo": {"mod10": {"evensMultiplier": 3, "oddsMultiplier": 1}},
+      "courier_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s",
+      "_note": "TODO: is this still used?"
+    },
+    {"name": "USPS91",
+      "regex": "(?P<routing_application_identifier>420)(?P<destination_zip_code>[0-9]{5})(?:(?P<application_identifier>91)(?P<service_type_code>[0-9]{2}))?(?P<mailer_id>[0-9]{9})(?P<serial_number>[0-9]{8})(?P<check_digit>[0-9])",
+      "check_digit_algo": {"mod10": {"evensMultiplier": 3, "oddsMultiplier": 1}},
+      "courier_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s"
+    }
+  ]
 }
