@@ -126,7 +126,7 @@
         "(?P<optional_fields>(?:[0-9]{2}Z.+?\u001d)*)",
         ")?",
         "\u001e\u0004"
-        ],
+      ],
       "check_digit_algo": null
     },
     {
