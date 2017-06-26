@@ -3,10 +3,10 @@
   "_shared_courier_data": {
     "dhl": {
       "check_digit_algo": "mod7",
-      "courier_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s"
+      "tracking_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s"
     },
     "fedex": {
-      "courier_url": "https://www.fedex.com/apps/fedextrack/?tracknumbers=%s",
+      "tracking_url": "https://www.fedex.com/apps/fedextrack/?tracknumbers=%s",
       "check_digit_algo": {
         "mod10": {
           "evensMultiplier": 1,
@@ -15,7 +15,7 @@
       }
     },
     "usps": {
-      "courier_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s"
+      "tracking_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s"
     }
   },
   "couriers": [
@@ -138,7 +138,7 @@
           "oddsMultiplier": 2
         }
       },
-      "courier_url": "http://www.ontrac.com/trackingres.asp?tracking_number=%s"
+      "tracking_url": "http://www.ontrac.com/trackingres.asp?tracking_number=%s"
     },
     {
       "name": "UPS",
@@ -149,7 +149,7 @@
           "oddsMultiplier": 2
         }
       },
-      "courier_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s"
+      "tracking_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s"
     },
     {
       "_inherits": "usps",
