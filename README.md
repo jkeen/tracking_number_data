@@ -27,11 +27,12 @@ s10:
 - http://www.upu.int/uploads/tx_sbdownloader/S10TechnicalStandard.pdf
 
 fedex:
+- barcode spec: http://images.fedex.com/us/solutions/ppe/FedEx_Ground_Label_Layout_Specification.pdf
+- updated barcode spec: http://www.fedex.com/us/gsn/barcode_guide.pdf
+- http://stackoverflow.com/questions/15744704/how-to-calculate-a-fedex-smartpost-tracking-number-check-digit
 - TODO: possible variation on fedex18:
 > 20 charss { "fedexsscc-18": "regex": "\d{2}(?<container_type>\d)(?<shipper_id>\d{7})(?<serial>\d{9})(?<check>\d)"}
       "UCC/EAN 128": "regex": ""
-- http://images.fedex.com/us/solutions/ppe/FedEx_Ground_Label_Layout_Specification.pdf
-- http://stackoverflow.com/questions/15744704/how-to-calculate-a-fedex-smartpost-tracking-number-check-digit
 
 usps:
 

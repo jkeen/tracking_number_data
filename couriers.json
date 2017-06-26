@@ -65,14 +65,26 @@
     },
     {
       "_inherits": "fedex",
-      "name": "FedEx Ground 96",
+      "name": "FedEx Ground 96 (22)",
       "regex": [
         "(?P<application_identifier>96)",
         "(?P<SCNC>[0-9]{2})",
         "(?P<class_of_service>[0-9]{3})",
         "(?P<serial_number>(?P<shipper_id>[0-9]{7})(?P<package_id>[0-9]{7}))",
-        "(?P<check_digit>[0-9])"],
-      "_note": "TODO: does same note for smartpost apply here?  is 96 an optional field?"
+        "(?P<check_digit>[0-9])"
+      ]
+    },
+    {
+      "_inherits": "fedex",
+      "name": "FedEx Ground 96 (34)",
+      "regex": [
+        "(?P<application_identifier>96)",
+        "(?P<SCNC>[0-9]{2})",
+        "[0-9]{5}",
+        "(?P<GSN>[0-9]{10})",
+        "(?P<serial_number>[0-9]{14})",
+        "(?P<check_digit>[0-9])"
+      ]
     },
     {
       "_inherits": "fedex",
@@ -88,23 +100,16 @@
     },
     {
       "_inherits": "fedex",
-      "name": "FedEx Ground (2D barcode)",
+      "name": "FedEx (2D barcode)",
       "regex": [
         "\\[\\)>\u001e",
         "01\u001d(?P<ANSI_version>[0-9]{2})",
         "(?P<recipient_postal_code>[0-9A-Z]{5,6})\u001d",
         "(?P<recipient_country_code>[0-9]{3})\u001d",
         "(?P<service_class>[A-Z0-9]{3})\u001d",
-        "(?P<tracking_number>(?:",
-        "(?P<SCAC>RPS[BC])",
-        "(?P<class_of_service>[0-9]{3})",
-        "(?P<serial_number_a>(?P<shipper_id>[0-9]{7})(?P<package_id>[0-9]{7}))",
-        "(?P<check_digit_a>[0-9])",
-        "|",
-        "(?P<serial_number_b>[0-9]{14})(?P<check_digit_b>[0-9])",
-        "|",
-        "(?P<serial_number_c>[0-9]{11})(?P<check_digit_c>[0-9])",
-        "))\u001d",
+        "(?P<tracking_number>",
+        "(?P<serial_number>(?:[0-9]{14}|[0-9]{11}))(?P<check_digit>[0-9])",
+        ")\u001d",
         "(?P<origin_carrier_SCAC>[0-9A-Z]{2,4})\u001d",
         "(?P<pickup_location>[0-9]{7})?\u001d",
         "(?P<pickup_date>[0-9]{3})?\u001d",
