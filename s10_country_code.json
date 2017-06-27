@@ -7,1344 +7,1536 @@
       "country_code": "AF",
       "courier": "Afghan Post",
       "courier_url": "http://postalcode.afghanpost.gov.af/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/afghanistan.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/afghanistan.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>AF{2})"
     },
     {
       "country": "Albania",
       "country_code": "AL",
       "courier": "Posta Shqiptare",
       "courier_url": "http://www.postashqiptare.al/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/albania.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/albania.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>AL{2})"
     },
     {
       "country": "Algeria",
       "country_code": "DZ",
       "courier": "Algérie Poste",
       "courier_url": "http://www.poste.dz/codepostal/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/algeria.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/algeria.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>DZ{2})"
     },
     {
       "country": "Angola",
       "country_code": "AO",
       "courier": "Correios de Angola",
       "courier_url": "http://www.correiosdeangola.co.ao/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/angola.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/angola.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>AO{2})"
     },
     {
       "country": "Antigua and Barbuda",
       "country_code": "AG",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/antigua-and-barbuda.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/antigua-and-barbuda.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>AG{2})"
     },
     {
       "country": "Argentina",
       "country_code": "AR",
       "courier": "Correo Argentino",
       "courier_url": "http://www.correoargentino.com.ar/formularios/cpa",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/argentina.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/argentina.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>AR{2})"
     },
     {
       "country": "Armenia",
       "country_code": "AM",
       "courier": "Haypost - Armenian Postal Service",
       "courier_url": "http://www.haypost.am/view-lang-eng-page-25.html",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/armenia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/armenia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>AM{2})"
     },
     {
       "country": "Aruba, Curaçao and Sint Maarten",
       "country_code": null,
       "courier": "Post Aruba N.V",
       "courier_url": "http://www.postaruba.com/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/aruba-curacao-and-sint-maarten.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/aruba-curacao-and-sint-maarten.html",
+      "regex": null
     },
     {
       "country": "Australia",
       "country_code": "AU",
       "courier": "Australia Post",
       "courier_url": "http://www1.auspost.com.au/postcodes/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/australia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/australia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>AU{2})"
     },
     {
       "country": "Austria",
       "country_code": "AT",
       "courier": "Österreichische Post AG",
       "courier_url": "http://www.post.at/en/index.php",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/austria.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/austria.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>AT{2})"
     },
     {
       "country": "Azerbaijan",
       "country_code": "AZ",
       "courier": "Azarpoçt",
       "courier_url": "http://www.azerpost.az/?options=content&id=188&language=en",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/azerbaijan.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/azerbaijan.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>AZ{2})"
     },
     {
       "country": "Bahamas",
       "country_code": "BS",
       "courier": "Bahamas Postal Service",
       "courier_url": "http://www.bahamas.gov.bs/postalservice",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/bahamas.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/bahamas.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>BS{2})"
     },
     {
       "country": "Bahrain",
       "country_code": "BH",
       "courier": "Bahrain Post",
       "courier_url": "http://www.transportation.gov.bh/en/modules.php?name=Content&pa=showpage&pid=97",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/bahrain.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/bahrain.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>BH{2})"
     },
     {
       "country": "Bangladesh",
       "country_code": "BD",
       "courier": "Bangladesh Post Office",
       "courier_url": "http://www.bangladeshpost.gov.bd/PostCode.asp",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/bangladesh.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/bangladesh.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>BD{2})"
     },
     {
       "country": "Barbados",
       "country_code": "BB",
       "courier": "Barbados Postal Service",
       "courier_url": "http://www.bps.gov.bb/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/barbados.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/barbados.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>BB{2})"
     },
     {
       "country": "Belarus",
       "country_code": "BY",
       "courier": "Belpochta",
       "courier_url": "http://zip.belpost.by/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/belarus.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/belarus.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>BY{2})"
     },
     {
       "country": "Belgium",
       "country_code": "BE",
       "courier": "bpost",
       "courier_url": "http://www.bpost.be/site/fr/residential/customerservice/search/postal_codes.html",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/belgium.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/belgium.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>BE{2})"
     },
     {
       "country": "Belize",
       "country_code": "BZ",
       "courier": "Belize Postal Service",
       "courier_url": "http://www.belizepostalservice.gov.bz/site/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/belize.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/belize.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>BZ{2})"
     },
     {
       "country": "Benin",
       "country_code": "BJ",
       "courier": "La Poste du Bénin",
       "courier_url": "http://www.laposte.bj/index1.php?id_page=1",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/benin.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/benin.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>BJ{2})"
     },
     {
       "country": "Bhutan",
       "country_code": "BT",
       "courier": "Bhutan Post",
       "courier_url": "http://www.bhutanpost.com.bt/postcode/postcode.php",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/bhutan.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/bhutan.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>BT{2})"
     },
     {
       "country": "Bolivia",
       "country_code": "BO",
       "courier": "ECOBOL – Empresa de Correos de Bolivia",
       "courier_url": "http://www.correosbolivia.com/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/bolivia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/bolivia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>BO{2})"
     },
     {
       "country": "Bosnia and Herzegovina",
       "country_code": "BA",
       "courier": "JP BH POŠTA d.o.o. Sarajevo",
       "courier_url": "http://www.post.ba/postanski_brojevi_bih.php",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/bosnia-and-herzegovina.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/bosnia-and-herzegovina.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>BA{2})"
     },
     {
       "country": "Botswana",
       "country_code": "BW",
       "courier": "BotswanaPost",
       "courier_url": "http://www.botspost.co.bw/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/botswana.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/botswana.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>BW{2})"
     },
     {
       "country": "Brazil",
       "country_code": "BR",
       "courier": "CORREIOS",
       "courier_url": "http://www.buscacep.correios.com.br/servicos/dnec/index.do",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/brazil.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/brazil.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>BR{2})"
     },
     {
       "country": "Brunei Darussalam",
       "country_code": "BN",
       "courier": "Brunei Postal Services",
       "courier_url": "http://www.post.gov.bn/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/brunei-darussalam.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/brunei-darussalam.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>BN{2})"
     },
     {
       "country": "Bulgaria (Rep.)",
       "country_code": "BG",
       "courier": "Bulgarian Posts",
       "courier_url": "http://www.bgpost.bg/?cid=131",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/bulgaria-rep.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/bulgaria-rep.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>BG{2})"
     },
     {
       "country": "Burkina Faso",
       "country_code": "BF",
       "courier": "SONAPOST",
       "courier_url": "http://www.sonapost.bf/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/burkina-faso.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/burkina-faso.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>BF{2})"
     },
     {
       "country": "Burundi",
       "country_code": "BI",
       "courier": "RNP – Régie nationale des postes",
       "courier_url": "http://www.poste.bi/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/burundi.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/burundi.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>BI{2})"
     },
     {
       "country": "Cambodia",
       "country_code": "KH",
       "courier": "Ministry of Posts and Telecommunications",
       "courier_url": "http://www.mptc.gov.kh/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/cambodia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/cambodia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>KH{2})"
     },
     {
       "country": "Cameroon",
       "country_code": "CM",
       "courier": "CAMPOST – Cameroon Postal Services",
       "courier_url": "http://campostonline.com/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/cameroon.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/cameroon.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>CM{2})"
     },
     {
       "country": "Canada",
       "country_code": "CA",
       "courier": "Canada Post",
       "courier_url": "http://www.canadapost.ca/cpotools/apps/fpc/personal/findByCity?execution=e1s1",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/canada.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/canada.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>CA{2})"
     },
     {
       "country": "Cape Verde",
       "country_code": "CV",
       "courier": "Correios de Cabo Verde",
       "courier_url": "http://www.correios.cv/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/cape-verde.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/cape-verde.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>CV{2})"
     },
     {
       "country": "Central African Rep.",
       "country_code": "CF",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/central-african-rep.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/central-african-rep.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>CF{2})"
     },
     {
       "country": "Chad",
       "country_code": "TD",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/chad.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/chad.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>TD{2})"
     },
     {
       "country": "Chile",
       "country_code": "CL",
       "courier": "Correos de Chile",
       "courier_url": "http://www.correos.cl/SitePages/home.aspx",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/chile.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/chile.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>CL{2})"
     },
     {
       "country": "China (People's Rep.)",
       "country_code": "CN",
       "courier": "China Post",
       "courier_url": "http://www.cpdc.com.cn/web/index.php?m=postsearch&c=index&a=init&t=addr",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/china-peoples-rep.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/china-peoples-rep.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>CN{2})"
     },
     {
       "country": "Colombia",
       "country_code": "CO",
       "courier": "4-72 La Red Postal de Colombia",
       "courier_url": "http://visor.codigopostal.gov.co/472/visor/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/colombia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/colombia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>CO{2})"
     },
     {
       "country": "Comoros",
       "country_code": "KM",
       "courier": "Societé Nationale des Postes et des Services Financiers",
       "courier_url": "http://www.lapostecomores.com/bureaux.php",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/comoros.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/comoros.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>KM{2})"
     },
     {
       "country": "Congo (Rep.)",
       "country_code": "CG",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/congo-rep.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/congo-rep.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>CG{2})"
     },
     {
       "country": "Costa Rica",
       "country_code": "CR",
       "courier": "Correos de Costa Rica",
       "courier_url": "https://www.correos.go.cr/nosotros/codigopostal/busqueda.html",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/costa-rica.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/costa-rica.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>CR{2})"
     },
     {
       "country": "Croatia",
       "country_code": "HR",
       "courier": "Hrvatska Posta - Croatian Post",
       "courier_url": "http://www.posta.hr/default.aspx?pretpum&id=3417",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/croatia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/croatia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>HR{2})"
     },
     {
       "country": "Cuba",
       "country_code": "CU",
       "courier": "Ministerio de la Informática y las comunicaciones de Cuba",
       "courier_url": "http://www.mic.gov.cu/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/cuba.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/cuba.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>CU{2})"
     },
     {
       "country": "Cyprus",
       "country_code": "CY",
       "courier": "Cyprus Post",
       "courier_url": "http://www.mcw.gov.cy/mcw/dps/dps.nsf/index_en/index_en?OpenDocument",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/cyprus.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/cyprus.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>CY{2})"
     },
     {
       "country": "Czech Rep.",
       "country_code": "CZ",
       "courier": "Česká Pošta",
       "courier_url": "http://psc.cpost.cz/CleanForm.action?request_locale=en",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/czech-rep.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/czech-rep.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>CZ{2})"
     },
     {
       "country": "Côte d'Ivoire (Rep.)",
       "country_code": "CI",
       "courier": "La Poste de Côte d’Ivoire",
       "courier_url": "http://www.laposte.ci/bureau.php",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/cote-divoire-rep.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/cote-divoire-rep.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>CI{2})"
     },
     {
       "country": "Dem People's Rep. of Korea",
       "country_code": "KP",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/dem-peoples-rep-of-korea.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/dem-peoples-rep-of-korea.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>KP{2})"
     },
     {
       "country": "Democratic Republic of the Congo",
       "country_code": "CD",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/democratic-republic-of-the-congo.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/democratic-republic-of-the-congo.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>CD{2})"
     },
     {
       "country": "Denmark",
       "country_code": "DK",
       "courier": "Post Danmark",
       "courier_url": "http://www.postdanmark.dk/en/find_postcode/Pages/home.aspx",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/denmark.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/denmark.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>DK{2})"
     },
     {
       "country": "Djibouti",
       "country_code": "DJ",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/djibouti.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/djibouti.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>DJ{2})"
     },
     {
       "country": "Dominica",
       "country_code": "DM",
       "courier": "General Post Office",
       "courier_url": "http://publicworks.gov.dm/index.php/divisions/general-post-office/20-gpo-about-us",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/dominica.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/dominica.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>DM{2})"
     },
     {
       "country": "Dominican Republic",
       "country_code": "DO",
       "courier": "INPOSDOM – Instituto Postal Dominicano",
       "courier_url": "http://www.inposdom.gob.do/servicios/codigo-postal",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/dominican-republic.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/dominican-republic.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>DO{2})"
     },
     {
       "country": "Ecuador",
       "country_code": "EC",
       "courier": "Correos del Ecuador",
       "courier_url": "http://www.codigopostal.gob.ec/#",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/ecuador.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/ecuador.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>EC{2})"
     },
     {
       "country": "Egypt",
       "country_code": "EG",
       "courier": "Egypt Post",
       "courier_url": "http://www.egyptpost.org/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/egypt.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/egypt.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>EG{2})"
     },
     {
       "country": "El Salvador",
       "country_code": "SV",
       "courier": "Correos de El Salvador",
       "courier_url": "http://www.correos.gob.sv/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/el-salvador.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/el-salvador.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>SV{2})"
     },
     {
       "country": "Equatorial Guinea",
       "country_code": "GQ",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/equatorial-guinea.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/equatorial-guinea.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>GQ{2})"
     },
     {
       "country": "Eritrea",
       "country_code": "ER",
       "courier": "Eritrean Postal Service",
       "courier_url": "http://www.eriposta.com/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/eritrea.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/eritrea.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>ER{2})"
     },
     {
       "country": "Estonia",
       "country_code": "EE",
       "courier": "Eesti Post",
       "courier_url": "http://www.post.ee/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/estonia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/estonia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>EE{2})"
     },
     {
       "country": "Ethiopia",
       "country_code": "ET",
       "courier": "Ethiopian postal service",
       "courier_url": "http://www.ethiopostal.com/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/ethiopia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/ethiopia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>ET{2})"
     },
     {
       "country": "Fiji",
       "country_code": "FJ",
       "courier": "Post Fiji",
       "courier_url": "http://www.postfiji.com.fj/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/fiji.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/fiji.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>FJ{2})"
     },
     {
       "country": "Finland (including the Åland Islands)",
       "country_code": "FI",
       "courier": "Posti Ltd",
       "courier_url": "http://www.verkkoposti.com/e3/english/postalcodecatalog",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/finland-including-the-aaland-islands.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/finland-including-the-aaland-islands.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>FI{2})"
     },
     {
       "country": "France",
       "country_code": "FR",
       "courier": "La Poste",
       "courier_url": "http://www.laposte.fr/Entreprise/Outils-Indispensables/Outils/Trouvez-un-code-postal",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/france.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/france.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>FR{2})"
     },
     {
       "country": "Gabon",
       "country_code": "GA",
       "courier": "La Poste SA",
       "courier_url": "http://www.laposte.ga/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/gabon.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/gabon.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>GA{2})"
     },
     {
       "country": "Gambia",
       "country_code": "GM",
       "courier": "Gambia Postal services Corporation",
       "courier_url": "http://www.gampost.gm/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/gambia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/gambia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>GM{2})"
     },
     {
       "country": "Georgia",
       "country_code": "GE",
       "courier": "Georgian Post",
       "courier_url": "http://www.georgianpost.ge/?site-lang=en&site-path=help/zipcodes/&letter=A",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/georgia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/georgia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>GE{2})"
     },
     {
       "country": "Germany",
       "country_code": "DE",
       "courier": "Deutsche Post",
       "courier_url": "http://www.postdirekt.de/plzserver/PlzSearchServlet?lang=en_GB&id=viewstreet",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/germany.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/germany.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>DE{2})"
     },
     {
       "country": "Ghana",
       "country_code": "GH",
       "courier": "Ghana Post",
       "courier_url": "http://www.ghanapostgh.com/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/ghana.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/ghana.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>GH{2})"
     },
     {
       "country": "Great Britain",
       "country_code": "GB",
       "courier": "Royal Mail Group plc",
       "courier_url": "http://www.royalmail.com/postcode-finder?gear=postcode&campaignid=postcodefinder_redirect",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/great-britain.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/great-britain.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>GB{2})"
     },
     {
       "country": "Greece",
       "country_code": "GR",
       "courier": "Hellenic Post ELTA",
       "courier_url": "http://www.elta.gr/en-us/findapostcode.aspx",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/greece.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/greece.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>GR{2})"
     },
     {
       "country": "Grenada",
       "country_code": "GD",
       "courier": "Grenada Postal Corporation",
       "courier_url": "http://www.grenadapostal.com/index.html",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/grenada.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/grenada.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>GD{2})"
     },
     {
       "country": "Guatemala",
       "country_code": "GT",
       "courier": "El Correo",
       "courier_url": "http://www.elcorreo.com.gt/cdgcorreo/index.php?option=com_content&view=article&id=104&Itemid=233",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/guatemala.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/guatemala.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>GT{2})"
     },
     {
       "country": "Guinea",
       "country_code": "GN",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/guinea.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/guinea.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>GN{2})"
     },
     {
       "country": "Guinea-Bissau",
       "country_code": "GW",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/guinea-bissau.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/guinea-bissau.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>GW{2})"
     },
     {
       "country": "Guyana",
       "country_code": "GY",
       "courier": "Guyana Post Office Corporation",
       "courier_url": "http://guypost.gy/gpoc/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/guyana.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/guyana.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>GY{2})"
     },
     {
       "country": "Haiti",
       "country_code": "HT",
       "courier": "Office des Postes d’Haiti",
       "courier_url": "http://postehaiti.gouv.ht/notre-reseau-postal",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/haiti.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/haiti.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>HT{2})"
     },
     {
       "country": "Honduras (Rep.)",
       "country_code": "HN",
       "courier": "Honducor",
-      "courier_url": "http://www.honducor.gob.hn/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/honduras-rep.html"
+      "courier_url": "http://honducor.gob.hn/codpost/consulta.php",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/honduras-rep.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>HN{2})"
     },
     {
       "country": "Hungary",
       "country_code": "HU",
       "courier": "Magyar Posta",
       "courier_url": "http://www.posta.hu/ugyfelszolgalat/iranyitoszam_kereso",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/hungary.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/hungary.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>HU{2})"
     },
     {
       "country": "Iceland",
       "country_code": "IS",
       "courier": "Íslandspóstur hf",
       "courier_url": "http://www.postur.is/en/desktopdefault.aspx/tabid-450/700_read-1715/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/iceland.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/iceland.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>IS{2})"
     },
     {
       "country": "India",
       "country_code": "IN",
       "courier": "India Post",
       "courier_url": "http://www.indiapost.gov.in/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/india.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/india.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>IN{2})"
     },
     {
       "country": "Indonesia",
       "country_code": "ID",
       "courier": "Pos Indonesia",
       "courier_url": "http://kodepos.indonesiaweb.info/en/street/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/indonesia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/indonesia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>ID{2})"
     },
     {
       "country": "Iran (Islamic Rep.)",
       "country_code": "IR",
       "courier": "Islamic Republic of Iran Post Co.",
       "courier_url": "http://www.post.ir/Homepage.aspx?site=PostPortal&lang=fa-IR&tabid=0",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/iran-islamic-rep.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/iran-islamic-rep.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>IR{2})"
     },
     {
       "country": "Iraq",
       "country_code": "IQ",
       "courier": "Iraqi Post",
       "courier_url": "http://www.iraqipost.net/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/iraq.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/iraq.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>IQ{2})"
     },
     {
       "country": "Ireland",
       "country_code": "IE",
       "courier": "AN Post - regulatory and International affairs Unit",
       "courier_url": "http://locator.anpost.ie/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/ireland.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/ireland.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>IE{2})"
     },
     {
       "country": "Israel",
       "country_code": "IL",
       "courier": "Israel Post",
       "courier_url": "http://www.israelpost.co.il/zipcode.nsf/demozip?openform",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/israel.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/israel.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>IL{2})"
     },
     {
       "country": "Italy",
       "country_code": "IT",
       "courier": "Poste Italiane",
       "courier_url": "http://www.poste.it/online/cercacap/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/italy.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/italy.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>IT{2})"
     },
     {
       "country": "Jamaica",
       "country_code": "JM",
       "courier": "Jamaica Post",
       "courier_url": "http://www.jamaicapost.gov.jm/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/jamaica.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/jamaica.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>JM{2})"
     },
     {
       "country": "Japan",
       "country_code": "JP",
       "courier": "Japan Post",
       "courier_url": "http://www.post.japanpost.jp/zipcode/index.html",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/japan.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/japan.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>JP{2})"
     },
     {
       "country": "Jordan",
       "country_code": "JO",
       "courier": "Jordan Post",
       "courier_url": "http://www.jordanpost.com.jo/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/jordan.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/jordan.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>JO{2})"
     },
     {
       "country": "Kazakhstan",
       "country_code": "KZ",
       "courier": "Kazpost",
       "courier_url": "http://www.kazpost.kz/ru/poisk-pochtovogo-indeksa-0",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/kazakhstan.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/kazakhstan.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>KZ{2})"
     },
     {
       "country": "Kenya",
       "country_code": "KE",
       "courier": "POSTA KENYA",
       "courier_url": "http://www.posta.co.ke/postOfficeFind.asp",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/kenya.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/kenya.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>KE{2})"
     },
     {
       "country": "Kiribati",
       "country_code": "KI",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/kiribati.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/kiribati.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>KI{2})"
     },
     {
       "country": "Korea (Rep.)",
       "country_code": "KR",
       "courier": "Korea Post",
       "courier_url": "http://www.epost.go.kr/roadAreaCdEng.retrieveRdEngAreaCdList.comm",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/korea-rep.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/korea-rep.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>KR{2})"
     },
     {
       "country": "Kuwait",
       "country_code": "KW",
       "courier": "Kuwait Ministry of Communications",
       "courier_url": "http://moc.kw/English/index.html",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/kuwait.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/kuwait.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>KW{2})"
     },
     {
       "country": "Kyrgyzstan",
       "country_code": "KG",
       "courier": "Kyrgyz Post",
       "courier_url": "http://kyrgyzpost.kg/ru/news.html",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/kyrgyzstan.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/kyrgyzstan.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>KG{2})"
     },
     {
       "country": "Lao People's Dem. Rep.",
       "country_code": "LA",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/lao-peoples-dem-rep.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/lao-peoples-dem-rep.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>LA{2})"
     },
     {
       "country": "Latvia",
       "country_code": "LV",
       "courier": "Latvia Post",
       "courier_url": "http://www.pasts.lv/lv/uzzinas/parbaudit-adresi/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/latvia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/latvia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>LV{2})"
     },
     {
       "country": "Lebanon",
       "country_code": "LB",
       "courier": "LibanPost",
       "courier_url": "http://www.libanpost.com.lb/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/lebanon.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/lebanon.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>LB{2})"
     },
     {
       "country": "Lesotho",
       "country_code": "LS",
       "courier": "Lesotho Post",
       "courier_url": "http://lesothopost.org.ls/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/lesotho.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/lesotho.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>LS{2})"
     },
     {
       "country": "Liberia",
       "country_code": "LR",
       "courier": "Ministry of Posts and Telecommunications",
       "courier_url": "http://www.mopt.gov.lr/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/liberia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/liberia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>LR{2})"
     },
     {
       "country": "Libya",
       "country_code": "LY",
       "courier": "Libya Post",
       "courier_url": "http://libyapost.ly/en/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/libya.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/libya.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>LY{2})"
     },
     {
       "country": "Liechtenstein",
       "country_code": "LI",
       "courier": "Liechtensteinische Post AG",
       "courier_url": "http://www.post.li/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/liechtenstein.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/liechtenstein.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>LI{2})"
     },
     {
       "country": "Lithuania",
       "country_code": "LT",
       "courier": "Lietuvos Pastas",
       "courier_url": "http://www.post.lt/en/help/postal-code-search",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/lithuania.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/lithuania.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>LT{2})"
     },
     {
       "country": "Luxembourg",
       "country_code": "LU",
       "courier": "Post",
       "courier_url": "http://www.post.lu/en/particuliers/courrier/rechercher-un-code-postal",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/luxembourg.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/luxembourg.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>LU{2})"
     },
     {
       "country": "Madagascar",
       "country_code": "MG",
       "courier": "PAOSITRA MALAGASY",
       "courier_url": "http://www.mtpc.gov.mg/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/madagascar.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/madagascar.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>MG{2})"
     },
     {
       "country": "Malawi",
       "country_code": "MW",
       "courier": "Malawi Posts Corporation",
       "courier_url": "http://www.malawiposts.com/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/malawi.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/malawi.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>MW{2})"
     },
     {
       "country": "Malaysia",
       "country_code": "MY",
       "courier": "Pos Malaysia",
       "courier_url": "http://www.pos.com.my/pos/homepage.aspx",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/malaysia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/malaysia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>MY{2})"
     },
     {
       "country": "Maldives",
       "country_code": "MV",
       "courier": "Maldives Post",
       "courier_url": "http://www.maldivespost.com/index.php?lid=10",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/maldives.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/maldives.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>MV{2})"
     },
     {
       "country": "Mali",
       "country_code": "ML",
       "courier": "Office national des postes",
       "courier_url": "http://www.laposte.ml/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/mali.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/mali.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>ML{2})"
     },
     {
       "country": "Malta",
       "country_code": "MT",
       "courier": "Malta Post",
       "courier_url": "http://postcodes.maltapost.com/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/malta.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/malta.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>MT{2})"
     },
     {
       "country": "Mauritania",
       "country_code": "MR",
       "courier": "MAURIPOST – Société Mauritanienne des Postes",
       "courier_url": "http://www.mauripost.mr/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/mauritania.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/mauritania.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>MR{2})"
     },
     {
       "country": "Mauritius",
       "country_code": "MU",
       "courier": "Mauritius Post",
       "courier_url": "http://www.mauritiuspost.mu/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/mauritius.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/mauritius.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>MU{2})"
     },
     {
       "country": "Mexico",
       "country_code": "MX",
       "courier": "Correos de México",
       "courier_url": "http://www.correosdemexico.gob.mx/ServiciosLinea/Paginas/ccpostales.aspx",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/mexico.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/mexico.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>MX{2})"
     },
     {
       "country": "Moldova",
       "country_code": "MD",
       "courier": "Posta Moldovei",
       "courier_url": "http://www.posta.md/ro/postal_code.html",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/moldova.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/moldova.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>MD{2})"
     },
     {
       "country": "Monaco",
       "country_code": "MC",
       "courier": "La Poste Monaco",
       "courier_url": "http://www.lapostemonaco.mc/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/monaco.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/monaco.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>MC{2})"
     },
     {
       "country": "Mongolia",
       "country_code": "MN",
       "courier": "Mongol Post - Монгол шуудан компани",
       "courier_url": "http://www.zipcode.mn/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/mongolia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/mongolia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>MN{2})"
     },
     {
       "country": "Montenegro (Rep.)",
       "country_code": "ME",
       "courier": "Pošta Crne Gore",
       "courier_url": "http://www.postacg.me/main.php?idstr=177",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/montenegro-rep.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/montenegro-rep.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>ME{2})"
     },
     {
       "country": "Morocco",
       "country_code": "MA",
       "courier": "Barid Al-Maghrib – Poste Maroc",
       "courier_url": "http://www.codepostal.ma/search_mot.aspx?keyword=",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/morocco.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/morocco.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>MA{2})"
     },
     {
       "country": "Mozambique",
       "country_code": "MZ",
       "courier": "Correios de Moçambique",
       "courier_url": "http://www.correios.co.mz/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/mozambique.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/mozambique.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>MZ{2})"
     },
     {
       "country": "Myanmar",
       "country_code": "MM",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/myanmar.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/myanmar.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>MM{2})"
     },
     {
       "country": "Namibia",
       "country_code": "NA",
       "courier": "NAM Post",
       "courier_url": "https://www.nampost.com.na/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/namibia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/namibia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>NA{2})"
     },
     {
       "country": "Nauru",
       "country_code": "NR",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/nauru.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/nauru.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>NR{2})"
     },
     {
       "country": "Nepal",
       "country_code": "NP",
       "courier": "Nepal Postal Services",
       "courier_url": "http://www.gpo.gov.np/postalcode.aspx",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/nepal.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/nepal.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>NP{2})"
     },
     {
       "country": "Netherlands",
       "country_code": "NL",
       "courier": "PostNL",
       "courier_url": "http://www.postnl.nl/voorthuis/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/netherlands.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/netherlands.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>NL{2})"
     },
     {
       "country": "New Zealand (including the Ross Dependency)",
       "country_code": "NZ",
       "courier": "New Zealand Post",
       "courier_url": "http://www.nzpost.co.nz/Cultures/en-NZ/OnlineTools/PostCodeFinder/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/new-zealand-including-the-ross-dependency.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/new-zealand-including-the-ross-dependency.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>NZ{2})"
     },
     {
       "country": "Nicaragua",
       "country_code": "NI",
       "courier": "Correos de Nicaragua",
       "courier_url": "http://www.correos.gob.ni/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/nicaragua.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/nicaragua.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>NI{2})"
     },
     {
       "country": "Niger",
       "country_code": "NE",
       "courier": "Niger Poste",
       "courier_url": "http://www.nigerposte.net/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/niger.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/niger.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>NE{2})"
     },
     {
       "country": "Nigeria",
       "country_code": "NG",
       "courier": "Nigerian Postal Service",
       "courier_url": "http://www.nigeriapostcodes.com/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/nigeria.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/nigeria.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>NG{2})"
     },
     {
       "country": "Norway",
       "country_code": "NO",
       "courier": "Posten",
       "courier_url": "http://adressesok.posten.no/en/postal_codes/search",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/norway.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/norway.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>NO{2})"
     },
     {
       "country": "Oman",
       "country_code": "OM",
       "courier": "Oman Post",
       "courier_url": "http://www.omanpost.om/Portals/2/Skins/skins//tabid/64/Default.aspx",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/oman.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/oman.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>OM{2})"
     },
     {
       "country": "Overseas Territories (United Kingdom of Great Britain and Northern Ireland)",
       "country_code": " None",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/overseas-territories-united-kingdom-of-great-britain-and-northern-ireland.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/overseas-territories-united-kingdom-of-great-britain-and-northern-ireland.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode> None{2})"
     },
     {
       "country": "Pakistan",
       "country_code": "PK",
       "courier": "Pakistan Post",
       "courier_url": "http://www.pakpost.gov.pk/postcode/postcode.html",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/pakistan.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/pakistan.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>PK{2})"
     },
     {
       "country": "Panama (Rep.)",
       "country_code": "PA",
       "courier": "Correos de Panamá",
       "courier_url": "http://www.correospanama.gob.pa/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/panama-rep.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/panama-rep.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>PA{2})"
     },
     {
       "country": "Papua New Guinea",
       "country_code": "PG",
       "courier": "Post PNG",
       "courier_url": "http://www.postpng.com.pg/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/papua-new-guinea.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/papua-new-guinea.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>PG{2})"
     },
     {
       "country": "Paraguay",
       "country_code": "PY",
       "courier": "Correo Paraguayo",
       "courier_url": "http://www.correoparaguayo.gov.py/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/paraguay.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/paraguay.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>PY{2})"
     },
     {
       "country": "Peru",
       "country_code": "PE",
       "courier": "SERPOST – Servicios Postales del Perú",
       "courier_url": "http://www.mtc.gob.pe/portal/CPOSTAL/Listado_codigo_postal.html",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/peru.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/peru.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>PE{2})"
     },
     {
       "country": "Philippines",
       "country_code": "PH",
       "courier": "PHLPOST – Philippine Postal Corporation",
       "courier_url": "https://www.phlpost.gov.ph/zip-code-search.php",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/philippines.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/philippines.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>PH{2})"
     },
     {
       "country": "Poland",
       "country_code": "PL",
       "courier": "Poczta Polska",
       "courier_url": "http://kody.poczta-polska.pl/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/poland.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/poland.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>PL{2})"
     },
     {
       "country": "Portugal",
       "country_code": "PT",
       "courier": "CTT - Correios",
       "courier_url": "http://www.ctt.pt/feapl_2/app/open/tools.jspx?tool=1",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/portugal.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/portugal.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>PT{2})"
     },
     {
       "country": "Qatar",
       "country_code": "QA",
       "courier": "Qatar Post",
       "courier_url": "http://www.qpost.com.qa/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/qatar.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/qatar.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>QA{2})"
     },
     {
       "country": "Romania",
       "country_code": "RO",
       "courier": "Posta Romana",
       "courier_url": "http://www.posta-romana.ro/postal_codes",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/romania.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/romania.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>RO{2})"
     },
     {
       "country": "Russian Federation",
       "country_code": "RU",
       "courier": "Russian Post",
       "courier_url": "http://www.russianpost.ru/rp/servise/ru/home/postuslug/searchops",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/russian-federation.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/russian-federation.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>RU{2})"
     },
     {
       "country": "Rwanda",
       "country_code": "RW",
       "courier": "National Post Office (Iposita)",
       "courier_url": "http://i-posita.rw/spip.php?article1",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/rwanda.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/rwanda.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>RW{2})"
     },
     {
       "country": "Saint Christopher (Saint Kitts) and Nevis",
       "country_code": "KN",
       "courier": "St. Kitts & Nevis Postal Services",
       "courier_url": "http://www.post.gov.kn/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/saint-christopher-saint-kitts-and-nevis.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/saint-christopher-saint-kitts-and-nevis.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>KN{2})"
     },
     {
       "country": "Saint Lucia",
       "country_code": "LC",
       "courier": "Saint Lucia Postal Service",
       "courier_url": "http://www.stluciapostal.com/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/saint-lucia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/saint-lucia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>LC{2})"
     },
     {
       "country": "Saint Vincent and the Grenadines",
       "country_code": "VC",
       "courier": "SVG Postal Corporation",
       "courier_url": "http://www.svgpost.gov.vc/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/saint-vincent-and-the-grenadines.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/saint-vincent-and-the-grenadines.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>VC{2})"
     },
     {
       "country": "Samoa",
       "country_code": "WS",
       "courier": "Samoa Post",
       "courier_url": "http://www.samoapost.ws/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/samoa.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/samoa.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>WS{2})"
     },
     {
       "country": "San Marino",
       "country_code": "SM",
       "courier": "Poste San Marino",
       "courier_url": "http://www.poste.sm/on-line/home.html",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/san-marino.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/san-marino.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>SM{2})"
     },
     {
       "country": "Sao Tome and Principe",
       "country_code": "ST",
       "courier": "Correios de São Tomé e Príncipe",
       "courier_url": "http://www.inh.st/correios.st.htm",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/sao-tome-and-principe.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/sao-tome-and-principe.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>ST{2})"
     },
     {
       "country": "Saudi Arabia",
       "country_code": "SA",
       "courier": "Saudi Post",
       "courier_url": "http://maps.address.gov.sa",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/saudi-arabia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/saudi-arabia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>SA{2})"
     },
     {
       "country": "Senegal",
       "country_code": "SN",
       "courier": null,
       "courier_url": "http://www.laposte.sn/laposte/trouver_codepostal.php",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/senegal.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/senegal.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>SN{2})"
     },
     {
       "country": "Serbia (Rep.)",
       "country_code": "RS",
       "courier": "PTT Communications \"Srbija\"",
       "courier_url": "http://www.posta.rs/struktura/eng/aplikacije/pronadji/nadji-pak-rezultat.asp",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/serbia-rep.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/serbia-rep.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>RS{2})"
     },
     {
       "country": "Seychelles",
       "country_code": "SC",
       "courier": "Seychelles Postal Service",
       "courier_url": "http://www.seychellespost.gov.sc/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/seychelles.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/seychelles.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>SC{2})"
     },
     {
       "country": "Sierra Leone",
       "country_code": "SL",
       "courier": "Sierra Leone Postal Services",
       "courier_url": "http://www.salpost.sl/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/sierra-leone.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/sierra-leone.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>SL{2})"
     },
     {
       "country": "Singapore",
       "country_code": "SG",
       "courier": "SingPost",
       "courier_url": "http://www.singpost.com.sg/quick_services/index.htm",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/singapore.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/singapore.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>SG{2})"
     },
     {
       "country": "Slovakia",
       "country_code": "SK",
       "courier": "Slovenská Posta",
       "courier_url": "http://psc.posta.sk/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/slovakia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/slovakia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>SK{2})"
     },
     {
       "country": "Slovenia",
       "country_code": "SI",
       "courier": "Posta Slovenije d.o.o.",
       "courier_url": "http://www.posta.si/postne-stevilke-doma",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/slovenia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/slovenia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>SI{2})"
     },
     {
       "country": "Solomon Islands",
       "country_code": "SB",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/solomon-islands.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/solomon-islands.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>SB{2})"
     },
     {
       "country": "Somalia",
       "country_code": "SO",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/somalia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/somalia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>SO{2})"
     },
     {
       "country": "South Africa",
       "country_code": "ZA",
       "courier": "South African Post Office",
-      "courier_url": "http://www.postoffice.co.za/tools/postalcode.html",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/south-africa.html"
+      "courier_url": "http://www.postoffice.co.za/ContactUs/postalcode.html",
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/south-africa.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>ZA{2})"
     },
     {
       "country": "South Sudan (Rep.)",
       "country_code": "SS",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/south-sudan-rep.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/south-sudan-rep.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>SS{2})"
     },
     {
       "country": "Spain",
       "country_code": "ES",
       "courier": "Correos y Telégrafos",
       "courier_url": "http://www.correos.es/ss/Satellite/site/pagina-buscador_codigos_postales/sidioma=es_ES",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/spain.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/spain.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>ES{2})"
     },
     {
       "country": "Sri Lanka",
       "country_code": "LK",
       "courier": "Sri Lanka Post",
       "courier_url": "http://www.slpost.gov.lk/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/sri-lanka.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/sri-lanka.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>LK{2})"
     },
     {
       "country": "Sudan",
       "country_code": "SD",
       "courier": "Sudapost",
       "courier_url": "http://sudapost.sd/index.php/en/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/sudan.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/sudan.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>SD{2})"
     },
     {
       "country": "Suriname",
       "country_code": "SR",
       "courier": "SURPOST",
       "courier_url": "http://www.surpost.com/surpost2/index.php",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/suriname.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/suriname.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>SR{2})"
     },
     {
       "country": "Swaziland",
       "country_code": "SZ",
       "courier": "Swaziland Posts & Telecommunications Corporation",
       "courier_url": "http://www.sptc.co.sz/swazipost/codes.php",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/swaziland.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/swaziland.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>SZ{2})"
     },
     {
       "country": "Sweden",
       "country_code": "SE",
       "courier": "Posten Sweden Post",
       "courier_url": "http://www.posten.se/oldurls/old_postnummersok.jspv",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/sweden.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/sweden.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>SE{2})"
     },
     {
       "country": "Switzerland",
       "country_code": "CH",
       "courier": "La Poste Suisse",
       "courier_url": "http://www.swisspost.ch/post-startseite.htm",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/switzerland.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/switzerland.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>CH{2})"
     },
     {
       "country": "Syrian Arab Rep.",
       "country_code": "SY",
       "courier": "Syrian Post",
       "courier_url": "http://www.syrianpost.gov.sy/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/syrian-arab-rep.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/syrian-arab-rep.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>SY{2})"
     },
     {
       "country": "Tajikistan",
       "country_code": "TJ",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/tajikistan.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/tajikistan.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>TJ{2})"
     },
     {
       "country": "Tanzania (United Rep.)",
       "country_code": "TZ",
       "courier": "Tanzania Posts Corporation",
       "courier_url": "http://www.posta.co.tz/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/tanzania-united-rep.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/tanzania-united-rep.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>TZ{2})"
     },
     {
       "country": "Thailand",
       "country_code": "TH",
       "courier": "Thailand Post",
       "courier_url": "http://www.thailandpost.com/search.php",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/thailand.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/thailand.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>TH{2})"
     },
     {
       "country": "The former Yugoslav Republic of Macedonia",
       "country_code": "MK",
       "courier": "Macedonian Post & Telecommunications",
       "courier_url": "http://www.posta.mk/pravilno_adresiranje.html",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/the-former-yugoslav-republic-of-macedonia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/the-former-yugoslav-republic-of-macedonia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>MK{2})"
     },
     {
       "country": "Timor-Leste (Dem. Rep.)",
       "country_code": "TL",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/timor-leste-dem-rep.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/timor-leste-dem-rep.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>TL{2})"
     },
     {
       "country": "Togo",
       "country_code": "TG",
       "courier": "La Poste du Togo",
       "courier_url": "http://www.laposte.tg/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/togo.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/togo.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>TG{2})"
     },
     {
       "country": "Tonga (including Niuafo'ou)",
       "country_code": "TO",
       "courier": "Tonga Post",
       "courier_url": "http://tongapost.to/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/tonga-including-niuafoou.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/tonga-including-niuafoou.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>TO{2})"
     },
     {
       "country": "Trinidad and Tobago",
       "country_code": "TT",
       "courier": "Trinidad and Tobago Postal Corporation",
       "courier_url": "http://www.ttpost.net/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/trinidad-and-tobago.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/trinidad-and-tobago.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>TT{2})"
     },
     {
       "country": "Tunisia",
       "country_code": "TN",
       "courier": "La Poste Tunisienne",
       "courier_url": "http://www.poste.tn/codes.php",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/tunisia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/tunisia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>TN{2})"
     },
     {
       "country": "Turkey",
       "country_code": "TR",
       "courier": "Turkey Post",
       "courier_url": "http://postakodu.ptt.gov.tr/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/turkey.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/turkey.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>TR{2})"
     },
     {
       "country": "Turkmenistan",
       "country_code": "TM",
       "courier": "Turkmenpost",
       "courier_url": "http://www.turkmenpost.gov.tm/about_index.php",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/turkmenistan.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/turkmenistan.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>TM{2})"
     },
     {
       "country": "Tuvalu",
       "country_code": "TV",
       "courier": null,
       "courier_url": null,
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/tuvalu.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/tuvalu.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>TV{2})"
     },
     {
       "country": "Uganda",
       "country_code": "UG",
       "courier": "Posta Uganda",
       "courier_url": "http://www.ugapost.co.ug/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/uganda.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/uganda.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>UG{2})"
     },
     {
       "country": "Ukraine",
       "country_code": "UA",
       "courier": "Ukrposhta",
       "courier_url": "http://services.ukrposhta.com/postindex_new/default.aspx?lang=en",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/ukraine.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/ukraine.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>UA{2})"
     },
     {
       "country": "United Arab Emirates",
       "country_code": "AE",
       "courier": "Emirates Post",
       "courier_url": "http://www.emiratespost.com/content/english/index.jsp;jsessionid=35fbe352a6c441a491929d81d54fa0c6",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/united-arab-emirates.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/united-arab-emirates.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>AE{2})"
     },
     {
       "country": "United States of America",
       "country_code": "US",
       "courier": "United States Postal Service",
       "courier_url": "http://zip4.usps.com/zip4/welcome.jsp",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/united-states-of-america.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/united-states-of-america.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>US{2})"
     },
     {
       "country": "Uruguay",
       "country_code": "UY",
       "courier": "Correo Uruguayo",
       "courier_url": "http://www.correo.com.uy/index.asp?codPag=codPost&switchMapa=codPost",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/uruguay.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/uruguay.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>UY{2})"
     },
     {
       "country": "Uzbekistan",
       "country_code": "UZ",
       "courier": "Post of Uzbekistan",
       "courier_url": "http://www.pochta.uz/index.php/en/postal-indexes/9",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/uzbekistan.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/uzbekistan.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>UZ{2})"
     },
     {
       "country": "Vanuatu",
       "country_code": "VU",
       "courier": "Vanuatu Post",
       "courier_url": "http://www.vanuatupost.vu/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/vanuatu.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/vanuatu.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>VU{2})"
     },
     {
       "country": "Vatican",
       "country_code": "VA",
       "courier": "Vatican post",
       "courier_url": "http://www.vaticanstate.va/EN/Services/Philatelic_and_Numismatic_Office/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/vatican.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/vatican.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>VA{2})"
     },
     {
       "country": "Venezuela",
       "country_code": "VE",
       "courier": "IPOSTEL – Instituto Postal Telegráfico de Venezuela",
       "courier_url": "http://www.ipostel.gob.ve/nlinea/codigo_postal.php",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/venezuela.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/venezuela.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>VE{2})"
     },
     {
       "country": "Viet Nam",
       "country_code": "VN",
       "courier": "VNPT – Vietnam Posts and Telecommunications Group",
       "courier_url": "http://postcode.vnpost.vn/services/search.aspx",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/viet-nam.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/viet-nam.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>VN{2})"
     },
     {
       "country": "Yemen",
       "country_code": "YE",
       "courier": "Yemen Post",
       "courier_url": "http://www.post.ye/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/yemen.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/yemen.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>YE{2})"
     },
     {
       "country": "Zambia",
       "country_code": "ZM",
       "courier": "Zambia Postal Services Corporation (ZAMPOST)",
       "courier_url": "http://www.zampost.com.zm/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/zambia.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/zambia.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>ZM{2})"
     },
     {
       "country": "Zimbabwe",
       "country_code": "ZW",
       "courier": "Zimpost – Zimbabwe Posts",
       "courier_url": "http://www.zimpost.co.zw/",
-      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/zimbabwe.html"
+      "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/zimbabwe.html",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>ZW{2})"
     }
   ]
 }

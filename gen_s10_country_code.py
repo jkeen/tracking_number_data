@@ -30,12 +30,12 @@ def main():
         "_comment_country_code2": "Auto-generated file.  Do not modify."
     }
     reqs = grequests.imap(
-        fetch_country_data(), size=10, exception_handler=exception_handler)
-    #      (x for n, x in enumerate(fetch_country_data())
-    #       if n < 200 and n > 190),
-    #      size=3, exception_handler=exception_handler)
+        fetch_country_data(), size=15, exception_handler=exception_handler)
+        #  (x for n, x in enumerate(fetch_country_data())
+        #   if n < 200 and n > 190),
+        #  size=3, exception_handler=exception_handler)
     out_dct['country_code'] = sorted(
-        [parse_country_page(req) for req in reqs], key=lambda x: x['country'])
+        [gen_country_json_dct(req) for req in reqs], key=lambda x: x['country'])
     with open(OUT_FILE, 'w') as fout:
         json.dump(out_dct, fout, indent=2, ensure_ascii=False)
 
@@ -57,7 +57,7 @@ def fetch_country_data():
         )
 
 
-def parse_country_page(request, *args, **kwargs):
+def gen_country_json_dct(request, *args, **kwargs):
     soup = bs4.BeautifulSoup(request.content, 'html.parser')
     attr_map = {
         "name": "country",
@@ -83,6 +83,14 @@ def parse_country_page(request, *args, **kwargs):
     countrydct.pop('courier_url2')
 
     countrydct['upu_reference_url'] = request.url
+    if countrydct['country_code']:
+        countrydct['regex'] = (
+            "(?P<ApplicationIdentifier>[A-Z]{2})"
+            "(?P<SerialNumber>[0-9]{8})"
+            "(?P<CheckDigit>[0-9])"
+            "(?P<CountryCode>%s{2})") % countrydct['country_code']
+    else:
+        countrydct['regex'] = None
     globals().update(locals())
     return countrydct
 
@@ -123,4 +131,4 @@ if __name__ == '__main__':
     # for testing:
     # r = requests.get(
     #  "http://www.upu.int/en/the-upu/member-countries/americas/nicaragua.html")
-    # parse_country_page(r)
+    # gen_country_json_dct(r)
