@@ -169,10 +169,11 @@
         "oddsMultiplier": 1
       }
     },
-
     {
       "name": "S10",
-      "check_digit_algo": { "name": "s10" },
+      "check_digit_algo": {
+        "name": "s10"
+      },
       "tracking_url": null,
       "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>[A-Z]{2})"
     }
