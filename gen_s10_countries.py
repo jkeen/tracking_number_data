@@ -17,24 +17,24 @@ from requests.packages.urllib3.util.retry import Retry
 
 BASE_URL = "http://www.upu.int/"
 URL = "http://www.upu.int/en/the-upu/member-countries.html"
-OUT_FILE = "s10_country_code.json"
+OUT_FILE = "s10_countries.json"
 
 
 def main():
     out_dct = {
-        "_comment_country_code": (
+        "_comment_s10_countries": (
             "The country code is part of the S10 standard for international"
             " mail.  The official reference for this is here:"
             " http://www.upu.int/uploads/tx_sbdownloader/"
             "S10TechnicalStandard.pdf"),
-        "_comment_country_code2": "Auto-generated file.  Do not modify."
+        "_comment_s10_countries": "Auto-generated file.  Do not modify."
     }
     reqs = grequests.imap(
         fetch_country_data(), size=15, exception_handler=exception_handler)
         #  (x for n, x in enumerate(fetch_country_data())
         #   if n < 200 and n > 190),
         #  size=3, exception_handler=exception_handler)
-    out_dct['country_code'] = sorted(
+    out_dct['s10_countries'] = sorted(
         [gen_country_json_dct(req) for req in reqs], key=lambda x: x['country'])
     with open(OUT_FILE, 'w') as fout:
         json.dump(out_dct, fout, indent=2, ensure_ascii=False)

@@ -1,7 +1,6 @@
 {
-  "_comment_country_code": "The country code is part of the S10 standard for international mail.  The official reference for this is here: http://www.upu.int/uploads/tx_sbdownloader/S10TechnicalStandard.pdf",
-  "_comment_country_code2": "Auto-generated file.  Do not modify.",
-  "country_code": [
+  "_comment_s10_countries": "Auto-generated file.  Do not modify.",
+  "s10_countries": [
     {
       "country": "Afghanistan",
       "country_code": "AF",
