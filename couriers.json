@@ -23,19 +23,19 @@
     {
       "_inherits": "dhl",
       "name": "DHL Express",
-      "regex": "(?P<serial_number>[0-9]{9})(?P<check_digit>[0-9])"
+      "regex": "(?P<SerialNumber>[0-9]{9})(?P<CheckDigit>[0-9])"
     },
     {
       "_inherits": "dhl",
       "name": "DHL Express Air",
-      "regex": "(?P<serial_number>[0-9]{10})(?P<check_digit>[0-9])"
+      "regex": "(?P<SerialNumber>[0-9]{10})(?P<CheckDigit>[0-9])"
     },
     {
       "_inherits": "fedex",
       "name": "FedEx Express",
-      "regex": "(?P<serial_number>[0-9]{11})(?P<check_digit>[0-9])",
+      "regex": "(?P<SerialNumber>[0-9]{11})(?P<CheckDigit>[0-9])",
       "check_digit_algo": {
-        "name": "sum_product_weightings_and_modulo",
+        "name": "sum_product_with_weightings_and_modulo",
         "weightings": [
           3,
           1,
@@ -56,45 +56,45 @@
     {
       "_inherits": "fedex",
       "name": "FedEx Ground",
-      "regex": "(?P<serial_number>[0-9]{14})(?P<check_digit>[0-9])"
+      "regex": "(?P<SerialNumber>[0-9]{14})(?P<CheckDigit>[0-9])"
     },
     {
       "_inherits": "fedex",
       "name": "FedEx Ground 18",
-      "regex": "(?P<container_type>[0-9]{2})(?P<serial_number>[0-9]{15})(?P<check_digit>[0-9])"
+      "regex": "(?P<ContainerType>[0-9]{2})(?P<SerialNumber>[0-9]{15})(?P<CheckDigit>[0-9])"
     },
     {
       "_inherits": "fedex",
       "name": "FedEx Ground 96 (22)",
       "regex": [
-        "(?P<application_identifier>96)",
+        "(?P<ApplicationIdentifier>96)",
         "(?P<SCNC>[0-9]{2})",
-        "(?P<class_of_service>[0-9]{3})",
-        "(?P<serial_number>(?P<shipper_id>[0-9]{7})(?P<package_id>[0-9]{7}))",
-        "(?P<check_digit>[0-9])"
+        "(?P<ClassOfService>[0-9]{3})",
+        "(?P<SerialNumber>(?P<ShipperId>[0-9]{7})(?P<PackageId>[0-9]{7}))",
+        "(?P<CheckDigit>[0-9])"
       ]
     },
     {
       "_inherits": "fedex",
       "name": "FedEx Ground 96 (34)",
       "regex": [
-        "(?P<application_identifier>96)",
+        "(?P<ApplicationIdentifier>96)",
         "(?P<SCNC>[0-9]{2})",
         "[0-9]{5}",
         "(?P<GSN>[0-9]{10})",
-        "(?P<serial_number>[0-9]{14})",
-        "(?P<check_digit>[0-9])"
+        "(?P<SerialNumber>[0-9]{14})",
+        "(?P<CheckDigit>[0-9])"
       ]
     },
     {
       "_inherits": "fedex",
       "name": "FedEx SmartPost",
       "regex": [
-        "(?P<application_identifier>92)?",
+        "(?P<ApplicationIdentifier>92)?",
         "(?P<SCNC>[0-9]{2})",
-        "(?P<class_of_service>[0-9]{3})",
-        "(?P<serial_number>(?P<shipper_id>[0-9]{7})(?P<package_id>[0-9]{7}))",
-        "(?P<check_digit>[0-9])"
+        "(?P<ClassOfService>[0-9]{3})",
+        "(?P<SerialNumber>(?P<ShipperId>[0-9]{7})(?P<PackageId>[0-9]{7}))",
+        "(?P<CheckDigit>[0-9])"
       ],
       "_note": "TODO: ensure 92 prepended to serial number before calling check digit. is this necessary?"
     },
@@ -103,34 +103,34 @@
       "name": "FedEx (2D barcode)",
       "regex": [
         "\\[\\)>\u001e",
-        "01\u001d(?P<ANSI_version>[0-9]{2})",
-        "(?P<recipient_postal_code>[0-9A-Z]{5,6})\u001d",
-        "(?P<recipient_country_code>[0-9]{3})\u001d",
-        "(?P<service_class>[A-Z0-9]{3})\u001d",
-        "(?P<tracking_number>",
-        "(?P<serial_number>(?:[0-9]{14}|[0-9]{11}))(?P<check_digit>[0-9])",
+        "01\u001d(?P<ANSIVersion>[0-9]{2})",
+        "(?P<RecipientPostalCode>[0-9A-Z]{5,6})\u001d",
+        "(?P<RecipientCountryCode>[0-9]{3})\u001d",
+        "(?P<ServiceClass>[A-Z0-9]{3})\u001d",
+        "(?P<TrackingNumber>",
+        "(?P<SerialNumber>(?:[0-9]{14}|[0-9]{11}))(?P<CheckDigit>[0-9])",
         ")\u001d",
-        "(?P<origin_carrier_SCAC>[0-9A-Z]{2,4})\u001d",
-        "(?P<pickup_location>[0-9]{7})?\u001d",
-        "(?P<pickup_date>[0-9]{3})?\u001d",
-        "(?P<shipment_id>[0-9]{1,30})?\u001d",
-        "(?P<container_n_of_m>[0-9/]{1,9})?\u001d",
-        "(?P<weight_lbs>[0-9.]{1,6}LB)\u001d",
-        "(?P<cross_match_postal_code_to_state>[Y|N])\u001d",
-        "(?P<recipient_street>[0-9A-z ]{1,30})\u001d",
-        "(?P<recipient_city>[0-9A-z ]{1,30})\u001d",
-        "(?P<recipient_state>[0-9A-z ]{2})\u001d",
-        "(?P<recipient_name>[0-9A-z ]{1,30})\u001e",
+        "(?P<OriginCarrierSCAC>[0-9A-Z]{2,4})\u001d",
+        "(?P<PickupLocation>[0-9]{7})?\u001d",
+        "(?P<PickupDate>[0-9]{3})?\u001d",
+        "(?P<ShipmentId>[0-9]{1,30})?\u001d",
+        "(?P<ContainerNofM>[0-9/]{1,9})?\u001d",
+        "(?P<WeightLbs>[0-9.]{1,6}LB)\u001d",
+        "(?P<CrossMatchPostalCodeToState>[Y|N])\u001d",
+        "(?P<RecipientStreet>[0-9A-z ]{1,30})\u001d",
+        "(?P<RecipientCity>[0-9A-z ]{1,30})\u001d",
+        "(?P<RecipientState>[0-9A-z ]{2})\u001d",
+        "(?P<RecipientName>[0-9A-z ]{1,30})\u001e",
         "(?:",
-        "(?P<num_optional_fields>[0-9]{2})\u001d",
-        "(?P<optional_fields>(?:[0-9]{2}Z.+?\u001d)*)",
+        "(?P<NumOptionalFields>[0-9]{2})\u001d",
+        "(?P<OptionalFields>(?:[0-9]{2}Z.+?\u001d)*)",
         ")?",
         "\u001e\u0004"
       ]
     },
     {
       "name": "OnTrac",
-      "regex": "(?P<application_identifier>[A-Z]{2})(?P<serial_number>[0-9]{8})(?P<check_digit>[0-9])(?<country_code>[A-Z]{2})",
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>[A-Z]{2})",
       "check_digit_algo": {
         "name": "mod10",
         "evensMultiplier": 1,
@@ -140,7 +140,7 @@
     },
     {
       "name": "UPS",
-      "regex": "1Z(?P<serial_number>[A-Z]{15,15})([A-Z])",
+      "regex": "1Z(?P<SerialNumber>[A-Z]{15,15})([A-Z])",
       "check_digit_algo": {
         "name": "mod10",
         "evensMultiplier": 1,
@@ -150,19 +150,8 @@
     },
     {
       "_inherits": "usps",
-      "name": "USPS13",
-      "regex": "(?P<application_identifier>[A-Z]{2})(?P<serial_number>[0-9]{8})(?P<check_digit>[0-9])(?P<country_code>US)",
-      "check_digit_algo": {
-        "name": "mod10",
-        "evensMultiplier": 3,
-        "oddsMultiplier": 1
-      },
-      "_note": "TODO: verify check 31 or 13 evens/oddsMultiplier"
-    },
-    {
-      "_inherits": "usps",
       "name": "USPS20",
-      "regex": "(?P<application_identifier>[0-9]{2})(?P<shipper_id>[0-9]{9})(?P<serial_number>[0-9]{8})(?P<check_digit>[0-9])",
+      "regex": "(?P<ApplicationIdentifier>[0-9]{2})(?P<ShipperId>[0-9]{9})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])",
       "check_digit_algo": {
         "name": "mod10",
         "evensMultiplier": 3,
@@ -173,7 +162,7 @@
     {
       "_inherits": "usps",
       "name": "USPS91",
-      "regex": "(?P<routing_application_identifier>420)(?P<destination_zip_code>[0-9]{5})(?:(?P<application_identifier>91)(?P<service_type_code>[0-9]{2}))?(?P<mailer_id>[0-9]{9})(?P<serial_number>[0-9]{8})(?P<check_digit>[0-9])",
+      "regex": "(?P<RoutingApplicationId>420)(?P<DestinationZip>[0-9]{5})(?:(?P<ApplicationId>91)(?P<ServiceTypeCode>[0-9]{2}))?(?P<MailerId>[0-9]{9})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])",
       "check_digit_algo": {
         "name": "mod10",
         "evensMultiplier": 3,
