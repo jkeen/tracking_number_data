@@ -11,8 +11,8 @@
       "tracking_url": "https://www.fedex.com/apps/fedextrack/?tracknumbers=%s",
       "check_digit_algo": {
         "name": "mod10",
-        "evensMultiplier": 1,
-        "oddsMultiplier": 3
+        "evensMultiplier": 3,
+        "oddsMultiplier": 1
       }
     },
     "usps": {
@@ -56,7 +56,12 @@
     {
       "_inherits": "fedex",
       "name": "FedEx Ground",
-      "regex": "(?P<SerialNumber>[0-9]{14})(?P<CheckDigit>[0-9])"
+      "regex": "(?P<SerialNumber>[0-9]{14})(?P<CheckDigit>[0-9])",
+      "check_digit_algo": {
+        "name": "mod10",
+        "evensMultiplier": 1,
+        "oddsMultiplier": 3
+      }
     },
     {
       "_inherits": "fedex",
@@ -72,7 +77,12 @@
         "(?P<ClassOfService>[0-9]{3})",
         "(?P<SerialNumber>(?P<ShipperId>[0-9]{7})(?P<PackageId>[0-9]{7}))",
         "(?P<CheckDigit>[0-9])"
-      ]
+      ],
+      "check_digit_algo": {
+        "name": "mod10",
+        "evensMultiplier": 1,
+        "oddsMultiplier": 3
+      }
     },
     {
       "_inherits": "fedex",
@@ -82,9 +92,30 @@
         "(?P<SCNC>[0-9]{2})",
         "[0-9]{5}",
         "(?P<GSN>[0-9]{10})",
-        "(?P<SerialNumber>[0-9]{14})",
+        "[0-9]",
+        "(?P<SerialNumber>[0-9]{13})",
         "(?P<CheckDigit>[0-9])"
-      ]
+      ],
+      "check_digit_algo": {
+        "name": "sum_product_with_weightings_and_modulo",
+        "weightings": [
+          1,
+          7,
+          3,
+          1,
+          7,
+          3,
+          1,
+          7,
+          3,
+          1,
+          7,
+          3,
+          1
+        ],
+        "modulo1": 11,
+        "modulo2": 10
+      }
     },
     {
       "_inherits": "fedex",
@@ -96,7 +127,10 @@
         "(?P<SerialNumber>(?P<ShipperId>[0-9]{7})(?P<PackageId>[0-9]{7}))",
         "(?P<CheckDigit>[0-9])"
       ],
-      "_note": "TODO: ensure 92 prepended to serial number before calling check digit. is this necessary?"
+      "serial_number_parser": {
+        "name": "default",
+        "prepend": "92"
+      }
     },
     {
       "_inherits": "fedex",
