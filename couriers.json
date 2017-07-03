@@ -186,7 +186,8 @@
         "|",
         "[0-9]{23}",
         "))",
-        "(?P<CheckDigit>[0-9])"],
+        "(?P<CheckDigit>[0-9])"
+      ],
       "check_digit_algo": {
         "name": "mod10",
         "evensMultiplier": 3,
