@@ -141,6 +141,36 @@
       }
     },
     {
+      "_inherits": "fedex",
+      "name": "FedEx (2D barcode)",
+      "regex": [
+        "\\[\\)>\u001e",
+        "01\u001d(?P<ANSIVersion>[0-9]{2})",
+        "(?P<RecipientPostalCode>[0-9A-Z]{5,6})\u001d",
+        "(?P<RecipientCountryCode>[0-9]{3})\u001d",
+        "(?P<ServiceClass>[A-Z0-9]{3})\u001d",
+        "(?P<TrackingNumber>",
+        "(?P<SerialNumber>(?:[0-9]{14}|[0-9]{11}))(?P<CheckDigit>[0-9])",
+        ")\u001d",
+        "(?P<OriginCarrierSCAC>[0-9A-Z]{2,4})\u001d",
+        "(?P<PickupLocation>[0-9]{7})?\u001d",
+        "(?P<PickupDate>[0-9]{3})?\u001d",
+        "(?P<ShipmentId>[0-9]{1,30})?\u001d",
+        "(?P<ContainerNofM>[0-9/]{1,9})?\u001d",
+        "(?P<WeightLbs>[0-9.]{1,6}LB)\u001d",
+        "(?P<CrossMatchPostalCodeToState>[Y|N])\u001d",
+        "(?P<RecipientStreet>[0-9A-z ]{1,30})\u001d",
+        "(?P<RecipientCity>[0-9A-z ]{1,30})\u001d",
+        "(?P<RecipientState>[0-9A-z ]{2})\u001d",
+        "(?P<RecipientName>[0-9A-z ]{1,30})\u001e",
+        "(?:",
+        "(?P<NumOptionalFields>[0-9]{2})\u001d",
+        "(?P<OptionalFields>(?:[0-9]{2}Z.+?\u001d)*)",
+        ")?",
+        "\u001e\u0004"
+      ]
+    },
+    {
       "name": "OnTrac",
       "regex": "C(?P<SerialNumber>[0-9]{13})(?P<CheckDigit>[0-9])",
       "check_digit_algo": {
