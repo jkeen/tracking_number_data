@@ -88,14 +88,6 @@
       "9200000000000000000000"
     ]
   },
-  "FedEx (2D barcode)": {
-    "valid": [
-      "TODO"
-    ],
-    "invalid": [
-      "TODO"
-    ]
-  },
   "OnTrac": {
     "valid": [
       "C11031500001879",
