@@ -122,14 +122,22 @@
       "name": "FedEx SmartPost",
       "regex": [
         "(?P<ApplicationIdentifier>92)?",
+        "(?P<SerialNumber>",
         "(?P<SCNC>[0-9]{2})",
         "(?P<ClassOfService>[0-9]{3})",
-        "(?P<SerialNumber>(?P<ShipperId>[0-9]{7})(?P<PackageId>[0-9]{7}))",
+        "(?P<ShipperId>[0-9]{7})",
+        "(?P<PackageId>[0-9]{7})",
+        ")",
         "(?P<CheckDigit>[0-9])"
       ],
       "serial_number_parser": {
         "name": "default",
         "prepend": "92"
+      },
+      "check_digit_algo": {
+        "name": "mod10",
+        "evensMultiplier": 3,
+        "oddsMultiplier": 1
       }
     },
     {
@@ -164,17 +172,21 @@
     },
     {
       "name": "OnTrac",
-      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>[A-Z]{2})",
+      "regex": "C(?P<SerialNumber>[0-9]{13})(?P<CheckDigit>[0-9])",
       "check_digit_algo": {
         "name": "mod10",
         "evensMultiplier": 1,
         "oddsMultiplier": 2
       },
+      "serial_number_parser": {
+        "name": "default",
+        "prepend": "4"
+      },
       "tracking_url": "http://www.ontrac.com/trackingres.asp?tracking_number=%s"
     },
     {
       "name": "UPS",
-      "regex": "1Z(?P<SerialNumber>[A-Z]{15,15})([A-Z])",
+      "regex": "1Z(?P<SerialNumber>[A-Z0-9]{15,15})(?P<CheckDigit>[A-Z0-9])",
       "check_digit_algo": {
         "name": "mod10",
         "evensMultiplier": 1,
@@ -185,18 +197,26 @@
     {
       "_inherits": "usps",
       "name": "USPS20",
-      "regex": "(?P<ApplicationIdentifier>[0-9]{2})(?P<ShipperId>[0-9]{9})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])",
+      "regex": "(?P<SerialNumber>(?P<ApplicationIdentifier>[0-9]{2})(?P<ShipperId>[0-9]{9})[0-9]{8})(?P<CheckDigit>[0-9])",
       "check_digit_algo": {
         "name": "mod10",
         "evensMultiplier": 3,
         "oddsMultiplier": 1
-      },
-      "_note": "TODO: is this still used?"
+      }
     },
     {
       "_inherits": "usps",
       "name": "USPS91",
-      "regex": "(?P<RoutingApplicationId>420)(?P<DestinationZip>[0-9]{5})(?:(?P<ApplicationId>91)(?P<ServiceTypeCode>[0-9]{2}))?(?P<MailerId>[0-9]{9})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])",
+      "regex": [
+        "(?:(?P<RoutingApplicationId>420)(?P<DestinationZip>[0-9]{5}))?",
+        "(?P<SerialNumber>",
+        "(?P<ApplicationId>91)",
+        "(?:",
+        "(?P<ServiceTypeCode>[0-9]{2})(?P<MailerId>[0-9]{9})(?P<SerialNumber2>[0-9]{8})",
+        "|",
+        "[0-9]{23}",
+        "))",
+        "(?P<CheckDigit>[0-9])"],
       "check_digit_algo": {
         "name": "mod10",
         "evensMultiplier": 3,
