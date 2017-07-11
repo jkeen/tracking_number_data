@@ -6,7 +6,7 @@
       },
       "tracking_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s",
       "name": "DHL Express",
-      "regex": "(?P<SerialNumber>[0-9]{9})(?P<CheckDigit>[0-9])",
+      "regex": "(?<SerialNumber>[0-9]{9})(?<CheckDigit>[0-9])",
       "test_numbers": {
         "valid": [
           "3318810025",
@@ -27,7 +27,7 @@
       },
       "tracking_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s",
       "name": "DHL Express Air",
-      "regex": "(?P<SerialNumber>[0-9]{10})(?P<CheckDigit>[0-9])",
+      "regex": "(?<SerialNumber>[0-9]{10})(?<CheckDigit>[0-9])",
       "test_numbers": {
         "valid": [
           "73891051146"
@@ -42,7 +42,7 @@
     },
     {
       "name": "FedEx Express",
-      "regex": "(?P<SerialNumber>[0-9]{11})(?P<CheckDigit>[0-9])",
+      "regex": "(?<SerialNumber>[0-9]{11})(?<CheckDigit>[0-9])",
       "check_digit_algo": {
         "name": "sum_product_with_weightings_and_modulo",
         "weightings": [
@@ -77,7 +77,7 @@
     },
     {
       "name": "FedEx Ground",
-      "regex": "(?P<SerialNumber>[0-9]{14})(?P<CheckDigit>[0-9])",
+      "regex": "(?<SerialNumber>[0-9]{14})(?<CheckDigit>[0-9])",
       "check_digit_algo": {
         "name": "mod10",
         "evensMultiplier": 1,
@@ -97,7 +97,7 @@
     },
     {
       "name": "FedEx Ground 18",
-      "regex": "(?P<ContainerType>[0-9]{2})(?P<SerialNumber>[0-9]{15})(?P<CheckDigit>[0-9])",
+      "regex": "(?<ContainerType>[0-9]{2})(?<SerialNumber>[0-9]{15})(?<CheckDigit>[0-9])",
       "tracking_url": "https://www.fedex.com/apps/fedextrack/?tracknumbers=%s",
       "check_digit_algo": {
         "name": "mod10",
@@ -116,11 +116,11 @@
     {
       "name": "FedEx Ground 96 (22)",
       "regex": [
-        "(?P<ApplicationIdentifier>96)",
-        "(?P<SCNC>[0-9]{2})",
-        "(?P<ClassOfService>[0-9]{3})",
-        "(?P<SerialNumber>(?P<ShipperId>[0-9]{7})(?P<PackageId>[0-9]{7}))",
-        "(?P<CheckDigit>[0-9])"
+        "(?<ApplicationIdentifier>96)",
+        "(?<SCNC>[0-9]{2})",
+        "(?<ClassOfService>[0-9]{3})",
+        "(?<SerialNumber>(?<ShipperId>[0-9]{7})(?<PackageId>[0-9]{7}))",
+        "(?<CheckDigit>[0-9])"
       ],
       "check_digit_algo": {
         "name": "mod10",
@@ -140,13 +140,13 @@
     {
       "name": "FedEx Ground 96 (34)",
       "regex": [
-        "(?P<ApplicationIdentifier>96)",
-        "(?P<SCNC>[0-9]{2})",
+        "(?<ApplicationIdentifier>96)",
+        "(?<SCNC>[0-9]{2})",
         "[0-9]{5}",
-        "(?P<GSN>[0-9]{10})",
+        "(?<GSN>[0-9]{10})",
         "[0-9]",
-        "(?P<SerialNumber>[0-9]{13})",
-        "(?P<CheckDigit>[0-9])"
+        "(?<SerialNumber>[0-9]{13})",
+        "(?<CheckDigit>[0-9])"
       ],
       "check_digit_algo": {
         "name": "sum_product_with_weightings_and_modulo",
@@ -185,14 +185,14 @@
     {
       "name": "FedEx SmartPost",
       "regex": [
-        "(?P<ApplicationIdentifier>92)?",
-        "(?P<SerialNumber>",
-        "(?P<SCNC>[0-9]{2})",
-        "(?P<ClassOfService>[0-9]{3})",
-        "(?P<ShipperId>[0-9]{7})",
-        "(?P<PackageId>[0-9]{7})",
+        "(?<ApplicationIdentifier>92)?",
+        "(?<SerialNumber>",
+        "(?<SCNC>[0-9]{2})",
+        "(?<ClassOfService>[0-9]{3})",
+        "(?<ShipperId>[0-9]{7})",
+        "(?<PackageId>[0-9]{7})",
         ")",
-        "(?P<CheckDigit>[0-9])"
+        "(?<CheckDigit>[0-9])"
       ],
       "serial_number_parser": {
         "name": "default",
@@ -222,7 +222,7 @@
     },
     {
       "name": "OnTrac",
-      "regex": "C(?P<SerialNumber>[0-9]{13})(?P<CheckDigit>[0-9])",
+      "regex": "C(?<SerialNumber>[0-9]{13})(?<CheckDigit>[0-9])",
       "check_digit_algo": {
         "name": "mod10",
         "evensMultiplier": 1,
@@ -246,7 +246,7 @@
     },
     {
       "name": "UPS",
-      "regex": "1Z(?P<SerialNumber>[A-Z0-9]{15,15})(?P<CheckDigit>[A-Z0-9])",
+      "regex": "1Z(?<SerialNumber>[A-Z0-9]{15,15})(?<CheckDigit>[A-Z0-9])",
       "check_digit_algo": {
         "name": "mod10",
         "evensMultiplier": 1,
@@ -270,7 +270,7 @@
     {
       "tracking_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s",
       "name": "USPS20",
-      "regex": "(?P<SerialNumber>(?P<ApplicationIdentifier>[0-9]{2})(?P<ShipperId>[0-9]{9})[0-9]{8})(?P<CheckDigit>[0-9])",
+      "regex": "(?<SerialNumber>(?<ApplicationIdentifier>[0-9]{2})(?<ShipperId>[0-9]{9})[0-9]{8})(?<CheckDigit>[0-9])",
       "check_digit_algo": {
         "name": "mod10",
         "evensMultiplier": 3,
@@ -289,15 +289,15 @@
       "tracking_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s",
       "name": "USPS91",
       "regex": [
-        "(?:(?P<RoutingApplicationId>420)(?P<DestinationZip>[0-9]{5}))?",
-        "(?P<SerialNumber>",
-        "(?P<ApplicationId>91)",
+        "(?:(?<RoutingApplicationId>420)(?<DestinationZip>[0-9]{5}))?",
+        "(?<SerialNumber>",
+        "(?<ApplicationId>91)",
         "(?:",
-        "(?P<ServiceTypeCode>[0-9]{2})(?P<MailerId>[0-9]{9})(?P<SerialNumber2>[0-9]{8})",
+        "(?<ServiceTypeCode>[0-9]{2})(?<MailerId>[0-9]{9})(?<SerialNumber2>[0-9]{8})",
         "|",
         "[0-9]{23}",
         "))",
-        "(?P<CheckDigit>[0-9])"
+        "(?<CheckDigit>[0-9])"
       ],
       "check_digit_algo": {
         "name": "mod10",
@@ -320,7 +320,7 @@
         "name": "s10"
       },
       "tracking_url": null,
-      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>[A-Z]{2})",
+      "regex": "(?<ApplicationIdentifier>[A-Z]{2})(?<SerialNumber>[0-9]{8})(?<CheckDigit>[0-9])(?<CountryCode>[A-Z]{2})",
       "test_numbers": {
         "valid": [
           "RB123456785US",

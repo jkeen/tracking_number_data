@@ -85,10 +85,10 @@ def gen_country_json_dct(request, *args, **kwargs):
     countrydct['upu_reference_url'] = request.url
     if countrydct['country_code']:
         countrydct['regex'] = (
-            "(?P<ApplicationIdentifier>[A-Z]{2})"
-            "(?P<SerialNumber>[0-9]{8})"
-            "(?P<CheckDigit>[0-9])"
-            "(?P<CountryCode>%s{2})") % countrydct['country_code']
+            "(?<ApplicationIdentifier>[A-Z]{2})"
+            "(?<SerialNumber>[0-9]{8})"
+            "(?<CheckDigit>[0-9])"
+            "(?<CountryCode>%s{2})") % countrydct['country_code']
     else:
         countrydct['regex'] = None
     globals().update(locals())
