@@ -1,37 +1,46 @@
 {
-  "_comment": "special fields for human readability: _inherits, _comment, _note",
-  "_shared_courier_data": {
-    "dhl": {
+  "couriers": [
+    {
       "check_digit_algo": {
         "name": "mod7"
       },
-      "tracking_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s"
-    },
-    "fedex": {
-      "tracking_url": "https://www.fedex.com/apps/fedextrack/?tracknumbers=%s",
-      "check_digit_algo": {
-        "name": "mod10",
-        "evensMultiplier": 3,
-        "oddsMultiplier": 1
+      "tracking_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s",
+      "name": "DHL Express",
+      "regex": "(?P<SerialNumber>[0-9]{9})(?P<CheckDigit>[0-9])",
+      "test_numbers": {
+        "valid": [
+          "3318810025",
+          "8487135506",
+          "3318810036",
+          "3318810014"
+        ],
+        "invalid": [
+          "a",
+          "1",
+          "1111111111"
+        ]
       }
     },
-    "usps": {
-      "tracking_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s"
-    }
-  },
-  "couriers": [
     {
-      "_inherits": "dhl",
-      "name": "DHL Express",
-      "regex": "(?P<SerialNumber>[0-9]{9})(?P<CheckDigit>[0-9])"
-    },
-    {
-      "_inherits": "dhl",
+      "check_digit_algo": {
+        "name": "mod7"
+      },
+      "tracking_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s",
       "name": "DHL Express Air",
-      "regex": "(?P<SerialNumber>[0-9]{10})(?P<CheckDigit>[0-9])"
+      "regex": "(?P<SerialNumber>[0-9]{10})(?P<CheckDigit>[0-9])",
+      "test_numbers": {
+        "valid": [
+          "73891051146"
+        ],
+        "invalid": [
+          "a",
+          "70",
+          "1111111111",
+          "73891051147"
+        ]
+      }
     },
     {
-      "_inherits": "fedex",
       "name": "FedEx Express",
       "regex": "(?P<SerialNumber>[0-9]{11})(?P<CheckDigit>[0-9])",
       "check_digit_algo": {
@@ -51,25 +60,60 @@
         ],
         "modulo1": 11,
         "modulo2": 10
+      },
+      "tracking_url": "https://www.fedex.com/apps/fedextrack/?tracknumbers=%s",
+      "test_numbers": {
+        "valid": [
+          "986578788855",
+          "477179081230",
+          "799531274483",
+          "790535312317",
+          "974367662710"
+        ],
+        "invalid": [
+          "996578788855"
+        ]
       }
     },
     {
-      "_inherits": "fedex",
       "name": "FedEx Ground",
       "regex": "(?P<SerialNumber>[0-9]{14})(?P<CheckDigit>[0-9])",
       "check_digit_algo": {
         "name": "mod10",
         "evensMultiplier": 1,
         "oddsMultiplier": 3
+      },
+      "tracking_url": "https://www.fedex.com/apps/fedextrack/?tracknumbers=%s",
+      "test_numbers": {
+        "valid": [
+          "041441760228964",
+          "568283610012000",
+          "568283610012734"
+        ],
+        "invalid": [
+          "000000000000001"
+        ]
       }
     },
     {
-      "_inherits": "fedex",
       "name": "FedEx Ground 18",
-      "regex": "(?P<ContainerType>[0-9]{2})(?P<SerialNumber>[0-9]{15})(?P<CheckDigit>[0-9])"
+      "regex": "(?P<ContainerType>[0-9]{2})(?P<SerialNumber>[0-9]{15})(?P<CheckDigit>[0-9])",
+      "tracking_url": "https://www.fedex.com/apps/fedextrack/?tracknumbers=%s",
+      "check_digit_algo": {
+        "name": "mod10",
+        "evensMultiplier": 3,
+        "oddsMultiplier": 1
+      },
+      "test_numbers": {
+        "valid": [
+          "000123450000000027"
+        ],
+        "invalid": [
+          "000000000000000001"
+        ]
+      }
     },
     {
-      "_inherits": "fedex",
       "name": "FedEx Ground 96 (22)",
       "regex": [
         "(?P<ApplicationIdentifier>96)",
@@ -82,10 +126,18 @@
         "name": "mod10",
         "evensMultiplier": 1,
         "oddsMultiplier": 3
+      },
+      "tracking_url": "https://www.fedex.com/apps/fedextrack/?tracknumbers=%s",
+      "test_numbers": {
+        "valid": [
+          "9611020987654312345672"
+        ],
+        "invalid": [
+          "9600000000000000000001"
+        ]
       }
     },
     {
-      "_inherits": "fedex",
       "name": "FedEx Ground 96 (34)",
       "regex": [
         "(?P<ApplicationIdentifier>96)",
@@ -115,10 +167,22 @@
         ],
         "modulo1": 11,
         "modulo2": 10
+      },
+      "tracking_url": "https://www.fedex.com/apps/fedextrack/?tracknumbers=%s",
+      "test_numbers": {
+        "valid": [
+          "9622001900000000000000776632517510",
+          "9622001560000000000000794808390594",
+          "9622001560001234567100794808390594",
+          "9632001560123456789900794808390594"
+        ],
+        "invalid": [
+          "9622001560001234567100794808390595",
+          "9622001560001234567100794808390597"
+        ]
       }
     },
     {
-      "_inherits": "fedex",
       "name": "FedEx SmartPost",
       "regex": [
         "(?P<ApplicationIdentifier>92)?",
@@ -138,6 +202,22 @@
         "name": "mod10",
         "evensMultiplier": 3,
         "oddsMultiplier": 1
+      },
+      "tracking_url": "https://www.fedex.com/apps/fedextrack/?tracknumbers=%s",
+      "test_numbers": {
+        "valid": [
+          "9261292700768711948021",
+          "9261299998820821171811",
+          "9261292700160741008384",
+          "61292700768711948021",
+          "61299998820821171811",
+          "61292700160741008384"
+        ],
+        "invalid": [
+          "61299998820821171812",
+          "00000000000000000000",
+          "9200000000000000000000"
+        ]
       }
     },
     {
@@ -152,7 +232,17 @@
         "name": "default",
         "prepend": "4"
       },
-      "tracking_url": "http://www.ontrac.com/trackingres.asp?tracking_number=%s"
+      "tracking_url": "http://www.ontrac.com/trackingres.asp?tracking_number=%s",
+      "test_numbers": {
+        "valid": [
+          "C11031500001879",
+          "C10999911320231"
+        ],
+        "invalid": [
+          "C10000000000000",
+          "C11031500001889"
+        ]
+      }
     },
     {
       "name": "UPS",
@@ -162,20 +252,41 @@
         "evensMultiplier": 1,
         "oddsMultiplier": 2
       },
-      "tracking_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s"
+      "tracking_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s",
+      "test_numbers": {
+        "valid": [
+          "1Z5R89390357567127",
+          "1Z879E930346834440",
+          "1Z410E7W0392751591",
+          "1Z8V92A70367203024"
+        ],
+        "invalid": [
+          "2Z5R89390357567127",
+          "1A5R89390357567127",
+          "1Z1111111111111111"
+        ]
+      }
     },
     {
-      "_inherits": "usps",
+      "tracking_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s",
       "name": "USPS20",
       "regex": "(?P<SerialNumber>(?P<ApplicationIdentifier>[0-9]{2})(?P<ShipperId>[0-9]{9})[0-9]{8})(?P<CheckDigit>[0-9])",
       "check_digit_algo": {
         "name": "mod10",
         "evensMultiplier": 3,
         "oddsMultiplier": 1
+      },
+      "test_numbers": {
+        "valid": [
+          "03071790000523483741"
+        ],
+        "invalid": [
+          "03071790000523483742"
+        ]
       }
     },
     {
-      "_inherits": "usps",
+      "tracking_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s",
       "name": "USPS91",
       "regex": [
         "(?:(?P<RoutingApplicationId>420)(?P<DestinationZip>[0-9]{5}))?",
@@ -192,6 +303,15 @@
         "name": "mod10",
         "evensMultiplier": 3,
         "oddsMultiplier": 1
+      },
+      "test_numbers": {
+        "valid": [
+          "420221539101026837331000039521",
+          "9101026837331000039521"
+        ],
+        "invalid": [
+          "420000000000000000000000000000"
+        ]
       }
     },
     {
@@ -200,7 +320,19 @@
         "name": "s10"
       },
       "tracking_url": null,
-      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>[A-Z]{2})"
+      "regex": "(?P<ApplicationIdentifier>[A-Z]{2})(?P<SerialNumber>[0-9]{8})(?P<CheckDigit>[0-9])(?P<CountryCode>[A-Z]{2})",
+      "test_numbers": {
+        "valid": [
+          "RB123456785US",
+          "RB123456785GB",
+          "RB123456785US",
+          "RB123456785CV",
+          "RB123456785CF"
+        ],
+        "invalid": [
+          "RB123456786US"
+        ]
+      }
     }
   ]
 }
