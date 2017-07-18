@@ -300,7 +300,7 @@
       }
     },
     {
-      "name": "USPS Parcel Select",
+      "name": "USPS (34)",
       "regex": [
         "(?:(?<RoutingApplicationId>420)(?<DestinationZip>[0-9]{5}))?",
         "(?<SerialNumber>",
