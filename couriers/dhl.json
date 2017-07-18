@@ -1,0 +1,42 @@
+[
+  {
+    "check_digit_algo": {
+      "name": "mod7"
+    },
+    "tracking_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s",
+    "name": "DHL Express",
+    "regex": "(?<SerialNumber>[0-9]{9})(?<CheckDigit>[0-9])",
+    "test_numbers": {
+      "valid": [
+        "3318810025",
+        "8487135506",
+        "3318810036",
+        "3318810014"
+      ],
+      "invalid": [
+        "a",
+        "1",
+        "1111111111"
+      ]
+    }
+  },
+  {
+    "check_digit_algo": {
+      "name": "mod7"
+    },
+    "tracking_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s",
+    "name": "DHL Express Air",
+    "regex": "(?<SerialNumber>[0-9]{10})(?<CheckDigit>[0-9])",
+    "test_numbers": {
+      "valid": [
+        "73891051146"
+      ],
+      "invalid": [
+        "a",
+        "70",
+        "1111111111",
+        "73891051147"
+      ]
+    }
+  }
+]
