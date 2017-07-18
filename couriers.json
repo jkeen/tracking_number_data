@@ -231,8 +231,17 @@
     },
     {
       "tracking_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s",
-      "name": "USPS20",
-      "regex": "(?<SerialNumber>(?<ApplicationIdentifier>[0-9]{2})(?<ShipperId>[0-9]{9})[0-9]{8})(?<CheckDigit>[0-9])",
+      "name": "USPS91 (20)",
+      "regex": [
+        "(?<SerialNumber>",
+        "(?<ServiceTypeCode>[0-9]{2})(?<MailerId>[0-9]{9})(?<SerialNumber2>[0-9]{8})",
+        "(?<CheckDigit>[0-9])",
+        ")"
+      ],
+      "serial_number_parser": {
+        "name": "default",
+        "prepend": "91"
+      },
       "check_digit_algo": {
         "name": "mod10",
         "evensMultiplier": 3,
@@ -240,19 +249,21 @@
       },
       "test_numbers": {
         "valid": [
-          "03071790000523483741"
+          "61292700768711948021",
+          "61299998820821171811"
         ],
         "invalid": [
+          "9161292700160741008384",
           "03071790000523483742"
         ]
       }
     },
-
     {
       "name": "USPS Parcel Select",
       "regex": [
-        "(?<ApplicationIdentifier>92)?",
+        "(?:(?<RoutingApplicationId>420)(?<DestinationZip>[0-9]{5}))?",
         "(?<SerialNumber>",
+        "(?<ApplicationIdentifier>9[12345])",
         "(?<SCNC>[0-9]{2})",
         "(?<ClassOfService>[0-9]{3})",
         "(?<ShipperId>[0-9]{7})",
@@ -260,10 +271,6 @@
         ")",
         "(?<CheckDigit>[0-9])"
       ],
-      "serial_number_parser": {
-        "name": "default",
-        "prepend": "92"
-      },
       "check_digit_algo": {
         "name": "mod10",
         "evensMultiplier": 3,
@@ -272,46 +279,19 @@
       "tracking_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s",
       "test_numbers": {
         "valid": [
+          "420100039261292700160741008384",
           "9261292700768711948021",
           "9261299998820821171811",
           "9261292700160741008384",
-          "61292700768711948021",
-          "61299998820821171811",
-          "61292700160741008384"
+          "9274890103422546330271",
+          "9261290172376608200214"
         ],
         "invalid": [
           "61299998820821171812",
           "00000000000000000000",
-          "9200000000000000000000"
-        ]
-      }
-    },
-    {
-      "tracking_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s",
-      "name": "USPS91",
-      "regex": [
-        "(?:(?<RoutingApplicationId>420)(?<DestinationZip>[0-9]{5}))?",
-        "(?<SerialNumber>",
-        "(?<ApplicationId>91)",
-        "(?:",
-        "(?<ServiceTypeCode>[0-9]{2})(?<MailerId>[0-9]{9})(?<SerialNumber2>[0-9]{8})",
-        "|",
-        "[0-9]{23}",
-        "))",
-        "(?<CheckDigit>[0-9])"
-      ],
-      "check_digit_algo": {
-        "name": "mod10",
-        "evensMultiplier": 3,
-        "oddsMultiplier": 1
-      },
-      "test_numbers": {
-        "valid": [
-          "420221539101026837331000039521",
-          "9101026837331000039521"
-        ],
-        "invalid": [
-          "420000000000000000000000000000"
+          "9200000000000000000000",
+          "420000000000000000000000000000",
+          "420000009200000000000000000000"
         ]
       }
     },
