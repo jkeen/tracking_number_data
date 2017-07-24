@@ -1,0 +1,27 @@
+[
+  {
+    "name": "UPS",
+    "regex": "1Z(?<SerialNumber>[A-Z0-9]{15,15})(?<CheckDigit>[A-Z0-9])",
+    "validation": {
+      "checksum": {
+        "name": "mod10",
+        "evens_multiplier": 1,
+        "odds_multiplier": 2
+      }
+    },
+    "tracking_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s",
+    "test_numbers": {
+      "valid": [
+        "1Z5R89390357567127",
+        "1Z879E930346834440",
+        "1Z410E7W0392751591",
+        "1Z8V92A70367203024"
+      ],
+      "invalid": [
+        "2Z5R89390357567127",
+        "1A5R89390357567127",
+        "1Z1111111111111111"
+      ]
+    }
+  }
+]

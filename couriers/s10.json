@@ -1,8 +1,10 @@
 [
   {
     "name": "S10",
-    "check_digit_algo": {
-      "name": "s10"
+    "validation": {
+      "checksum": {
+        "name": "s10"
+      }
     },
     "tracking_url": null,
     "regex": "(?<ServiceIndicator>[A-Z]{2})(?<SerialNumber>[0-9]{8})(?<CheckDigit>[0-9])(?<CountryCode>[A-Z]{2})",
@@ -18,7 +20,7 @@
         "RB123456786US"
       ]
     },
-    "additional": {
+    "additional": {      
       "ServiceIndicator": [
         {
           "name": "EMS",
