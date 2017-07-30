@@ -1,27 +1,31 @@
-[
-  {
-    "name": "OnTrac",
-    "regex": "C(?<SerialNumber>[0-9]{13})(?<CheckDigit>[0-9])",
-    "validation": {
-      "checksum": {
-        "name": "mod10",
-        "evens_multiplier": 1,
-        "odds_multiplier": 2
+{
+  "name": "OnTrac",
+  "courier_code": "ontrac",
+  "tracking_numbers": [
+    {
+      "name": "OnTrac",
+      "regex": "C(?<SerialNumber>[0-9]{13})(?<CheckDigit>[0-9])",
+      "validation": {
+        "checksum": {
+          "name": "mod10",
+          "evens_multiplier": 1,
+          "odds_multiplier": 2
+        },
+        "serial_number_format": {
+          "prepend_if_missing": "4"
+        }
       },
-      "serial_number_format": {
-        "prepend_if_missing": "4"
+      "tracking_url": "http://www.ontrac.com/trackingres.asp?tracking_number=%s",
+      "test_numbers": {
+        "valid": [
+          "C11031500001879",
+          "C10999911320231"
+        ],
+        "invalid": [
+          "C10000000000000",
+          "C11031500001889"
+        ]
       }
-    },
-    "tracking_url": "http://www.ontrac.com/trackingres.asp?tracking_number=%s",
-    "test_numbers": {
-      "valid": [
-        "C11031500001879",
-        "C10999911320231"
-      ],
-      "invalid": [
-        "C10000000000000",
-        "C11031500001889"
-      ]
     }
-  }
-]
+  ]
+}

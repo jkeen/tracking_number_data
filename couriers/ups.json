@@ -1,123 +1,127 @@
-[
-  {
-    "name": "UPS",
-    "regex": "1Z(?<SerialNumber>(?<ShipperAccount>[A-Z0-9]{6,6})(?<ServiceType>[A-Z0-9]{2,2})(?<PackageIdentifier>[A-Z0-9]{7,7}))(?<CheckDigit>[A-Z0-9])",
-    "validation": {
-      "checksum": {
-        "name": "mod10",
-        "evens_multiplier": 1,
-        "odds_multiplier": 2
-      }
-    },
-    "tracking_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s",
-    "additional": [
-      {
-        "name": "Service Type",
-        "regex_group_name": "ServiceType",
-        "lookup": [
-          {
-            "matches": "01",
-            "name": "UPS United States Next Day Air (Red)"
-          },
-          {
-            "matches": "02",
-            "name": "UPS United States Second Day Air (Blue)"
-          },
-          {
-            "matches": "03",
-            "name": "UPS United States Ground"
-          },
-          {
-            "matches": "12",
-            "name": "UPS United States Third Day Select"
-          },
-          {
-            "matches": "13",
-            "name": "UPS United States Next Day Air Saver (Red Saver)"
-          },
-          {
-            "matches": "15",
-            "name": "UPS United States Next Day Air Early A.M."
-          },
-          {
-            "matches": "22",
-            "name": "UPS United States Ground - Returns Plus - Three Pickup Attempts"
-          },
-          {
-            "matches": "32",
-            "name": "UPS United States Next Day Air Early A.M. - COD"
-          },
-          {
-            "matches": "33",
-            "name": "UPS United States Next Day Air Early A.M. - Saturday Delivery, COD"
-          },
-          {
-            "matches": "41",
-            "name": "UPS United States Next Day Air Early A.M. - Saturday Delivery"
-          },
-          {
-            "matches": "42",
-            "name": "UPS United States Ground - Signature Required"
-          },
-          {
-            "matches": "44",
-            "name": "UPS United States Next Day Air - Saturday Delivery"
-          },
-          {
-            "matches": "66",
-            "name": "UPS United States Worldwide Express"
-          },
-          {
-            "matches": "72",
-            "name": "UPS United States Ground - Collect on Delivery"
-          },
-          {
-            "matches": "78",
-            "name": "UPS United States Ground - Returns Plus - One Pickup Attempt"
-          },
-          {
-            "matches": "90",
-            "name": "UPS United States Ground - Returns - UPS Prints and Mails Label"
-          },
-          {
-            "matches": "A0",
-            "name": "UPS United States Next Day Air Early A.M. - Adult Signature Required"
-          },
-          {
-            "matches": "A1",
-            "name": "UPS United States Next Day Air Early A.M. - Saturday Delivery, Adult Signature Required"
-          },
-          {
-            "matches": "A2",
-            "name": "UPS United States Next Day Air - Adult Signature Required"
-          },
-          {
-            "matches": "A8",
-            "name": "UPS United States Ground - Adult Signature Required"
-          },
-          {
-            "matches": "A9",
-            "name": "UPS United States Next Day Air Early A.M. - Adult Signature Required, COD"
-          },
-          {
-            "matches": "AA",
-            "name": "UPS United States Next Day Air Early A.M. - Saturday Delivery, Adult Signature Required, COD"
-          }
+{
+  "name": "UPS",
+  "courier_code": "ups",
+  "tracking_numbers": [
+    {
+      "name": "UPS",
+      "regex": "1Z(?<SerialNumber>(?<ShipperId>[A-Z0-9]{6,6})(?<ServiceType>[A-Z0-9]{2,2})(?<PackageId>[A-Z0-9]{7,7}))(?<CheckDigit>[A-Z0-9])",
+      "validation": {
+        "checksum": {
+          "name": "mod10",
+          "evens_multiplier": 1,
+          "odds_multiplier": 2
+        }
+      },
+      "tracking_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s",
+      "additional": [
+        {
+          "name": "Service Type",
+          "regex_group_name": "ServiceType",
+          "lookup": [
+            {
+              "matches": "01",
+              "name": "UPS United States Next Day Air (Red)"
+            },
+            {
+              "matches": "02",
+              "name": "UPS United States Second Day Air (Blue)"
+            },
+            {
+              "matches": "03",
+              "name": "UPS United States Ground"
+            },
+            {
+              "matches": "12",
+              "name": "UPS United States Third Day Select"
+            },
+            {
+              "matches": "13",
+              "name": "UPS United States Next Day Air Saver (Red Saver)"
+            },
+            {
+              "matches": "15",
+              "name": "UPS United States Next Day Air Early A.M."
+            },
+            {
+              "matches": "22",
+              "name": "UPS United States Ground - Returns Plus - Three Pickup Attempts"
+            },
+            {
+              "matches": "32",
+              "name": "UPS United States Next Day Air Early A.M. - COD"
+            },
+            {
+              "matches": "33",
+              "name": "UPS United States Next Day Air Early A.M. - Saturday Delivery, COD"
+            },
+            {
+              "matches": "41",
+              "name": "UPS United States Next Day Air Early A.M. - Saturday Delivery"
+            },
+            {
+              "matches": "42",
+              "name": "UPS United States Ground - Signature Required"
+            },
+            {
+              "matches": "44",
+              "name": "UPS United States Next Day Air - Saturday Delivery"
+            },
+            {
+              "matches": "66",
+              "name": "UPS United States Worldwide Express"
+            },
+            {
+              "matches": "72",
+              "name": "UPS United States Ground - Collect on Delivery"
+            },
+            {
+              "matches": "78",
+              "name": "UPS United States Ground - Returns Plus - One Pickup Attempt"
+            },
+            {
+              "matches": "90",
+              "name": "UPS United States Ground - Returns - UPS Prints and Mails Label"
+            },
+            {
+              "matches": "A0",
+              "name": "UPS United States Next Day Air Early A.M. - Adult Signature Required"
+            },
+            {
+              "matches": "A1",
+              "name": "UPS United States Next Day Air Early A.M. - Saturday Delivery, Adult Signature Required"
+            },
+            {
+              "matches": "A2",
+              "name": "UPS United States Next Day Air - Adult Signature Required"
+            },
+            {
+              "matches": "A8",
+              "name": "UPS United States Ground - Adult Signature Required"
+            },
+            {
+              "matches": "A9",
+              "name": "UPS United States Next Day Air Early A.M. - Adult Signature Required, COD"
+            },
+            {
+              "matches": "AA",
+              "name": "UPS United States Next Day Air Early A.M. - Saturday Delivery, Adult Signature Required, COD"
+            }
+          ]
+        }
+      ],
+      "test_numbers": {
+        "valid": [
+          "1Z5R89390357567127",
+          "1Z879E930346834440",
+          "1Z410E7W0392751591",
+          "1Z8V92A70367203024"
+        ],
+        "invalid": [
+          "2Z5R89390357567127",
+          "1A5R89390357567127",
+          "1Z1111111111111111"
         ]
       }
-    ],
-    "test_numbers": {
-      "valid": [
-        "1Z5R89390357567127",
-        "1Z879E930346834440",
-        "1Z410E7W0392751591",
-        "1Z8V92A70367203024"
-      ],
-      "invalid": [
-        "2Z5R89390357567127",
-        "1A5R89390357567127",
-        "1Z1111111111111111"
-      ]
     }
-  }
-]
+  ]
+}
