@@ -3,28 +3,36 @@
   "courier_code": "usps",
   "tracking_numbers": [
     {
-      "tracking_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s",
+      "tracking_url": "https://m.usps.com/m/TrackConfirmAction_detail?tLabels=%s",
       "name": "USPS91 (20)",
       "regex": [
         "(?<SerialNumber>",
-        "(?<ServiceType>[0-9]{2})(?<MailerId>[0-9]{9})(?<PackageId>[0-9]{8})",
-        "(?<CheckDigit>[0-9])",
-        ")"
+          "(?<ApplicationId>9[1-5])?(?<ServiceType>[0-9]{2})(?<MailerId>[0-9]{9})(?<PackageId>[0-9]{8})",
+        ")",
+        "(?<CheckDigit>[0-9])"
       ],
       "validation": {
         "checksum": {
           "name": "mod10",
-          "evens_multiplier": 3,
-          "odds_multiplier": 1
+          "odds_multiplier": 3,
+          "evens_multiplier": 1
         },
         "serial_number_format": {
-          "prepend_if_missing": "91"
+          "prepend_if": {
+            "matches_regex": "^(?!9[1-5]).+",
+            "content": "91"
+          }
         }
       },
       "test_numbers": {
         "valid": [
           "61292700768711948021",
-          "61299998820821171811"
+          "61299998820821171811",
+          "9101123456789000000013",
+          "71969010756003077385",
+          "9400111201080805483016",
+          "9505511069605048600624",
+          "9361289878700317633795"
         ],
         "invalid": [
           "9161292700160741008384",
@@ -52,10 +60,11 @@
           "odds_multiplier": 1
         }
       },
-      "tracking_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s",
+      "tracking_url": "https://m.usps.com/m/TrackConfirmAction_detail?tLabels=%s",
       "test_numbers": {
         "valid": [
           "420100039261292700160741008384",
+          "420221539101026837331000039521",
           "9261292700768711948021",
           "9261299998820821171811",
           "9261292700160741008384",
