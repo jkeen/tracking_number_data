@@ -4,7 +4,7 @@
   "tracking_numbers": [
     {
       "name": "DHL Express",
-      "regex": "(?<SerialNumber>[0-9]{9})(?<CheckDigit>[0-9])",
+      "regex": "(?<SerialNumber>([0-9]\\s*){9})(?<CheckDigit>([0-9]\\s*))",
       "validation": {
         "checksum": {
           "name": "mod7"
@@ -27,7 +27,7 @@
     },
     {
       "name": "DHL Express Air",
-      "regex": "(?<SerialNumber>[0-9]{10})(?<CheckDigit>[0-9])",
+      "regex": "(?<SerialNumber>([0-9]\\s*){10})(?<CheckDigit>[0-9]\\s*)",
       "validation": {
         "checksum": {
           "name": "mod7"

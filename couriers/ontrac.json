@@ -4,7 +4,7 @@
   "tracking_numbers": [
     {
       "name": "OnTrac",
-      "regex": "C(?<SerialNumber>[0-9]{13})(?<CheckDigit>[0-9])",
+      "regex": "C\\s*(?<SerialNumber>([0-9]\\s*){13})(?<CheckDigit>[0-9]\\s*)",
       "validation": {
         "checksum": {
           "name": "mod10",
@@ -12,7 +12,10 @@
           "odds_multiplier": 2
         },
         "serial_number_format": {
-          "prepend_if_missing": "4"
+          "prepend_if": {
+            "matches_regex": "^(?!4)",
+            "content": "4"
+          }
         }
       },
       "tracking_url": "http://www.ontrac.com/trackingres.asp?tracking_number=%s",
