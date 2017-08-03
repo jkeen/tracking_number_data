@@ -1,8 +1,28 @@
 # About this Repo
 
-This repository contains json files that identify which shipping courier
-service is associated with any given tracking number.  A shipping
-courier is someone like FedEx or USPS.
+This repository contains json files that programatically describe how to detect, validate, and decode the following types of tracking numbers:
+
+
+## Supported Tracking Numbers
+
+Carrier / Type  |  Length  |  Example  | Data
+----------- |  -------   |  -----------------  | -------------
+UPS | 18 | `1Z5R89390357567127` | `SerialNumber` `CheckDigit` `ShipperId` `ServiceType` `PackageId`
+Multiple / S10 International Standard | 13 | `RB123456785GB` | `SerialNumber` `CheckDigit` `CountryCode` `ServiceType`
+FedEx / Express  | 12 |  `986578788855` | `SerialNumber` `CheckDigit`
+FedEx / Ground | 15 |  `0414 4176 0228 964` | `SerialNumber` `CheckDigit`
+FedEx / Ground (SSCC 18) | 18 |  `00 0123 4500 0000 0027` | `SerialNumber` `CheckDigit` `ShippingContainerType`
+FedEx / Ground 96 | 22 | `9622001900000000000000776632517510` | `SerialNumber` `CheckDigit` `ApplicationIdentifier` `SCNC` `ServiceType` `ShipperID` `PackageId`
+Fedex / Express (34) | 34 | `1001921334250001000300779017972697` | `SerialNumber` `CheckDigit` `DestinationZip`
+Fedex / Ground 96 | 34 | `9622001560001234567100794808390594` | `SerialNumber` `CheckDigit` `ApplicationIdentifier` `SCNC` `GSN` `ServiceType`
+USPS (20) | 20 | `0307 1790 0005 2348 3741` | `SerialNumber` `CheckDigit` `ServiceType` `MailerId` `PackageId`
+USPS 91 (34) | 25-34 | `420 221539101026837331000039521` `9361 2898 7870 0317 6337 95` `7196 9010 7560 0307 7385` | `SerialNumber` `CheckDigit` `RoutingApplicationId` `DestinationZip` `SCNC` `ServiceType` `ShipperId` `PackageId`
+OnTrac | 15 | `C11031500001879` | `SerialNumber` `CheckDigit`
+DHL Express | 10 | `3318810025` | `SerialNumber` `CheckDigit`
+DHL Express Air | 10 | `73891051146` | `SerialNumber` `CheckDigit`
+
+
+## JSON Format
 
 - **couriers/*.json** - identifies the standard couriers that might send mail
   - Each courier is defined by json hash with the following keys
