@@ -4,58 +4,66 @@ This repository contains json files that identify which shipping courier
 service is associated with any given tracking number.  A shipping
 courier is someone like FedEx or USPS.
 
-- **couriers.json** - identifies the standard couriers that might send mail
-  - Each courier is defined by 4 required fields, and two optional
-    fields.
+- **couriers/*.json** - identifies the standard couriers that might send mail
+  - Each courier is defined by json hash with the following keys
 
     - `name` - Identifies the courier
-    - `regex` - A regular expression that identifies tracking number
-      to a particular courier.  The regex can be a string or a list that
-      should be concatenated (ie via ``` "".join(list_of_strings) ```).
-      The regex contains named groups that identify important parts of
-      the tracking number.  Every regex must identify a "SerialNumber"
-      and "CheckDigit".
-    - `check_digit_algo` - Identifies one of various kinds of check
-      digit algorithms that couriers use to validate the tracking
-      number.  Different couriers use different variations of
-      check digit algorithms.  For a standardized implementation of
-      check digit algorithms, continue reading below.
+    - `courier_code` - short code to identify the courier. Alphanumeric only, no spaces.
+    - `tracking_numbers` - an array of possible tracking number formats for this courier
+
+  - Each tracking number type is defined by a json hash with the following keys:
+    - `name` - A name to identify this type of tracking number. Usually includes the carrier in the name, i.e. `FedExGround`
+
+    - `regex` - A pcre compatible regular expression that identifies the tracking number regardless of spaces in-between characters.
+
+      Every regex must contain the named groups `SerialNumber` and `CheckDigit` and depending on the tracking number can optionally contain the following common attributes:
+
+        - `ServiceType`: indicating the type of delivery service
+        - `ShipperId`: indicating the shipper id
+        - `PackageId`: indicating the package id
+        - `DestinationZip`: indicating the destination zip code
+
+    - `validation` - Specifies how the tracking number is validated
+      - `checksum`
+        - `name`: specifies the algorithm. Supported algorithms and parameters are `mod10`, `mod7`, `s10`, and `sum_product_with_weightings_and_modulo`. Look at existing examples for parameters.
+      - `serial_number_format`: some tracking numbers require some modification of the <SerialNumber> group before validation. In the example below, the serial number needs a "91" prepended before validation unless the number starts with a 91, 92, 93, 94, or 95
+      ```json
+      "serial_number_format": {
+          "prepend_if": {
+            "matches_regex": "^(?!9[1-5]).+",
+            "content": "91"
+          }
+        }```
     - `tracking_url` - A url that we can use to find the tracking
-      history for a particular tracking number.  It assumes the
+      history for a particular tracking number. It assumes the
       tracking number can be entered using python style
       string formatting "www.courier.com?trackingnumber=%s".
-    - `serial_number_parser` - Optional field.  By default, assume
-      couriers use the default serial number parser.  For the
-      standardized list of serial number parsers, continue reading
-      below.
-    - `_inherits` - Optional field.  If defined, it points to a key
-      in "_shared_courier_data", and couriers use this to avoid
-      defining redundant information in the JSON file.
-  - The "S10" courier is a special courier that represents international
-    mail originating from many different countries.  The S10 standard is
-    defined by the Universal Postal Union, which is "is the second
-    oldest international organization worldwide" according to their
-    website.  The S10 regex matches all international mail.  Files in
-    this repo titled "s10_*.json" contain more detailed information.
-  - A comment on the format of this json file: a courier can "inherit"
 
+    - `test_numbers`:
+      - `valid`: an array of valid tracking numbers for testing
+      - `invalid`: an array of invalid tracking numbers for testing
 
-**s10_countries.json** - a list of countries where international mail
-can originate from.  The file **gen_s10_countries.py** generates this
-file by fetching from Universal Postal Union (UPU) website.  The regex
-is the S10 regex, but specific to that country.
+    - `additional` - (optional) further information relating to a named regex group can be specified. For instance, a lookup table for the `ServiceType` regex group, relating the two digit letter code with the type of service.
 
-**s10_service_indicator.json** - the S10 protocol defines a service
-indicator embedded in the tracking number that denotes what kind of mail
-the tracking number represents.
+    ```json
+        "additional": [
+          {
+            "name": "Service Type",
+            "regex_group_name": "ServiceType",
+            "lookup": [
+              {
+                "matches": "01",
+                "name": "UPS United States Next Day Air (Red)"
+              },
+              {
+                "matches": "02",
+                "name": "UPS United States Second Day Air (Blue)"
+              }
+            ]
+          }
+        ]```
 
-**s10_overrides.json** - a list of default fields for various s10
-countries.  The top-level keys in this file correspond the the country
-name in **s10_countries.json**.  The sub-keys can define a `name` or `tracking_url` that should be used instead of the default value found in **s10_countries.json**.
-
-**test_couriers.json** - test fixtures to validate that your code is
-correctly using the json files.
-
+    Each hash in the `lookup` array should contain a key called `matches` or `matces_regex`, specifying how the value of `regex_group_name` should be compared.
 
 ### Standard implementations of
 
