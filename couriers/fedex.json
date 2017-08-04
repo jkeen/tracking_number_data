@@ -84,11 +84,11 @@
     },
     {
       "name": "FedEx SmartPost",
-      "description": "IMpb CO3 standard"
+      "description": "IMpb CO3 standard",
       "regex": [
         "(?<ApplicationIdentifier>9\\s*2\\s*)?",
         "(?<SerialNumber>",
-        "(?<ClassOfService>([0-9]\\s*){3})",
+        "(?<ServiceType>([0-9]\\s*){3})",
         "(?<ShipperId>([0-9]\\s*){9})",
         "(?<PackageId>([0-9]\\s*){7})",
         ")",
