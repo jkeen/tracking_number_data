@@ -105,6 +105,10 @@
             {
               "matches": "AA",
               "name": "UPS United States Next Day Air Early A.M. - Saturday Delivery, Adult Signature Required, COD"
+            },
+            {
+              "matches": "YW",
+              "name": "UPS SurePost - Delivered by the USPS"
             }
           ]
         }
@@ -114,7 +118,8 @@
           "1Z5R89390357567127",
           "1Z879E930346834440",
           "1Z410E7W0392751591",
-          "1Z8V92A70367203024"
+          "1Z8V92A70367203024",
+          "1ZXX3150YW44070023"
         ],
         "invalid": [
           "2Z5R89390357567127",
