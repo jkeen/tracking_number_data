@@ -21,15 +21,38 @@
       },
       "test_numbers": {
         "valid": [
-          "0307 1790 0005 2348 3741"
+          "0307 1790 0005 2348 3741",
+          "7112 3456 7891 2345 6787"
         ],
         "invalid": [
           "0307 1790 0005 2348 3742"
         ]
+      },
+      "additional": {
+        "name": "Service Type",
+        "regex_group_name": "ServiceType",
+        "lookup": [
+          {
+            "matches": "71",
+            "name": "Certified Mail"
+          },
+          {
+            "matches": "73",
+            "name": "Insured Mail"
+          },
+          {
+            "matches": "77",
+            "name": "Registered Mail"
+          },
+          {
+            "matches": "81",
+            "name": "Return Receipt For Merchanise"
+          }
+        ]
       }
     },
     {
-      "name": "USPS 91 (34)",
+      "name": "USPS 91",
       "regex": [
         "(?:(?<RoutingApplicationId>4\\s*2\\s*0\\s*)(?<DestinationZip>([0-9]\\s*){5}))?",
         "(?<SerialNumber>",
@@ -57,7 +80,7 @@
       "tracking_url": "https://m.usps.com/m/TrackConfirmAction_detail?tLabels=%s",
       "test_numbers": {
         "valid": [
-          "420 221539101026837331000039521",
+          "420 22153 9101026837331000039521",
           "7196 9010 7560 0307 7385",
           "9505 5110 6960 5048 6006 24",
           "9101 1234 5678 9000 0000 13",

@@ -151,7 +151,7 @@
       }
     },
     {
-      "name": "FedEx Ground 96 (34)",
+      "name": "FedEx Ground GSN",
       "regex": [
         "(?<ApplicationIdentifier>9\\s*6\\s*)",
         "(?<SCNC>([0-9]\\s*){2})",
