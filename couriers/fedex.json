@@ -3,7 +3,7 @@
   "courier_code": "fedex",
   "tracking_numbers": [
     {
-      "name": "FedEx Express (13)",
+      "name": "FedEx Express (12)",
       "regex": "(?<SerialNumber>([0-9]\\s*){11})(?<CheckDigit>[0-9]\\s*)",
       "validation": {
         "checksum": {
