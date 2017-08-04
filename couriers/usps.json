@@ -28,7 +28,7 @@
           "0307 1790 0005 2348 3742"
         ]
       },
-      "additional": {
+      "additional": [{
         "name": "Service Type",
         "regex_group_name": "ServiceType",
         "lookup": [
@@ -49,7 +49,7 @@
             "name": "Return Receipt For Merchanise"
           }
         ]
-      }
+      }]
     },
     {
       "name": "USPS 91",

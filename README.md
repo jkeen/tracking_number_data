@@ -14,7 +14,8 @@ FedEx / Ground (SSCC 18)              | 18    | `00 0123 4500 0000 0027`        
 FedEx / Ground (96)                   | 22    | `9611020987654312345672`                                                                   | `SerialNumber` `CheckDigit` `ApplicationIdentifier` `SCNC` `ServiceType` `ShipperID` `PackageId`
 Fedex / Ground (GSN)                  | 34    | `9622 0015 6 000 123 4567 1 00 7948 0839 0594`                                             | `SerialNumber` `CheckDigit` `ApplicationIdentifier` `SCNC` `GSN`
 FedEx / Express 12                    | 12    | `986578788855`                                                                             | `SerialNumber` `CheckDigit`
-Fedex / Express Saver                 | 34    | `1001921334250001000300779017972697`                                                       | `SerialNumber` `CheckDigit` `DestinationZip`
+FedEx / Express Saver                 | 34    | `1001921334250001000300779017972697`                                                       | `SerialNumber` `CheckDigit` `DestinationZip`
+FedEx / SmartPost                     | 22    | `61299998820821171811` | `ApplicationIdentifier``SerialNumber`, `CheckDigit`, `ServiceType`, `ShipperId`, `PackageId`
 USPS 20                               | 20    | `0307 1790 0005 2348 3741`                                                                 | `SerialNumber` `CheckDigit` `ServiceType` `MailerId` `PackageId`
 USPS 91                               | 25-34 | `420 221539101026837331000039521` `9361 2898 7870 0317 6337 95` `7196 9010 7560 0307 7385` | `SerialNumber` `CheckDigit` `RoutingApplicationId` `DestinationZip` `SCNC` `ServiceType` `ShipperId` `PackageId`
 OnTrac                                | 15    | `C11031500001879`                                                                          | `SerialNumber` `CheckDigit`
@@ -133,6 +134,7 @@ algorithms for various couriers.
 - s10:
   - http://www.upu.int/uploads/tx_sbdownloader/S10TechnicalStandard.pdf
 - fedex:
+  - smartpost: https://www.fedex.com/us/smartpostguide/IMpbFAQ.html
   - barcode spec: http://images.fedex.com/us/solutions/ppe/FedEx_Ground_Label_Layout_Specification.pdf
   - updated barcode spec: http://www.fedex.com/us/gsn/barcode_guide.pdf
   - http://stackoverflow.com/questions/15744704/how-to-calculate-a-fedex-smartpost-tracking-number-check-digit
