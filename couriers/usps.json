@@ -28,28 +28,30 @@
           "0307 1790 0005 2348 3742"
         ]
       },
-      "additional": [{
-        "name": "Service Type",
-        "regex_group_name": "ServiceType",
-        "lookup": [
-          {
-            "matches": "71",
-            "name": "Certified Mail"
-          },
-          {
-            "matches": "73",
-            "name": "Insured Mail"
-          },
-          {
-            "matches": "77",
-            "name": "Registered Mail"
-          },
-          {
-            "matches": "81",
-            "name": "Return Receipt For Merchanise"
-          }
-        ]
-      }]
+      "additional": [
+        {
+          "name": "Service Type",
+          "regex_group_name": "ServiceType",
+          "lookup": [
+            {
+              "matches": "71",
+              "name": "Certified Mail"
+            },
+            {
+              "matches": "73",
+              "name": "Insured Mail"
+            },
+            {
+              "matches": "77",
+              "name": "Registered Mail"
+            },
+            {
+              "matches": "81",
+              "name": "Return Receipt For Merchanise"
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "USPS 91",
