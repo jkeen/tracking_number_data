@@ -1,10 +1,10 @@
 set -e
 set -u
 
-curdir="`dirname $(readlink -f $0)`"
+parentdir="`dirname $(dirname $(readlink -f $0))`"
 
-# lint all json files in current directory
-for file in `find $curdir -name "*.json"` ; do
+# lint all json files in parent directory
+for file in `find $parentdir -name "*.json"` ; do
   tmpfile="/tmp/$$-`basename "$file"`"
   echo "linting $file"
   jq . "$file" > "$tmpfile"
