@@ -13,7 +13,7 @@
         },
         "serial_number_format": {
           "prepend_if": {
-            "matches_regex": "^(?!4)",
+            "matches_regex": "^(?!4).+$",
             "content": "4"
           }
         }
