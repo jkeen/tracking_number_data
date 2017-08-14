@@ -16,6 +16,7 @@
           "3318810025",
           "8487135506",
           "3318810036",
+          " 3 3 1 8 8 1 0 0 3 6 ",
           "3318810014"
         ],
         "invalid": [
@@ -36,7 +37,8 @@
       "tracking_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s",
       "test_numbers": {
         "valid": [
-          "73891051146"
+          "73891051146",
+          " 7 3 8 9 1 0 5 1 1 4 6 "
         ],
         "invalid": [
           "73891051149",
