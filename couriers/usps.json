@@ -7,8 +7,10 @@
       "name": "USPS 20",
       "description": "20 digit USPS numbers",
       "regex": [
-        "(?<SerialNumber>",
-        "(?<ServiceType>([0-9]\\s*){2})(?<MailerId>([0-9]\\s*){9})(?<PackageId>([0-9]\\s*){8})",
+        "\\s*(?<SerialNumber>",
+        "(?<ServiceType>([0-9]\\s*){2})",
+        "(?<MailerId>([0-9]\\s*){9})",
+        "(?<PackageId>([0-9]\\s*){8})",
         ")",
         "(?<CheckDigit>[0-9]\\s*)"
       ],
@@ -57,7 +59,7 @@
     {
       "name": "USPS 91",
       "regex": [
-        "(?:(?<RoutingApplicationId>4\\s*2\\s*0\\s*)(?<DestinationZip>([0-9]\\s*){5}))?",
+        "\\s*(?:(?<RoutingApplicationId>4\\s*2\\s*0\\s*)(?<DestinationZip>([0-9]\\s*){5}))?",
         "(?<SerialNumber>",
         "(?<ApplicationIdentifier>9\\s*[12345]\\s*)?",
         "(?<SCNC>([0-9]\\s*){2})",

@@ -14,7 +14,7 @@
           ]
         }
       },
-      "regex": "(?<ServiceType>([A-Z]\\s*){2})(?<SerialNumber>([0-9]\\s*){8})(?<CheckDigit>([0-9]\\s*))(?<CountryCode>([A-Z]\\s*){2})",
+      "regex": "\\s*(?<ServiceType>([A-Z]\\s*){2})(?<SerialNumber>([0-9]\\s*){8})(?<CheckDigit>([0-9]\\s*))(?<CountryCode>([A-Z]\\s*){2})",
       "tracking_url": null,
       "test_numbers": {
         "valid": [

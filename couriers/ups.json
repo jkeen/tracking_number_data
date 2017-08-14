@@ -4,7 +4,13 @@
   "tracking_numbers": [
     {
       "name": "UPS",
-      "regex": "1\\s*Z\\s*(?<SerialNumber>(?<ShipperId>([A-Z0-9]\\s*){6,6})(?<ServiceType>([A-Z0-9]\\s*){2,2})(?<PackageId>([A-Z0-9]\\s*){7,7}))(?<CheckDigit>[A-Z0-9]\\s*)",
+      "regex": [
+        "\\s*1\\s*Z\\s*(?<SerialNumber>",
+        "(?<ShipperId>(?:[A-Z0-9]\\s*){6,6})",
+        "(?<ServiceType>(?:[A-Z0-9]\\s*){2,2})",
+        "(?<PackageId>(?:[A-Z0-9]\\s*){7,7}))",
+        "(?<CheckDigit>[A-Z0-9]\\s*)"
+      ],
       "validation": {
         "checksum": {
           "name": "mod10",
