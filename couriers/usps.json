@@ -1,0 +1,107 @@
+{
+  "name": "United States Postal Service",
+  "courier_code": "usps",
+  "tracking_numbers": [
+    {
+      "tracking_url": "https://m.usps.com/m/TrackConfirmAction_detail?tLabels=%s",
+      "name": "USPS 20",
+      "description": "20 digit USPS numbers",
+      "regex": [
+        "\\s*(?<SerialNumber>",
+        "(?<ServiceType>([0-9]\\s*){2})",
+        "(?<MailerId>([0-9]\\s*){9})",
+        "(?<PackageId>([0-9]\\s*){8})",
+        ")",
+        "(?<CheckDigit>[0-9]\\s*)"
+      ],
+      "validation": {
+        "checksum": {
+          "name": "mod10",
+          "evens_multiplier": 3,
+          "odds_multiplier": 1
+        }
+      },
+      "test_numbers": {
+        "valid": [
+          "0307 1790 0005 2348 3741",
+          " 0 3 0 7   1 7 9 0   0 0 0 5   2 3 4 8   3 7 4 1 ",
+          "7112 3456 7891 2345 6787"
+        ],
+        "invalid": [
+          "0307 1790 0005 2348 3742"
+        ]
+      },
+      "additional": [
+        {
+          "name": "Service Type",
+          "regex_group_name": "ServiceType",
+          "lookup": [
+            {
+              "matches": "71",
+              "name": "Certified Mail"
+            },
+            {
+              "matches": "73",
+              "name": "Insured Mail"
+            },
+            {
+              "matches": "77",
+              "name": "Registered Mail"
+            },
+            {
+              "matches": "81",
+              "name": "Return Receipt For Merchanise"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "USPS 91",
+      "regex": [
+        "\\s*(?:(?<RoutingApplicationId>4\\s*2\\s*0\\s*)(?<DestinationZip>([0-9]\\s*){5}))?",
+        "(?<SerialNumber>",
+        "(?<ApplicationIdentifier>9\\s*[12345]\\s*)?",
+        "(?<SCNC>([0-9]\\s*){2})",
+        "(?<ServiceType>([0-9]\\s*){2})",
+        "(?<ShipperId>([0-9]\\s*){8})",
+        "(?<PackageId>([0-9]\\s*){11}|([0-9]\\s*){7})",
+        ")",
+        "(?<CheckDigit>[0-9]\\s*)"
+      ],
+      "validation": {
+        "checksum": {
+          "name": "mod10",
+          "evens_multiplier": 3,
+          "odds_multiplier": 1
+        },
+        "serial_number_format": {
+          "prepend_if": {
+            "matches_regex": "^(?!9[1-5]).+",
+            "content": "91"
+          }
+        }
+      },
+      "tracking_url": "https://m.usps.com/m/TrackConfirmAction_detail?tLabels=%s",
+      "test_numbers": {
+        "valid": [
+          "420 22153 9101026837331000039521",
+          "7196 9010 7560 0307 7385",
+          "9505 5110 6960 5048 6006 24",
+          "9101 1234 5678 9000 0000 13",
+          "92748931507708513018050063",
+          "9400 1112 0108 0805 4830 16",
+          "9361 2898 7870 0317 6337 95",
+          " 9 3 6 1   2 8 9 8   7 8 7 0   0 3 1 7   6 3 3 7   9 5 ",
+          "9405803699300124287899"
+        ],
+        "invalid": [
+          "61299998820821171811",
+          "9200000000000000000000",
+          "420000000000000000000000000000",
+          "420000009200000000000000000000"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "OnTrac",
+  "courier_code": "ontrac",
+  "tracking_numbers": [
+    {
+      "name": "OnTrac",
+      "regex": "\\s*C\\s*(?<SerialNumber>([0-9]\\s*){13})(?<CheckDigit>[0-9]\\s*)",
+      "validation": {
+        "checksum": {
+          "name": "mod10",
+          "evens_multiplier": 1,
+          "odds_multiplier": 2
+        },
+        "serial_number_format": {
+          "prepend_if": {
+            "matches_regex": "^(?!4).+$",
+            "content": "4"
+          }
+        }
+      },
+      "tracking_url": "http://www.ontrac.com/trackingres.asp?tracking_number=%s",
+      "test_numbers": {
+        "valid": [
+          "C11031500001879",
+          " C 1 1 0 3 1 5 0 0 0 0 1 8 7 9 ",
+          "C10999911320231"
+        ],
+        "invalid": [
+          "C10000000000000",
+          "C11031500001889"
+        ]
+      }
+    }
+  ]
+}
