@@ -1,0 +1,32 @@
+{
+  "name": "Amazon",
+  "courier_code": "amazon",
+  "tracking_numbers": [
+    {
+      "name": "Amazon Logistics",
+      "regex": [
+        "\\s*T\\s*B\\s*A\\s*(?<SerialNumber>([0-9]\\s*){11,11})",
+        "(?<CheckDigit>([0-9]\\s*))"
+      ],
+      "validation": {
+        "checksum": {
+          "name": "dummy"
+        }
+      },
+      "test_numbers": {
+        "valid": [
+          "TBA000000000000",
+          "TBA010000000000",
+          " T B A 0 0 0 0 0 0 0 0 0 0 0 0 ",
+          "TBA502887274000"
+        ],
+        "invalid": [
+          "TBA50288727400A",
+          "000000000000000",
+          "000000000000",
+          "TBB000000000000"
+        ]
+      }
+    }
+  ]
+}
