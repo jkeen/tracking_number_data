@@ -1,0 +1,49 @@
+{
+  "name": "LaserShip",
+  "courier_code": "lasership",
+  "tracking_numbers": [
+    {
+      "name": "LaserShip 1LS7 (15)",
+      "regex": [
+        "1LS7\\s*[12][0-9]{4,4}",
+        "\\s*(?<SerialNumber>[0-9]{5,5})(?<CheckDigit>[0-9])"
+      ],
+      "validation": {
+        "checksum": {
+          "name": "dummy"
+        }
+      },
+      "test_numbers": {
+        "valid": [
+          "1LS717793482164",
+          "1LS724505321754",
+          "1LS720000000000"
+        ],
+        "invalid": [
+          "1LS734505321754"
+        ]
+      }
+    },
+    {
+      "name": "LaserShip 1LS7 (18)",
+      "regex": [
+        "1LS7\\s*[12][0-9]{2,2}01[1234]",
+        "\\s*(?<SerialNumber>[0-9]{5,5})(?<CheckDigit>[0-9])",
+        "-1"
+      ],
+      "validation": {
+        "checksum": {
+          "name": "dummy"
+        }
+      },
+      "test_numbers": {
+        "valid": [
+          "1LS7119013618127-1"
+        ],
+        "invalid": [
+          "1LS7119013618127-2"
+        ]
+      }
+    }
+  ]
+}
