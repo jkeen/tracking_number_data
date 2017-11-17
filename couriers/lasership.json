@@ -3,6 +3,27 @@
   "courier_code": "lasership",
   "tracking_numbers": [
     {
+      "name": "LaserShip LX",
+      "regex": [
+        "LX1[3-8](?<SerialNumber>[0-9]{5,5})(?<CheckDigit>[0-9])"
+      ],
+      "validation": {
+        "checksum": {
+          "name": "dummy"
+        }
+      },
+      "test_numbers": {
+        "valid": [
+          "LX17635036"
+        ],
+        "invalid": [
+          "LX17635036N",
+          "LX176350N6",
+          "LA17635036"
+        ]
+      }
+    },
+    {
       "name": "LaserShip 1LS7 (15)",
       "regex": [
         "1LS7\\s*[12][0-9]{4,4}",
