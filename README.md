@@ -142,6 +142,8 @@ algorithms for various couriers.
   > 20 charss { "fedexsscc-18": "regex": "\d{2}(?<container_type>\d)(?<shipper_id>\d{7})(?<serial>\d{9})(?<check>\d)"}
         "UCC/EAN 128": "regex": ""
 - usps:
+  - https://ribbs.usps.gov/intelligentmail_package/documents/tech_guides/PUB199IMPBImpGuide.pdf
+    - page 109
   - http://about.usps.com/publications/pub97.pdf
     - "Electronic File Number"
     - "Package Identification Code (PIC)"
