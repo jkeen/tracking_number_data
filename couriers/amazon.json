@@ -5,8 +5,7 @@
     {
       "name": "Amazon Logistics",
       "regex": [
-        "\\s*T\\s*B\\s*A\\s*(?<SerialNumber>([0-9]\\s*){11,11})",
-        "(?<CheckDigit>([0-9]\\s*))"
+        "\\s*T\\s*B\\s*A\\s*(?<SerialNumber>([0-9]\\s*){12,12})\\s*"
       ],
       "validation": {
         "checksum": {
