@@ -21,7 +21,7 @@ USPS 91                               | 25-34 | `420 221539101026837331000039521
 OnTrac                                | 15    | `C11031500001879`                                                                          | `SerialNumber` `CheckDigit`
 DHL Express                           | 10    | `3318810025`                                                                               | `SerialNumber` `CheckDigit`
 DHL Express Air                       | 10    | `73891051146`                                                                              | `SerialNumber` `CheckDigit`
-
+Amazon Logistics                      | 15    | `TBA 487064622 000`                                                                        | `SerialNumber`
 
 ## JSON Format
 
@@ -47,6 +47,22 @@ DHL Express Air                       | 10    | `73891051146`                   
     - `validation` - Specifies how the tracking number is validated
       - `checksum`
         - `name`: specifies the algorithm. Supported algorithms and parameters are `mod10`, `mod7`, `s10`, and `sum_product_with_weightings_and_modulo`. Look at existing examples for parameters.
+        ```JSON
+        "validation": {
+            "checksum": {
+              "name": "mod10",
+              "evens_multiplier": 1,
+              "odds_multiplier": 2
+            }
+          }
+        ```
+
+        - for tracking numbers without checksums, specify checksum: false
+        ```JSON
+        "validation": {
+            "checksum": false
+          }
+        ```
       - `serial_number_format`: some tracking numbers require some modification of the <SerialNumber> group before validation. In the example below, the serial number needs a "91" prepended before validation unless the number starts with a 91, 92, 93, 94, or 95
       ```json
       "serial_number_format": {
