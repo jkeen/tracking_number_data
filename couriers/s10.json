@@ -121,7 +121,7 @@
             {
               "country": "Antigua and Barbuda",
               "matches": "AG",
-              "courier": null,
+              "courier": "Antigua Postal Services",
               "courier_url": null,
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/antigua-and-barbuda.html"
             },
@@ -318,14 +318,14 @@
             {
               "country": "Central African Rep.",
               "matches": "CF",
-              "courier": null,
+              "courier": "Direction des services postaux de l'Office National des Postes et de l'Épargne",
               "courier_url": null,
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/central-african-rep.html"
             },
             {
               "matches": "TD",
               "country": "Chad",
-              "courier": null,
+              "courier": "Société tchadienne des postes et de l'épargne",
               "courier_url": null,
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/chad.html"
             },
@@ -360,7 +360,7 @@
             {
               "matches": "CG",
               "country": "Congo (Rep.)",
-              "courier": null,
+              "courier": "Congolese Posts and Savings Company",
               "courier_url": null,
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/congo-rep.html"
             },
@@ -409,14 +409,14 @@
             {
               "matches": "KP",
               "country": "Dem People's Rep. of Korea",
-              "courier": null,
+              "courier": "Korea Post and Telecommunications Corporation",
               "courier_url": null,
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/dem-peoples-rep-of-korea.html"
             },
             {
               "matches": "CD",
               "country": "Democratic Republic of the Congo",
-              "courier": null,
+              "courier": "Congolese Posts and Telecommunications Corporation",
               "courier_url": null,
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/democratic-republic-of-the-congo.html"
             },
@@ -430,7 +430,7 @@
             {
               "matches": "DJ",
               "country": "Djibouti",
-              "courier": null,
+              "courier": "La Poste de Djibouti",
               "courier_url": null,
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/djibouti.html"
             },
@@ -472,7 +472,7 @@
             {
               "matches": "GQ",
               "country": "Equatorial Guinea",
-              "courier": null,
+              "courier": "Equatorial Guinea Post",
               "courier_url": null,
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/equatorial-guinea.html"
             },
@@ -584,14 +584,14 @@
             {
               "matches": "GN",
               "country": "Guinea",
-              "courier": null,
+              "courier": "Office de la poste guinéenne",
               "courier_url": null,
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/guinea.html"
             },
             {
               "country": "Guinea-Bissau",
               "matches": "GW",
-              "courier": null,
+              "courier": "Correios da Guiné-Bissau",
               "courier_url": null,
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/guinea-bissau.html"
             },
@@ -710,14 +710,14 @@
             {
               "matches": "KE",
               "country": "Kenya",
-              "courier": "POSTA KENYA",
+              "courier": "Posta Kenya",
               "courier_url": "http://www.posta.co.ke/postOfficeFind.asp",
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/kenya.html"
             },
             {
               "matches": "KI",
               "country": "Kiribati",
-              "courier": null,
+              "courier": "Kiribati Public Service Public",
               "courier_url": null,
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/kiribati.html"
             },
@@ -744,8 +744,8 @@
             },
             {
               "matches": "LA",
-              "country": "Lao People's Dem. Rep.",
-              "courier": null,
+              "country": "Laos",
+              "courier": "Entreprise des Postes Lao",
               "courier_url": null,
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/lao-peoples-dem-rep.html"
             },
@@ -913,7 +913,7 @@
             {
               "matches": "MM",
               "country": "Myanmar",
-              "courier": null,
+              "courier": "Myanmar Post and Telecommunications Department",
               "courier_url": null,
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/myanmar.html"
             },
@@ -927,7 +927,7 @@
             {
               "matches": "NR",
               "country": "Nauru",
-              "courier": null,
+              "courier": "Nauru General Post Office",
               "courier_url": null,
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/nauru.html"
             },
@@ -1123,7 +1123,7 @@
             {
               "matches": "SN",
               "country": "Senegal",
-              "courier": null,
+              "courier": "La Poste Senegal",
               "courier_url": "http://www.laposte.sn/laposte/trouver_codepostal.php",
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/senegal.html"
             },
@@ -1172,14 +1172,14 @@
             {
               "matches": "SB",
               "country": "Solomon Islands",
-              "courier": null,
+              "courier": "Solomon Post",
               "courier_url": null,
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/solomon-islands.html"
             },
             {
               "matches": "SO",
               "country": "Somalia",
-              "courier": null,
+              "courier": "Somali Post",
               "courier_url": null,
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/somalia.html"
             },
@@ -1193,7 +1193,7 @@
             {
               "matches": "SS",
               "country": "South Sudan (Rep.)",
-              "courier": null,
+              "courier": "Minister of Telecommunication and Postal Services",
               "courier_url": null,
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/africa/south-sudan-rep.html"
             },
@@ -1256,7 +1256,7 @@
             {
               "matches": "TJ",
               "country": "Tajikistan",
-              "courier": null,
+              "courier": "Tajikistan’s communications service agency",
               "courier_url": null,
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/tajikistan.html"
             },
@@ -1284,7 +1284,7 @@
             {
               "matches": "TL",
               "country": "Timor-Leste (Dem. Rep.)",
-              "courier": null,
+              "courier": "Correios de Timor Leste",
               "courier_url": null,
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/timor-leste-dem-rep.html"
             },
@@ -1333,7 +1333,7 @@
             {
               "matches": "TV",
               "country": "Tuvalu",
-              "courier": null,
+              "courier": "Tuvalu Philatelic Bureau",
               "courier_url": null,
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/tuvalu.html"
             },
