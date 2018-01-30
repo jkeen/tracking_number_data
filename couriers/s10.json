@@ -344,6 +344,13 @@
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/southern-asia-and-oceania/china-peoples-rep.html"
             },
             {
+              "matches": "HK",
+              "country": "China",
+              "courier": "Hong Kong Post",
+              "courier_url": "http://www.hongkongpost.hk",
+              "upu_reference_url": ""
+            },
+            {
               "matches": "CO",
               "country": "Colombia",
               "courier": "4-72 La Red Postal de Colombia",
