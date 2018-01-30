@@ -164,7 +164,35 @@
         "invalid": [
           "000000000000000001"
         ]
-      }
+      },
+      "additional": [
+        {
+          "name": "ContainerType",
+          "regex_group_name": "ShippingContainerType",
+          "lookup": [
+            {
+              "matches": "00",
+              "name": "case/carton",
+              "description": "Container is a case or a carton."
+            },
+            {
+              "matches": "01",
+              "name": "pallet",
+              "description": "Container is a pallet"
+            },
+            {
+              "matches": "02",
+              "name": "larger than pallet",
+              "description": "Container is larger than a pallet"
+            },
+            {
+              "matches": "04",
+              "name": "internally defined",
+              "description": "Container is internally defined for intra-company use"
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "FedEx Ground 96 (22)",
