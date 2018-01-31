@@ -167,7 +167,7 @@
       },
       "additional": [
         {
-          "name": "ContainerType",
+          "name": "Container Type",
           "regex_group_name": "ShippingContainerType",
           "lookup": [
             {
