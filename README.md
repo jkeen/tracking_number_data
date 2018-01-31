@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jkeen/tracking_number_data.svg?branch=master)](https://travis-ci.org/jkeen/tracking_number_data)
+
 # About this Repo
 
 This repository contains json files that programatically describe how to detect, validate, and decode the following types of tracking numbers:
