@@ -1,0 +1,7 @@
+language: ruby
+sudo: false
+cache: bundler
+rvm:
+- 2.4.1
+before_install:
+- travis_retry gem update --system
