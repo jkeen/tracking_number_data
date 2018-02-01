@@ -5,7 +5,7 @@
     {
       "name": "LaserShip LX",
       "regex": [
-        "\\s*L\\s*X\\s*1\\s*[3-8]\\s*(?<SerialNumber>([0-9]\\s*){6,6})"
+        "\\s*L\\s*X\\s*1\\s*[3-8]\\s*(?<SerialNumber>([0-9]\\s*){6,6})\\s*"
       ],
       "validation": {
         "checksum": {
@@ -14,11 +14,13 @@
       },
       "test_numbers": {
         "valid": [
-          "LX17635036"
+          "LX17635036",
+          "LX 176 35035",
+          "LX17635034"
         ],
         "invalid": [
-          "LX17635036N",
-          "LX176350N6",
+          "LX1763503N",
+          "LC176350N6",
           "LA17635036",
           " L A 1 7 6 3 5 0 3 6 "
         ]
@@ -28,7 +30,7 @@
       "name": "LaserShip 1LS7 (15)",
       "regex": [
         "\\s*1\\s*L\\s*S\\s*7\\s*[12]\\s*([0-9]\\s*){4,4}",
-        "(?<SerialNumber>([0-9]\\s*){6,6})"
+        "(?<SerialNumber>([0-9]\\s*){6,6})\\s*"
       ],
       "validation": {
         "checksum": {
@@ -43,7 +45,7 @@
           " 1 L S 7 2 0 0 0 0 0 0 0 0 0 0 "
         ],
         "invalid": [
-          "1LS734505321754"
+          "1LX734505321754"
         ]
       }
     },
