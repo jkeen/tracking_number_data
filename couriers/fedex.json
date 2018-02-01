@@ -172,23 +172,19 @@
           "lookup": [
             {
               "matches": "00",
-              "name": "case/carton",
-              "description": "Container is a case or a carton."
+              "name": "case/carton"
             },
             {
               "matches": "01",
-              "name": "pallet",
-              "description": "Container is a pallet"
+              "name": "pallet"
             },
             {
               "matches": "02",
-              "name": "larger than pallet",
-              "description": "Container is larger than a pallet"
+              "name": "larger than a pallet"
             },
             {
               "matches": "04",
-              "name": "internally defined",
-              "description": "Container is internally defined for intra-company use"
+              "name": "internally defined for intra-company use"
             }
           ]
         }
