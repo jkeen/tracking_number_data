@@ -47,7 +47,7 @@ Amazon Logistics                      | 15    | `TBA 487064622 000`             
         - `DestinationZip`: indicating the destination zip code
 
     - `validation` - Specifies how the tracking number is validated
-      - `checksum`
+      - `checksum`: if the tracking number has a checksum, include a `checksum` key with the details.
         - `name`: specifies the algorithm. Supported algorithms and parameters are `mod10`, `mod7`, `s10`, and `sum_product_with_weightings_and_modulo`. Look at existing examples for parameters.
         ```JSON
         "validation": {
@@ -56,13 +56,6 @@ Amazon Logistics                      | 15    | `TBA 487064622 000`             
               "evens_multiplier": 1,
               "odds_multiplier": 2
             }
-          }
-        ```
-
-        - for tracking numbers without checksums, specify checksum: false
-        ```JSON
-        "validation": {
-            "checksum": false
           }
         ```
       - `serial_number_format`: some tracking numbers require some modification of the <SerialNumber> group before validation. In the example below, the serial number needs a "91" prepended before validation unless the number starts with a 91, 92, 93, 94, or 95

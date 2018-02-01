@@ -8,7 +8,6 @@
         "\\s*T\\s*B\\s*A\\s*(?<SerialNumber>([0-9]\\s*){12,12})\\s*"
       ],
       "validation": {
-        "checksum": {}
       },
       "test_numbers": {
         "valid": [
