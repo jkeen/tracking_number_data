@@ -8,12 +8,6 @@
         "\\s*T\\s*B\\s*A\\s*(?<SerialNumber>([0-9]\\s*){12,12})\\s*"
       ],
       "validation": {
-<<<<<<< HEAD
-        "checksum": false
-||||||| parent of 8fcac1e... Remove validation/checksum key to indicate tracking number has no checksum validation
-        "checksum": {}
-=======
->>>>>>> 8fcac1e... Remove validation/checksum key to indicate tracking number has no checksum validation
       },
       "test_numbers": {
         "valid": [

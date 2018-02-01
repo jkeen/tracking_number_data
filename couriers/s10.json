@@ -140,14 +140,6 @@
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/eastern-europe-and-northern-asia/armenia.html"
             },
             {
-              "country": "Aruba, Curaçao and Sint Maarten",
-              "matches": null,
-              "courier": "Post Aruba N.V",
-              "courier_url": "http://www.postaruba.com/",
-              "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/aruba-curacao-and-sint-maarten.html",
-              "regex": null
-            },
-            {
               "matches": "AU",
               "country": "Australia",
               "courier": "Australia Post",

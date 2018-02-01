@@ -93,7 +93,8 @@ Amazon Logistics                      | 15    | `TBA 487064622 000`             
               }
             ]
           }
-        ]```
+        ]
+    ```
 
     Each hash in the `lookup` array should contain a key called `matches` or `matces_regex`, specifying how the value of `regex_group_name` should be compared.
 

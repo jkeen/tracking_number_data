@@ -9,7 +9,7 @@
       "regex": [
         "\\s*(?<SerialNumber>",
         "(?<ServiceType>([0-9]\\s*){2})",
-        "(?<MailerId>([0-9]\\s*){9})",
+        "(?<ShipperId>([0-9]\\s*){9})",
         "(?<PackageId>([0-9]\\s*){8})",
         ")",
         "(?<CheckDigit>[0-9]\\s*)"
