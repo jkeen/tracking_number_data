@@ -249,6 +249,7 @@
               "country": "Brazil",
               "courier": "CORREIOS",
               "courier_url": "http://www.buscacep.correios.com.br/servicos/dnec/index.do",
+              "tracking_url": "http://www.buscacep.correios.com.br/sistemas/rastreamento/default.cfm",
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/brazil.html"
             },
             {
@@ -298,6 +299,7 @@
               "country": "Canada",
               "courier": "Canada Post",
               "courier_url": "http://www.canadapost.ca/cpotools/apps/fpc/personal/findByCity?execution=e1s1",
+              "tracking_url": "https://www.canadapost.ca/cpotools/apps/track/personal/findByTrackNumber",
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/americas/canada.html"
             },
             {
@@ -555,8 +557,9 @@
             {
               "country": "Great Britain",
               "matches": "GB",
-              "courier": "Royal Mail Group plc",
+              "courier": "Royal Mail",
               "courier_url": "http://www.royalmail.com/postcode-finder?gear=postcode&campaignid=postcodefinder_redirect",
+              "tracking_url": "https://www.royalmail.com/track-your-item#/tracking-results/%s",
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/great-britain.html"
             },
             {
@@ -942,6 +945,7 @@
               "country": "Netherlands",
               "courier": "PostNL",
               "courier_url": "http://www.postnl.nl/voorthuis/",
+              "tracking_url": "http://www.postnl.post/details/?barcode%s",
               "upu_reference_url": "http://www.upu.int/en/the-upu/member-countries/western-europe/netherlands.html"
             },
             {
