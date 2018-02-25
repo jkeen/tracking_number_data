@@ -8,9 +8,6 @@
         "\\s*L\\s*X\\s*1\\s*[3-8]\\s*(?<SerialNumber>([0-9]\\s*){6,6})\\s*"
       ],
       "validation": {
-        "checksum": {
-          "name": "dummy"
-        }
       },
       "test_numbers": {
         "valid": [
@@ -33,9 +30,6 @@
         "(?<SerialNumber>([0-9]\\s*){6,6})\\s*"
       ],
       "validation": {
-        "checksum": {
-          "name": "dummy"
-        }
       },
       "test_numbers": {
         "valid": [
@@ -58,9 +52,6 @@
         "-\\s*1\\s*"
       ],
       "validation": {
-        "checksum": {
-          "name": "dummy"
-        }
       },
       "test_numbers": {
         "valid": [
