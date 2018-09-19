@@ -1,0 +1,61 @@
+{
+  "name": "Old Dominion Freight Line",
+  "courier_code": "old_dominion",
+  "tracking_numbers": [
+    {
+      "name": "Old Dominion",
+      "regex": [
+        "\\s*(?<SerialNumber>",
+        "(7\\s*7\\s*7\\s*|0\\s*7\\s*2\\s*)",
+        "([0-9]\\s*){7}",
+        ")",
+        "(?<CheckDigit>[0-9]\\s*)"
+      ],
+      "validation": {
+        "checksum": {
+          "name": "luhn"
+        }
+      },
+      "tracking_url": "https://www.odfl.com/Trace/standardResult.faces?pro=%s",
+      "test_numbers": {
+        "valid": [
+          "07209562763",
+          " 0 7 2 0 9 5 6 2 7 6 3 ",
+          "77767553207"
+        ],
+        "invalid": [
+          "07209562773",
+          "79927398713",
+          "10000000000"
+        ]
+      }
+    },
+    {
+      "name": "Old Dominion Guaranteed Shipment",
+      "regex": [
+        "\\s*(?<SerialNumber>",
+        "8\\s*0\\s*",
+        "([0-9]\\s*){8}",
+        ")",
+        "(?<CheckDigit>[0-9]\\s*)"
+      ],
+      "validation": {
+        "checksum": {
+          "name": "luhn"
+        }
+      },
+      "tracking_url": "https://www.odfl.com/Trace/standardResult.faces?pro=%s",
+      "test_numbers": {
+        "valid": [
+          "80003280379",
+          " 8 0 0 0 3 2 8 0 3 7 9 ",
+          "80993847369"
+        ],
+        "invalid": [
+          "80003280389",
+          "10000000000"
+        ]
+      }
+    }
+  ]
+}
