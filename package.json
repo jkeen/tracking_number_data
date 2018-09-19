@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/trycom/tracking_number_data.git"
+    "url": "git+https://github.com/jkeen/tracking_number_data.git"
   },
   "author": "jkeen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/trycom/tracking_number_data/issues"
+    "url": "https://github.com/jkeen/tracking_number_data/issues"
   },
-  "homepage": "https://github.com/trycom/tracking_number_data#readme"
+  "homepage": "https://github.com/jkeen/tracking_number_data#readme"
 }
