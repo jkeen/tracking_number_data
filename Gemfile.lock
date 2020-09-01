@@ -11,7 +11,7 @@ GEM
     concurrent-ruby (1.0.5)
     i18n (0.9.3)
       concurrent-ruby (~> 1.0)
-    minitest (5.11.3)
+    minitest (5.14.2)
     minitest-reporters (1.1.19)
       ansi
       builder
@@ -34,7 +34,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  minitest (~> 5.5)
+  minitest (~> 5.14)
   minitest-reporters
   rake
   shoulda
