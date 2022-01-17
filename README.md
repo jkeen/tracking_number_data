@@ -109,13 +109,15 @@ Amazon Logistics                      | 15    | `TBA 487064622 000`             
 ### List of Libraries using this repository, by Language
 
 We suggest you check these out before rolling your own implementation.
-
-Java:
-  - [MysteryTrackingNumber](https://github.com/adgaudio/MysteryTrackingNumber)
   
 Ruby:
   - [tracking_number](https://github.com/jkeen/tracking_number)
 
+JS/TS: 
+  - [ts-tracking-number](https://github.com/rjbrooksjr/ts-tracking-number)
+
+Java:
+  - [MysteryTrackingNumber](https://github.com/adgaudio/MysteryTrackingNumber)
 
 ### I am creating a new library
 
