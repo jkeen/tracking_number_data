@@ -59,13 +59,14 @@ Amazon Logistics                      | 15    | `TBA 487064622 000`             
           }
         ```
       - `serial_number_format`: some tracking numbers require some modification of the <SerialNumber> group before validation. In the example below, the serial number needs a "91" prepended before validation unless the number starts with a 91, 92, 93, 94, or 95
-      ```json
-      "serial_number_format": {
-          "prepend_if": {
-            "matches_regex": "^(?!9[1-5]).+",
-            "content": "91"
+        ```json
+        "serial_number_format": {
+            "prepend_if": {
+              "matches_regex": "^(?!9[1-5]).+",
+              "content": "91"
+            }
           }
-        }```
+        ```
     - `tracking_url` - A url that we can use to find the tracking
       history for a particular tracking number. It assumes the
       tracking number can be entered using python style
