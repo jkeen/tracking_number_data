@@ -16,7 +16,7 @@
           "name": "luhn"
         }
       },
-      "tracking_url": "https://www.odfl.com/Trace/standardResult.faces?pro=%s",
+      "tracking_url": "https://www.odfl.com/us/en/tools/trace-track-ltl-freight/trace.html?proNumbers=%s",
       "test_numbers": {
         "valid": [
           "07209562763",
@@ -45,7 +45,7 @@
           "name": "luhn"
         }
       },
-      "tracking_url": "https://www.odfl.com/Trace/standardResult.faces?pro=%s",
+      "tracking_url": "https://www.odfl.com/us/en/tools/trace-track-ltl-freight/trace.html?proNumbers=%s",
       "test_numbers": {
         "valid": [
           "80003280379",
