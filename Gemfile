@@ -7,4 +7,5 @@ gem 'minitest', '~> 5.5'
 gem 'minitest-reporters'
 gem 'rake', '>= 12.3.3'
 gem 'shoulda'
-gem 'tracking_number', '~> 1.1.1'
+gem 'tracking_number', '>= 1.1.2'
+gem "byebug"

@@ -2,6 +2,7 @@ require 'rubygems'
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'shoulda'
+require 'byebug'
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
@@ -135,10 +136,10 @@ class Minitest::Test
     %Q{Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor #{number} ut labore et dolore magna aliqua.}
   end
 
-  def should_detect_number_variants(valid_number, type)
+  def should_detect_number_variants(valid_number, klass, info)
     possible_strings(valid_number).each do |string|
-      results = type.search(string)
-      assert_equal 1, results.size, "could not find #{type} #{valid_number} in #{string} using search regex: #{type::SEARCH_PATTERN}"
+      results = klass.search(string)
+      assert_equal 1, results.size, "could not find #{klass} #{valid_number} in #{string} using search regex: #{info[:regex]}"
     end
   end
 
