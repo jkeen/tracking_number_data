@@ -118,6 +118,9 @@ JS/TS:
 
 Java:
   - [MysteryTrackingNumber](https://github.com/adgaudio/MysteryTrackingNumber)
+  
+Python:
+  - [TrackingNumbers](https://github.com/jcomo/tracking-numbers/)
 
 ### I am creating a new library
 
