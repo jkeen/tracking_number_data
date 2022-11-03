@@ -9,7 +9,7 @@
         "(?<ShipperId>(?:[A-Z0-9]\\s*){6,6})",
         "(?<ServiceType>(?:[A-Z0-9]\\s*){2,2})",
         "(?<PackageId>(?:[A-Z0-9]\\s*){7,7}))",
-        "(?<CheckDigit>[A-Z0-9]\\s*)"
+        "(?<CheckDigit>[0-9]\\s*)"
       ],
       "validation": {
         "checksum": {
