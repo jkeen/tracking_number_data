@@ -11,6 +11,7 @@ GEM
     concurrent-ruby (1.1.9)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
+    json (2.6.2)
     minitest (5.15.0)
     minitest-reporters (1.5.0)
       ansi
@@ -25,6 +26,9 @@ GEM
     shoulda-context (2.0.0)
     shoulda-matchers (4.5.1)
       activesupport (>= 4.2.0)
+    tracking_number (1.1.1)
+      activesupport (>= 4.2.5)
+      json (>= 1.8.3)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
 
@@ -37,6 +41,7 @@ DEPENDENCIES
   minitest-reporters
   rake (>= 12.3.3)
   shoulda
+  tracking_number (~> 1.1.1)
 
 BUNDLED WITH
    1.17.3
