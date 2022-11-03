@@ -134,6 +134,50 @@
           "1Z1111111111111111"
         ]
       }
+    },
+    {
+      "name": "UPS Waybill",
+      "regex": [
+        "\\s*(?<ServiceType>([A-Z]\\s*){1})",
+        "(?<SerialNumber>(?:[A-Z0-9]\\s*){9,9})",
+        "(?<CheckDigit>[A-Z0-9]\\s*)"
+      ],
+      "validation": {
+        "checksum": {
+          "name": "mod10",
+          "evens_multiplier": 1,
+          "odds_multiplier": 2
+        }
+      },
+      "additional": [
+        {
+          "name": "Service Type",
+          "regex_group_name": "ServiceType",
+          "lookup": [
+            {
+              "matches": "J",
+              "name": "UPS Next Day Express"
+            },
+            {
+              "matches": "K",
+              "name": "UPS Ground"
+            }
+          ]
+        }
+      ],
+      "tracking_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s",
+      "test_numbers": {
+        "valid": [
+          "K1506235620",
+          "K2479825491",
+          "J4603636537"
+        ],
+        "invalid": [
+          "K1506235622",
+          "K2479825492",
+          "J4603636538"
+        ]
+      }
     }
   ]
 }
