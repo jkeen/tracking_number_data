@@ -7,8 +7,7 @@
       "regex": [
         "\\s*T\\s*B\\s*A\\s*(?<SerialNumber>([0-9]\\s*){12,12})\\s*"
       ],
-      "validation": {
-      },
+      "validation": {},
       "test_numbers": {
         "valid": [
           "TBA000000000000",
@@ -21,6 +20,22 @@
           "000000000000000",
           "000000000000",
           "TBB000000000000"
+        ]
+      }
+    },
+    {
+      "name": "Amazon International",
+      "regex": [
+        "\\s*[AFC]\\s*(?<SerialNumber>([0-9]\\s*){10,10})\\s*"
+      ],
+      "validation": {},
+      "test_numbers": {
+        "valid": [
+          "C1004444443",
+          "C1004444444"
+        ],
+        "invalid": [
+          "D1234567890"
         ]
       }
     }
