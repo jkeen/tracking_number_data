@@ -1,0 +1,63 @@
+name: Tests
+on: [push]
+concurrency:
+  group: ci-tests-${{ github.ref }}-1
+  cancel-in-progress: true
+jobs:
+  formatting_tests:
+    name: Format and Structure Tests
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest ]
+        ruby: [ '2.7' ]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+    - name: Run Tests
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+        bundle exec rake test:format
+  implementation_tests:
+      name: Implementation Tests
+      strategy:
+        fail-fast: false
+        matrix:
+          os: [ ubuntu-latest ]
+          ruby: [ '2.7' ]
+      runs-on: ${{ matrix.os }}
+      steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - name: Run Tests
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+          bundle exec rake test:implementation
+  collision_tests:
+      name: Collision Tests
+      strategy:
+        fail-fast: false
+        matrix:
+          os: [ ubuntu-latest ]
+          ruby: [ '2.7' ]
+      runs-on: ${{ matrix.os }}
+      steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - name: Run Tests
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+          bundle exec rake test:collisions
