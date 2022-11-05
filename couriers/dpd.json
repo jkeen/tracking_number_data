@@ -1,0 +1,28 @@
+{
+  "name": "DPD",
+  "courier_code": "dpd",
+  "tracking_numbers": [
+    {
+      "name": "DPD",
+      "regex": "\\s*(?<SerialNumber>([0-9]\\s*){9,13})(?<CheckDigit>([0-9]\\s*))",
+      "validation": {
+      },
+      "tracking_url": "https://www.dpdgroup.com/nl/mydpd/my-parcels/track?lang=en&parcelNumber=%s",
+      "test_numbers": {
+        "valid": [
+          "05218962519602",
+          "05227994632790",
+          "05228964284282P",
+          "01327036101891",
+          "01015134162471",
+          "01015134162480"
+        ],
+        "invalid": [
+          "05227994632791",
+          "05228964284282X",
+          "01015134162470"
+        ]
+      }
+    }
+  ]
+}
