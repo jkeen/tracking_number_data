@@ -1,0 +1,25 @@
+{
+  "name": "Landmark Global LTN",
+  "courier_code": "landmark",
+  "tracking_numbers": [
+    {
+      "name": "Landmark Global LTN",
+      "regex": [
+        "\\s*L\\s*T\\s*N\\s*(?<SerialNumber>([0-9]\\s*){8})\\s*N\\s*1"
+      ],
+      "tracking_url": "https://track.landmarkglobal.com/?search=%s",
+      "validation": {},
+      "test_numbers": {
+        "valid": [
+          "LTN74207623N1",
+          "LTN74209518N1",
+          "LTN74224021N1"
+        ],
+        "invalid": [
+          "LSN74209518N2",
+          "LSN74209518N1"
+        ]
+      }
+    }
+  ]
+}
