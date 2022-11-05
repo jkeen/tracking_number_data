@@ -6,8 +6,6 @@ This repository contains json files that programatically describe how to detect,
 
 ## Supported Tracking Numbers
 
-### **UPS**
-
 | Carrier                                  | Type                       | Length | Example                                                                                    | Data                                                                                                             |
 | ---------------------------------------- | -------------------------- | ------ | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
 | UPS                                      | UPS                        | 18     | `1Z5R89390357567127`                                                                       | `SerialNumber` `CheckDigit` `ShipperId` `ServiceType` `PackageId`                                                |
