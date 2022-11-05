@@ -11,7 +11,7 @@ end
 # when tracking numbers contain check digits, but some numbers like Amazon Logictics and Lasership don't
 # do that, which increases the risk of false positives. These tests keep an eye on that.
 
-describe "Collisions" do
+describe do
   load_courier_data.each do |data|
     klass = data[:class]
     courier_name = data[:name]
