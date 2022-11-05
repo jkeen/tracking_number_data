@@ -7,37 +7,34 @@ def load_courier_data
   TrackingNumber::Loader.load_tracking_number_data(File.expand_path(File.join(__dir__, '../couriers/')))
 end
 
-describe "Implementation" do
   load_courier_data.each do |data|
-
-    klass = data[:class]
-    courier_name = data[:name]
-    courier_code = data[:courier_code].to_sym
+    klass         = data[:class]
+    courier_name  = data[:name]
+    courier_code  = data[:courier_code].to_sym
     tracking_info = data[:info]
+    match_groups  = [tracking_info[:regex]].flatten.join.scan(/<(\w+)>/).flatten
 
     describe tracking_info[:name] do
-      context "valid numbers" do
+      context "valid number" do
         tracking_info[:test_numbers][:valid].each do |valid_number|
           context valid_number do
             subject { valid_number }
             let(:tracking_number) { klass.new(valid_number) }
 
-            context 'search' do
-              it 'is found in search' do
-                matches = TrackingNumber.search(subject)
-                results = matches.collect(&:class).collect(&:to_s)
-                expect(results.include?(klass.to_s)).to(eq(true))
-              end
+            it 'is found in search' do
+              matches = TrackingNumber.search(subject)
+              results = matches.collect(&:class).collect(&:to_s)
+              expect(results.include?(klass.to_s)).to(eq(true))
+            end
 
-              if tracking_info[:validation][:checksum]
-                it 'fails on check digit changes' do
-                  should_fail_on_check_digit_changes(valid_number)
-                end
+            if tracking_info[:validation][:checksum]
+              it 'fails on check digit changes' do
+                should_fail_on_check_digit_changes(valid_number)
               end
+            end
 
-              it 'is found regardless of spacing' do
-                should_detect_number_variants(valid_number, klass, tracking_info)
-              end
+            it 'is found in search regardless of spacing' do
+              should_detect_number_variants(valid_number, klass, tracking_info)
             end
 
             it 'validates' do
@@ -83,7 +80,7 @@ describe "Implementation" do
         end
       end
 
-      context "invalid numbers" do
+      context "invalid number" do
         tracking_info[:test_numbers][:invalid].each do |invalid_number|
           context invalid_number do
             let(:tracking_number) { klass.new(invalid_number) }
@@ -93,30 +90,7 @@ describe "Implementation" do
               expect((!t.valid?)).to(be_truthy)
             end
 
-            it "does not error when calling #service_type" do
-              t = klass.new(invalid_number)
-              service_type = t.service_type
-              expect((service_type.is_a?(String) or service_type.nil?)).to(be_truthy)
-            end
-
-            it "does not error when calling #destination_zip" do
-              t = klass.new(invalid_number)
-              destination = t.destination_zip
-              expect((destination.is_a?(String) or destination.nil?)).to(be_truthy)
-            end
-
-            it "does not error when calling #shipper_id" do
-              t = klass.new(invalid_number)
-              shipper = t.shipper_id
-              expect((shipper.is_a?(String) or shipper.nil?)).to(be_truthy)
-            end
-
-            it "does not error when calling #package_type" do
-              t = klass.new(invalid_number)
-              expect((t.package_type.is_a?(String) or t.package_type.nil?)).to(be_truthy)
-            end
-
-            it "does not error when calling #decode" do
+            it "returns empty hash for #decode" do
               t = klass.new(invalid_number)
               decode = t.decode
               expect(decode.is_a?(Hash)).to(eq(true))
@@ -126,4 +100,3 @@ describe "Implementation" do
       end
     end
   end
-end
