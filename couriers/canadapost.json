@@ -1,0 +1,30 @@
+{
+  "name": "Canada Post",
+  "courier_code": "canada_post",
+  "tracking_numbers": [
+    {
+      "name": "Canada Post (16)",
+      "regex": "\\s*(?<SerialNumber>(?<OriginId>([0-9]\\s*){7})([0-9]\\s*){8})(?<CheckDigit>[0-9]\\s*)",
+      "validation": {
+        "checksum": {
+          "name": "mod10",
+          "evens_multiplier": 3,
+          "odds_multiplier": 1
+        }
+      },
+      "tracking_url": "https://www.canadapost-postescanada.ca/track-reperage/en#/search?searchFor=%s",
+      "test_numbers": {
+        "valid": [
+          "0073938000549297",
+          "7035114477138472",
+          "4002847016405018"
+        ],
+        "invalid": [
+          "0073938000549292",
+          "7035114477138471",
+          "5002847016405018"
+        ]
+      }
+    }
+  ]
+}
