@@ -1,4 +1,4 @@
-name: Ruby
+name: Format Tests
 on: [push, pull_request]
 jobs:
   test:
@@ -14,8 +14,8 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
-    - name: Build and test with Rake
+    - name: Test Format
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
-        bundle exec rake
+        bundle exec rake test:format
