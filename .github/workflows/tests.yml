@@ -5,7 +5,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   formatting_tests:
-    name: Format and Structure Tests
+    name: Formatting Tests
     strategy:
       fail-fast: false
       matrix:
@@ -18,10 +18,18 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
-    - name: Run Tests
+    - uses: actions/cache@v3
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+    - name: Bundle Install
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
+    - name: Run Tests
+      run: |
         bundle exec rake test:format
   implementation_tests:
       name: Implementation Tests
@@ -37,10 +45,18 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-      - name: Run Tests
+      - uses: actions/cache@v3
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+      - name: Bundle Install
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
+      - name: Run Tests
+        run: |
           bundle exec rake test:implementation
   collision_tests:
       name: Collision Tests
@@ -56,8 +72,16 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-      - name: Run Tests
+      - uses: actions/cache@v3
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+      - name: Bundle Install
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
+      - name: Run Tests
+        run: |
           bundle exec rake test:collisions
