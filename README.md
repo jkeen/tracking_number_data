@@ -1,30 +1,36 @@
 [![Build Status](https://travis-ci.org/jkeen/tracking_number_data.svg?branch=master)](https://travis-ci.org/jkeen/tracking_number_data)
 
-# About this Repo
+# About
 
 This repository contains json files that programatically describe how to detect, validate, and decode the following types of tracking numbers:
 
-
 ## Supported Tracking Numbers
 
-Carrier / Type                        | Length  | Example                                                                                    | Data
------------                           | ------- | -----------------                                                                          | -------------
-UPS                                   | 18    | `1Z5R89390357567127`                                                                       | `SerialNumber` `CheckDigit` `ShipperId` `ServiceType` `PackageId`
-Multiple / S10 International Standard | 13    | `RB123456785GB`                                                                            | `SerialNumber` `CheckDigit` `CountryCode` `ServiceType`
-FedEx / Ground 15                     | 15    | `0414 4176 0228 964`                                                                       | `SerialNumber` `CheckDigit`
-FedEx / Ground (SSCC 18)              | 18    | `00 0123 4500 0000 0027`                                                                   | `SerialNumber` `CheckDigit` `ShippingContainerType`
-FedEx / Ground (96)                   | 22    | `9611020987654312345672`                                                                   | `SerialNumber` `CheckDigit` `ApplicationIdentifier` `SCNC` `ServiceType` `ShipperID` `PackageId`
-Fedex / Ground (GSN)                  | 34    | `9622 0015 6 000 123 4567 1 00 7948 0839 0594`                                             | `SerialNumber` `CheckDigit` `ApplicationIdentifier` `SCNC` `GSN`
-FedEx / Express 12                    | 12    | `986578788855`                                                                             | `SerialNumber` `CheckDigit`
-FedEx / Express Saver                 | 34    | `1001921334250001000300779017972697`                                                       | `SerialNumber` `CheckDigit` `DestinationZip`
-FedEx / SmartPost                     | 22    | `61299998820821171811` | `ApplicationIdentifier``SerialNumber`, `CheckDigit`, `ServiceType`, `ShipperId`, `PackageId`
-USPS 20                               | 20    | `0307 1790 0005 2348 3741`                                                                 | `SerialNumber` `CheckDigit` `ServiceType` `MailerId` `PackageId`
-USPS 91                               | 25-34 | `420 221539101026837331000039521` `9361 2898 7870 0317 6337 95` `7196 9010 7560 0307 7385` | `SerialNumber` `CheckDigit` `RoutingApplicationId` `DestinationZip` `SCNC` `ServiceType` `ShipperId` `PackageId`
-OnTrac                                | 15    | `C11031500001879`                                                                          | `SerialNumber` `CheckDigit`
-DHL Express                           | 10    | `3318810025`                                                                               | `SerialNumber` `CheckDigit`
-DHL Express Air                       | 10    | `73891051146`                                                                              | `SerialNumber` `CheckDigit`
-Amazon Logistics                      | 15    | `TBA 487064622 000`                                                                        | `SerialNumber`
-
+| Carrier / Type                        | Length | Example                                                                                    | Data                                                                                                             |
+| ------------------------------------- | ------ | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| UPS                                   | 18     | `1Z5R89390357567127`                                                                       | `SerialNumber` `CheckDigit` `ShipperId` `ServiceType` `PackageId`                                                |
+| UPS Waybill                           | 11     | `K2479825491`                                                                              | `ServiceType` `SerialNumber` `CheckDigit`                                                                        |
+| Multiple / S10 International Standard | 13     | `RB123456785GB`                                                                            | `SerialNumber` `CheckDigit` `CountryCode` `ServiceType`                                                          |
+| FedEx / Ground 15                     | 15     | `0414 4176 0228 964`                                                                       | `SerialNumber` `CheckDigit`                                                                                      |
+| FedEx / Ground (SSCC 18)              | 18     | `00 0123 4500 0000 0027`                                                                   | `SerialNumber` `CheckDigit` `ShippingContainerType`                                                              |
+| FedEx / Ground (96)                   | 22     | `9611020987654312345672`                                                                   | `SerialNumber` `CheckDigit` `ApplicationIdentifier` `SCNC` `ServiceType` `ShipperID` `PackageId`                 |
+| Fedex / Ground (GSN)                  | 34     | `9622 0015 6 000 123 4567 1 00 7948 0839 0594`                                             | `SerialNumber` `CheckDigit` `ApplicationIdentifier` `SCNC` `GSN`                                                 |
+| FedEx / Express 12                    | 12     | `986578788855`                                                                             | `SerialNumber` `CheckDigit`                                                                                      |
+| FedEx / Express Saver                 | 34     | `1001921334250001000300779017972697`                                                       | `SerialNumber` `CheckDigit` `DestinationZip`                                                                     |
+| FedEx / SmartPost                     | 22     | `61299998820821171811`                                                                     | `ApplicationIdentifier` `SerialNumber` `CheckDigit` `ServiceType` `ShipperId` `PackageId`                        |
+| USPS 20                               | 20     | `0307 1790 0005 2348 3741`                                                                 | `SerialNumber` `CheckDigit` `ServiceType` `MailerId` `PackageId`                                                 |
+| Canada Post                           | 20     | `0073938000549297`                                                                         | `OriginId` `SerialNumber` `CheckDigit`                                                                           |
+| USPS 91                               | 25-34  | `420 221539101026837331000039521` `9361 2898 7870 0317 6337 95` `7196 9010 7560 0307 7385` | `SerialNumber` `CheckDigit` `RoutingApplicationId` `DestinationZip` `SCNC` `ServiceType` `ShipperId` `PackageId` |
+| OnTrac                                | 15     | `C11031500001879`                                                                          | `SerialNumber` `CheckDigit`                                                                                      |
+| OnTrac (D)                            | 15     | `D11031500001879`                                                                          | `SerialNumber` `CheckDigit`                                                                                      |
+| DHL Express                           | 10     | `3318810025`                                                                               | `SerialNumber` `CheckDigit`                                                                                      |
+| DHL Express Air                       | 10     | `73891051146`                                                                              | `SerialNumber` `CheckDigit`                                                                                      |
+| DHL E-Commerce                        | 18-20  | `GM2951173225174494`                                                                       | `SerialNumber`                                                                                                   |
+| Amazon Logistics                      | 15     | `TBA 487064622 000`                                                                        | `SerialNumber`                                                                                                   |
+| Landmark Global LTN                   | 13     | `LTN74207623N1`                                                                            | `SerialNumber`                                                                                                   |
+| Lasership LX                          | 10     | `LX17635036`                                                                               | `SerialNumber`                                                                                                   |
+| Lasership 1LS7 (15)                   | 15     | `1LS717793482164`                                                                          | `SerialNumber`                                                                                                   |
+| Lasership 1LS7 (18)                   | 18     | `1LS7119013618127-1`                                                                       | `SerialNumber`                                                                                                   |
 ## JSON Format
 
 - **couriers/*.json** - identifies the standard couriers that might send mail
@@ -37,7 +43,7 @@ Amazon Logistics                      | 15    | `TBA 487064622 000`             
   - Each tracking number type is defined by a json hash with the following keys:
     - `name` - A name to identify this type of tracking number. Usually includes the carrier in the name, i.e. `FedExGround`
 
-    - `regex` - A pcre compatible regular expression that identifies the tracking number regardless of spaces in-between characters.
+    - `regex` - A pcre compatible regular expression that identifies the tracking number regardless of spaces in-between characters. 
 
       Every regex must contain the named groups `SerialNumber` and `CheckDigit` and depending on the tracking number can optionally contain the following common attributes:
 
@@ -48,7 +54,7 @@ Amazon Logistics                      | 15    | `TBA 487064622 000`             
 
     - `validation` - Specifies how the tracking number is validated
       - `checksum`: if the tracking number has a checksum, include a `checksum` key with the details.
-        - `name`: specifies the algorithm. Supported algorithms and parameters are `mod10`, `mod7`, `s10`, and `sum_product_with_weightings_and_modulo`. Look at existing examples for parameters.
+        - `name`: specifies the algorithm. Supported algorithms and parameters are `mod10` `mod7` `s10`, and `sum_product_with_weightings_and_modulo`. Look at existing examples for parameters.
         ```JSON
         "validation": {
             "checksum": {
@@ -98,6 +104,13 @@ Amazon Logistics                      | 15    | `TBA 487064622 000`             
     ```
 
     Each hash in the `lookup` array should contain a key called `matches` or `matces_regex`, specifying how the value of `regex_group_name` should be compared.
+
+
+
+### Making a contribution
+- Modify or add definitions in the couriers/*.json files. Take a look at the existing ones, and follow the guidance above.
+- Run the tests locally. `bundle exec rake` If they pass, it's good, submit a PR!
+
 
 ### Standard implementations of
 
