@@ -6,33 +6,84 @@ This repository contains json files that programatically describe how to detect,
 
 ## Supported Tracking Numbers
 
-| Carrier / Type                        | Length | Example                                                                                    | Data                                                                                                             |
-| ------------------------------------- | ------ | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| UPS                                   | 18     | `1Z5R89390357567127`                                                                       | `SerialNumber` `CheckDigit` `ShipperId` `ServiceType` `PackageId`                                                |
-| UPS Waybill                           | 11     | `K2479825491`                                                                              | `ServiceType` `SerialNumber` `CheckDigit`                                                                        |
-| Multiple / S10 International Standard | 13     | `RB123456785GB`                                                                            | `SerialNumber` `CheckDigit` `CountryCode` `ServiceType`                                                          |
-| FedEx / Ground 15                     | 15     | `0414 4176 0228 964`                                                                       | `SerialNumber` `CheckDigit`                                                                                      |
-| FedEx / Ground (SSCC 18)              | 18     | `00 0123 4500 0000 0027`                                                                   | `SerialNumber` `CheckDigit` `ShippingContainerType`                                                              |
-| FedEx / Ground (96)                   | 22     | `9611020987654312345672`                                                                   | `SerialNumber` `CheckDigit` `ApplicationIdentifier` `SCNC` `ServiceType` `ShipperID` `PackageId`                 |
-| Fedex / Ground (GSN)                  | 34     | `9622 0015 6 000 123 4567 1 00 7948 0839 0594`                                             | `SerialNumber` `CheckDigit` `ApplicationIdentifier` `SCNC` `GSN`                                                 |
-| FedEx / Express 12                    | 12     | `986578788855`                                                                             | `SerialNumber` `CheckDigit`                                                                                      |
-| FedEx / Express Saver                 | 34     | `1001921334250001000300779017972697`                                                       | `SerialNumber` `CheckDigit` `DestinationZip`                                                                     |
-| FedEx / SmartPost                     | 22     | `61299998820821171811`                                                                     | `ApplicationIdentifier` `SerialNumber` `CheckDigit` `ServiceType` `ShipperId` `PackageId`                        |
-| USPS 20                               | 20     | `0307 1790 0005 2348 3741`                                                                 | `SerialNumber` `CheckDigit` `ServiceType` `MailerId` `PackageId`                                                 |
-| Canada Post                           | 20     | `0073938000549297`                                                                         | `OriginId` `SerialNumber` `CheckDigit`                                                                           |
-| USPS 91                               | 25-34  | `420 221539101026837331000039521` `9361 2898 7870 0317 6337 95` `7196 9010 7560 0307 7385` | `SerialNumber` `CheckDigit` `RoutingApplicationId` `DestinationZip` `SCNC` `ServiceType` `ShipperId` `PackageId` |
-| OnTrac                                | 15     | `C11031500001879`                                                                          | `SerialNumber` `CheckDigit`                                                                                      |
-| OnTrac (D)                            | 15     | `D11031500001879`                                                                          | `SerialNumber` `CheckDigit`                                                                                      |
-| DHL Express                           | 10     | `3318810025`                                                                               | `SerialNumber` `CheckDigit`                                                                                      |
-| DHL Express Air                       | 10     | `73891051146`                                                                              | `SerialNumber` `CheckDigit`                                                                                      |
-| DHL E-Commerce                        | 18-20  | `GM2951173225174494`                                                                       | `SerialNumber`                                                                                                   |
-| Amazon Logistics                      | 15     | `TBA 487064622 000`                                                                        | `SerialNumber`                                                                                                   |
-| Landmark Global LTN                   | 13     | `LTN74207623N1`                                                                            | `SerialNumber`                                                                                                   |
-| Lasership LX                          | 10     | `LX17635036`                                                                               | `SerialNumber`                                                                                                   |
-| Lasership 1LS7 (15)                   | 15     | `1LS717793482164`                                                                          | `SerialNumber`                                                                                                   |
-| Lasership 1LS7 (18)                   | 18     | `1LS7119013618127-1`                                                                       | `SerialNumber`                                                                                                   |
-## JSON Format
+### *UPS*
 
+| Type        | Length | Example              | Data                                                              |
+| ----------- | ------ | -------------------- | ----------------------------------------------------------------- |
+| UPS         | 18     | `1Z5R89390357567127` | `SerialNumber` `CheckDigit` `ShipperId` `ServiceType` `PackageId` |
+| UPS Waybill | 11     | `K2479825491`        | `ServiceType` `SerialNumber` `CheckDigit`                         |
+
+
+### *S10 (International Standard including 191 National Postal Services)*
+
+| Type                       | Length | Example         | Data                                                    |
+| -------------------------- | ------ | --------------- | ------------------------------------------------------- |
+| S10 International Standard | 13     | `RB123456785GB` | `SerialNumber` `CheckDigit` `CountryCode` `ServiceType` |
+
+
+### *FedEx*
+
+| Type                     | Length | Example                                        | Data                                                                                             |
+| ------------------------ | ------ | ---------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| FedEx / Ground 15        | 15     | `0414 4176 0228 964`                           | `SerialNumber` `CheckDigit`                                                                      |
+| FedEx / Ground (SSCC 18) | 18     | `00 0123 4500 0000 0027`                       | `SerialNumber` `CheckDigit` `ShippingContainerType`                                              |
+| FedEx / Ground (96)      | 22     | `9611020987654312345672`                       | `SerialNumber` `CheckDigit` `ApplicationIdentifier` `SCNC` `ServiceType` `ShipperID` `PackageId` |
+| Fedex / Ground (GSN)     | 34     | `9622 0015 6 000 123 4567 1 00 7948 0839 0594` | `SerialNumber` `CheckDigit` `ApplicationIdentifier` `SCNC` `GSN`                                 |
+| FedEx / Express 12       | 12     | `986578788855`                                 | `SerialNumber` `CheckDigit`                                                                      |
+| FedEx / Express Saver    | 34     | `1001921334250001000300779017972697`           | `SerialNumber` `CheckDigit` `DestinationZip`                                                     |
+| FedEx / SmartPost        | 22     | `61299998820821171811`                         | `ApplicationIdentifier` `SerialNumber` `CheckDigit` `ServiceType` `ShipperId` `PackageId`        |
+
+
+### *USPS*
+
+| Type    | Length | Example                                                                                    | Data                                                                                                             |
+| ------- | ------ | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| USPS 20 | 20     | `0307 1790 0005 2348 3741`                                                                 | `SerialNumber` `CheckDigit` `ServiceType` `MailerId` `PackageId`                                                 |
+| USPS 91 | 25-34  | `420 221539101026837331000039521` `9361 2898 7870 0317 6337 95` `7196 9010 7560 0307 7385` | `SerialNumber` `CheckDigit` `RoutingApplicationId` `DestinationZip` `SCNC` `ServiceType` `ShipperId` `PackageId` |
+
+### *Canada Post*
+
+| Type        | Length | Example            | Data                                   |
+| ----------- | ------ | ------------------ | -------------------------------------- |
+| Canada Post | 20     | `0073938000549297` | `OriginId` `SerialNumber` `CheckDigit` |
+
+
+### *OnTrac*
+| Type       | Length | Example           | Data                        |
+| ---------- | ------ | ----------------- | --------------------------- |
+| OnTrac (C) | 15     | `C11031500001879` | `SerialNumber` `CheckDigit` |
+| OnTrac (D) | 15     | `D11031500001879` | `SerialNumber` `CheckDigit` |
+
+### *DHL*
+| Type            | Length | Example              | Data                        |
+| --------------- | ------ | -------------------- | --------------------------- |
+| DHL Express     | 10     | `3318810025`         | `SerialNumber` `CheckDigit` |
+| DHL Express Air | 10     | `73891051146`        | `SerialNumber` `CheckDigit` |
+| DHL E-Commerce  | 18-20  | `GM2951173225174494` | `SerialNumber`              |
+
+### *Amazon*
+| Type             | Length | Example             | Data           |
+| ---------------- | ------ | ------------------- | -------------- |
+| Amazon Logistics | 15     | `TBA 487064622 000` | `SerialNumber` |
+
+### *Landmark Global*
+| Type                | Length | Example         | Data           |
+| ------------------- | ------ | --------------- | -------------- |
+| Landmark Global LTN | 13     | `LTN74207623N1` | `SerialNumber` |
+
+### *Lasership*
+| Type                | Length | Example              | Data           |
+| ------------------- | ------ | -------------------- | -------------- |
+| Lasership LX        | 10     | `LX17635036`         | `SerialNumber` |
+| Lasership 1LS7 (15) | 15     | `1LS717793482164`    | `SerialNumber` |
+| Lasership 1LS7 (18) | 18     | `1LS7119013618127-1` | `SerialNumber` |
+
+### *DPD*
+| Type   | Length | Example                                | Data                                                        |
+| ------ | ------ | -------------------------------------- | ----------------------------------------------------------- |
+| DPD 14 | 15     | `0998 0000 0200 34D`                   | `SerialNumber`                                              |
+| DPD 28 | 28     | `0081 827 0998 0000 0200 45 327 276 N` | `SerialNumber` `DestinationZip` `ServiceType` `CountryCode` |
+## JSON Format
 - **couriers/*.json** - identifies the standard couriers that might send mail
   - Each courier is defined by json hash with the following keys
 

@@ -29,8 +29,7 @@
         "\\s*1\\s*L\\s*S\\s*7\\s*[12]\\s*([0-9]\\s*){4,4}",
         "(?<SerialNumber>([0-9]\\s*){6,6})\\s*"
       ],
-      "validation": {
-      },
+      "validation": {},
       "test_numbers": {
         "valid": [
           "1LS717793482164",
@@ -51,8 +50,7 @@
         "\\s*(?<SerialNumber>([0-9]\\s*){6,6})",
         "-\\s*1\\s*"
       ],
-      "validation": {
-      },
+      "validation": {},
       "test_numbers": {
         "valid": [
           "1LS7119013618127-1",
