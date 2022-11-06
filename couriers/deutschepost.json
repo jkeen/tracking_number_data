@@ -1,0 +1,33 @@
+{
+  "name": "Deutsche Post",
+  "courier_code": "deutsche_post",
+  "tracking_numbers": [
+    {
+      "name": "Deutsche Post",
+      "regex": [
+        "\\s*",
+        "(?<SerialNumber>",
+          "([0-9]\\s*){2}",
+          "([0-9A-Za-z]\\s*){7}",
+          "([0-9]\\s*){4}",
+          "([0-9A-Za-z]\\s*){6}",
+        ")",
+        "(?<CheckDigit>([0-9A-Za-z]\\s*))"
+      ],
+      "validation": {
+        "checksum": {
+          "name": "crc_4"
+        }
+      },
+      "tracking_url": "https://www.deutschepost.de/de/s/sendungsverfolgung/verfolgen.html?piececode=%s&lang=en&cid=brief",
+      "test_numbers": {
+        "valid": [
+          "01 030E 0928 06 011E 001E"
+        ],
+        "invalid": [
+          "01 030E 0928 06 011E 001F"
+        ]
+      }
+    }
+  ]
+}
