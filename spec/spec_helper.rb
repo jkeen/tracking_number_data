@@ -14,9 +14,16 @@ module TrackingNumber
   module ChecksumValidations
     class << self
       # DEV NOTE: Add new checksum validation methods here while developing
+      def validates_crc_4?(sequence, check_digit, extras = {})
+
+        # TODO find crc 4 algorithm
+
+        return false
+      end
     end
   end
 end
+
 
 def validate_with_checksum(tracking_number, info)
   pattern = [info[:regex]].flatten.join("")
