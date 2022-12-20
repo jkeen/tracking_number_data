@@ -48,7 +48,7 @@
     },
     {
       "name": "DHL E-Commerce",
-      "regex": "\\s*((G\\s*M\\s*)|(L\\s*X\\s*)|(R\\s*X\\s*)|(U\\s*V\\s*)|(C\\s*N\\s*)|(S\\s*G\\s*)|(T\\s*H\\s*)|(I\\s*N\\s*)|(H\\s*K\\s*)|(M\\s*Y\\s*))\\s*(?<SerialNumber>(\\w\\s*){10,39})",
+      "regex": "\\s*((G\\s*M\\s*)|(L\\s*X\\s*)|(R\\s*X\\s*)|(U\\s*V\\s*)|(C\\s*N\\s*)|(S\\s*G\\s*)|(T\\s*H\\s*)|(I\\s*N\\s*)|(H\\s*K\\s*)|(M\\s*Y\\s*))\\s*(?<SerialNumber>([0-9]\\s*){10,39})",
       "validation": {},
       "tracking_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s",
       "test_numbers": {

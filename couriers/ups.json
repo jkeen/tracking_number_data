@@ -139,8 +139,8 @@
       "name": "UPS Waybill",
       "regex": [
         "\\s*(?<ServiceType>([A-Z]\\s*){1})",
-        "(?<SerialNumber>(?:[A-Z0-9]\\s*){9,9})",
-        "(?<CheckDigit>[A-Z0-9]\\s*)"
+        "(?<SerialNumber>(?:[0-9]\\s*){9,9})",
+        "(?<CheckDigit>[0-9]\\s*)"
       ],
       "validation": {
         "checksum": {
