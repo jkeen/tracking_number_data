@@ -1,5 +1,7 @@
 name: Tests
-on: [push]
+on: 
+  push:
+  pull_request:
 concurrency:
   group: ci-tests-${{ github.ref }}-1
   cancel-in-progress: true
