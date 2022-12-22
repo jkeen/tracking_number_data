@@ -11,6 +11,11 @@
     "url": "https://github.com/jkeen/tracking_number_data/issues"
   },
   "homepage": "https://github.com/jkeen/tracking_number_data#readme",
+  "dependencies": {
+    "semantic-release": "^19.0.3",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1"
+  },
   "release": {
     "branches": ["main"],
     "plugins": [
