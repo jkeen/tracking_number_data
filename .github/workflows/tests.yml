@@ -50,4 +50,4 @@ jobs:
         uses: benc-uk/workflow-dispatch@v1
         with:
           workflow: Generate New Release
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
