@@ -139,8 +139,8 @@
       "name": "UPS Waybill",
       "regex": [
         "\\s*(?<ServiceType>([A-Z]\\s*){1})",
-        "(?<SerialNumber>(?:[0-9]\\s*){9,9})",
-        "(?<CheckDigit>[0-9]\\s*)"
+        "(?<SerialNumber>(?:[0-9]\\s*){9})",
+        "(?<CheckDigit>[0-9]\\s*){1}"
       ],
       "validation": {
         "checksum": {
@@ -161,6 +161,10 @@
             {
               "matches": "K",
               "name": "UPS Ground"
+            },
+            {
+              "matches": "V",
+              "name": "UPS WorldWide Express Saver"
             }
           ]
         }
@@ -170,12 +174,16 @@
         "valid": [
           "K1506235620",
           "K2479825491",
-          "J4603636537"
+          "J4603636537",
+          "V0490119172",
+          "V0431105627"
         ],
         "invalid": [
           "K1506235622",
           "K2479825492",
-          "J4603636538"
+          "J4603636538",
+          "V0411335627",
+          "V0423305841"
         ]
       }
     }
