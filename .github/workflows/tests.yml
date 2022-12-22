@@ -6,7 +6,7 @@ concurrency:
   group: ci-tests-${{ github.ref }}-1
   cancel-in-progress: true
 jobs:
-  testes:
+  test:
     name: Run Tests
     strategy:
       fail-fast: false
@@ -40,3 +40,14 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         json-path: tmp/rspec_results.json
       if: always()
+  publish:
+    name: Release
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs: [test]
+    steps:
+      - name: Dispatch Release
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: Generate New Release
+          token: ${{ secrets.GH_TOKEN }}
