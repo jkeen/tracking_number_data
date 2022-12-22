@@ -18,7 +18,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release@19
+        run: node_modules/.bin/semantic-release
