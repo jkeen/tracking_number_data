@@ -157,33 +157,5 @@ library to get information out of tracking numbers.
 
 ---
 
-# Helpful links
-
-For finding the appropriate regular expressions and check digit
-algorithms for various couriers.
-
-- misc:
-  - http://www.gs1-128.info/sscc-18/
-  - http://answers.google.com/answers/threadview/id/207899.html
-- s10:
-  - http://www.upu.int/uploads/tx_sbdownloader/S10TechnicalStandard.pdf
-- fedex:
-  - smartpost: https://www.fedex.com/us/smartpostguide/IMpbFAQ.html
-  - barcode spec: http://images.fedex.com/us/solutions/ppe/FedEx_Ground_Label_Layout_Specification.pdf
-  - updated barcode spec: http://www.fedex.com/us/gsn/barcode_guide.pdf
-  - http://stackoverflow.com/questions/15744704/how-to-calculate-a-fedex-smartpost-tracking-number-check-digit
-  - TODO: possible variation on fedex18:
-  > 20 charss { "fedexsscc-18": "regex": "\d{2}(?<container_type>\d)(?<shipper_id>\d{7})(?<serial>\d{9})(?<check>\d)"}
-        "UCC/EAN 128": "regex": ""
-- usps:
-  - https://ribbs.usps.gov/intelligentmail_package/documents/tech_guides/PUB199IMPBImpGuide.pdf
-    - page 109
-  - http://about.usps.com/publications/pub97.pdf
-    - "Electronic File Number"
-    - "Package Identification Code (PIC)"
-  - 13 char code uses two check digit algos:
-    - mod10 (for domestic only)
-    - s10 (for international or domestic mail)
-  - other links:
-    - http://about.usps.com/publications/pub97/pub97_appj_020.htm
-    - http://about.usps.com/publications/pub97/pub97_appj_021.htm
+# Reference Documents 
+Located/uploaded to the [wiki](https://github.com/jkeen/tracking_number_data/wiki/Reference-Documents/) for preservation
