@@ -118,6 +118,23 @@
           }
         }
       },
+      "partners": [{
+        "description": "FedEx SmartPost uses USPS for last mile delivery, but not all USPS91 numbers are SmartPosts",
+        "partner_type": "shipper",
+        "partner_id": "fedex_smartpost",
+        "validation": {
+          "matches_all": [
+            {
+              "regex_group_name": "ServiceType",
+              "matches": "29"
+            },
+            {
+              "matches": "61",
+              "regex_group_name": "SCNC"
+            }
+          ]
+        }
+      }],
       "tracking_url": "https://tools.usps.com/go/TrackConfirmAction?tLabels=%s",
       "test_numbers": {
         "valid": [
@@ -136,7 +153,23 @@
           "420000000000000000000000000000",
           "420000009200000000000000000000"
         ]
-      }
+      },
+      "additional": [
+        {
+          "name": "Service Type",
+          "regex_group_name": "ServiceType",
+          "lookup": [
+            {
+              "matches": "11",
+              "name": "First Class (R)"
+            },
+            {
+              "matches": "29",
+              "name": "Fedex Smart Post"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
