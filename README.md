@@ -1,4 +1,8 @@
-[![Build Status](https://travis-ci.org/jkeen/tracking_number_data.svg?branch=master)](https://travis-ci.org/jkeen/tracking_number_data)
+[![Tests](https://github.com/jkeen/tracking_number_data/actions/workflows/tests.yml/badge.svg)](https://github.com/jkeen/tracking_number_data/actions/workflows/tests.yml) 
+
+> Hey there tracking number enthusiast! I hope this project has been useful for you, and I sure would appreciate a cup or two of covfefe slid my way to keep this resource going.
+> 
+> <a href="https://www.buymeacoffee.com/jeffkeen" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: auto !important;width: 150px !important;" ></a>
 
 # About
 
