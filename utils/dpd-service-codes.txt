@@ -1,0 +1,16 @@
+101 D normal parcel
+102 D-HAZ normal parcel, hazardous goods
+105 D-EXW normal parcel, ex works
+106 D-EXW-HAZ normal parcel, ex works, hazardous goods
+109 D-COD normal parcel, C.O.D.
+110 D-COD-HAZ normal parcel, C.O.D., hazardous goods
+113 D-SWAP normal parcel, exchange
+136 D small parcel
+154 PARCELLetter PARCELLetter
+155 PM2 Guarantee
+161 PM2-COD Guarantee, C.O.D.
+179 AM1 DPD 10:00
+191 AM1-COD DPD 10:00, C.O.D.
+225 AM2 DPD 12:00
+237 AM2-COD DPD 12:00, C.O.D.
+350 AM0 DPD 8:3

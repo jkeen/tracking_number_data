@@ -1,0 +1,250 @@
+Aegypten EG EGY 818
+Aequatorial-Guinea GQ GNQ 226
+Aethiopien ET ETH 231
+Afghanistan AF AFG 004
+Aland-Inseln AX ALA 248
+Albanien AL ALB 008
+Algerien DZ DZA 012
+Amerikanisch-Samoa AS ASM 016
+Andorra AD AND 020
+Angola AO AGO 024
+Anguilla AI AIA 660
+Antarctica AQ ATA 010
+Antigua & Barbuda AG ATG 028
+Argentinien AR ARG 032
+Armenien AM ARM 051
+Aruba AW ABW 533
+Aserbaidschan AZ AZE 031
+Australien AU AUS 036
+Bahamas BS BHS 044
+Bahrain BH BHR 048
+Bangladesh BD BGD 050
+Barbados BB BRB 052
+Belgien BE BEL 056
+Belize BZ BLZ 084
+Benin BJ BEN 204
+Bermudas BM BMU 060
+Bhutan BT BTN 064
+Bolivien BO BOL 068
+Bonaire, Sint Eustatius und Saba BQ BES 535
+Bosnien & Herzegowina BA BIH 070
+Botswana BW BWA 072
+Bouvet-Insel BV BVT 074
+Brasilien BR BRA 076
+British Indian Ocean Territory IO IOT 086
+Brunei Darussalam BN BRN 096
+Bulgarien BG BGR 100
+Burkina Faso BF BFA 854
+Burundi BI BDI 108
+Cayman-Inseln KY CYM 136
+Chile CL CHL 152
+China CN CHN 156
+Cook Inseln CK COK 184
+Costa Rica CR CRI 188
+Curacao CW CUW 531
+Daenemark DK DNK 208
+Deutschland DE DEU 276
+Dominica DM DMA 212
+Dominikanische Republik DO DOM 214
+Dschibuti DJ DJI 262
+Ecuador EC ECU 218
+El Salvador SV SLV 222
+Elfenbeinkueste CI CIV 384
+Eritrea ER ERI 232
+Estland EE EST 233
+Faeroer Inseln FO FRO 234
+Falkland Inseln FK FLK 238
+Fidschi FJ FJI 242
+Finnland FI FIN 246
+Frankreich FR FRA 250
+Franzoesische Sued- und Antarktisterritorien TF ATF 260
+Franzoesisch-Polynesien PF PYF 258
+Gabun GA GAB 266
+Gambia GM GMB 270
+Georgien GE GEO 268
+Ghana GH GHA 288
+Gibraltar GI GIB 292
+Grenada GD GRD 308
+Griechenland GR GRC 300
+Groenland GL GRL 304
+Grossbritannien & Nordirland GB GBR 826
+Guadeloupe GP GLP 312
+Guam GU GUM 316
+Guatemala GT GTM 320
+Guernsey GG GGY 831
+Guinea GN GIN 324
+Guinea-Bissau GW GNB 624
+Guyana GY GUY 328
+Guyana (Franzoesisch) GF GUF 254
+Haiti HT HTI 332
+Heard & Mc Donalds Inseln HM HMD 334
+Honduras HN HND 340
+Hong Kong HK HKG 344
+Indien IN IND 356
+Indonesien ID IDN 360
+Iran IR IRN 364
+Iraq IQ IRQ 368
+Irland IE IRL 372
+Island IS ISL 352
+Isle of Man IM IMN 833
+Israel IL ISR 376
+Italien IT ITA 380
+Jamaika JM JAM 388
+Japan JP JPN 392
+Jemen YE YEM 887
+Jersey JE JEY 832
+Jordanien JO JOR 400
+Jungferninseln (britisch) VG VGB 092
+Kambodscha KH KHM 116
+Kamerun CM CMR 120
+Kanada CA CAN 124
+Kanarische Inseln IC ISC 991
+Kapverdische Inseln CV CPV 132
+Karolinen Inseln FM FSM 583
+Kasachstan KZ KAZ 398
+Katar QA QAT 634
+Kenia KE KEN 404
+Kirgistan KG KGZ 417
+Kiribati KI KIR 296
+Kleine vorgelagerte Inseln Vereinigter Staaten UM UMI 581
+Kokos Inseln CC CCK 166
+Kolumbien CO COL 170
+Komoren KM COM 174
+Kongo CG COG 178
+Kongo, Dem. Rep. CD COD 180
+Kroatien HR HRV 191
+Kuba CU CUB 192
+Kuwait KW KWT 414
+Laos LA LAO 418
+Lesotho LS LSO 426
+Lettland LV LVA 428
+Libanon LB LBN 422
+Liberia LR LBR 430
+Libyen LY LBY 434
+Liechtenstein LI LIE 438
+Litauen LT LTU 440
+Luxemburg LU LUX 442
+Macao MO MAC 446
+Madagaskar MG MDG 450
+Malawi MW MWI 454
+Malaysia MY MYS 458
+Malediven MV MDV 462
+Mali ML MLI 466
+Malta MT MLT 470
+Marokko MA MAR 504
+Marshall Inseln MH MHL 584
+Martinique MQ MTQ 474
+Mauretanien MR MRT 478
+Mauritius MU MUS 480
+Mayotte YT MYT 175
+Mazedonien MK MKD 807
+Mexiko MX MEX 484
+Moldawien MD MDA 498
+Monaco MC MCO 492
+Mongolei MN MNG 496
+Montenegro ME MNE 499
+Montserrat MS MSR 500
+Mosambik MZ MOZ 508
+Myanmar MM MMR 104
+Namibia NA NAM 516
+Nauru NR NRU 520
+Nepal NP NPL 524
+Neukaledonien NC NCL 540
+Neuseeland NZ NZL 554
+Nicaragua NI NIC 558
+Niederlaendische Antillen AN ANT 530
+Niederlande NL NLD 528
+Niger NE NER 562
+Nigeria NG NGA 566
+Niue NU NIU 570
+Noerdliche Marianen MP MNP 580
+Nordkorea KP PRK 408
+Norfolk Inseln NF NFK 574
+Norwegen NO NOR 578
+Oesterreich AT AUT 040
+Oman OM OMN 512
+Osttimor TL TLS 626
+Pakistan PK PAK 586
+Palaestina PS PSE 275
+Palau PW PLW 585
+Panama PA PAN 591
+Papua-Neuguinea PG PNG 598
+Paraguay PY PRY 600
+Peru PE PER 604
+Philippinen PH PHL 608
+Pitcairn PN PCN 612
+Polen PL POL 616
+Portugal PT PRT 620
+Puerto Rico PR PRI 630
+Reunion RE REU 638
+Ruanda RW RWA 646
+Rumaenien RO ROU 642
+Russland RU RUS 643
+Saint Martin MF MAF 663
+Samibia ZM ZMB 894
+Samoa WS WSM 882
+San Marino SM SMR 674
+Sao Tome & Principe ST STP 678
+Saudi Arabien SA SAU 682
+Schweden SE SWE 752
+Schweiz CH CHE 756
+Senegal SN SEN 686
+Serbien RS SRB 688
+Seychellen SC SYC 690
+Sierra Leone SL SLE 694
+Simbabwe ZW ZWE 716
+Singapur SG SGP 702
+Sint Maarten (niederlaendischer Teil) SX SXM 534
+Slowakei SK SVK 703
+Slowenien SI SVN 705
+Solomon Inseln SB SLB 090
+Somalia SO SOM 706
+Spanien ES ESP 724
+Sri Lanka LK LKA 144
+St. Helena SH SHN 654
+St. Kitts und Nevis KN KNA 659
+St. Lucia LC LCA 662
+St. Pierre & Miquelon PM SPM 666
+St. Vincent und die Grenadinen VC VCT 670
+Sudan SD SDN 736
+Suedafrika ZA ZAF 710
+Suedgeorgien und die Suedlichen Sandwichinseln GS SGS 239
+Suedkorea KR KOR 410
+Suedsudan SS SSD 728
+Suriname SR SUR 740
+Svalbard & Jan Mayen Inseln SJ SJM 744
+Swasiland SZ SWZ 748
+Syrien SY SYR 760
+Tadschikistan TJ TJK 762
+Taiwan TW TWN 158
+Tansania TZ TZA 834
+Thailand TH THA 764
+Togo TG TGO 768
+Tokelau TK TKL 772
+Tonga TO TON 776
+Trinidad & Tobago TT TTO 780
+Tschad TD TCD 148
+Tschechien (Republik) CZ CZE 203
+Tuerkei TR TUR 792
+Tunesien TN TUN 788
+Turkmenistan TM TKM 795
+Turks & Caicos-Inseln TC TCA 796
+Tuvalu TV TUV 798
+Uganda UG UGA 800
+Ukraine UA UKR 804
+Ungarn HU HUN 348
+Uruguay UY URY 858
+US Virgin Islands VI VIR 850
+USA US USA 840
+Usbekistan UZ UZB 860
+Vanuatu VU VUT 548
+Vatikan VA VAT 336
+Venezuela VE VEN 862
+Vereinigte Arabische Emirate AE ARE 784
+Vietnam VN VNM 704
+Wallis & Futuna WF WLF 876
+Weihnachtsinseln CX CXR 162
+Weissrussland BY BLR 112
+West Sahara EH ESH 732
+Zentralafrika CF CAF 140
+Zypern CY CYP 196
