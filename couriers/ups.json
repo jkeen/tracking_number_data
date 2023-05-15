@@ -4,6 +4,7 @@
   "tracking_numbers": [
     {
       "name": "UPS",
+      "id": "ups",
       "regex": [
         "\\s*1\\s*Z\\s*(?<SerialNumber>",
         "(?<ShipperId>(?:[A-Z0-9]\\s*){6,6})",

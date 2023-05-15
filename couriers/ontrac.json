@@ -4,6 +4,7 @@
   "tracking_numbers": [
     {
       "name": "OnTrac",
+      "id": "ontrac_c",
       "regex": "\\s*C\\s*(?<SerialNumber>([0-9]\\s*){13})(?<CheckDigit>[0-9]\\s*)",
       "validation": {
         "checksum": {
@@ -36,6 +37,7 @@
     },
     {
       "name": "OnTrac D",
+      "id": "ontrac_d",
       "regex": "\\s*D\\s*(?<SerialNumber>([0-9]\\s*){13})(?<CheckDigit>[0-9]\\s*)",
       "validation": {
         "checksum": {

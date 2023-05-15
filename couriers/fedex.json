@@ -4,6 +4,7 @@
   "tracking_numbers": [
     {
       "name": "FedEx Express (12)",
+      "id": "fedex_12",
       "regex": "\\s*(?<SerialNumber>([0-9]\\s*){11})(?<CheckDigit>[0-9]\\s*)",
       "validation": {
         "checksum": {
@@ -42,6 +43,7 @@
     },
     {
       "name": "FedEx Express (34)",
+      "id": "fedex_34",
       "regex": [
         "\\s*1\\s*0\\s*[0-9]\\s*[0-9]\\s*[0-9]\\s*",
         "([0-9]\\s*){10}",
@@ -89,6 +91,7 @@
     {
       "name": "FedEx SmartPost",
       "description": "IMpb CO3 standard",
+      "id": "fedex_smartpost",
       "regex": [
         "\\s*(?:",
         "(?:(?<RoutingApplicationId>4\\s*2\\s*0\\s*)(?<DestinationZip>([0-9]\\s*){5}))?",
@@ -134,6 +137,7 @@
     },
     {
       "name": "FedEx Ground",
+      "id": "fedex_ground",
       "regex": "\\s*(?<SerialNumber>([0-9]\\s*){14})(?<CheckDigit>([0-9]\\s*))",
       "validation": {
         "checksum": {
@@ -157,6 +161,7 @@
     },
     {
       "name": "FedEx Ground (SSCC-18)",
+      "id": "fedex_ground_sscc_18",
       "regex": "\\s*(?<ShippingContainerType>([0-9]\\s*){2})(?<SerialNumber>([0-9]\\s*){15})(?<CheckDigit>[0-9]\\s*)",
       "tracking_url": "https://www.fedex.com/apps/fedextrack/?tracknumbers=%s",
       "validation": {
@@ -202,6 +207,7 @@
     },
     {
       "name": "FedEx Ground 96 (22)",
+      "id": "fedex_ground_96",
       "regex": [
         "\\s*(?<ApplicationIdentifier>9\\s*6\\s*)",
         "(?<SCNC>([0-9]\\s*){2})",
@@ -229,6 +235,7 @@
     },
     {
       "name": "FedEx Ground GSN",
+      "id": "fedex_ground_gsn",
       "regex": [
         "\\s*(?<ApplicationIdentifier>9\\s*6\\s*)",
         "(?<SCNC>([0-9]\\s*){2})",

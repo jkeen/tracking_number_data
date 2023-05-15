@@ -4,6 +4,7 @@
   "tracking_numbers": [
     {
       "name": "DPD (28)",
+      "id": "dpd",
       "regex": [
         "\\s*",
         "(?<SerialNumber>",
@@ -313,6 +314,7 @@
     },
     {
       "name": "DPD (14)",
+      "id": "dpd_14",
       "regex": [
         "\\s*(?<SerialNumber>",
           "([0-9]\\s*){14}",

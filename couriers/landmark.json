@@ -4,6 +4,7 @@
   "tracking_numbers": [
     {
       "name": "Landmark Global LTN",
+      "id": "landmark_global",
       "regex": [
         "\\s*L\\s*T\\s*N\\s*(?<SerialNumber>([0-9]\\s*){8})\\s*N\\s*1"
       ],

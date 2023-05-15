@@ -4,6 +4,7 @@
   "tracking_numbers": [
     {
       "name": "Canada Post (16)",
+      "id": "canada_post",
       "regex": "\\s*(?<SerialNumber>(?<OriginId>([0-9]\\s*){7})([0-9]\\s*){8})(?<CheckDigit>[0-9]\\s*)",
       "validation": {
         "checksum": {

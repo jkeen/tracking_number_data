@@ -5,6 +5,7 @@
     {
       "tracking_url": "https://tools.usps.com/go/TrackConfirmAction?tLabels=%s",
       "name": "USPS 20",
+      "id": "usps_20",
       "description": "20 digit USPS numbers",
       "regex": [
         "\\s*(?<SerialNumber>",
@@ -58,6 +59,7 @@
     },
     {
       "name": "USPS 34v2",
+      "id": "usps_32V2",
       "description": "variation on 34 digit USPS IMpd numbers",
       "regex": [
         "\\s*(?<RoutingApplicationId>4\\s*2\\s*0\\s*)(?<DestinationZip>([0-9]\\s*){5})",
@@ -90,6 +92,7 @@
     },
     {
       "name": "USPS 91",
+      "id": "usps_91",
       "description": "USPS now calls this the IMpd barcode format",
       "regex": [
         "\\s*(?:(?<RoutingApplicationId>4\\s*2\\s*0\\s*)(?<DestinationZip>([0-9]\\s*){5}))?",

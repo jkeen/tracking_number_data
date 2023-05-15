@@ -5,6 +5,7 @@
     {
       "name": "DHL Express",
       "regex": "\\s*(?<SerialNumber>([0-9]\\s*){9})(?<CheckDigit>([0-9]\\s*))",
+      "id": "dhl_express",
       "validation": {
         "checksum": {
           "name": "mod7"
@@ -13,47 +14,31 @@
       "tracking_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s",
       "test_numbers": {
         "valid": [
+          "JVGL0999999990",
           "3318810025",
+          "73891051146",
           "8487135506",
           "3318810036",
-          " 3 3 1 8 8 1 0 0 3 6 ",
           "3318810014"
         ],
         "invalid": [
           "3318810010",
           "3318810034",
+          "JVGL3099999999",
           "3318810011"
         ]
       }
     },
     {
-      "name": "DHL Express Air",
-      "regex": "\\s*(?<SerialNumber>([0-9]\\s*){10})(?<CheckDigit>[0-9]\\s*)",
-      "validation": {
-        "checksum": {
-          "name": "mod7"
-        }
-      },
-      "tracking_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s",
-      "test_numbers": {
-        "valid": [
-          "73891051146",
-          " 7 3 8 9 1 0 5 1 1 4 6 "
-        ],
-        "invalid": [
-          "73891051149",
-          "73891051147"
-        ]
-      }
-    },
-    {
       "name": "DHL E-Commerce",
-      "regex": "\\s*((G\\s*M\\s*)|(L\\s*X\\s*)|(R\\s*X\\s*)|(U\\s*V\\s*)|(C\\s*N\\s*)|(S\\s*G\\s*)|(T\\s*H\\s*)|(I\\s*N\\s*)|(H\\s*K\\s*)|(M\\s*Y\\s*))\\s*(?<SerialNumber>([0-9]\\s*){10,39})",
+      "id": "dhl_ecommerce",
+      "regex": "\\s*((GM)|(LX)|(RX)|(UV)|(CN)|(SG)|(TH)|(IN)|(HK)|(MY))\\s*(?<SerialNumber>([0-9]\\s*){10,39})",
       "validation": {},
       "tracking_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s",
       "test_numbers": {
         "valid": [
           "GM2951173225174494",
+          "GM 2 9 5 117 32 25 1 7 44 9 4",
           "GM295117494011169042"
         ],
         "invalid": [
