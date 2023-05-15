@@ -14,6 +14,22 @@ def parsed_json_file(file)
   JSON.parse(File.read(file)).deep_symbolize_keys!
 end
 
+def tracking_data
+  @tracking_data ||= begin
+    data = {}
+    courier_files.each do |file|
+      file_name = file.split('/').last
+      json = parsed_json_file(file)
+
+      json[:tracking_numbers].each do |info|
+        data[info[:id]] = info
+      end
+    end
+
+    data
+  end
+end
+
 courier_files.each do |file|
   file_name = file.split('/').last
   data = parsed_json_file(file)
@@ -143,6 +159,20 @@ courier_files.each do |file|
             section[:lookup].each do |lookup|
               expect((lookup[:matches] or lookup[:matches_regex])).to(be_truthy)
             end
+          end
+        end
+      end
+
+      it 'should have a two way reference if the partner block is included' do
+        if info.keys.include?(:partners)
+          info[:partners].each do |partner|
+            expect(partner[:partner_id]).to(be_truthy)
+            expect(partner[:partner_type]).to(be_truthy)
+
+            partner_data = tracking_data[partner[:partner_id]]
+
+            expect(partner_data&.keys&.include?(:partners)).to(eq(true))
+            expect(partner_data[:partners]&.map { |p| p[:partner_id] }).to(include(info[:id]))
           end
         end
       end

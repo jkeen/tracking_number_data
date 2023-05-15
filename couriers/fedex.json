@@ -90,20 +90,38 @@
     },
     {
       "name": "FedEx SmartPost",
-      "description": "IMpb CO3 standard",
       "id": "fedex_smartpost",
+      "description": "Shipped by FedEx, Delivered by USPS",
       "regex": [
         "\\s*(?:",
         "(?:(?<RoutingApplicationId>4\\s*2\\s*0\\s*)(?<DestinationZip>([0-9]\\s*){5}))?",
         "(?<ApplicationIdentifier>9\\s*2\\s*)",
         ")?",
         "(?<SerialNumber>",
-        "(?<ServiceType>([0-9]\\s*){3})",
-        "(?<ShipperId>([0-9]\\s*){9})",
-        "(?<PackageId>([0-9]\\s*){7})",
+        "(?<SCNC>([0-9]\\s*){2})",
+        "(?<ServiceType>([0-9]\\s*){2})",
+        "(?<ShipperId>([0-9]\\s*){8})",
+        "(?<PackageId>([0-9]\\s*){11}|([0-9]\\s*){7})",
         ")",
         "(?<CheckDigit>([0-9]\\s*))"
       ],
+      "additional": [
+        {
+          "name": "Service Type",
+          "regex_group_name": "ServiceType",
+          "lookup": [
+            {
+              "matches_regex": ".",
+              "name": "Delivered by USPS"
+            }
+          ]
+        }
+      ],
+      "partners": [{
+        "partner_id": "usps_91",
+        "partner_type": "carrier",
+        "description": "FedEx SmartPost is a shipping service that utilizes FedEx for the initial transport and the United States Postal Service for final delivery."
+      }],
       "validation": {
         "checksum": {
           "name": "mod10",
@@ -121,7 +139,6 @@
       "test_numbers": {
         "valid": [
           "61299998820821171811",
-          " 6 1 2 9 9 9 9 8 8 2 0 8 2 1 1 7 1 8 1 1 ",
           "9261292700768711948021",
           "420 11213 92 6129098349792366623 8",
           "92 6129098349792366623 8",

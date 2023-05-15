@@ -75,10 +75,7 @@ This repository contains json files that programatically describe how to detect,
             }
           }
         ```
-    - `tracking_url` - A url that we can use to find the tracking
-      history for a particular tracking number. It assumes the
-      tracking number can be entered using python style
-      string formatting "www.courier.com?trackingnumber=%s".
+    - `tracking_url` - A url that we can use to find the tracking history for a particular tracking number. It assumes the tracking number can be entered using python style string formatting "www.courier.com?trackingnumber=%s".
 
     - `test_numbers`:
       - `valid`: an array of valid tracking numbers for testing
@@ -107,6 +104,35 @@ This repository contains json files that programatically describe how to detect,
 
     Each hash in the `lookup` array should contain a key called `matches` or `matces_regex`, specifying how the value of `regex_group_name` should be compared.
 
+
+    - `partners` - Each entry of the partners array describes a possible partnership between carriers. A partnership is only valid if both ends of the partnership pass the checks. If the tracking number passes both sets of validation, this indicates that the shipment was handled by both parties, usually one acting as the _shipper_, and the other as the last mile _carrier_. Each item in the partners array should have:    
+      -  `partner_id`: (required) reference indicating the related definition
+      -  `partner_type`: (required) indicating the type of relationship. Currently the two supported relationship types are `shipper` and `carrier`. 
+      -  `description`: (optional) mainly for humans reading this
+      -  `validation`: (optional) a validation block that determins if this partnership applies
+        -  `matches_all` or `matches_any`: array of match conditions. Each match condition must have a `regex_group_name` indicating the name of the regex group to match against, and then either a `matches` key or a `matches_regex` key with a string or a regex to match against
+
+        ```json
+            //usps.json
+      
+            "partners": [{
+              "partner_id": "fedex_smartpost",
+              "partner_type": "origin",
+              "description": "FedEx SmartPost uses USPS for last mile delivery, but not all USPS91 numbers are SmartPosts",
+              "validation": {
+                "matches_all": [
+                   {
+                     "regex_group_name": "ServiceType",
+                     "matches": "29"
+                   },
+                   {
+                     "regex_group_name": "SCNC",
+                     "matches": "62"
+                   }
+                ]
+              }
+            }],
+        ```
 
 
 ### Making a contribution
