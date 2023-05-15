@@ -1,5 +1,12 @@
 tracking_number_data changelog
 
+# [1.5.0](https://github.com/jkeen/tracking_number_data/compare/v1.4.0...v1.5.0) (2023-05-15)
+
+
+### Features
+
+* Add partners relationship to model shipments that may be shared between carriers. e.g. FedEx SmartPost shipments are delivered by USPS ([4ff4ea9](https://github.com/jkeen/tracking_number_data/commit/4ff4ea98344c625289b287336e2769daa8835685))
+
 # [1.4.0](https://github.com/jkeen/tracking_number_data/compare/v1.3.2...v1.4.0) (2023-05-15)
 
 
