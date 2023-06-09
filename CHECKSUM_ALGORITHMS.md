@@ -1,48 +1,95 @@
 # Check Digit Algorithms
 
-This page defines the basic check digit algorithms used by couriers to
-verify that a tracking number is valid.
+This page defines the basic check digit algorithms used by couriers to verify that a tracking number is valid.
 
-This reference page is useful for anyone wishing to use this repository
-to create a new tracking number library in your language.  Keep in mind
-that the implementation in your language may already exist!
+This reference page is useful for anyone wishing to use this repository to create a new tracking number library in your language. The examples below are in ruby, and are taken directly from [tracking_number](https://github.com/jkeen/tracking_number/). Keep in mind that the implementation in your language may already exist!
 
+```ruby
 
+  def validates_mod7?(sequence, check_digit, extras = {})
+    # standard mod 7 check
+    return true if sequence.to_i % 7 == check_digit.to_i
+  end
 
-    def mod7(arr: List[int], checkDigit: int):
-        x: Long = parseLong(string(arr))
-        return x % 7 == checkDigit;
+  def validates_mod10?(sequence, check_digit, extras = {})
+    total = 0
+    sequence.chars.each_with_index do |c, i|
+      x = if c[/[0-9]/] # numeric
+        c.to_i
+      else
+        (c[0].ord - 3) % 10
+      end
 
-    def mod10(
-            arr: List[int], checkDigit: int,
-            evensMultiplier: int, oddsMultiplier: int):
-        total = sum(
-            idx % 2 == 0 and evensMultiplier * val or oddsMultiplier * val
-            for idx, val in enumerate(arr))
-        x = total % 10;
-        if (x != 0) {
-            x = 10 - x;
-        }
-        return x == checkDigit;
+      if extras[:odds_multiplier] && i.odd?
+        x *= extras[:odds_multiplier].to_i
+      elsif extras[:evens_multiplier] && i.even?
+        x *= extras[:evens_multiplier].to_i
+      end
 
-    def s10(seq1: List[int], checkDigit: int):
-        int[] weightings = {8,6,4,2,3,5,9,7};
-        x = sum(x * y for x, y in zip(seq1, weightings))
-        r = x % 11;
-        if (r == 1) {
-            r = 0;
-        } else if (r == 0) {
-            r = 5;
-        } else {
-            r = 11 - r;
-        }
-        return r == checkDigit;
+      total += x
+    end
 
-    def sumProductWithWeightingsAndModulo(
-            arr: List[int], checkDigit: int, weightings: List[int],
-            modulo1: int, modulo2: int):
-        x = sum(x * y for x, y in zip(seq1, weightings))
-        return x % modulo1 % modulo2 == checkDigit;
+    check = (total % 10)
+    check = (10 - check) unless (check.zero?)
 
-    def dummy(arr: List[int], checkDigit: int):
-        return True
+    return (check.to_i == check_digit.to_i)
+  end
+
+  def validates_s10?(sequence, check_digit, extras = {})
+    weighting = [8,6,4,2,3,5,9,7]
+
+    total = 0
+    sequence.chars.to_a.zip(weighting).each do |(a,b)|
+      total += a.to_i * b.to_i
+    end
+
+    remainder = total % 11
+    check = case remainder
+    when 1
+      0
+    when 0
+      5
+    else
+      11 - remainder
+    end
+
+    return check.to_i == check_digit.to_i
+  end
+
+  def validates_sum_product_with_weightings_and_modulo?(sequence, check_digit, extras = {})
+    weighting = extras[:weightings] || []
+
+    total = 0
+    sequence.chars.to_a.zip(weighting).each do |(a,b)|
+      total += a.to_i * b
+    end
+    return (total % extras[:modulo1] % extras[:modulo2]) == check_digit.to_i
+  end
+
+  def validates_mod_37_36?(sequence, check_digit, extras = {})
+    # From https://esolutions.dpd.com/dokumente/DPD_Parcel_Label_Specification_2.4.1_EN.pdf
+
+    mod = 36
+    weights = {A: 10, B: 11, C: 12, D: 13, E: 14, F: 15, G: 16, H: 17, I: 18, J: 19, K: 20, L: 21, M: 22, N: 23, O: 24, P: 25, Q: 26, R: 27, S: 28, T: 29, U: 30, V: 31, W: 32, X: 33, Y: 34, Z: 35}
+    cd = mod
+    sequence.chars.to_a.each do |char, i|
+      val = (char =~ /[A-Za-z]/  ? weights[char.to_sym] : char.to_i)
+
+      cd = val + cd
+      cd = cd - mod if cd > mod
+      cd = cd * 2
+      cd = cd - (mod + 1) if cd > mod
+    end
+
+    cd = (mod + 1) - cd
+    cd = 0 if cd == mod
+    computed = if cd >= 10
+                 weights.find { |a, val| val == cd }[0].to_s
+               else
+                 cd.to_s
+               end
+
+    computed == check_digit
+  end
+  
+```
