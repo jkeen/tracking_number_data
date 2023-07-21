@@ -1,7 +1,7 @@
-[![Tests](https://github.com/jkeen/tracking_number_data/actions/workflows/tests.yml/badge.svg)](https://github.com/jkeen/tracking_number_data/actions/workflows/tests.yml) 
+[![Tests](https://github.com/jkeen/tracking_number_data/actions/workflows/tests.yml/badge.svg)](https://github.com/jkeen/tracking_number_data/actions/workflows/tests.yml)
 
 > Hey there tracking number enthusiast! I hope this project has been useful for you, and I sure would appreciate a cup or two of covfefe slid my way to keep this resource going.
-> 
+>
 > <a href="https://www.buymeacoffee.com/jeffkeen" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: auto !important;width: 150px !important;" ></a>
 
 # About
@@ -49,7 +49,7 @@ This repository contains json files that programatically describe how to detect,
   - Each tracking number type is defined by a json hash with the following keys:
     - `name` - A name to identify this type of tracking number. Usually includes the carrier in the name, i.e. `FedExGround`
 
-    - `regex` - A pcre compatible regular expression that identifies the tracking number regardless of spaces in-between characters. 
+    - `regex` - A pcre compatible regular expression that identifies the tracking number regardless of spaces in-between characters.
 
       Every regex must contain the named groups `SerialNumber` and `CheckDigit` and depending on the tracking number can optionally contain the following common attributes:
 
@@ -109,16 +109,16 @@ This repository contains json files that programatically describe how to detect,
     Each hash in the `lookup` array should contain a key called `matches` or `matces_regex`, specifying how the value of `regex_group_name` should be compared.
 
 
-    - `partners` - Each entry of the partners array describes a possible partnership between carriers. A partnership is only valid if both ends of the partnership pass the checks. If the tracking number passes both sets of validation, this indicates that the shipment was handled by both parties, usually one acting as the _shipper_, and the other as the last mile _carrier_. Each item in the partners array should have:    
+    - `partners` - Each entry of the partners array describes a possible partnership between carriers. A partnership is only valid if both ends of the partnership pass the checks. If the tracking number passes both sets of validation, this indicates that the shipment was handled by both parties, usually one acting as the _shipper_, and the other as the last mile _carrier_. Each item in the partners array should have:
       -  `partner_id`: (required) reference indicating the related definition
-      -  `partner_type`: (required) indicating the type of relationship. Currently the two supported relationship types are `shipper` and `carrier`. 
+      -  `partner_type`: (required) indicating the type of relationship. Currently the two supported relationship types are `shipper` and `carrier`.
       -  `description`: (optional) mainly for humans reading this
       -  `validation`: (optional) a validation block that determins if this partnership applies
         -  `matches_all` or `matches_any`: array of match conditions. Each match condition must have a `regex_group_name` indicating the name of the regex group to match against, and then either a `matches` key or a `matches_regex` key with a string or a regex to match against
 
         ```json
             //usps.json
-      
+
             "partners": [{
               "partner_id": "fedex_smartpost",
               "partner_type": "origin",
@@ -155,18 +155,21 @@ This repository contains json files that programatically describe how to detect,
 ### List of Libraries using this repository, by Language
 
 We suggest you check these out before rolling your own implementation.
-  
+
 Ruby:
   - [tracking_number](https://github.com/jkeen/tracking_number)
 
-JS/TS: 
+JS/TS:
   - [ts-tracking-number](https://github.com/rjbrooksjr/ts-tracking-number)
 
 Java:
   - [MysteryTrackingNumber](https://github.com/adgaudio/MysteryTrackingNumber)
-  
+
 Python:
   - [TrackingNumbers](https://github.com/jcomo/tracking-numbers/)
+
+Go:
+  - [go-package-tracking](https://github.com/Freespoke/go-package-tracking)
 
 ### I am creating a new library
 
@@ -187,5 +190,5 @@ library to get information out of tracking numbers.
 
 ---
 
-# Reference Documents 
+# Reference Documents
 Located/uploaded to the [wiki](https://github.com/jkeen/tracking_number_data/wiki/Reference-Documents/) for preservation
