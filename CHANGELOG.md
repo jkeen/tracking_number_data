@@ -1,5 +1,12 @@
 tracking_number_data changelog
 
+## [1.5.1](https://github.com/jkeen/tracking_number_data/compare/v1.5.0...v1.5.1) (2023-08-02)
+
+
+### Bug Fixes
+
+* update OnTrac tracking URL ([#96](https://github.com/jkeen/tracking_number_data/issues/96)) ([19a5630](https://github.com/jkeen/tracking_number_data/commit/19a5630191d7f0f28b57856b28178f9e8f83aafa))
+
 # [1.5.0](https://github.com/jkeen/tracking_number_data/compare/v1.4.0...v1.5.0) (2023-05-15)
 
 
