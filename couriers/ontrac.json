@@ -19,7 +19,7 @@
           }
         }
       },
-      "tracking_url": "http://www.ontrac.com/trackingres.asp?tracking_number=%s",
+      "tracking_url": "http://www.ontrac.com/tracking/?number=%s",
       "test_numbers": {
         "valid": [
           "C11031500001879",
@@ -52,7 +52,7 @@
           }
         }
       },
-      "tracking_url": "http://www.ontrac.com/trackingres.asp?tracking_number=%s",
+      "tracking_url": "http://www.ontrac.com/tracking/?number=%s",
       "test_numbers": {
         "valid": [
           "D10011354453707",
