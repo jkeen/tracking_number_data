@@ -127,16 +127,19 @@ courier_files.each do |file|
       it 'does not validate invalid numbers' do
         regex = Regexp.new(pattern)
         subject[:test_numbers][:invalid].each do |invalid|
-          passes_pattern_test = regex.match(invalid)
+          passes_pattern_test = regex.match(invalid).present?
           has_checksum = subject[:validation][:checksum]
           has_additional_check = info[:validation][:additional]
           results = []
-          (results << passes_pattern_test)
+          results << passes_pattern_test
+
           if has_checksum && passes_pattern_test
-            (results << validate_with_checksum(invalid, info))
+            results << validate_with_checksum(invalid, info)
           end
-          (results << false) if has_additional_check
-          expect((!results.all? { |r| r })).to(be_truthy)
+
+          results << false if has_additional_check
+ 
+          expect((results.any? { |r| !r })).to(be_truthy)
         end
       end
 
