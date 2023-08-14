@@ -1,5 +1,12 @@
 tracking_number_data changelog
 
+# [1.6.0](https://github.com/jkeen/tracking_number_data/compare/v1.5.1...v1.6.0) (2023-08-14)
+
+
+### Features
+
+* lock down fedex smart post numbers a little more to prevent invalid usps 91/smart post overlaps ([2cfdfba](https://github.com/jkeen/tracking_number_data/commit/2cfdfba14c0fe551918b68ad8d32695225eb88cb))
+
 ## [1.5.1](https://github.com/jkeen/tracking_number_data/compare/v1.5.0...v1.5.1) (2023-08-02)
 
 
