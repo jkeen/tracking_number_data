@@ -1,5 +1,12 @@
 tracking_number_data changelog
 
+## [1.6.1](https://github.com/jkeen/tracking_number_data/compare/v1.6.0...v1.6.1) (2023-10-20)
+
+
+### Bug Fixes
+
+* Correct serial number group for DHL express numbers, split J* numbers into their own group and remove validation, since it appears they have none ([#100](https://github.com/jkeen/tracking_number_data/issues/100)) ([24c6f03](https://github.com/jkeen/tracking_number_data/commit/24c6f035fc2bac46bcd9fcbcd14b87f70bc5db09))
+
 # [1.6.0](https://github.com/jkeen/tracking_number_data/compare/v1.5.1...v1.6.0) (2023-08-14)
 
 
