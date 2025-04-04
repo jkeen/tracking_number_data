@@ -6,15 +6,15 @@
       "name": "Amazon Logistics",
       "id": "amazon_logistics",
       "regex": [
-        "\\s*T\\s*B\\s*A\\s*(?<SerialNumber>([0-9]\\s*){12,12})\\s*"
+        "\\s*T\\s*B\\s*[ACM]\\s*(?<SerialNumber>([0-9]\\s*){12,12})\\s*"
       ],
       "validation": {},
       "test_numbers": {
         "valid": [
           "TBA000000000000",
           "TBA010000000000",
-          "TBA 000000000000",
-          "TBA502887274000"
+          "TBC 000000000000",
+          "TBM502887274000"
         ],
         "invalid": [
           "TBA50288727400A",
