@@ -48,7 +48,7 @@
     {
       "name": "DHL E-Commerce",
       "id": "dhl_ecommerce",
-      "regex": "\\s*((GM)|(LX)|(RX)|(UV)|(CN)|(SG)|(TH)|(IN)|(HK)|(MY))\\s*(?<SerialNumber>([0-9A-Z]\\s*){10,39})",
+      "regex": "(?:GM|LX|RX|UV|CN|SG|TH|IN|HK|MY)\\s*(?<SerialNumber>(?=[0-9A-Z\\s]{10,39}\\b)(?=[^0-9A-Z]*[0-9])[0-9A-Z\\s]{10,39})",
       "validation": {},
       "tracking_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s",
       "test_numbers": {
@@ -60,7 +60,10 @@
         ],
         "invalid": [
           "GS295117494011169041",
-          "GR295117494011169045"
+          "GR295117494011169045",
+          "AAAAAAAAAAAAAAAAAA",
+          "ABCDEFGHILJKLMNOPQ",
+          "ABCDEFGHILJKLMNOPQRSTU1234567890"
         ]
       }
     },
