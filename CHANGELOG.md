@@ -1,5 +1,12 @@
 tracking_number_data changelog
 
+## [1.8.1](https://github.com/jkeen/tracking_number_data/compare/v1.8.0...v1.8.1) (2025-06-24)
+
+
+### Bug Fixes
+
+* tighten up DHL ecommerce change to not match a random string of letters ([64d6b99](https://github.com/jkeen/tracking_number_data/commit/64d6b99279a7c52006ae35bbec940b9697c75ab4))
+
 # [1.8.0](https://github.com/jkeen/tracking_number_data/compare/v1.7.0...v1.8.0) (2025-06-24)
 
 
