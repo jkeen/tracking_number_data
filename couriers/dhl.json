@@ -63,6 +63,29 @@
           "GR295117494011169045"
         ]
       }
+    },
+    {
+      "name": "DHL E-Commerce (14)",
+      "id": "dhl_ecommerce_14",
+      "regex": "\\s*\\b(?<SerialNumber>(?:[0-9]\\s*){14})\\b",
+      "validation": {},
+      "tracking_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s",
+      "test_numbers": {
+        "valid": [
+          "60120172242323",
+          "5108 7693037816",
+          "60120174971147"
+        ],
+        "invalid": [
+          "A60120172242323",
+          "60120172242323B",
+          "160120172242323",
+          "6012017224232301",
+          "601201722X2323",
+          "GS295117494011169041",
+          "GR295117494011169045"
+        ]
+      }
     }
   ]
 }
