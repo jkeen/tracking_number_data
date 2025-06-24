@@ -48,22 +48,35 @@
     {
       "name": "DHL E-Commerce",
       "id": "dhl_ecommerce",
-      "regex": [
-        "(\\s*((GM)|(LX)|(RX)|(UV)|(CN)|(SG)|(TH)|(IN)|(HK)|(MY))\\s*(?<SerialNumber>([0-9]\\s*){10,39}))",
-        "|^(?<SerialNumber>([0-9]){14})$"
-      ],
+      "regex": "\\s*((GM)|(LX)|(RX)|(UV)|(CN)|(SG)|(TH)|(IN)|(HK)|(MY))\\s*(?<SerialNumber>([0-9]\\s*){10,39})",
       "validation": {},
       "tracking_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s",
       "test_numbers": {
         "valid": [
           "GM2951173225174494",
           "GM 2 9 5 117 32 25 1 7 44 9 4",
-          "GM295117494011169042",
-          "51087693037816",
+          "GM295117494011169042"
+        ],
+        "invalid": [
+          "GS295117494011169041",
+          "GR295117494011169045"
+        ]
+      }
+    },
+    {
+      "name": "DHL E-Commerce (14)",
+      "id": "dhl_ecommerce_14",
+      "regex": "\\s*\\b(?<SerialNumber>(?:[0-9]\\s*){14})\\b",
+      "validation": {},
+      "tracking_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s",
+      "test_numbers": {
+        "valid": [
           "60120172242323",
+          "5108 7693037816",
           "60120174971147"
         ],
         "invalid": [
+          "601201722X2323",
           "GS295117494011169041",
           "GR295117494011169045"
         ]
