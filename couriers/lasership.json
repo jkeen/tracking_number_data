@@ -79,6 +79,27 @@
           "1LS7119013618127-2"
         ]
       }
+    },
+    {
+      "name": "LaserShip 1LSCX (15)",
+      "id": "lasership_1lscx",
+      "regex": [
+        "\\s*1\\s*L\\s*S\\s*",
+        "\\s*C\\s*X\\s*",
+        "(?<SerialNumber>",
+        "([0-9A-Z]\\s*){10}",
+        ")"
+      ],
+      "validation": {},
+      "test_numbers": {
+        "valid": [
+          "1LS CX VE00 58631Y",
+          "1LSCXVE005BUEFX"
+        ],
+        "invalid": [
+          "1LSCZVE0058631Y"
+        ]
+      }
     }
   ]
 }
