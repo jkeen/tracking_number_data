@@ -22,7 +22,7 @@ end
             let(:tracking_number) { klass.new(valid_number) }
 
             it 'is found in search' do
-              matches = TrackingNumber.search(subject)
+              matches = TrackingNumber.search(subject, match: :all)
               results = matches.collect(&:class).collect(&:to_s)
               expect(results.include?(klass.to_s)).to(eq(true))
             end

@@ -175,7 +175,7 @@ courier_files.each do |file|
             partner_data = tracking_data[partner[:partner_id]]
 
             expect(partner_data&.keys&.include?(:partners)).to(eq(true))
-            expect(partner_data[:partners]&.map { |p| p[:partner_id] }).to(include(info[:id]))
+            expect(partner_data[:partners]&.map { |p| p[:partner_id] }).to(include(info[:id]), "expected to find #{info[:id]} in #{partner_data[:partners]&.map { |p| p[:partner_id] }}")
           end
         end
       end

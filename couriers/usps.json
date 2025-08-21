@@ -3,10 +3,10 @@
   "courier_code": "usps",
   "tracking_numbers": [
     {
-      "tracking_url": "https://tools.usps.com/go/TrackConfirmAction?tLabels=%s",
       "name": "USPS 20",
       "id": "usps_20",
       "description": "20 digit USPS numbers",
+      "tracking_url": "https://tools.usps.com/go/TrackConfirmAction?tLabels=%s",
       "regex": [
         "\\s*(?<SerialNumber>",
         "(?<ServiceType>([0-9]\\s*){2})",
@@ -53,6 +53,76 @@
               "matches": "81",
               "name": "Return Receipt For Merchanise"
             }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "USPS 22",
+      "id": "usps_22",
+      "description": "22 digit USPS numbers",
+      "tracking_url": "https://tools.usps.com/go/TrackConfirmAction?tLabels=%s",
+      "regex": [
+        "\\s*((?<RoutingApplicationId>4\\s*2\\s*0\\s*)(?<DestinationZip>([0-9]\\s*){5}))?",
+        "(?<SerialNumber>",
+        "(?<ServiceType>(9\\s*[4-8]\\s*))",
+        "(?<ShipperId>([0-9]\\s*){9})",
+        "(?<PackageId>([0-9]\\s*){10})",
+        ")",
+        "(?<CheckDigit>[0-9]\\s*)"
+      ],
+      "validation": {
+        "checksum": {
+          "name": "mod10",
+          "evens_multiplier": 3,
+          "odds_multiplier": 1,
+          "reverse": true
+        }
+      },
+      "test_numbers": {
+        "valid": [
+          "420787459400111206206406260787",
+          "9400111206206406260787",
+          "9434611206206406227577",
+          "9434611206206407667136",
+          "9400111206206407628746",
+          "9400111206206407628845"
+        ],
+        "invalid": [
+          "9434611206206407667131",
+          "9434611306206407667222",
+          "2334611306206407667222"
+        ]
+      },
+      "partners": [{
+        "description": "DHL ECommerce uses USPS for last mile delivery",
+        "partner_type": "shipper",
+        "partner_id": "dhl_ecommerce_30",
+        "validation": {
+          "matches_all": [
+            {
+              "regex_group_name": "RoutingApplicationId",
+              "matches": "420"
+            },
+            {
+              "matches_regex": "9[24]",
+              "regex_group_name": "ServiceType"
+            }
+          ]
+        }
+      }],
+      "additional": [
+        {
+          "name": "Service Type",
+          "regex_group_name": "ServiceType",
+          "lookup": [
+            { "matches": "92", "name": "Signature Confirmation" },
+            { "matches": "93", "name": "Collect on Delivery (COD)" },
+            { "matches": "94", "name": "USPS Tracking" },
+            { "matches": "95", "name": "Certified Mail" },
+            { "matches": "96", "name": "Insured Mail" },
+            { "matches": "97", "name": "Registered Mail" },
+            { "matches": "98", "name": "Return Receipt for Merchandise" }
           ]
         }
       ]
@@ -131,6 +201,31 @@
             {
               "matches": "61",
               "regex_group_name": "SCNC"
+            },
+            {
+              "regex_group_name": "ApplicationIdentifier",
+              "matches": "92" 
+            }
+          ]
+        }
+      },
+      {
+        "description": "DHL uses USPS for last mile delivery, but not all USPS91 numbers are DHL Ecommerce",
+        "partner_type": "shipper",
+        "partner_id": "dhl_ecommerce_30",
+        "validation": {
+          "matches_all": [
+            {
+              "regex_group_name": "ServiceType",
+              "matches": "29"
+            },
+            {
+              "matches": "61",
+              "regex_group_name": "SCNC"
+            },
+            {
+              "matches": "420",
+              "regex_group_name": "RoutingApplicationId"
             }
           ]
         }
