@@ -1,5 +1,12 @@
 tracking_number_data changelog
 
+# [1.9.0](https://github.com/jkeen/tracking_number_data/compare/v1.8.1...v1.9.0) (2025-08-21)
+
+
+### Features
+
+* Add support for USPS 22 digit numbers, and 30 digit DHL E-commerce numbers. Tighten up some definitions to avoid collisions, and to correctly model shared-delivery partnerships correctly ([30eace7](https://github.com/jkeen/tracking_number_data/commit/30eace7a459aed1ea6f23de87a1d739103383ff6))
+
 ## [1.8.1](https://github.com/jkeen/tracking_number_data/compare/v1.8.0...v1.8.1) (2025-06-24)
 
 
