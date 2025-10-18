@@ -39,11 +39,13 @@ This repository contains json files that programatically describe how to detect,
 | **UPS**          | UPS                       | 18     | `1Z5R89390357567127`                                      | `SerialNumber` `CheckDigit` `ShipperId` `ServiceType` `PackageId`                                                         |
 |                  | UPS Waybill               | 11     | `K2479825491` `V0490119172`                               | `ServiceType` `SerialNumber` `CheckDigit`                                                                                 |
 | **USPS**         | USPS 20                   | 20     | `0307 1790 0005 2348 3741`                                | `ServiceType` `ShipperId` `PackageId` `CheckDigit`                                                                        |
+| **YunExpress**   | YunExpress                | 18     | `YT2229521272164446`                                      | `SerialNumber`                                                                                                            |
 |                  | USPS 22                   | 22–27  | `9400111206206406260787` `420787459400111206206406260787` | `RoutingApplicationId` `DestinationZip` `ServiceType` `ShipperId` `PackageId` `CheckDigit`                                |
 |                  | USPS 34v2                 | 34     | `4201028200009261290113185417468510`                      | `RoutingApplicationId` `DestinationZip` `RoutingNumber` `ApplicationIdentifier` `ShipperId` `PackageId` `CheckDigit`      |
 |                  | USPS 91 (IMpb)            | 25–34  | `420221539101026837331000039521` `9361289878700317633795` | `RoutingApplicationId` `DestinationZip` `ApplicationIdentifier` `SCNC` `ServiceType` `ShipperId` `PackageId` `CheckDigit` |
 
 ## JSON Format
+
 - **couriers/*.json** - identifies the standard couriers that might send mail
   - Each courier is defined by json hash with the following keys
 

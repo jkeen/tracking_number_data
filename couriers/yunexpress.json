@@ -1,0 +1,25 @@
+{
+  "name": "YunExpress",
+  "courier_code": "yunexpress",
+  "tracking_numbers": [
+    {
+      "name": "YunExpress",
+      "id": "yunexpress",
+      "tracking_url": "https://www.yuntrack.com/parcelTracking?id=%s",
+      "regex": [
+        "\\s*Y\\s*T\\s*(?<SerialNumber>([0-9]\\s*){16})\\s*"
+      ],
+      "validation": {},
+      "test_numbers": {
+        "valid": [
+          "YT2229521272164446",
+          "YT2229521272164447",
+          " Y T 2 2 2 9 5 2 1 2 7 2 1 6 4 4 4 7 "
+        ],
+        "invalid": [
+          "YT123456789012345"
+        ]
+      }
+    }
+  ]
+}
