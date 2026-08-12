@@ -8,7 +8,8 @@
       "regex": "\\s*(?<SerialNumber>([0-9]\\s*){9,10})(?<CheckDigit>([0-9]\\s*))",
       "validation": {
         "checksum": {
-          "name": "mod7"
+          "name": "mod7",
+          "modulo": 7
         }
       },
       "tracking_url": "http://www.dhl.com/en/express/tracking.html?brand=DHL&AWB=%s",
