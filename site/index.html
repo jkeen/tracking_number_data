@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>trackingnumber.fyi</title>
+    <!-- Themed before the first paint, so a dark page never flashes light on the way in. -->
+    <script>
+      try {
+        var stored = localStorage.getItem("theme")
+      } catch (error) {
+        var stored = null
+      }
+
+      document.documentElement.dataset.theme =
+        stored || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
