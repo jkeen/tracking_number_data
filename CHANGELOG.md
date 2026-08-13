@@ -1,5 +1,12 @@
 tracking_number_data changelog
 
+# [1.11.0](https://github.com/jkeen/tracking_number_data/compare/v1.10.0...v1.11.0) (2026-08-13)
+
+
+### Features
+
+* every definition states the constants its checksum runs on ([336ce00](https://github.com/jkeen/tracking_number_data/commit/336ce0085064bbf8eac412c6614fd40d58f4d7f6))
+
 # [1.10.0](https://github.com/jkeen/tracking_number_data/compare/v1.9.0...v1.10.0) (2026-08-13)
 
 
