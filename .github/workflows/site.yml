@@ -29,9 +29,8 @@ jobs:
       # Asserts the decoder agrees with every test number in couriers/*.json, so a data
       # change that breaks the site fails here rather than after it deploys.
       - run: npm test
+      # Served from the root of trackingnumber.fyi, so no base path to prefix assets with.
       - run: npm run build
-        env:
-          SITE_BASE: /tracking_number_data/
       - uses: actions/upload-pages-artifact@v3
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
         with:
@@ -40,6 +39,11 @@ jobs:
   deploy:
     needs: test
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
+    # There is one site to publish to, so two branches must not deploy over each other
+    # halfway. Whichever finishes last is what is live.
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     permissions:
       pages: write
