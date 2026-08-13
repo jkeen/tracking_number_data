@@ -57,7 +57,7 @@ This repository contains json files that programatically describe how to detect,
     "description": "A digit derived from the serial number, used to catch a misread number."
   }
   ```
-
+  
 - **couriers/*.json** - identifies the standard couriers that might send mail
   - Each courier is defined by json hash with the following keys
 
