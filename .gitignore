@@ -1,3 +1,5 @@
 .DS_Store
 .rspec_status
 .idea
+node_modules/
+dist/
