@@ -54,7 +54,7 @@ describe("a page for each format", () => {
 
     const meaning = check.querySelector(".meaning").textContent
     expect(meaning).toMatch(/A digit derived from the serial number/)
-    expect(meaning).toMatch(/Mod 10 — even positions ×1/)
+    expect(meaning).toMatch(/Mod 10 \(even positions ×1/)
     expect(container.querySelector(".pattern").textContent).toContain("SerialNumber")
   })
 
@@ -183,7 +183,7 @@ describe("a page for each format", () => {
     const check = rows.find((row) => row.textContent.includes("Check Digit"))
 
     if (check) expect(check.querySelector(".meaning").textContent).toMatch(/defines no checksum/)
-    expect(container.querySelector(".format-facts").textContent).toMatch(/No check digit/)
+    expect(container.querySelector(".format-facts").textContent).toMatch(/No Check Digit!/)
     expect(screen.getByRole("heading", { name: "Amazon Logistics", level: 1 })).toBeTruthy()
   })
 

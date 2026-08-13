@@ -41,7 +41,7 @@ describe("the app boots and decodes", () => {
     const checkDigit = rows.find((row) => row.textContent.includes("Check Digit"))
 
     expect(serviceType.querySelector(".note").textContent).toBe("UPS United States Ground")
-    expect(checkDigit.querySelector(".note").textContent).toMatch(/Verified with\s+Mod 10\s+checksum —/)
+    expect(checkDigit.querySelector(".note").textContent).toMatch(/Verified with\s+Mod 10\s+checksum \(/)
     expect(checkDigit.querySelector(".note a").getAttribute("href")).toBe("/algorithm/mod10/1Z879E930346834440")
     expect(serviceType.querySelector(".term").dataset.term).toMatch(/delivery service/)
   })
@@ -265,7 +265,7 @@ describe("the app boots and decodes", () => {
     render(App)
     await type("1Z879E930346834440")
 
-    expect(screen.getByText(/checksum — even positions ×1, odd positions ×2/)).toBeTruthy()
+    expect(screen.getByText(/checksum \(even positions ×1, odd positions ×2\)/)).toBeTruthy()
     expect(screen.getByText(/couriers\/ups\.json/)).toBeTruthy()
   })
 

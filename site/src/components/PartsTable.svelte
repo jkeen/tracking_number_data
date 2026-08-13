@@ -18,7 +18,7 @@
   const checksum = $derived(match.definition.spec.validation?.checksum)
 
 
-  const rule = $derived(describeVariant(checksum) ? ` checksum — ${describeVariant(checksum)}` : " checksum")
+  const rule = $derived(describeVariant(checksum) ? ` checksum (${describeVariant(checksum)})` : " checksum")
 </script>
 
 <table class="groups">

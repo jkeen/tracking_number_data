@@ -6,7 +6,7 @@ import { validates } from "../src/lib/checksum.js"
 describe("describing what a definition does", () => {
   it("spells out a mod 10 and its multipliers", () => {
     expect(describeChecksum({ name: "mod10", evens_multiplier: 1, odds_multiplier: 2 })).toBe(
-      "Mod 10 — even positions ×1, odd positions ×2"
+      "Mod 10 (even positions ×1, odd positions ×2)"
     )
     expect(describeChecksum({ name: "mod10", evens_multiplier: 3, odds_multiplier: 1, reverse: true })).toContain(
       "counted from the right"
@@ -15,7 +15,7 @@ describe("describing what a definition does", () => {
 
   it("spells out a weighted sum" , () => {
     expect(describeChecksum({ name: "sum_product_with_weightings_and_modulo", weightings: [3, 1, 7], modulo1: 11, modulo2: 10 })).toBe(
-      "Weighted sum — digits × 3 1 7, mod 11 then mod 10"
+      "Weighted sum (digits × 3 1 7, mod 11 then mod 10)"
     )
   })
 

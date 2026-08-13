@@ -260,8 +260,11 @@ button.tracking-number:hover {
 /* --------------------------------------------------------------- masthead -- */
 
 .wordmark {
+  grid-column: 1;
+  grid-row: 1;
   display: inline-block;
-  margin: 0 0 var(--system-space-1);
+  justify-self: start;
+  margin: 0;
   font-size: var(--system-text-2xl);
   letter-spacing: 0.02em;
   text-transform: lowercase;
@@ -288,6 +291,8 @@ button.tracking-number:hover {
 /* --------------------------------------------------------------- menu -- */
 
 .menu {
+  grid-column: 2;
+  grid-row: 1;
   display: flex;
   align-items: center;
   gap: var(--system-space-4);
@@ -521,12 +526,14 @@ button.tracking-number:hover {
   border-left: 4px solid var(--system-color-bad);
 }
 
+/* Columns rather than a wrapping row, so the toggles keep the top right corner at every
+   width and only the wordmark gives up room. The menu and the toggles share the
+   wordmark's line, which is what they line up against; the lede has the row below. */
 header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: var(--system-space-3);
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  column-gap: var(--system-space-4);
 }
 
 /* The gap under the masthead belongs to the masthead, not to whichever block each view
@@ -535,19 +542,18 @@ header {
   margin-bottom: var(--system-space-7);
 }
 
-/* The lines and the toggle travel together at the right of the masthead. */
-.masthead-end {
+.masthead-tools {
+  grid-column: 3;
+  grid-row: 1;
   display: flex;
   align-items: center;
-  gap: var(--system-space-4);
+  gap: var(--system-space-3);
 }
 
 .masthead .lede {
+  grid-column: 1 / -1;
+  grid-row: 2;
   margin: var(--system-space-1) 0 0;
-}
-
-.masthead-end .lede {
-  text-align: right;
 }
 
 .card h2 {
@@ -1268,9 +1274,9 @@ header {
     --system-breakdown-row-height: 1.3rem;
   }
 
-  /* Nothing to sit beside on a narrow screen, so the menu takes a line of its own. */
-  .masthead-end {
-    width: 100%;
+  .menu {
+    grid-column: 1 / -1;
+    grid-row: 3;
     justify-content: space-between;
     margin-top: var(--system-space-3);
     padding-top: var(--system-space-3);

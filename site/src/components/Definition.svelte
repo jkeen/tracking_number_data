@@ -97,7 +97,7 @@
 
     <dl class="format-facts">
       {#if describeMissingChecksum(definition)}
-        <div><dt>Unchecked</dt><dd>{describeMissingChecksum(definition)}</dd></div>
+        <div><dt>No Check Digit!</dt><dd>{describeMissingChecksum(definition)}</dd></div>
       {/if}
       {#if describeRequirements(definition.spec.validation)}
         <div><dt>Also</dt><dd>{describeRequirements(definition.spec.validation)}</dd></div>

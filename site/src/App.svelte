@@ -7,6 +7,7 @@
   import { follow } from "./lib/links.js"
   import Field from "./components/Field.svelte"
   import Theme from "./components/Theme.svelte"
+  import Repository from "./components/Repository.svelte"
   import Result from "./components/Result.svelte"
   import Shipment from "./components/Shipment.svelte"
   import Definition from "./components/Definition.svelte"
@@ -50,29 +51,23 @@
 </script>
 
 <header class="masthead">
-  <div>
-    <a
-      class="wordmark"
-      href={import.meta.env.BASE_URL}
-      onclick={(event) => {
-        if (event.metaKey || event.ctrlKey || event.shiftKey) return
-        event.preventDefault()
-        route.visit("")
-      }}
-    ><span class="tracking">tracking</span><span class="number">number</span><span class="tld">.fyi</span></a>
-    <p class="lede">
-      Decoded in your browser using <a href="https://github.com/jkeen/tracking_number_data">tracking number data</a>. Nothing you type leaves the page. 
-    </p>
-  </div>
+  <a
+    class="wordmark"
+    href={import.meta.env.BASE_URL}
+    onclick={(event) => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey) return
+      event.preventDefault()
+      route.visit("")
+    }}
+  ><span class="tracking">tracking</span><span class="number">number</span><span class="tld">.fyi</span></a>
 
-  <div class="masthead-end">
-    <nav class="menu">
+  <nav class="menu">
     <a
       class="menu-link"
       class:is-current={route.view === "decode"}
       href={pathFor.decode("")}
       onclick={follow(() => route.visit(""))}
-    >Decode</a> 
+    >Decode</a>
     <select class="menu-select" aria-label="Formats" value="" onchange={visit}>
       <option value="">Formats</option>
       {#each couriers as courier (courier.name)}
@@ -83,15 +78,22 @@
         </optgroup>
       {/each}
     </select>
-        <a
+    <a
       class="menu-link"
       class:is-current={route.view === "algorithm"}
       href={pathFor.algorithm("mod10")}
       onclick={follow(() => route.explain("mod10"))}
     >Algorithms</a>
   </nav>
+
+  <div class="masthead-tools">
+    <Repository />
     <Theme />
   </div>
+
+  <p class="lede">
+    Decoded in your browser using <a href="https://github.com/jkeen/tracking_number_data">tracking number data</a>. Nothing you type leaves the page.
+  </p>
 </header>
 
 

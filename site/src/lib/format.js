@@ -46,7 +46,7 @@ export const describeChecksum = (config) => {
 
   const variant = describeVariant(config)
 
-  return variant ? `${labelFor(config.name)} — ${variant}` : config.name
+  return variant ? `${labelFor(config.name)} (${variant})` : config.name
 }
 
 // Only shown when the rule actually fired, so "because" is the accurate word: the
@@ -65,7 +65,7 @@ export const describeSerialRule = (validation) => {
 export const describeMissingChecksum = (definition) =>
   definition?.spec?.validation?.checksum
     ? null
-    : `No check digit — a missed opportunity from ${definition?.courier?.name ?? "the courier"}. Nothing inside the number can catch a mistyped digit, and picking one out of a block of text comes down to the pattern alone.`
+    : `Nothing inside the number can catch a mistyped digit, and picking one out of a block of text comes down to a weak pattern match alone, making detection collisions more likely.`
 
 export const describeRequirements = (validation) => {
   const required = validation?.additional?.exists ?? []
