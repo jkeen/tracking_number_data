@@ -1,0 +1,46 @@
+{
+  "ApplicationIdentifier": {
+    "label": "Application Identifier",
+    "description": "Two digits saying what kind of number follows, carried over from the GS1-128 barcode the number was printed as."
+  },
+  "CheckDigit": {
+    "label": "Check Digit",
+    "description": "A digit derived from the serial number, used to catch a misread number."
+  },
+  "CountryCode": {
+    "label": "Country Code",
+    "description": "A code for the country whose postal service issued the number."
+  },
+  "DestinationZip": {
+    "label": "Destination ZIP",
+    "description": "The postal code the package is addressed to."
+  },
+  "PackageId": {
+    "label": "Package ID",
+    "description": "Identifies the package within the shipper's own numbering."
+  },
+  "RoutingApplicationId": {
+    "label": "Routing Application ID",
+    "description": "The fixed prefix, which marks the destination postal code that follows it."
+  },
+  "SCNC": {
+    "label": "SCNC",
+    "description": "The Serial Container Numeric Code, two digits identifying the carrier."
+  },
+  "SerialNumber": {
+    "label": "Serial Number",
+    "description": "The part of the number the check digit is calculated from."
+  },
+  "ServiceType": {
+    "label": "Service Type",
+    "description": "A code for the delivery service used."
+  },
+  "ShipperId": {
+    "label": "Shipper ID",
+    "description": "Identifies the account that shipped the package."
+  },
+  "ShippingContainerType": {
+    "label": "Container Type",
+    "description": "A code for the kind of container the number was printed on."
+  }
+}

@@ -20,6 +20,10 @@ jobs:
           node-version: 14
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
+      # The table of supported numbers is read out of couriers/*.json, and rides along in
+      # the release commit through the git plugin's assets.
+      - name: Rebuild README
+        run: node utils/gen_readme.mjs
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

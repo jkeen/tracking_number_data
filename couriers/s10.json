@@ -7,7 +7,9 @@
       "name": "S10",
       "validation": {
         "checksum": {
-          "name": "s10"
+          "name": "s10",
+          "weightings": [8, 6, 4, 2, 3, 5, 9, 7],
+          "modulo": 11
         },
         "additional": {
           "exists": [
@@ -17,6 +19,11 @@
       },
       "regex": "\\s*(?<ServiceType>([A-Z]\\s*){2})(?<SerialNumber>([0-9]\\s*){8})(?<CheckDigit>([0-9]\\s*))(?<CountryCode>([A-Z]\\s*){2})",
       "tracking_url": null,
+      "glossary": {
+        "ServiceType": { "description": "Two letters for the class of postal service, the first of which identifies the service and the second the variant." },
+        "SerialNumber": { "description": "Eight digits assigned by the issuing postal service." },
+        "CountryCode": { "description": "Two letters for the country whose postal service issued the number, following ISO 3166." }
+      },
       "test_numbers": {
         "valid": [
           "RB123456785GB",

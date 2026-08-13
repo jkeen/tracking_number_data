@@ -1,5 +1,21 @@
 tracking_number_data changelog
 
+## [1.11.1](https://github.com/jkeen/tracking_number_data/compare/v1.11.0...v1.11.1) (2026-08-13)
+
+# [1.11.0](https://github.com/jkeen/tracking_number_data/compare/v1.10.0...v1.11.0) (2026-08-13)
+
+
+### Features
+
+* every definition states the constants its checksum runs on ([336ce00](https://github.com/jkeen/tracking_number_data/commit/336ce0085064bbf8eac412c6614fd40d58f4d7f6))
+
+# [1.10.0](https://github.com/jkeen/tracking_number_data/compare/v1.9.0...v1.10.0) (2026-08-13)
+
+
+### Features
+
+* add glossary to define common terms that tracking number implementations can use for display ([66a82e7](https://github.com/jkeen/tracking_number_data/commit/66a82e7269252834a054c83a5aeec4204316fcb1))
+
 # [1.9.0](https://github.com/jkeen/tracking_number_data/compare/v1.8.1...v1.9.0) (2025-08-21)
 
 

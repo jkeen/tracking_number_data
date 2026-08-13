@@ -13,7 +13,8 @@
       ],
       "validation": {
         "checksum": {
-          "name": "luhn"
+          "name": "luhn",
+          "modulo": 10
         }
       },
       "tracking_url": "https://www.odfl.com/us/en/tools/trace-track-ltl-freight/trace.html?proNumbers=%s",
@@ -43,7 +44,8 @@
       ],
       "validation": {
         "checksum": {
-          "name": "luhn"
+          "name": "luhn",
+          "modulo": 10
         }
       },
       "tracking_url": "https://www.odfl.com/us/en/tools/trace-track-ltl-freight/trace.html?proNumbers=%s",

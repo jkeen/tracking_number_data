@@ -9,8 +9,10 @@
       "validation": {
         "checksum": {
           "name": "mod10",
+          "modulo": 10,
           "evens_multiplier": 1,
-          "odds_multiplier": 2
+          "odds_multiplier": 2,
+          "reverse": false
         },
         "serial_number_format": {
           "prepend_if": {
@@ -42,8 +44,10 @@
       "validation": {
         "checksum": {
           "name": "mod10",
+          "modulo": 10,
           "evens_multiplier": 1,
-          "odds_multiplier": 2
+          "odds_multiplier": 2,
+          "reverse": false
         },
         "serial_number_format": {
           "prepend_if": {

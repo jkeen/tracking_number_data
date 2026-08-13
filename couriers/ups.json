@@ -15,8 +15,10 @@
       "validation": {
         "checksum": {
           "name": "mod10",
+          "modulo": 10,
           "evens_multiplier": 1,
-          "odds_multiplier": 2
+          "odds_multiplier": 2,
+          "reverse": false
         }
       },
       "tracking_url": "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=%s",
@@ -146,8 +148,10 @@
       "validation": {
         "checksum": {
           "name": "mod10",
+          "modulo": 10,
           "evens_multiplier": 1,
-          "odds_multiplier": 2
+          "odds_multiplier": 2,
+          "reverse": false
         }
       },
       "additional": [

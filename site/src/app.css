@@ -1,0 +1,1289 @@
+/* ---------------------------------------------------------------- tokens -- */
+
+:root {
+  /* Four hues carry the whole palette: one for every neutral, one each for pass, fail
+     and warning. OKLCH throughout, so a colour's lightness is the same promise at every
+     hue and the two themes differ in lightness rather than in a second set of colours. */
+  /* Native controls take their cue from this, so spinners and scrollbars follow suit. */
+  color-scheme: light;
+
+  --system-hue-neutral: 264;
+  --system-hue-good: 155;
+  --system-hue-bad: 12;
+  --system-hue-warn: 80;
+
+  /* Nord's Snow Storm and Polar Night, read back as lightness on the neutral hue. */
+  --system-color-ink: oklch(0.324 0.023 var(--system-hue-neutral));
+  --system-color-muted: oklch(0.452 0.035 var(--system-hue-neutral));
+  --system-color-line: oklch(0.899 0.016 var(--system-hue-neutral));
+  --system-color-paper: oklch(0.951 0.007 var(--system-hue-neutral));
+  --system-color-fade: oklch(0.933 0.01 var(--system-hue-neutral));
+  --system-color-accent: oklch(0.52 0.183 var(--system-hue-neutral));
+  /* What text sits on a filled colour: the paper of the other theme. */
+  --system-color-on-solid: oklch(0.951 0.007 var(--system-hue-neutral));
+  --system-color-good: oklch(0.527 0.125 var(--system-hue-good));
+  --system-color-good-fade: oklch(0.93 0.05 var(--system-hue-good));
+  --system-color-bad: oklch(0.616 0.168 var(--system-hue-bad));
+  --system-color-bad-fade: oklch(1 0.05 var(--system-hue-bad));
+  --system-color-warn: oklch(0.508 0.108 var(--system-hue-warn));
+  --system-color-warn-fade: oklch(0.94 0.055 var(--system-hue-warn));
+  /* Translucent, so a stripe reads the same over paper and over a fade. */
+  --system-color-stripe: oklch(0.7 0.06 var(--system-hue-neutral) / 0.12);
+
+  /* One colour per part of a number. OKLCH so that one lightness and one chroma are the
+     same weight at every hue, which HSL is not: nine of these sit side by side on a USPS
+     91 number and no one of them may shout. */
+  --system-lightness: 0.62;
+  --system-chroma: 0.15;
+
+  --system-part-check-digit: oklch(var(--system-lightness) var(--system-chroma) 15);
+  --system-part-origin-id: oklch(var(--system-lightness) var(--system-chroma) 40);
+  --system-part-package-id: oklch(var(--system-lightness) var(--system-chroma) 60);
+  --system-part-application-identifier: oklch(var(--system-lightness) var(--system-chroma) 90);
+  --system-part-routing-number: oklch(var(--system-lightness) var(--system-chroma) 105);
+  --system-part-routing-application-id: oklch(var(--system-lightness) var(--system-chroma) 140);
+  --system-part-gsn: oklch(var(--system-lightness) var(--system-chroma) 155);
+  --system-part-service-type: oklch(var(--system-lightness) var(--system-chroma) 170);
+  --system-part-shipping-container-type: oklch(var(--system-lightness) var(--system-chroma) 185);
+  --system-part-mailer-id: oklch(var(--system-lightness) var(--system-chroma) 200);
+  --system-part-destination-zip: oklch(var(--system-lightness) var(--system-chroma) 220);
+  --system-part-serial-number: oklch(var(--system-lightness) var(--system-chroma) 255);
+  --system-part-scnc: oklch(var(--system-lightness) var(--system-chroma) 290);
+  --system-part-shipper-id: oklch(var(--system-lightness) var(--system-chroma) 315);
+  --system-part-country-code: oklch(var(--system-lightness) var(--system-chroma) 345);
+  --system-part-other: oklch(var(--system-lightness) 0 0);
+
+  --system-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --system-font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* One step per size. Anything not on the scale is a mistake, not a nuance. */
+  --system-text-xs: 0.72rem;
+  --system-text-sm: 0.82rem;
+  --system-text-md: 0.9rem;
+  --system-text-lg: 1.15rem;
+  --system-text-xl: 1.35rem;
+  --system-text-2xl: 2.5rem;
+
+  --system-tracking-tight: -0.02em;
+  --system-tracking-wide: 0.08em;
+
+  --system-space-1: 0.25rem;
+  --system-space-2: 0.5rem;
+  --system-space-3: 0.75rem;
+  --system-space-4: 1rem;
+  --system-space-5: 1.5rem;
+  --system-space-6: 2rem;
+  --system-space-7: 3rem;
+
+  --system-radius-sm: 2px;
+  --system-radius-md: 8px;
+  --system-radius-pill: 999px;
+  --system-border: 1px solid var(--system-color-line);
+  --system-transition-quick: 0.12s;
+
+  /* The annotated number sets its own type size from its width; these are the parts
+     of its geometry that do not. */
+  --system-field-pad: var(--system-space-4);
+  --system-field-space: 0.22em;
+  --system-breakdown-row-height: 1.5rem;
+  --system-breakdown-tier-height: 2.5rem;
+}
+
+/* The toggle sets data-theme on the document; index.html seeds it from the last choice
+   or the system preference before the page paints. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --system-color-ink: oklch(0.951 0.007 var(--system-hue-neutral));
+  --system-color-muted: oklch(0.677 0.036 var(--system-hue-neutral));
+  --system-color-line: oklch(0.379 0.029 var(--system-hue-neutral));
+  --system-color-paper: oklch(0.28 0.02 var(--system-hue-neutral));
+  --system-color-fade: oklch(0.324 0.023 var(--system-hue-neutral));
+  --system-color-accent: oklch(0.719 0.132 var(--system-hue-neutral));
+  --system-color-on-solid: oklch(0.28 0.02 var(--system-hue-neutral));
+  --system-color-good: oklch(0.75 0.117 var(--system-hue-good));
+  --system-color-good-fade: oklch(0.34 0.07 var(--system-hue-good));
+  --system-color-bad: oklch(0.738 0.13 var(--system-hue-bad));
+  --system-color-bad-fade: oklch(0.32 0.08 var(--system-hue-bad));
+  --system-color-warn: oklch(0.783 0.122 var(--system-hue-warn));
+  --system-color-warn-fade: oklch(0.34 0.07 var(--system-hue-warn));
+
+  /* A part has to hold its own against a dark surface, where the same lightness reads
+     dimmer than it does on a light one. */
+  --system-lightness: 0.76;
+  --system-part-c: 0.14;
+}
+
+/* ------------------------------------------------------------------ base -- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 74rem;
+  padding: var(--system-space-6) var(--system-space-5) var(--system-space-7);
+  background: var(--system-color-paper);
+  color: var(--system-color-ink);
+  font: 16px/1.55 var(--system-font-sans);
+}
+
+h1 {
+  margin: 0 0 var(--system-space-1);
+  font-size: var(--system-text-2xl);
+  letter-spacing: var(--system-tracking-tight);
+}
+
+h2 {
+  margin: 0;
+  font-size: var(--system-text-lg);
+}
+
+a {
+  color: var(--system-color-accent);
+}
+
+code {
+  font-family: var(--system-font-mono);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--system-text-md);
+}
+
+th,
+td {
+  padding: var(--system-space-1) var(--system-space-2);
+  border-bottom: var(--system-border);
+  text-align: left;
+}
+
+th:first-child,
+td:first-child {
+  padding-left: 0;
+}
+
+/* -------------------------------------------------------------- patterns -- */
+
+/* Small capitals above a thing, naming it. */
+.courier-of,
+.leg-label,
+.explore h3,
+.facts dt,
+.format dt,
+.format-facts dt,
+.examples .section th,
+.parts-list .section th,
+.tag,
+.span-label {
+  font-size: var(--system-text-xs);
+  letter-spacing: var(--system-tracking-wide);
+  text-transform: uppercase;
+  color: var(--system-color-muted);
+}
+
+.lede,
+.empty,
+.legend,
+.says,
+.detail,
+.note,
+.whose,
+.parts-list .meaning,
+.examples .why {
+  color: var(--system-color-muted);
+}
+
+.lede,
+.empty,
+.says,
+.parts-list .meaning {
+  font-size: var(--system-text-md);
+}
+
+.legend,
+.detail,
+.note {
+  font-size: var(--system-text-sm);
+}
+
+/* A tracking number, wherever one appears. */
+.tracking-number {
+  font-family: var(--system-font-mono);
+}
+
+a.tracking-number,
+button.tracking-number {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+a.tracking-number:hover,
+button.tracking-number:hover {
+  border-bottom-color: currentColor;
+}
+
+.link {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--system-color-accent);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.button {
+  display: inline-block;
+  margin-top: var(--system-space-4);
+  padding: var(--system-space-2) var(--system-space-3);
+  border-radius: var(--system-radius-md);
+  background: var(--system-color-accent);
+  color: var(--system-color-on-solid);
+  font-size: var(--system-text-md);
+  text-decoration: none;
+}
+
+/* Columns that should be no wider than their contents. */
+.groups th,
+.parts-list th,
+.parts-list .width,
+.examples td:nth-child(2) {
+  width: 1%;
+  white-space: nowrap;
+  padding-right: var(--system-space-6);
+}
+
+/* --------------------------------------------------------------- masthead -- */
+
+.wordmark {
+  display: inline-block;
+  margin: 0 0 var(--system-space-1);
+  font-size: var(--system-text-2xl);
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  text-decoration: none;
+}
+
+.wordmark .tracking,
+.wordmark .number {
+  font-weight: 600;
+}
+
+.wordmark .tracking {
+  color: var(--system-color-ink);
+}
+
+.wordmark .number {
+  color: var(--system-color-muted);
+}
+
+.wordmark .tld {
+  color: var(--system-color-ink);
+}
+
+/* --------------------------------------------------------------- menu -- */
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: var(--system-space-4);
+}
+
+.menu-link {
+  color: var(--system-color-muted);
+  font-size: var(--system-text-md);
+  text-decoration: none;
+}
+
+.menu-link:hover {
+  color: var(--system-color-accent);
+}
+
+.menu-link.is-current {
+  color: var(--system-color-ink);
+  font-weight: 500;
+}
+
+/* Sized to its placeholder rather than to the longest courier in the list. */
+.menu-select {
+  width: 5.5rem;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--system-color-muted);
+  font: inherit;
+  font-size: var(--system-text-md);
+  cursor: pointer;
+}
+
+.menu-select:hover {
+  color: var(--system-color-accent);
+}
+
+.menu-select:focus-visible,
+.choice.mod-preset:focus-visible {
+  outline: 2px solid var(--system-color-accent);
+  outline-offset: 2px;
+}
+
+/* A select is as wide as its widest option unless the browser is asked to fit the text,
+   so the fixed widths above are what everywhere else falls back to. */
+@supports (field-sizing: content) {
+  .menu-select,
+  .choice.mod-preset {
+    width: auto;
+    field-sizing: content;
+  }
+}
+
+/* ------------------------------------------------------------------ field -- */
+
+/* The number stays put while you read what was read out of it. */
+.field {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  margin-top: var(--system-space-5);
+  padding-bottom: var(--system-space-3);
+  border-bottom: var(--system-border);
+  background: var(--system-color-paper);
+}
+
+.ask {
+  display: block;
+  margin-bottom: var(--system-space-1);
+  font-size: var(--system-text-md);
+  color: var(--system-color-muted);
+}
+
+.field .frame {
+  position: relative;
+  padding: var(--system-space-2) var(--system-field-pad);
+  border: var(--system-border);
+  background: var(--system-color-fade);
+  transition: border-color var(--system-transition-quick), background var(--system-transition-quick);
+}
+
+.field .frame:focus-within {
+  border-color: var(--system-color-accent);
+  background: var(--system-color-paper);
+}
+
+.field input {
+  width: 100%;
+  padding: var(--system-space-2) 0;
+  border: none;
+  background: none;
+  color: var(--system-color-ink);
+  font-family: var(--system-font-mono);
+  font-size: var(--field-size);
+  line-height: 1.2;
+  letter-spacing: var(--system-field-space);
+}
+
+.field input:focus {
+  outline: none;
+}
+
+.field input::placeholder {
+  color: var(--system-color-line);
+}
+
+.field input::selection {
+  background: color-mix(in oklab, var(--system-color-accent) 35%, transparent);
+}
+
+/* Hidden text measured to place the rules under the right characters. */
+.ruler {
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  white-space: pre;
+  font-family: var(--system-font-mono);
+  letter-spacing: var(--system-field-space);
+}
+
+.ruler.plain {
+  letter-spacing: 0;
+}
+
+/* These measure the field, so they have to be set in the field's own type. */
+.field .frame .ruler,
+.schematic .ruler {
+  font-size: var(--field-size);
+}
+
+.glow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* -------------------------------------------------------------- breakdown -- */
+
+.breakdown {
+  position: relative;
+  margin: 0 calc(var(--system-field-pad) + 1px);
+  height: calc(var(--system-space-4) + var(--rows) * var(--system-breakdown-row-height) + var(--tiers) * var(--system-breakdown-tier-height));
+  font-family: var(--system-font-mono);
+  font-size: var(--field-size);
+  letter-spacing: var(--system-field-space);
+}
+
+.rule {
+  position: absolute;
+  top: 0;
+  height: 3px;
+  transition: opacity var(--system-transition-quick);
+}
+
+/* A part whose width the format lets vary trails off rather than stopping. */
+.rule.variable::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 0;
+  width: 1.4em;
+  height: 100%;
+  background: repeating-linear-gradient(to right, currentColor 0 3px, transparent 3px 7px);
+  opacity: 0.55;
+}
+
+.tag {
+  position: absolute;
+  top: calc(0.55rem + var(--row) * var(--system-breakdown-row-height));
+  font-family: inherit;
+  white-space: nowrap;
+  cursor: default;
+  transition: opacity var(--system-transition-quick);
+}
+
+.tag::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  height: 0.8rem;
+  border-left: 1px solid currentColor;
+  opacity: 0.45;
+}
+
+.range {
+  margin-left: var(--system-space-1);
+  font-size: 0.92em; /* relative to the label it trails */
+  opacity: 0.65;
+}
+
+/* A part that wraps other parts gets a span of its own beneath them. */
+.span {
+  position: absolute;
+  top: calc(var(--system-space-4) + var(--rows) * var(--system-breakdown-row-height) + var(--tier) * var(--system-breakdown-tier-height));
+  height: var(--system-space-2);
+  border: 2px solid;
+  border-top: none;
+  opacity: 0.85;
+  cursor: default;
+  transition: opacity var(--system-transition-quick);
+}
+
+.span-label {
+  position: absolute;
+  top: calc(100% + var(--system-space-1));
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--system-font-mono);
+  white-space: nowrap;
+}
+
+.dim {
+  opacity: 0.75;
+}
+
+/* --------------------------------------------------------------- results -- */
+
+.card {
+  margin: var(--system-space-4) 0;
+  padding: var(--system-space-5);
+  border: var(--system-border);
+}
+
+.card.valid {
+  border-left: 4px solid var(--system-color-good);
+}
+
+.card.near-miss {
+  border-left: 4px solid var(--system-color-bad);
+}
+
+header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--system-space-3);
+  flex-wrap: wrap;
+}
+
+/* The gap under the masthead belongs to the masthead, not to whichever block each view
+   happens to open with: the field carried one, the format page carried none. */
+.masthead {
+  margin-bottom: var(--system-space-7);
+}
+
+/* The lines and the toggle travel together at the right of the masthead. */
+.masthead-end {
+  display: flex;
+  align-items: center;
+  gap: var(--system-space-4);
+}
+
+.masthead .lede {
+  margin: var(--system-space-1) 0 0;
+}
+
+.masthead-end .lede {
+  text-align: right;
+}
+
+.card h2 {
+  font-size: var(--system-text-xl);
+}
+
+.type {
+  margin: 0.1rem 0 0;
+  font-size: var(--system-text-md);
+  color: var(--system-color-muted);
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--system-space-2);
+  margin: 0;
+}
+
+.explain {
+  padding: var(--system-space-3);
+  border-radius: var(--system-radius-md);
+  background: var(--system-color-bad-fade);
+  font-size: var(--system-text-md);
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--system-space-5);
+  margin: var(--system-space-4) 0;
+}
+
+.facts dd {
+  margin: 0.15rem 0 0;
+}
+
+.detail {
+  display: block;
+  margin-top: 0.15rem;
+  line-height: 1.4;
+}
+
+.card footer,
+.pane footer {
+  display: flex;
+  align-items: center;
+  gap: var(--system-space-4);
+  margin-top: var(--system-space-4);
+  flex-wrap: wrap;
+}
+
+/* The button carries its own top margin for use on its own; in a row it would tip it. */
+.card footer .button,
+.pane footer .button {
+  margin-top: 0;
+}
+
+.card footer a:not(.button),
+.pane footer a:not(.button) {
+  font-size: var(--system-text-sm);
+}
+
+/* Hovering a part in a result lights the characters it was read from. */
+/* The header used to be followed by the pattern line, which set this gap. */
+.card .groups {
+  margin-top: var(--system-space-4);
+}
+
+.groups tr {
+  transition: background var(--system-transition-quick);
+}
+
+.groups tr.lit {
+  background: var(--system-color-fade);
+}
+
+.groups th {
+  font-weight: 500;
+  color: var(--system-color-ink);
+}
+
+.matched {
+  margin: var(--system-space-3) 0 0;
+  font-size: var(--system-text-xs);
+  color: var(--system-color-muted);
+  line-height: 1.6;
+}
+
+.matched code {
+  overflow-wrap: anywhere;
+}
+
+.also {
+  display: block;
+  margin-top: var(--system-space-1);
+}
+
+/* A wide number narrows inside the cell rather than stretching the table it sits in. */
+.mod-verify td {
+  max-width: 1px;
+  padding: var(--system-space-3) 0 var(--system-space-2);
+}
+
+.mod-verify .tape {
+  margin-bottom: var(--system-space-3);
+}
+
+/* Formats that fit the same digits just as well. Set apart so the first result does not
+   read as the answer and the rest as runners-up. */
+.alternates {
+  margin-top: var(--system-space-6);
+  padding-top: var(--system-space-5);
+  border-top: var(--system-border);
+}
+
+.alternates h2 {
+  margin: 0;
+  font-size: var(--system-text-sm);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--system-color-muted);
+}
+
+.alternates p {
+  margin: var(--system-space-2) 0 0;
+  max-width: 60ch;
+  font-size: var(--system-text-sm);
+  color: var(--system-color-muted);
+}
+
+.near-misses {
+  margin-top: var(--system-space-5);
+}
+
+.near-misses summary {
+  font-size: var(--system-text-sm);
+  color: var(--system-color-muted);
+  cursor: pointer;
+}
+
+.near-misses[open] summary {
+  margin-bottom: var(--system-space-2);
+}
+
+/* -------------------------------------------------------------- shipment -- */
+
+/* A partnership is one shipment, so its halves share a single card. */
+.shipment {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: stretch;
+  margin: var(--system-space-4) 0;
+  border: var(--system-border);
+  overflow: hidden;
+}
+
+.shipment.single {
+  grid-template-columns: 1fr;
+}
+
+.shipment .leg {
+  padding: var(--system-space-5);
+  min-width: 0;
+}
+
+.leg-label {
+  margin: 0 0 var(--system-space-3);
+}
+
+.shipment .shared {
+  grid-column: 1 / -1;
+  padding: 0 var(--system-space-5) var(--system-space-5);
+}
+
+.join {
+  position: relative;
+  width: 1px;
+  background: var(--system-color-line);
+}
+
+.join span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border: var(--system-border);
+  border-radius: var(--system-radius-pill);
+  background: var(--system-color-paper);
+  color: var(--system-color-muted);
+  font-size: var(--system-text-sm);
+}
+
+.pane {
+  padding: 0;
+  border: none;
+}
+
+.pane + .pane {
+  margin-top: var(--system-space-4);
+  padding-top: var(--system-space-4);
+  border-top: 1px dashed var(--system-color-line);
+}
+
+.pane h2 {
+  font-size: var(--system-text-lg);
+}
+
+.pane .facts {
+  gap: var(--system-space-4);
+}
+
+/* Where two definitions read the same number differently. */
+.reading {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--system-space-1);
+  margin-right: var(--system-space-5);
+}
+
+.whose {
+  font-size: var(--system-text-xs);
+}
+
+.note {
+  margin-left: var(--system-space-3);
+}
+
+/* --------------------------------------------------- how a format works -- */
+
+.format {
+  margin-top: var(--system-space-5);
+  padding-top: var(--system-space-3);
+  border-top: var(--system-border);
+}
+
+.format summary {
+  font-size: var(--system-text-sm);
+  color: var(--system-color-muted);
+  cursor: pointer;
+}
+
+.format dl {
+  display: grid;
+  gap: var(--system-space-3);
+  margin: var(--system-space-4) 0 var(--system-space-1);
+}
+
+.format dd,
+.format-facts dd {
+  margin: var(--system-space-1) 0 0;
+  font-size: var(--system-text-md);
+}
+
+.format .working {
+  margin: var(--system-space-1) 0 0;
+  font-size: var(--system-text-sm);
+  color: var(--system-color-muted);
+}
+
+.pattern {
+  display: block;
+  margin: var(--system-space-1) 0 0;
+  padding: var(--system-space-3);
+  border-radius: var(--system-radius-md);
+  background: var(--system-color-fade);
+  font-size: var(--system-text-sm);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* ---------------------------------------------------------- format page -- */
+
+.courier-of {
+  margin: 0 0 var(--system-space-1);
+}
+
+.definition h1 {
+  margin: 0.1rem 0 var(--system-space-4);
+}
+
+/* h2 is flush by default because a result card sets it in a flex header. Where one
+   opens a section of a page it needs the gap a section break implies. */
+.definition h2,
+.algorithm h2 {
+  margin-top: var(--system-space-6);
+}
+
+.says {
+  margin: calc(var(--system-space-2) * -1) 0 var(--system-space-5);
+}
+
+.format-facts {
+  display: grid;
+  gap: var(--system-space-3);
+  margin: 0 0 var(--system-space-5);
+}
+
+.legend {
+  margin: 0 0 var(--system-space-6);
+}
+
+.parts-list {
+  margin-top: var(--system-space-2);
+}
+
+.parts-list th {
+  font-weight: 500;
+  color: var(--system-color-ink);
+}
+
+.parts-list .width {
+  font-family: var(--system-font-mono);
+  color: var(--system-color-muted);
+}
+
+.parts-list .undocumented {
+  font-style: italic;
+  opacity: 0.6;
+}
+
+.examples {
+  margin: var(--system-space-2) 0 var(--system-space-5);
+}
+
+.examples .section th,
+.parts-list .section th {
+  padding-top: var(--system-space-5);
+  border: none;
+}
+
+.examples .section:first-child th,
+.parts-list .section:first-child th {
+  padding-top: var(--system-space-2);
+}
+
+.examples .mark {
+  width: 2rem;
+  text-align: center;
+}
+
+.examples tr.ok .mark {
+  color: var(--system-color-good);
+}
+
+.examples tr.bad {
+  background: var(--system-color-bad-fade);
+}
+
+.examples tr.bad .mark {
+  color: var(--system-color-bad);
+}
+
+.examples .why {
+  font-size: var(--system-text-sm);
+}
+
+.repeated {
+  display: block;
+  margin-top: var(--system-space-1);
+}
+
+/* ------------------------------------------------------------ algorithm -- */
+
+.steps {
+  margin: var(--system-space-3) 0 var(--system-space-6);
+  padding-left: var(--system-space-4);
+}
+
+.steps li {
+  margin-bottom: var(--system-space-2);
+}
+
+.algorithm h2 {
+  margin-top: var(--system-space-6);
+}
+
+/* The bench has the width for a bigger number than a result card does. */
+.algorithm .tape {
+  --cell: 2.5rem;
+  --digit: var(--system-text-2xl);
+  --figure: var(--system-text-md);
+}
+
+/* A line of voice under a title, which is not the same thing as a heading. */
+.deck {
+  margin: var(--system-space-2) 0 var(--system-space-5);
+  font-size: var(--system-text-lg);
+  color: var(--system-color-muted);
+}
+
+/* Which algorithm the bench is set up for. */
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--system-space-2);
+  margin: 0 0 var(--system-space-6);
+}
+
+.choice {
+  padding: var(--system-space-2) var(--system-space-4);
+  border: var(--system-border);
+  border-radius: var(--system-radius-pill);
+  color: var(--system-color-muted);
+  font-size: var(--system-text-lg);
+  text-decoration: none;
+}
+
+.choice:hover {
+  border-color: var(--system-color-accent);
+  color: var(--system-color-accent);
+}
+
+.choice.mod-preset {
+  width: 11rem;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.choice.is-current {
+  border-color: var(--system-color-ink);
+  background: var(--system-color-ink);
+  color: var(--system-color-paper);
+}
+
+/* The constants, set rather than read. */
+.settings {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--system-space-4);
+  margin: var(--system-space-4) 0 var(--system-space-3);
+}
+
+.setting {
+  display: flex;
+  flex-direction: column;
+  gap: var(--system-space-1);
+}
+
+.setting-name {
+  font-size: var(--system-text-xs);
+  letter-spacing: var(--system-tracking-wide);
+  text-transform: uppercase;
+  color: var(--system-color-muted);
+}
+
+.setting-value {
+  /* The steppers eat half the width of a field this small, and a constant is typed. */
+  appearance: textfield;
+  width: 3.5rem;
+  padding: var(--system-space-1) var(--system-space-2);
+  border: var(--system-border);
+  border-radius: var(--system-radius-sm);
+  background: var(--system-color-paper);
+  color: var(--system-color-ink);
+  font-family: var(--system-font-mono);
+  font-size: var(--system-text-md);
+}
+
+.setting-value::-webkit-outer-spin-button,
+.setting-value::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.setting-value:focus {
+  outline: none;
+  border-color: var(--system-color-accent);
+}
+
+.weights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--system-space-1);
+}
+
+.weights .setting-value {
+  width: 2.75rem;
+  text-align: center;
+}
+
+.legend .link {
+  margin-left: var(--system-space-3);
+}
+
+.algorithm-list {
+  margin: var(--system-space-2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.algorithm-list li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--system-space-2);
+  padding: 0.2rem 0;
+}
+
+.algorithm-link {
+  display: block;
+  margin-top: var(--system-space-1);
+  font-size: var(--system-text-sm);
+}
+
+/* Every row is its own grid on one shared template, so the columns line up by construction. */
+/* The columns divide whatever width there is, so a long number narrows rather than
+   scrolling — a scrolling tape would clip the tooltips that explain it. */
+.tape {
+  --cell: 1.9rem;
+  --sum: 7rem;
+  --digit: var(--system-text-lg);
+  --figure: var(--system-text-sm);
+  container-type: inline-size;
+  margin-bottom: var(--system-space-5);
+}
+
+.tape-grid {
+  font-family: var(--system-font-mono);
+}
+
+.tape-row {
+  display: grid;
+  grid-template-columns:
+    repeat(var(--columns), minmax(0, min(var(--cell), 100cqw)))
+    minmax(var(--sum), max-content);
+}
+
+/* Room at the end for a field of its own, past the sum and everything it says. */
+.tape.mod-trailing .tape-row {
+  grid-template-columns:
+    repeat(var(--columns), minmax(0, min(var(--cell), 100cqw)))
+    minmax(var(--sum), max-content)
+    var(--cell);
+}
+
+.tape-digit {
+  width: 100%;
+  padding: var(--system-space-2) 0;
+  font-size: min(var(--digit), calc(100cqw / var(--columns) * 0.62));
+  border: none;
+  border-left: 1px solid var(--system-color-line);
+  border-bottom: var(--system-border);
+  border-radius: 0;
+  background: none;
+  color: var(--system-color-ink);
+  font-family: inherit;
+  text-align: center;
+}
+
+/* Only the serial is added up, so everything else all but disappears. */
+.tape-digit.mod-ignored,
+.tape-digit.mod-spare {
+  color: var(--system-color-muted);
+  opacity: 0.3;
+}
+
+.tape-digit:last-of-type {
+  border-right: 1px solid var(--system-color-line);
+}
+
+.tape-digit:focus {
+  outline: none;
+  background: var(--system-color-paper);
+  box-shadow: inset 0 -2px 0 var(--system-color-accent);
+}
+
+.tape-mark {
+  display: flex;
+  justify-content: center;
+  padding-bottom: var(--system-space-1);
+  color: var(--system-color-muted);
+  font-family: var(--system-font-sans);
+  font-size: var(--system-text-xs);
+  letter-spacing: var(--system-tracking-wide);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.tape-cell {
+  padding: 0.15rem 0;
+  border-left: 1px solid var(--system-color-line);
+  color: var(--system-color-muted);
+  font-size: min(var(--figure), calc(100cqw / var(--columns) * 0.5));
+  text-align: center;
+}
+
+.tape-cell.is-striped,
+.tape-digit.is-striped {
+  background: var(--system-color-stripe);
+}
+
+.tape-cell.is-last {
+  border-right: 1px solid var(--system-color-line);
+}
+
+.tape-cell.mod-value {
+  padding-top: var(--system-space-2);
+}
+
+.tape-cell.mod-product,
+.tape-total {
+  position: relative;
+  border-top: 1px solid var(--system-color-line);
+  color: var(--system-color-ink);
+}
+
+/* Products are added, so they read joined by plus signs. A running value is not. */
+.tape-cell.mod-added + .tape-cell::before {
+  content: "+";
+  position: absolute;
+  left: 0;
+  transform: translateX(-60%);
+  color: var(--system-color-muted);
+}
+
+/* Each row is named at its end, rather than in a key elsewhere. */
+.tape-legend {
+  padding: 0.15rem 0 0 var(--system-space-2);
+  color: var(--system-color-muted);
+  font-family: var(--system-font-sans);
+  font-size: var(--system-text-xs);
+  white-space: nowrap;
+}
+
+.tape-total {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35em;
+  padding: 0.15rem 0 0 var(--system-space-2);
+  border-top-color: transparent;
+  font-size: var(--system-text-sm);
+  white-space: nowrap;
+}
+
+/* The steps carry on from the total they follow, rather than starting again on the left. */
+.tape-step {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35em;
+  padding: var(--system-space-1) 0 0;
+  font-size: var(--system-text-sm);
+  white-space: nowrap;
+}
+
+/* A step under a total lines up with the total's number, past its equals sign. */
+.mod-products ~ .mod-step .tape-step {
+  padding-left: calc(var(--system-space-2) + 1ch + 0.35em);
+}
+
+/* At the right edge of the tape, a tooltip has room to its left rather than its right. */
+.tape-step :global(.term)::after {
+  left: auto;
+  right: 0;
+}
+
+.tape-sign {
+  color: var(--system-color-muted);
+}
+
+.tape-answer {
+  padding: 0 var(--system-space-1);
+  border-radius: var(--system-radius-sm);
+  color: var(--system-color-ink);
+}
+
+.tape-answer.is-ok {
+  background: var(--system-color-good-fade);
+  color: var(--system-color-good);
+}
+
+.tape-answer.is-bad {
+  background: var(--system-color-bad-fade);
+  color: var(--system-color-bad);
+}
+
+.tape-caption {
+  margin: var(--system-space-2) 0 0;
+  font-size: var(--system-text-sm);
+  color: var(--system-color-muted);
+}
+
+/* The check digit and the digit the arithmetic lands on, answering each other. */
+.tape-digit.is-ok {
+  background: var(--system-color-good-fade);
+  color: var(--system-color-good);
+}
+
+.tape-digit.is-bad {
+  background: var(--system-color-bad-fade);
+  color: var(--system-color-bad);
+}
+
+.verdict {
+  margin: 0 0 var(--system-space-6);
+  font-size: var(--system-text-md);
+}
+
+.verdict.is-ok {
+  color: var(--system-color-good);
+}
+
+.verdict.is-bad {
+  color: var(--system-color-bad);
+}
+
+/* ------------------------------------------------------------ narrow -- */
+
+@media (max-width: 44rem) {
+  :root {
+    --system-breakdown-row-height: 1.3rem;
+  }
+
+  /* Nothing to sit beside on a narrow screen, so the menu takes a line of its own. */
+  .masthead-end {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: var(--system-space-3);
+    padding-top: var(--system-space-3);
+    border-top: var(--system-border);
+  }
+
+  .shipment {
+    grid-template-columns: 1fr;
+  }
+
+  .join {
+    width: auto;
+    height: 1px;
+    margin: 0 var(--system-space-5);
+  }
+}
