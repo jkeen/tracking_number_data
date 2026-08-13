@@ -116,13 +116,30 @@
       <p>No definition matches <code>{route.number}</code>.</p>
     </div>
   {:else}
-    {#each shown as shipment (shipment.matches[0].definition.key)}
+    {#snippet card(shipment)}
       {#if shipment.partnership}
         <Shipment {shipment} />
       {:else}
         <Result match={shipment.matches[0]} />
       {/if}
-    {/each}
+    {/snippet}
+
+    {@render card(shown[0])}
+
+    {#if shown.length > 1}
+      <section class="alternates">
+        <h2>Also matches</h2>
+        <p>
+          {shown.length === 2 ? "Another format describes" : `${shown.length - 1} other formats describe`}
+          these same digits and {shown.length === 2 ? "passes" : "pass"} the same check digit. Nothing in the
+          number says which one shipped the package.
+        </p>
+
+        {#each shown.slice(1) as shipment (shipment.matches[0].definition.key)}
+          {@render card(shipment)}
+        {/each}
+      </section>
+    {/if}
 
     {#if rejected.length}
       <details class="near-misses">

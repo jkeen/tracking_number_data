@@ -1,6 +1,8 @@
 <script>
   import Result from "./Result.svelte"
+  import CheckDigitRow from "./CheckDigitRow.svelte"
   import PartLabel from "./PartLabel.svelte"
+  import { describeChecksum } from "../lib/format.js"
   import { clear, highlight, light } from "../lib/highlight.svelte.js"
   import { noteFor } from "../lib/annotations.js"
 
@@ -13,6 +15,25 @@
       { label: "Delivered by", matches: shipment.carriers },
     ].filter((leg) => leg.matches.length)
   )
+
+  // Both halves check the same digits, and usually the same way, so the arithmetic is
+  // worth showing once. Where they differ it is worth showing whose is whose.
+  const workings = $derived.by(() => {
+    const byWorking = new Map()
+
+    for (const match of shipment.matches) {
+      const checksum = match.definition.spec.validation?.checksum
+      if (!checksum) continue
+
+      const key = `${describeChecksum(checksum)}::${match.serialNumber}`
+      byWorking.set(key, [...(byWorking.get(key) ?? []), match])
+    }
+
+    return [...byWorking.values()].map((matches) => ({
+      match: matches[0],
+      whose: byWorking.size > 1 ? matches.map((match) => match.definition.name).join(" and ") : "",
+    }))
+  })
 
   // Both halves read the same number, so most of their parts agree. Listing them per
   // side duplicated nearly everything; the rows are merged and only genuine
@@ -85,6 +106,10 @@
               {/if}
             </td>
           </tr>
+        {/each}
+
+        {#each workings as working (working.match.definition.key)}
+          <CheckDigitRow match={working.match} whose={working.whose} />
         {/each}
       </tbody>
     </table>

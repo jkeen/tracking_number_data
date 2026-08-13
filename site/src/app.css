@@ -4,6 +4,9 @@
   /* Four hues carry the whole palette: one for every neutral, one each for pass, fail
      and warning. OKLCH throughout, so a colour's lightness is the same promise at every
      hue and the two themes differ in lightness rather than in a second set of colours. */
+  /* Native controls take their cue from this, so spinners and scrollbars follow suit. */
+  color-scheme: light;
+
   --system-hue-neutral: 264;
   --system-hue-good: 155;
   --system-hue-bad: 12;
@@ -89,6 +92,8 @@
 /* The toggle sets data-theme on the document; index.html seeds it from the last choice
    or the system preference before the page paints. */
 :root[data-theme="dark"] {
+  color-scheme: dark;
+
   --system-color-ink: oklch(0.951 0.007 var(--system-hue-neutral));
   --system-color-muted: oklch(0.677 0.036 var(--system-hue-neutral));
   --system-color-line: oklch(0.379 0.029 var(--system-hue-neutral));
@@ -651,6 +656,30 @@ header {
   margin-bottom: var(--system-space-3);
 }
 
+/* Formats that fit the same digits just as well. Set apart so the first result does not
+   read as the answer and the rest as runners-up. */
+.alternates {
+  margin-top: var(--system-space-6);
+  padding-top: var(--system-space-5);
+  border-top: var(--system-border);
+}
+
+.alternates h2 {
+  margin: 0;
+  font-size: var(--system-text-sm);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--system-color-muted);
+}
+
+.alternates p {
+  margin: var(--system-space-2) 0 0;
+  max-width: 60ch;
+  font-size: var(--system-text-sm);
+  color: var(--system-color-muted);
+}
+
 .near-misses {
   margin-top: var(--system-space-5);
 }
@@ -974,6 +1003,8 @@ header {
 }
 
 .setting-value {
+  /* The steppers eat half the width of a field this small, and a constant is typed. */
+  appearance: textfield;
   width: 3.5rem;
   padding: var(--system-space-1) var(--system-space-2);
   border: var(--system-border);
@@ -982,6 +1013,12 @@ header {
   color: var(--system-color-ink);
   font-family: var(--system-font-mono);
   font-size: var(--system-text-md);
+}
+
+.setting-value::-webkit-outer-spin-button,
+.setting-value::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
 }
 
 .setting-value:focus {

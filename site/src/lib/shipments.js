@@ -1,9 +1,10 @@
 /** @import { Match } from "./shapes.js" */
 
 /**
- * Collects matches that describe the same shipment. Two definitions belong together
- * when either names the other as its partner — the naming is not always mutual, since
- * a carrier declaring several possible shippers reports only the first that fits.
+ * Collects matches that describe the same shipment. A definition listing several possible
+ * partners takes the first whose conditions hold, so the pairing is whichever one both
+ * halves chose. Another format claiming the same partner is a rival reading of the same
+ * digits rather than a third leg of the journey, and is left to stand on its own.
  *
  * @param {Match[]} matches
  * @returns {{ partnership: boolean, shippers: Match[], carriers: Match[], matches: Match[] }[]}
@@ -14,10 +15,10 @@ export const group = (matches) => {
   const shipments = []
 
   const linkedTo = (match) => {
-    const partner = match.partner && byKey.get(match.partner.key)
-    const namers = matches.filter((other) => other.partner?.key === match.definition.key)
+    const chosen = match.partner && byKey.get(match.partner.key)
+    const agreed = chosen?.partner?.key === match.definition.key ? chosen : null
 
-    return [partner, ...namers].filter((linked) => linked && !claimed.has(linked.definition.key))
+    return [agreed].filter((linked) => linked && !claimed.has(linked.definition.key))
   }
 
   for (const match of matches) {
@@ -42,8 +43,9 @@ export const group = (matches) => {
       pending.push(...linkedTo(next))
     }
 
+    // A shipper whose partner went to someone else is just a match, not half a journey.
     shipments.push({
-      partnership: true,
+      partnership: members.length > 1,
       shippers: members.filter((member) => member.role === "shipper"),
       carriers: members.filter((member) => member.role === "carrier"),
       matches: members,
