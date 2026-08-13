@@ -11,6 +11,9 @@
     "url": "https://github.com/jkeen/tracking_number_data/issues"
   },
   "homepage": "https://github.com/jkeen/tracking_number_data#readme",
+  "scripts": {
+    "readme": "node utils/gen_readme.mjs"
+  },
   "dependencies": {
     "semantic-release": "^19.0.3",
     "@semantic-release/changelog": "^6.0.1",
@@ -83,7 +86,7 @@
       [
         "@semantic-release/git",
         {
-          "assets": ["CHANGELOG.md"],
+          "assets": ["CHANGELOG.md", "README.md"],
           "message": "${nextRelease.version} CHANGELOG [skip ci]\n\n${nextRelease.notes}"
         }
       ]

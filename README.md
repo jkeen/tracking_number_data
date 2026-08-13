@@ -1,49 +1,61 @@
 [![Tests](https://github.com/jkeen/tracking_number_data/actions/workflows/tests.yml/badge.svg)](https://github.com/jkeen/tracking_number_data/actions/workflows/tests.yml)
 
-> Hey there tracking number enthusiast! I don't use this project in any production capacity, and really never have. I am not a tracking number expert, and I don't have inside connections to a shipping company—I'm just a guy that once tried to make a package tracking app and this gem is all that survived. When I have absolutely nothing to do it's kinda fun to tinker with, but time has become more and more of a precious resource. Anyway, maintaining this is thankless work, and if this project has been useful for you I sure would appreciate a cup or two of coffee slid my way as a token of appreciation. A PR would also be nice.
->
-> <a href="https://www.buymeacoffee.com/jeffkeen" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: auto !important;width: 150px !important;" ></a>
-
 # About
 
 This repository contains json files that programatically describe how to detect, validate, and decode the following types of tracking numbers:
 
-## Supported Tracking Numbers
-| Carrier          | Type                      | Length | Example                                                   | Data                                                                                                                      |
-| ---------------- | ------------------------- | ------ | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| **Amazon**       | Amazon Logistics          | 15     | `TBA502887274000`                                         | `SerialNumber`                                                                                                            |
-|                  | Amazon International      | 11     | `C1004444443`                                             | `SerialNumber`                                                                                                            |
-| **Canada Post**  | Canada Post (16)          | 16     | `0073938000549297`                                        | `OriginId` `SerialNumber` `CheckDigit`                                                                                    |
-| **DHL**          | DHL Express               | 10     | `3318810025`                                              | `SerialNumber` `CheckDigit`                                                                                               |
-|                  | DHL Express (Piece ID)    | 11–13  | `JJD0099999999` `JVGL0999999990`                          | `SerialNumber`                                                                                                            |
-|                  | DHL E-Commerce            | 18–39  | `GM2951173225174494` `GM9E44608A27984866BA2D`             | `SerialNumber`                                                                                                            |
-|                  | DHL E-Commerce (14)       | 14     | `60120172242323` `51087693037816`                         | `SerialNumber`                                                                                                            |
-|                  | DHL E-Commerce (30 / PIC) | 30     | `420902459261290336128704042634`                          | `RoutingApplicationId` `DestinationZip` `ServiceType` `ShipperId` `PackageId` `CheckDigit`                                |
-| **DPD**          | DPD 14                    | 15     | `0998 0000 0200 34D`                                      | `SerialNumber`                                                                                                            |
-|                  | DPD 28                    | 28     | `0081 827 0998 0000 0200 45 327 276 N`                    | `SerialNumber` `DestinationZip` `ServiceType` `CountryCode`                                                               |
-| **FedEx**        | FedEx Express (12)        | 12     | `986578788855`                                            | `SerialNumber` `CheckDigit`                                                                                               |
-|                  | FedEx Express (34)        | 34     | `1001921334250001000300779017972697`                      | `SerialNumber` `CheckDigit` `DestinationZip`                                                                              |
-|                  | FedEx Ground              | 15     | `0414 4176 0228 964`                                      | `SerialNumber` `CheckDigit`                                                                                               |
-|                  | FedEx Ground (SSCC-18)    | 18     | `00 0123 4500 0000 0027`                                  | `ShippingContainerType` `SerialNumber` `CheckDigit`                                                                       |
-|                  | FedEx Ground (96)         | 22     | `9611020987654312345672`                                  | `ApplicationIdentifier` `SCNC` `ServiceType` `ShipperId` `PackageId` `CheckDigit`                                         |
-|                  | FedEx Ground (GSN)        | 34     | `9622001560001234567100794808390594`                      | `ApplicationIdentifier` `SCNC` `GSN` `SerialNumber` `CheckDigit`                                                          |
-|                  | FedEx SmartPost           | 20–34  | `61299998820821171811` `420112139261290983497923666238`   | `ApplicationIdentifier` `SCNC` `ServiceType` `ShipperId` `PackageId` `CheckDigit`                                         |
-| **Landmark**     | Landmark Global LTN       | 13     | `LTN74207623N1`                                           | `SerialNumber`                                                                                                            |
-| **LaserShip**    | LaserShip LX              | 9–10   | `LX17635036` `LI12976442`                                 | `SerialNumber`                                                                                                            |
-|                  | LaserShip 1LS7 (15)       | 15     | `1LS717793482164`                                         | `SerialNumber`                                                                                                            |
-|                  | LaserShip 1LS7 (18)       | 18     | `1LS7119013618127-1`                                      | `SerialNumber`                                                                                                            |
-| **Old Dominion** | Old Dominion              | 11     | `78045768393`                                             | `SerialNumber` `CheckDigit`                                                                                               |
-|                  | Old Dominion Guaranteed   | 11     | `80003280379`                                             | `SerialNumber` `CheckDigit`                                                                                               |
-| **OnTrac**       | OnTrac C                  | 15     | `C11031500001879`                                         | `SerialNumber` `CheckDigit`                                                                                               |
-|                  | OnTrac D                  | 15     | `D10011354453707`                                         | `SerialNumber` `CheckDigit`                                                                                               |
-| **UPS**          | UPS                       | 18     | `1Z5R89390357567127`                                      | `SerialNumber` `CheckDigit` `ShipperId` `ServiceType` `PackageId`                                                         |
-|                  | UPS Waybill               | 11     | `K2479825491` `V0490119172`                               | `ServiceType` `SerialNumber` `CheckDigit`                                                                                 |
-| **USPS**         | USPS 20                   | 20     | `0307 1790 0005 2348 3741`                                | `ServiceType` `ShipperId` `PackageId` `CheckDigit`                                                                        |
-|                  | USPS 22                   | 22–27  | `9400111206206406260787` `420787459400111206206406260787` | `RoutingApplicationId` `DestinationZip` `ServiceType` `ShipperId` `PackageId` `CheckDigit`                                |
-|                  | USPS 34v2                 | 34     | `4201028200009261290113185417468510`                      | `RoutingApplicationId` `DestinationZip` `RoutingNumber` `ApplicationIdentifier` `ShipperId` `PackageId` `CheckDigit`      |
-|                  | USPS 91 (IMpb)            | 25–34  | `420221539101026837331000039521` `9361289878700317633795` | `RoutingApplicationId` `DestinationZip` `ApplicationIdentifier` `SCNC` `ServiceType` `ShipperId` `PackageId` `CheckDigit` |
+## Supported Tracking Numbers. Illustrated in depth on [trackingnumber.fyi](https://trackingnumber.fyi)
+
+<!-- generated: supported tracking numbers -->
+
+| Carrier | Type | Length | Examples | Data |
+| --- | --- | --- | --- | --- |
+| Amazon | Amazon Logistics | 15 | [`TBA000000000000`](https://trackingnumber.fyi/TBA000000000000) [`TBA010000000000`](https://trackingnumber.fyi/TBA010000000000) [`TBC000000000000`](https://trackingnumber.fyi/TBC000000000000) | `SerialNumber` |
+|  | Amazon International | 11 | [`C1004444443`](https://trackingnumber.fyi/C1004444443) [`C1004444444`](https://trackingnumber.fyi/C1004444444) | `SerialNumber` |
+| Canada Post | Canada Post (16) | 16 | [`0073938000549297`](https://trackingnumber.fyi/0073938000549297) [`7035114477138472`](https://trackingnumber.fyi/7035114477138472) [`4002847016405018`](https://trackingnumber.fyi/4002847016405018) | `SerialNumber` `OriginId` `CheckDigit` |
+| DHL | DHL Express | 10-11 | [`3318810025`](https://trackingnumber.fyi/3318810025) [`73891051146`](https://trackingnumber.fyi/73891051146) [`8487135506`](https://trackingnumber.fyi/8487135506) | `SerialNumber` `CheckDigit` |
+|  | DHL Express (Piece ID) | 13-14 | [`JJD0099999999`](https://trackingnumber.fyi/JJD0099999999) [`JVGL0999999990`](https://trackingnumber.fyi/JVGL0999999990) | `SerialNumber` |
+|  | DHL E-Commerce | 18-22 | [`GM2951173225174494`](https://trackingnumber.fyi/GM2951173225174494) [`GM295117494011169042`](https://trackingnumber.fyi/GM295117494011169042) [`GM9E44608A27984866BA2D`](https://trackingnumber.fyi/GM9E44608A27984866BA2D) | `SerialNumber` |
+|  | DHL E-Commerce (14) | 14 | [`60120172242323`](https://trackingnumber.fyi/60120172242323) [`51087693037816`](https://trackingnumber.fyi/51087693037816) [`60120174971147`](https://trackingnumber.fyi/60120174971147) | `SerialNumber` |
+| DPD | DPD (28) | 28 | [`008182709980000020033350276C`](https://trackingnumber.fyi/008182709980000020033350276C) [`008182709980000020045327276N`](https://trackingnumber.fyi/008182709980000020045327276N) | `SerialNumber` `DestinationZip` `ServiceType` `CountryCode` `CheckDigit` |
+|  | DPD (14) | 15 | [`09980000020033F`](https://trackingnumber.fyi/09980000020033F) [`09980000020034D`](https://trackingnumber.fyi/09980000020034D) | `SerialNumber` `CheckDigit` |
+| FedEx | FedEx Express (12) | 12 | [`986578788855`](https://trackingnumber.fyi/986578788855) [`477179081230`](https://trackingnumber.fyi/477179081230) [`799531274483`](https://trackingnumber.fyi/799531274483) | `SerialNumber` `CheckDigit` |
+|  | FedEx Express (34) | 34 | [`1001921334250001000300779017972697`](https://trackingnumber.fyi/1001921334250001000300779017972697) [`1001921380360001000300639585804382`](https://trackingnumber.fyi/1001921380360001000300639585804382) [`1001901781990001000300617767839437`](https://trackingnumber.fyi/1001901781990001000300617767839437) | `DestinationZip` `SerialNumber` `CheckDigit` |
+|  | FedEx SmartPost | 20-30 | [`61299998820821171811`](https://trackingnumber.fyi/61299998820821171811) [`9261292700768711948021`](https://trackingnumber.fyi/9261292700768711948021) [`420112139261290983497923666238`](https://trackingnumber.fyi/420112139261290983497923666238) | `RoutingApplicationId` `DestinationZip` `ApplicationIdentifier` `SerialNumber` `SCNC` `ServiceType` `ShipperId` `PackageId` `CheckDigit` |
+|  | FedEx Ground | 15 | [`041441760228964`](https://trackingnumber.fyi/041441760228964) [`568283610012000`](https://trackingnumber.fyi/568283610012000) [`568283610012734`](https://trackingnumber.fyi/568283610012734) | `SerialNumber` `CheckDigit` |
+|  | FedEx Ground (SSCC-18) | 18 | [`000123450000000027`](https://trackingnumber.fyi/000123450000000027) | `ShippingContainerType` `SerialNumber` `CheckDigit` |
+|  | FedEx Ground 96 (22) | 22 | [`9611020987654312345672`](https://trackingnumber.fyi/9611020987654312345672) | `ApplicationIdentifier` `SCNC` `ServiceType` `SerialNumber` `ShipperId` `PackageId` `CheckDigit` |
+|  | FedEx Ground GSN | 34 | [`9622001900000000000000776632517510`](https://trackingnumber.fyi/9622001900000000000000776632517510) [`9622001560000000000000794808390594`](https://trackingnumber.fyi/9622001560000000000000794808390594) [`9622001560001234567100794808390594`](https://trackingnumber.fyi/9622001560001234567100794808390594) | `ApplicationIdentifier` `SCNC` `GSN` `SerialNumber` `CheckDigit` |
+| Landmark Global LTN | Landmark Global LTN | 13 | [`LTN74207623N1`](https://trackingnumber.fyi/LTN74207623N1) [`LTN74209518N1`](https://trackingnumber.fyi/LTN74209518N1) [`LTN74224021N1`](https://trackingnumber.fyi/LTN74224021N1) | `SerialNumber` |
+| LaserShip | LaserShip LX | 10 | [`LX17635036`](https://trackingnumber.fyi/LX17635036) [`LX17635035`](https://trackingnumber.fyi/LX17635035) [`LX17635034`](https://trackingnumber.fyi/LX17635034) | `SerialNumber` |
+|  | LaserShip 1LS7 (15) | 15 | [`1LS717793482164`](https://trackingnumber.fyi/1LS717793482164) [`1LS724505321754`](https://trackingnumber.fyi/1LS724505321754) [`1LS720000000000`](https://trackingnumber.fyi/1LS720000000000) | `SerialNumber` |
+|  | LaserShip 1LS7 (18) | 18 | [`1LS7119013618127-1`](https://trackingnumber.fyi/1LS7119013618127-1) | `SerialNumber` |
+| Old Dominion Freight Line | Old Dominion | 11 | [`07209562763`](https://trackingnumber.fyi/07209562763) [`77767553207`](https://trackingnumber.fyi/77767553207) [`77806528897`](https://trackingnumber.fyi/77806528897) | `SerialNumber` `CheckDigit` |
+|  | Old Dominion Guaranteed Shipment | 11 | [`80003280379`](https://trackingnumber.fyi/80003280379) [`80993847369`](https://trackingnumber.fyi/80993847369) | `SerialNumber` `CheckDigit` |
+| OnTrac | OnTrac | 15 | [`C11031500001879`](https://trackingnumber.fyi/C11031500001879) [`C10999911320231`](https://trackingnumber.fyi/C10999911320231) [`C11121552953069`](https://trackingnumber.fyi/C11121552953069) | `SerialNumber` `CheckDigit` |
+|  | OnTrac D | 15 | [`D10011354453707`](https://trackingnumber.fyi/D10011354453707) [`D10011345983010`](https://trackingnumber.fyi/D10011345983010) [`D10011342332145`](https://trackingnumber.fyi/D10011342332145) | `SerialNumber` `CheckDigit` |
+| S10 International Standard | S10 | 13 | [`RB123456785GB`](https://trackingnumber.fyi/RB123456785GB) [`RB123456785US`](https://trackingnumber.fyi/RB123456785US) [`RB123456785CV`](https://trackingnumber.fyi/RB123456785CV) | `ServiceType` `SerialNumber` `CheckDigit` `CountryCode` |
+| United States Postal Service | USPS 20 | 20 | [`03071790000523483741`](https://trackingnumber.fyi/03071790000523483741) [`71123456789123456787`](https://trackingnumber.fyi/71123456789123456787) | `SerialNumber` `ServiceType` `ShipperId` `PackageId` `CheckDigit` |
+|  | USPS 34v2 | 34 | [`4201002334249200190132607600833457`](https://trackingnumber.fyi/4201002334249200190132607600833457) [`4201028200009261290113185417468510`](https://trackingnumber.fyi/4201028200009261290113185417468510) | `RoutingApplicationId` `DestinationZip` `RoutingNumber` `SerialNumber` `ApplicationIdentifier` `ShipperId` `PackageId` `CheckDigit` |
+|  | USPS 91 | 20-30 | [`420221539101026837331000039521`](https://trackingnumber.fyi/420221539101026837331000039521) [`71969010756003077385`](https://trackingnumber.fyi/71969010756003077385) [`9505511069605048600624`](https://trackingnumber.fyi/9505511069605048600624) | `RoutingApplicationId` `DestinationZip` `SerialNumber` `ApplicationIdentifier` `SCNC` `ServiceType` `ShipperId` `PackageId` `CheckDigit` |
+| UPS | UPS | 18 | [`1Z5R89390357567127`](https://trackingnumber.fyi/1Z5R89390357567127) [`1Z879E930346834440`](https://trackingnumber.fyi/1Z879E930346834440) [`1Z410E7W0392751591`](https://trackingnumber.fyi/1Z410E7W0392751591) | `SerialNumber` `ShipperId` `ServiceType` `PackageId` `CheckDigit` |
+|  | UPS Waybill | 11 | [`K1506235620`](https://trackingnumber.fyi/K1506235620) [`K2479825491`](https://trackingnumber.fyi/K2479825491) [`J4603636537`](https://trackingnumber.fyi/J4603636537) | `ServiceType` `SerialNumber` `CheckDigit` |
+
+<!-- /generated -->
 
 ## JSON Format
+
+- **glossary.json** - what each part name means, wherever it appears
+
+  Keyed by the regex group name, so any implementation reading `couriers/*.json` can say the same thing about a `SerialNumber` as any other. Each entry carries a `label` for showing the name to a person, and a `description` of what that part of a number is. A definition's own `glossary` overrides the description where it has something more exact to say.
+
+  ```json
+  "CheckDigit": {
+    "label": "Check Digit",
+    "description": "A digit derived from the serial number, used to catch a misread number."
+  }
+  ```
+
 - **couriers/*.json** - identifies the standard couriers that might send mail
   - Each courier is defined by json hash with the following keys
 
@@ -63,9 +75,22 @@ This repository contains json files that programatically describe how to detect,
         - `PackageId`: indicating the package id
         - `DestinationZip`: indicating the destination zip code
 
+    - `glossary` - (optional) anything this format can say about its named groups that the group name cannot, keyed by group name. Only for the specific: `s10` says its serial is eight digits assigned by the issuing postal service. What `SerialNumber` means in general belongs in the top level `glossary.json`, not repeated on every definition.
+
+        ```json
+        "glossary": {
+          "ServiceType": "Two letters naming the postal service class.",
+          "SerialNumber": "Eight digits assigned by the issuing postal service."
+        }
+        ```
+
+    - `description` - (optional) a note about the format itself, such as `"USPS now calls this the IMpd barcode format"`.
+
     - `validation` - Specifies how the tracking number is validated
       - `checksum`: if the tracking number has a checksum, include a `checksum` key with the details.
-        - `name`: specifies the algorithm. Supported algorithms and parameters are `mod10` `mod7` `s10`, and `sum_product_with_weightings_and_modulo`. Look at existing examples for parameters.
+        - `name`: specifies the algorithm. Supported algorithms are `mod10`, `mod7`, `s10`, `luhn`, `mod_37_36` and `sum_product_with_weightings_and_modulo`.
+
+        Each checksum carries the constants its algorithm uses, so an implementation does not have to hardcode them and two implementations cannot quietly disagree: `weightings` and `modulo` for `s10`, `modulo` for `mod7` and `luhn`, `modulo` and `alphabet` for `mod_37_36`, `evens_multiplier` and `odds_multiplier` for `mod10`, and `weightings` with `modulo1` and `modulo2` for the weighted sum. An implementation that hardcodes them keeps working; the keys are there to be read, not to be required.
         ```JSON
         "validation": {
             "checksum": {
