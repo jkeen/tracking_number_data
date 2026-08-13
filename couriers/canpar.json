@@ -1,0 +1,29 @@
+{
+  "name": "Canpar",
+  "courier_code": "canpar",
+  "tracking_numbers": [
+    {
+      "name": "Canpar (22)",
+      "id": "canpar_22",
+      "regex": "\\s*(?<SerialNumber>[CDKLSUXZ]\\s*([0-9]\\s*){21})\\s*",
+      "validation": {},
+      "tracking_url": "https://www.canpar.com/en/track/tracking.jsp?reference=%s&locale=en",
+      "test_numbers": {
+        "valid": [
+          "D576002440000001718010",
+          "D576002440000001428004",
+          "D576002440000002496001",
+          "L576002440000000001004",
+          "L576002440000000004001",
+          "S576002440000000004001",
+          "S576002440000000025001"
+        ],
+        "invalid": [
+          "1576002440000002510003",
+          "D57600244000000251000",
+          "M576002440000002510003"
+        ]
+      }
+    }
+  ]
+}

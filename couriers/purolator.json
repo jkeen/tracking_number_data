@@ -1,0 +1,50 @@
+{
+  "name": "Purolator",
+  "courier_code": "purolator",
+  "tracking_numbers": [
+    {
+      "name": "Purolator (12)",
+      "id": "purolator_numeric",
+      "regex": "\\s*(?<SerialNumber>[0-5]\\s*([0-9]\\s*){10})(?<CheckDigit>[0-9])\\s*",
+      "validation": {
+        "checksum": {
+          "name": "luhn"
+        }
+      },
+      "tracking_url": "https://www.purolator.com/en/shipping/tracker?searchValue=%s",
+      "test_numbers": {
+        "valid": [
+          "320595463938",
+          "320606146993",
+          "287809468872",
+          "320610804900",
+          "331426749957",
+          "331434972567"
+        ],
+        "invalid": [
+          "320595463939",
+          "287809468875"
+        ]
+      }
+    },
+    {
+      "name": "Purolator (alpha + 9)",
+      "id": "purolator_alpha",
+      "regex": "\\s*(?<SerialNumber>([A-Z]\\s*){3}([0-9]\\s*){9})\\s*",
+      "validation": {},
+      "tracking_url": "https://www.purolator.com/en/shipping/tracker?searchValue=%s",
+      "test_numbers": {
+        "valid": [
+          "KYV009956937",
+          "CGK002986959",
+          "JFV247545960",
+          "TLR000083964"
+        ],
+        "invalid": [
+          "KY009956937",
+          "331426749957"
+        ]
+      }
+    }
+  ]
+}

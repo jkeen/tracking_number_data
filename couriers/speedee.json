@@ -1,0 +1,26 @@
+{
+  "name": "Spee-Dee Delivery",
+  "courier_code": "speedee",
+  "tracking_numbers": [
+    {
+      "name": "Spee-Dee (20)",
+      "id": "speedee",
+      "regex": "\\s*S\\s*P\\s*(?<SerialNumber>([0-9]\\s*){18})\\s*",
+      "validation": {},
+      "tracking_url": "https://www.speedeedelivery.com/track/?tracking=%s",
+      "test_numbers": {
+        "valid": [
+          "SP029692510000920746",
+          "SP029692510000901479",
+          "SP029692510000688332",
+          "SP029692510000279301",
+          "SP029692450001607639"
+        ],
+        "invalid": [
+          "029692510000920746",
+          "SX029692510000920746"
+        ]
+      }
+    }
+  ]
+}
