@@ -1,0 +1,24 @@
+{
+  "name": "GOFO Express",
+  "courier_code": "gofo",
+  "tracking_numbers": [
+    {
+      "name": "GOFO Express (US)",
+      "id": "gofo_us",
+      "regex": [
+        "\\s*G\\s*F\\s*U\\s*S\\s*(?<SerialNumber>([0-9]\\s*){14})\\s*"
+      ],
+      "tracking_url": "https://www.gofoexpress.com/tracking.html?searchID=%s",
+      "validation": {},
+      "test_numbers": {
+        "valid": [
+          "GFUS01011884214464",
+          "GFUS01011884214272"
+        ],
+        "invalid": [
+          "GFUS0101188421446"
+        ]
+      }
+    }
+  ]
+}
