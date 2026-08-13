@@ -61,6 +61,9 @@
       "name": "USPS 34v2",
       "id": "usps_32V2",
       "description": "variation on 34 digit USPS IMpd numbers",
+      "glossary": {
+        "ApplicationIdentifier": { "description": "92 through 95, saying which USPS service and mailer ID scheme the rest belongs to." }
+      },
       "regex": [
         "\\s*(?<RoutingApplicationId>4\\s*2\\s*0\\s*)(?<DestinationZip>([0-9]\\s*){5})",
         "(?<RoutingNumber>([0-9]\\s*){4})",
@@ -94,6 +97,9 @@
       "name": "USPS 91",
       "id": "usps_91",
       "description": "USPS now calls this the IMpd barcode format",
+      "glossary": {
+        "ApplicationIdentifier": { "description": "91 through 95, saying which USPS service and mailer ID scheme the rest belongs to." }
+      },
       "regex": [
         "\\s*(?:(?<RoutingApplicationId>4\\s*2\\s*0\\s*)(?<DestinationZip>([0-9]\\s*){5}))?",
         "(?<SerialNumber>",
