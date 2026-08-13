@@ -17,7 +17,9 @@
       ],
       "validation": {
         "checksum": {
-          "name": "mod_37_36"
+          "name": "mod_37_36",
+          "modulo": 36,
+          "alphabet": "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         }
       },
       "tracking_url": "https://www.dpdgroup.com/nl/mydpd/my-parcels/track?lang=en&parcelNumber=%s",
@@ -323,7 +325,9 @@
       ],
       "validation": {
         "checksum": {
-          "name": "mod_37_36"
+          "name": "mod_37_36",
+          "modulo": 36,
+          "alphabet": "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         }
       },
       "tracking_url": "https://www.dpdgroup.com/nl/mydpd/my-parcels/track?lang=en&parcelNumber=%s",

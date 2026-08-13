@@ -9,8 +9,10 @@
       "validation": {
         "checksum": {
           "name": "mod10",
+          "modulo": 10,
           "evens_multiplier": 3,
-          "odds_multiplier": 1
+          "odds_multiplier": 1,
+          "reverse": false
         }
       },
       "tracking_url": "https://www.canadapost-postescanada.ca/track-reperage/en#/search?searchFor=%s",

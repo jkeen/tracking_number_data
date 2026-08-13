@@ -128,8 +128,10 @@
       "validation": {
         "checksum": {
           "name": "mod10",
+          "modulo": 10,
           "evens_multiplier": 3,
-          "odds_multiplier": 1
+          "odds_multiplier": 1,
+          "reverse": false
         },
         "serial_number_format": {
           "prepend_if": {
@@ -162,8 +164,10 @@
       "validation": {
         "checksum": {
           "name": "mod10",
+          "modulo": 10,
           "evens_multiplier": 1,
-          "odds_multiplier": 3
+          "odds_multiplier": 3,
+          "reverse": false
         }
       },
       "tracking_url": "https://www.fedex.com/apps/fedextrack/?tracknumbers=%s",
@@ -187,8 +191,10 @@
       "validation": {
         "checksum": {
           "name": "mod10",
+          "modulo": 10,
           "evens_multiplier": 3,
-          "odds_multiplier": 1
+          "odds_multiplier": 1,
+          "reverse": false
         }
       },
       "test_numbers": {
@@ -242,8 +248,10 @@
       "validation": {
         "checksum": {
           "name": "mod10",
+          "modulo": 10,
           "evens_multiplier": 1,
-          "odds_multiplier": 3
+          "odds_multiplier": 3,
+          "reverse": false
         }
       },
       "tracking_url": "https://www.fedex.com/apps/fedextrack/?tracknumbers=%s",
