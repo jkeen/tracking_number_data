@@ -92,6 +92,9 @@
       "name": "FedEx SmartPost",
       "id": "fedex_smartpost",
       "description": "Shipped by FedEx, Delivered by USPS",
+      "glossary": {
+        "ApplicationIdentifier": { "description": "Always 92 here, the code for a parcel handed to USPS for delivery." }
+      },
       "regex": [
         "\\s*(?:",
         "(?:(?<RoutingApplicationId>4\\s*2\\s*0\\s*)(?<DestinationZip>([0-9]\\s*){5}))?",
@@ -225,6 +228,10 @@
     {
       "name": "FedEx Ground 96 (22)",
       "id": "fedex_ground_96",
+      "glossary": {
+        "ApplicationIdentifier": { "description": "Always 96, marking a ground shipping label." },
+        "SCNC": { "description": "FedEx Ground uses 11, 12 and 13." }
+      },
       "regex": [
         "\\s*(?<ApplicationIdentifier>9\\s*6\\s*)",
         "(?<SCNC>([0-9]\\s*){2})",
@@ -253,6 +260,10 @@
     {
       "name": "FedEx Ground GSN",
       "id": "fedex_ground_gsn",
+      "glossary": {
+        "ApplicationIdentifier": { "description": "Always 96, marking a ground shipping label." },
+        "SCNC": { "description": "FedEx Ground uses 11, 12 and 13." }
+      },
       "regex": [
         "\\s*(?<ApplicationIdentifier>9\\s*6\\s*)",
         "(?<SCNC>([0-9]\\s*){2})",
