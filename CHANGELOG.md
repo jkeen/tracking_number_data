@@ -1,5 +1,20 @@
 tracking_number_data changelog
 
+# [1.12.0](https://github.com/jkeen/tracking_number_data/compare/v1.11.1...v1.12.0) (2026-08-13)
+
+
+### Bug Fixes
+
+* loosen FedEx express pattern to match new number formats ([#117](https://github.com/jkeen/tracking_number_data/issues/117)) ([9d19f67](https://github.com/jkeen/tracking_number_data/commit/9d19f67bd51e261ea7d416504df02a1721e5dbab))
+
+
+### Features
+
+* add Canpar, Purolator, and Spee-Dee courier definitions ([#116](https://github.com/jkeen/tracking_number_data/issues/116)) ([fd1f916](https://github.com/jkeen/tracking_number_data/commit/fd1f9165aad956d094ec526677ce2303235389ad))
+* Add support for GOFO Express (US). ([#110](https://github.com/jkeen/tracking_number_data/issues/110)) ([5912b86](https://github.com/jkeen/tracking_number_data/commit/5912b862129c1091860197e65591aa3ed5b28167))
+* Add support for the LaserShip 1LSCX format. ([#107](https://github.com/jkeen/tracking_number_data/issues/107)) ([4d3311d](https://github.com/jkeen/tracking_number_data/commit/4d3311dee8dfcf4dda35a23c84ad2f85723107b3))
+* Added support for YunExpress tracking numbers. ([#109](https://github.com/jkeen/tracking_number_data/issues/109)) ([dd52b7f](https://github.com/jkeen/tracking_number_data/commit/dd52b7fbfdbe0e2da955bde61127c93c6d766cb7))
+
 ## [1.11.1](https://github.com/jkeen/tracking_number_data/compare/v1.11.0...v1.11.1) (2026-08-13)
 
 # [1.11.0](https://github.com/jkeen/tracking_number_data/compare/v1.10.0...v1.11.0) (2026-08-13)
