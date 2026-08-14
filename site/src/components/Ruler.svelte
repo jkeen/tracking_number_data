@@ -25,5 +25,7 @@
   })
 </script>
 
-<span class="ruler spaced" bind:this={spaced} aria-hidden="true">{SAMPLE}</span>
-<span class="ruler plain" bind:this={plain} aria-hidden="true">{SAMPLE}</span>
+<span class="rulers" aria-hidden="true">
+  <span class="ruler spaced" bind:this={spaced}>{SAMPLE}</span>
+  <span class="ruler plain" bind:this={plain}>{SAMPLE}</span>
+</span>

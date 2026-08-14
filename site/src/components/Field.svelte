@@ -11,7 +11,7 @@
 
   const REFERENCE = 100
   const SAMPLE = "0000000000"
-  const MIN = 18
+  const MIN = 10
   const MAX = 76
   const PLACEHOLDER = "1Z879E930346834440"
 
@@ -45,7 +45,9 @@
 <div class="field" style="--field-size: {size}px">
   <label class="ask" for="number">Decode a tracking number:</label>
 
-  <span class="ruler" bind:this={sizer} aria-hidden="true" style="font-size: {REFERENCE}px">{SAMPLE}</span>
+  <span class="rulers" aria-hidden="true">
+    <span class="ruler" bind:this={sizer} style="font-size: {REFERENCE}px">{SAMPLE}</span>
+  </span>
 
   <div class="frame" bind:this={frame}>
     <Ruler bind:advance bind:gap />

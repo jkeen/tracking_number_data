@@ -3,6 +3,7 @@
    * that meaning is written down.
    * @type {{ meaning: string, class?: string, children: import("svelte").Snippet }} */
   let { meaning, class: extra = "", children } = $props()
+
 </script>
 
 <!-- Focusable on purpose: a keyboard has to be able to reach the meaning too. -->
@@ -16,14 +17,19 @@
     cursor: help;
   }
 
+  /* Out of the layout rather than merely invisible: a hidden box this wide, on every
+     labelled part in a table, is width the page is then obliged to find. */
   .term::after {
     content: attr(data-term);
+    display: none;
     position: absolute;
     top: calc(100% + var(--system-space-2));
     left: 0;
     z-index: 2;
     width: max-content;
-    max-width: 18rem;
+    /* It opens from the left of the word it belongs to, and a word this deep into a
+       narrow screen has less room to its right than the screen is wide. */
+    max-width: min(18rem, 100vw - 6rem);
     padding: var(--system-space-2) var(--system-space-3);
     border: var(--system-border);
     border-radius: var(--system-radius-md);
@@ -35,14 +41,10 @@
     font-weight: 400;
     line-height: 1.4;
     white-space: normal;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity var(--system-transition-quick);
   }
 
   .term:hover::after,
   .term:focus-visible::after {
-    visibility: visible;
-    opacity: 1;
+    display: block;
   }
 </style>

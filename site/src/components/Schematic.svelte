@@ -9,7 +9,7 @@
 
   const REFERENCE = 100
   const SAMPLE = "0000000000"
-  const MIN = 14
+  const MIN = 10
   const MAX = 44
 
   let frame = $state(null)
@@ -38,7 +38,9 @@
 </script>
 
 <div class="schematic" style="--field-size: {size}px">
-  <span class="ruler" bind:this={sizer} aria-hidden="true" style="font-size: {REFERENCE}px">{SAMPLE}</span>
+  <span class="rulers" aria-hidden="true">
+    <span class="ruler" bind:this={sizer} style="font-size: {REFERENCE}px">{SAMPLE}</span>
+  </span>
 
   <div class="frame" bind:this={frame}>
     <Ruler bind:advance bind:gap />
@@ -58,8 +60,11 @@
 <style>
   /* The format's shape, drawn like a decode but with no number in it. With no field
      around it there is nothing to inset from, so it starts where the text does. */
+  /* Positioned so that it is the rulers' containing block; the field gets this from
+     being sticky. */
   .schematic {
     --system-field-pad: 0px;
+    position: relative;
     margin: 0 0 var(--system-space-6);
   }
 

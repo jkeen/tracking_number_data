@@ -35,6 +35,10 @@
               "release": "minor"
             },
             {
+              "type": "fix",
+              "release": "patch"
+            },
+            {
               "type": "refactor",
               "release": "patch"
             }

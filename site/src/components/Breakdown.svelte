@@ -22,6 +22,12 @@
 
   const widthOf = (label) => measured[label] ?? label.length * ESTIMATE
 
+  let width = $state(0)
+
+  // A label is wider than the part it names, so one anchored near the end of the number
+  // would sit off the edge. It slides back to the last place it fits and the tick that
+  // joins it to its characters takes up the difference.
+  const fitted = (left, label) => Math.max(0, Math.min(left, (width || Infinity) - widthOf(label)))
 
   // Leaf parts tile the number left to right; each label drops to the first row it
   // fits on, which relies on them being packed in that order.
@@ -32,21 +38,30 @@
       .filter((field) => !field.wraps)
       .sort((a, b) => a.start - b.start)
       .map((field) => {
-        const needed = widthOf(field.label) + LABEL_GAP
-        const free = ends.findIndex((end) => field.left >= end)
+        const at = fitted(field.left, field.label)
+        const free = ends.findIndex((end) => at >= end)
         const row = free === -1 ? ends.length : free
 
-        ends[row] = field.left + needed
-        return { ...field, row }
+        ends[row] = at + widthOf(field.label) + LABEL_GAP
+        return { ...field, row, labelLeft: at, tick: field.left - at }
       })
   })
 
-  const wrappers = $derived(placed.filter((field) => field.wraps).sort((a, b) => b.depth - a.depth))
+  const wrappers = $derived(
+    placed
+      .filter((field) => field.wraps)
+      .sort((a, b) => b.depth - a.depth)
+      .map((field) => {
+        const centred = field.left + field.width / 2 - widthOf(field.label) / 2
+
+        return { ...field, labelLeft: fitted(centred, field.label) - field.left }
+      })
+  )
   const rows = $derived(Math.max(1, ...leaves.map((field) => field.row + 1)))
   const dimmed = (name) => highlight.name !== null && highlight.name !== name
 </script>
 
-<div class="breakdown" style="--rows: {rows}; --tiers: {wrappers.length}">
+<div class="breakdown" bind:clientWidth={width} style="--rows: {rows}; --tiers: {wrappers.length}">
   {#each leaves as field (field.name)}
     <span
       class="rule"
@@ -57,7 +72,7 @@
     <span
       class="tag"
       class:dim={dimmed(field.name)}
-      style="left: {field.left}px; --row: {field.row}; color: {field.color}"
+      style="left: {field.labelLeft}px; --row: {field.row}; --tick: {field.tick}px; color: {field.color}"
       bind:this={tags[field.label]}
       onmouseenter={() => light(field.name)}
       onmouseleave={clear}
@@ -74,7 +89,11 @@
       onmouseleave={clear}
       role="presentation"
     >
-      <span class="span-label" style="color: {field.color}">{field.label}</span>
+      <span
+        class="span-label"
+        style="left: {field.labelLeft}px; color: {field.color}"
+        bind:this={tags[field.label]}
+      >{field.label}</span>
     </span>
   {/each}
 </div>

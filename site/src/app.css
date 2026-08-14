@@ -259,13 +259,16 @@ button.tracking-number:hover {
 
 /* --------------------------------------------------------------- masthead -- */
 
+/* Eighteen characters set solid: at a fixed size this is what decides how narrow the
+   masthead can get, and it is wider than a phone. It gives up size rather than room. */
 .wordmark {
   grid-column: 1;
   grid-row: 1;
   display: inline-block;
   justify-self: start;
+  min-width: 0;
   margin: 0;
-  font-size: var(--system-text-2xl);
+  font-size: clamp(1.25rem, 6.6vw, var(--system-text-2xl));
   letter-spacing: 0.02em;
   text-transform: lowercase;
   text-decoration: none;
@@ -402,10 +405,23 @@ button.tracking-number:hover {
   background: color-mix(in oklab, var(--system-color-accent) 35%, transparent);
 }
 
-/* Hidden text measured to place the rules under the right characters. */
+/* Hidden text measured to place the rules under the right characters. It is set at sizes
+   no viewport is as wide as, so it is kept in a box with no size: a hidden box still has
+   a width for the page to have to find, and clipping it higher up would take the
+   tooltips with it. */
+.rulers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
 .ruler {
   position: absolute;
   top: 0;
+  left: 0;
   visibility: hidden;
   white-space: pre;
   font-family: var(--system-font-mono);
@@ -434,6 +450,7 @@ button.tracking-number:hover {
 
 .breakdown {
   position: relative;
+  overflow-x: clip;
   margin: 0 calc(var(--system-field-pad) + 1px);
   height: calc(var(--system-space-4) + var(--rows) * var(--system-breakdown-row-height) + var(--tiers) * var(--system-breakdown-tier-height));
   font-family: var(--system-font-mono);
@@ -472,7 +489,7 @@ button.tracking-number:hover {
 .tag::before {
   content: "";
   position: absolute;
-  left: 0;
+  left: var(--tick, 0);
   bottom: 100%;
   height: 0.8rem;
   border-left: 1px solid currentColor;
@@ -497,11 +514,11 @@ button.tracking-number:hover {
   transition: opacity var(--system-transition-quick);
 }
 
+/* Centred under its span by the measurement that also keeps it inside the number's
+   width, so there is nothing left here to centre. */
 .span-label {
   position: absolute;
   top: calc(100% + var(--system-space-1));
-  left: 50%;
-  transform: translateX(-50%);
   font-family: var(--system-font-mono);
   white-space: nowrap;
 }
@@ -529,11 +546,22 @@ button.tracking-number:hover {
 /* Columns rather than a wrapping row, so the toggles keep the top right corner at every
    width and only the wordmark gives up room. The menu and the toggles share the
    wordmark's line, which is what they line up against; the lede has the row below. */
-header {
+.masthead {
   display: grid;
   grid-template-columns: 1fr auto auto;
   align-items: center;
   column-gap: var(--system-space-4);
+}
+
+/* An auto track is max-content, which is a floor a flex-wrap cannot get under: the badges
+   have to be in a row that wraps, not a column that refuses to. */
+.card header,
+.pane header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: space-between;
+  gap: var(--system-space-3);
 }
 
 /* The gap under the masthead belongs to the masthead, not to whichever block each view
@@ -571,6 +599,13 @@ header {
   flex-wrap: wrap;
   gap: var(--system-space-2);
   margin: 0;
+}
+
+/* Free to be narrower than the pills laid end to end, which is what lets them wrap. */
+.card header .badges,
+.pane header .badges {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .explain {
@@ -703,13 +738,14 @@ header {
 /* -------------------------------------------------------------- shipment -- */
 
 /* A partnership is one shipment, so its halves share a single card. */
+/* Not clipped: every part in the table below names itself in a tooltip that has to be
+   able to open past the card's edge. */
 .shipment {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: stretch;
   margin: var(--system-space-4) 0;
   border: var(--system-border);
-  overflow: hidden;
 }
 
 .shipment.single {
@@ -727,6 +763,7 @@ header {
 
 .shipment .shared {
   grid-column: 1 / -1;
+  min-width: 0;
   padding: 0 var(--system-space-5) var(--system-space-5);
 }
 
@@ -1082,6 +1119,20 @@ header {
   font-family: var(--system-font-mono);
 }
 
+/* A name centred over a narrow span of cells is wider than the span, and the one at the
+   end has nothing to spill into. Only this row clips: the rows below carry the tooltips. */
+.tape-row.mod-marks {
+  overflow-x: clip;
+}
+
+/* The arithmetic ends in the last column, so its tooltips open back into the page the
+   way a badge's does rather than off the right edge. */
+.tape-total .term::after,
+.tape-step .term::after {
+  left: auto;
+  right: 0;
+}
+
 .tape-row {
   display: grid;
   grid-template-columns:
@@ -1274,6 +1325,37 @@ header {
     --system-breakdown-row-height: 1.3rem;
   }
 
+  /* Every side margin here is width the number cannot be set in. */
+  body {
+    padding-inline: var(--system-space-4);
+  }
+
+  .card,
+  .shipment .leg {
+    padding: var(--system-space-4);
+  }
+
+  .shipment .shared {
+    padding: 0 var(--system-space-4) var(--system-space-4);
+  }
+
+  /* Headings that never wrap and a gutter wide enough to read across are what the table
+     is as wide as, and the table is what the card is as wide as. */
+  .groups th,
+  .parts-list th,
+  .parts-list .width,
+  .examples td:nth-child(2) {
+    white-space: normal;
+    padding-right: var(--system-space-3);
+  }
+
+  /* A number has nowhere to break, so it is told it may break anywhere rather than
+     deciding on its own how wide the table around it has to be. */
+  .tracking-number,
+  td code {
+    overflow-wrap: anywhere;
+  }
+
   .menu {
     grid-column: 1 / -1;
     grid-row: 3;
@@ -1291,5 +1373,71 @@ header {
     width: auto;
     height: 1px;
     margin: 0 var(--system-space-5);
+  }
+}
+
+/* --------------------------------------------------------- very narrow -- */
+
+/* Both of these tables name a thing, say something short about it, and then explain it in
+   a sentence. A third column leaves the sentence a gutter to be read down, so it goes
+   under the other two, which between them want far less room than prose does. */
+@media (max-width: 32rem) {
+  .parts-list,
+  .parts-list tbody,
+  .examples,
+  .examples tbody {
+    display: block;
+  }
+
+  .parts-list tr,
+  .examples tr {
+    display: grid;
+    align-items: baseline;
+    column-gap: var(--system-space-3);
+    border-bottom: var(--system-border);
+  }
+
+  .parts-list tr {
+    grid-template-columns: 1fr auto;
+  }
+
+  .examples tr {
+    grid-template-columns: auto 1fr;
+  }
+
+  .parts-list th,
+  .parts-list td,
+  .examples th,
+  .examples td {
+    padding-inline: 0;
+    border-bottom: none;
+  }
+
+  /* Shrink-to-fit columns are what a table wants and a stack of rows does not. */
+  .parts-list th,
+  .parts-list .width,
+  .examples td:nth-child(2) {
+    width: auto;
+  }
+
+  /* A width is two figures and a dash, and has a column of its own to sit in. */
+  .parts-list .width {
+    white-space: nowrap;
+  }
+
+  .examples .mark {
+    text-align: left;
+  }
+
+  .parts-list .meaning,
+  .parts-list .section th,
+  .examples .why,
+  .examples .section th {
+    grid-column: 1 / -1;
+  }
+
+  .parts-list .meaning,
+  .examples .why {
+    padding-bottom: var(--system-space-2);
   }
 }
