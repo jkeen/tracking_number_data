@@ -28,7 +28,7 @@ GEM
     logger (1.7.0)
     minitest (5.25.5)
     mutex_m (0.3.0)
-    rake (13.3.0)
+    rake (13.4.2)
     rspec (3.13.1)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
