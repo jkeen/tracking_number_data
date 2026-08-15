@@ -1,5 +1,17 @@
 tracking_number_data changelog
 
+# [2.0.0](https://github.com/jkeen/tracking_number_data/compare/v1.13.0...v2.0.0) (2026-08-15)
+
+
+* feat!: rebuild the IMpb USPS definitions from Publication 199 and remove the similar DHL and Fedex definitions that were not always correct ([cd25fe2](https://github.com/jkeen/tracking_number_data/commit/cd25fe27af3f090da2afeb13a26abfeb563b3359))
+
+
+### BREAKING CHANGES
+
+* `fedex_smartpost`, `dhl_ecommerce_30` and `usps_32V2` are absorbed into `usps_impb_c`, which is the definition they were always describing. `usps_91` and `usps_22` become `usps_impb_c` and `usps_impb_n`, and Application Identifier 91 splits off to `usps_legacy`. Every number these matched still decodes, now as USPS.
+
+No active definitions declare `partners` anymore, but it remains valid in our spec for potential future use.
+
 # [1.13.0](https://github.com/jkeen/tracking_number_data/compare/v1.12.0...v1.13.0) (2026-08-15)
 
 
