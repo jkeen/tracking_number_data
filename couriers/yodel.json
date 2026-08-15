@@ -1,0 +1,29 @@
+{
+  "name": "Yodel",
+  "courier_code": "yodel",
+  "tracking_numbers": [
+    {
+      "name": "Yodel",
+      "id": "yodel",
+      "description": "Yodel's UK domestic numbers, carried on a JD or JJD prefix. Numbers entering the Yodel network from other carriers can take other formats.",
+      "regex": [
+        "\\s*J\\s*(J\\s*)?D\\s*(?<SerialNumber>([0-9]\\s*){16})\\s*"
+      ],
+      "validation": {},
+      "tracking_url": "https://www.yodel.co.uk/tracking/%s",
+      "test_numbers": {
+        "valid": [
+          "JJD0002257639032011",
+          "JJD0002255380054291",
+          "JD0002242617644732",
+          "JD0002254405060992",
+          "J J D 0 0 0 2 2 5 7 6 3 9 0 3 2 0 2 0"
+        ],
+        "invalid": [
+          "JD000225440506099",
+          "JC0002254405060992"
+        ]
+      }
+    }
+  ]
+}

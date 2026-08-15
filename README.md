@@ -49,6 +49,7 @@ This repository contains json files that programatically describe how to detect,
 |  | USPS 91 | 20-30 | [`420221539101026837331000039521`](https://trackingnumber.fyi/420221539101026837331000039521) [`71969010756003077385`](https://trackingnumber.fyi/71969010756003077385) [`9505511069605048600624`](https://trackingnumber.fyi/9505511069605048600624) | `RoutingApplicationId` `DestinationZip` `SerialNumber` `ApplicationIdentifier` `SCNC` `ServiceType` `ShipperId` `PackageId` `CheckDigit` |
 | UPS | UPS | 18 | [`1Z5R89390357567127`](https://trackingnumber.fyi/1Z5R89390357567127) [`1Z879E930346834440`](https://trackingnumber.fyi/1Z879E930346834440) [`1Z410E7W0392751591`](https://trackingnumber.fyi/1Z410E7W0392751591) | `SerialNumber` `ShipperId` `ServiceType` `PackageId` `CheckDigit` |
 |  | UPS Waybill | 11 | [`K1506235620`](https://trackingnumber.fyi/K1506235620) [`K2479825491`](https://trackingnumber.fyi/K2479825491) [`J4603636537`](https://trackingnumber.fyi/J4603636537) | `ServiceType` `SerialNumber` `CheckDigit` |
+| Yodel | Yodel | 18-19 | [`JJD0002257639032011`](https://trackingnumber.fyi/JJD0002257639032011) [`JJD0002255380054291`](https://trackingnumber.fyi/JJD0002255380054291) [`JD0002242617644732`](https://trackingnumber.fyi/JD0002242617644732) | `SerialNumber` |
 | YunExpress | YunExpress | 18 | [`YT2229521272164446`](https://trackingnumber.fyi/YT2229521272164446) [`YT2229521272164447`](https://trackingnumber.fyi/YT2229521272164447) | `SerialNumber` |
 
 <!-- /generated -->
