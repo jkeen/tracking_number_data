@@ -13,12 +13,12 @@ const tag = (html, property) =>
 
 test.describe("what a link preview sees", () => {
   test("a format page names itself without running any script", async ({ request }) => {
-    const html = await served(request, "/format/usps/usps_91")
+    const html = await served(request, "/format/usps/usps_impb_c")
 
-    expect(html).toContain("<title>USPS 91 — United States Postal Service — trackingnumber.fyi</title>")
-    expect(tag(html, "og:title")).toBe("USPS 91 — United States Postal Service")
+    expect(html).toContain("<title>USPS IMpb C — United States Postal Service — trackingnumber.fyi</title>")
+    expect(tag(html, "og:title")).toBe("USPS IMpb C — United States Postal Service")
     expect(tag(html, "og:description")).toContain("what each part of it means")
-    expect(tag(html, "description")).toContain("USPS 91")
+    expect(tag(html, "description")).toContain("USPS IMpb C")
   })
 
   test("an algorithm page names itself without running any script", async ({ request }) => {

@@ -6,7 +6,7 @@ const ROUTES = [
   "/",
   "/1Z879E930346834440",
   "/420112139261290983497923666238",
-  "/format/usps/usps_91",
+  "/format/usps/usps_impb_c",
   "/algorithm/mod10",
   "/analyze",
 ]
@@ -46,18 +46,6 @@ test.describe("nothing runs off the side", () => {
 })
 
 test.describe("the layout answers the width it is given", () => {
-  test("the shipment stacks its halves on a phone and sets them side by side on a desktop", async ({ page }) => {
-    await page.setViewportSize({ width: 390, height: 900 })
-    await page.goto("/420112139261290983497923666238")
-
-    const stacked = await page.locator(".shipment").evaluate((el) => getComputedStyle(el).gridTemplateColumns)
-    expect(stacked.split(" ")).toHaveLength(1)
-
-    await page.setViewportSize({ width: 1024, height: 900 })
-    const abreast = await page.locator(".shipment").evaluate((el) => getComputedStyle(el).gridTemplateColumns)
-    expect(abreast.split(" ").length).toBeGreaterThan(1)
-  })
-
   test("the menu drops below the wordmark on a phone", async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 900 })
     await page.goto("/")

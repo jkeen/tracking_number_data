@@ -39,7 +39,7 @@ test.describe("a page for each format", () => {
   })
 
   test("describes a rewritten serial on the serial itself", async ({ page }) => {
-    await page.goto("/format/usps/usps_91")
+    await page.goto("/format/usps/usps_legacy")
 
     await expect(meaningOf(page, "Serial Number")).toContainText(
       "The part of the number the check digit is calculated from"
@@ -76,7 +76,7 @@ test.describe("a page for each format", () => {
   })
 
   test("lists every part the pattern names, including ones the example lacks", async ({ page }) => {
-    await page.goto("/format/usps/usps_91")
+    await page.goto("/format/usps/usps_impb_c")
 
     const parts = await page.locator(".parts-list tbody tr th").allTextContents()
     const named = parts.map((text) => text.trim())
@@ -117,9 +117,16 @@ test.describe("a page for each format", () => {
   })
 
   test("shows the description the dataset gives a format", async ({ page }) => {
-    await page.goto("/format/usps/usps_91")
+    await page.goto("/format/usps/usps_impb_c")
 
-    await expect(page.locator(".says")).toHaveText("USPS now calls this the IMpd barcode format")
+    await expect(page.locator(".says")).toHaveText("IMpb constructs C01 through C10, plus USPS retail")
+  })
+
+  test("still answers the addresses renamed formats used to be shared at", async ({ page }) => {
+    for (const old of ["/format/usps/usps_91", "/format/usps/usps_22", "/format/fedex/fedex_smartpost"]) {
+      await page.goto(old)
+      await expect(page).toHaveURL(/\/format\/usps\/usps_impb_[cn]$/)
+    }
   })
 
   test("says so when there is no such format", async ({ page }) => {

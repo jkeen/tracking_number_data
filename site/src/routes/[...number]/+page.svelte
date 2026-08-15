@@ -89,7 +89,7 @@
       <p>
         {shown.length === 2 ? "Another format describes" : `${shown.length - 1} other formats describe`}
         these same digits and {shown.length === 2 ? "passes" : "pass"} the same check digit. Nothing in the
-        number says which one shipped the package.
+        number says which one it is.
       </p>
 
       {#each shown.slice(1) as shipment (shipment.matches[0].definition.key)}

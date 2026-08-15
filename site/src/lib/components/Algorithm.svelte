@@ -285,7 +285,7 @@
   <article class="algorithm">
     <h1>Check digit algorithms</h1>
     <p class="deck">
-      A check digit is the number checking itself. The formats without one just hope you typed it right.
+      A check digit is extremely useful for detecting a legitimate tracking number within a block of text, reducing the chances of it being mistaken for something else.
     </p>
     <div class="choices" role="group" aria-label="Check digit algorithm">
       {#each choices as other (other)}
@@ -344,7 +344,7 @@
 
 
     <p class="lede">
-      Type a serial and watch the sum run. Clear the check digit to see what the algorithm gives on its
+      Type a serial number and see the check digit get calculated. Clear the check digit to see what the algorithm gives on its
       own, or fill it in to check a number against it.
     </p>
 

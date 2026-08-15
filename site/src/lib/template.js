@@ -44,7 +44,7 @@ export const templateFor = (definition) => {
   const match = decode(definition, sample)
   if (!match) return null
 
-  return { text, parts: match.parts.map((part) => ({ ...part, ...widthOf(definition, sample, part) })) }
+  return { text, parts: match.parts.map((part) => ({ ...part, ...widthOf(definition, samples, part.name) })) }
 }
 
 const LONGEST = 16
@@ -61,20 +61,30 @@ const stretch = (sample, field, by) => {
  * it. The test numbers only show the widths someone happened to document, which is not
  * the same as the widths the format permits.
  *
- * The re-parse has to be checked rather than the match: making a check digit longer
- * still matches when a neighbouring serial is free to absorb the extra character, and
- * a format whose serial jumps from 19 to 21 rejects every width in between.
+ * A width counts only where the group landed on it, since a stretched field still matches
+ * when a neighbouring serial number absorbs the extra character. Every width is tried
+ * because a serial number jumping from 19 to 21 rejects the ones in between.
+ *
+ * Every documented number is stretched rather than one, because a mailer ID starting with
+ * 9 is nine digits and one starting with 0-8 is six, so growing a six-digit one never
+ * reaches the nine-digit branch.
  */
-const widthOf = (definition, sample, field) => {
-  const length = field.end - field.start
-  const widths = []
+const widthOf = (definition, samples, name) => {
+  const widths = new Set()
 
-  for (let by = 1 - length; by <= LONGEST; by += 1) {
-    const parsed = stretch(sample, field, by).match(definition.verify)
-    const range = parsed?.indices?.groups?.[field.name]
+  for (const sample of samples) {
+    const field = decode(definition, sample)?.parts.find((part) => part.name === name)
+    if (!field) continue
 
-    if (range && range[1] - range[0] === length + by) widths.push(length + by)
+    const length = field.end - field.start
+
+    for (let by = 1 - length; by <= LONGEST; by += 1) {
+      const parsed = stretch(sample, field, by).match(definition.verify)
+      const range = parsed?.indices?.groups?.[name]
+
+      if (range && range[1] - range[0] === length + by) widths.add(length + by)
+    }
   }
 
-  return { min: Math.min(...widths), max: Math.max(...widths), variable: widths.length > 1 }
+  return { min: Math.min(...widths), max: Math.max(...widths), variable: widths.size > 1 }
 }

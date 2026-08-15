@@ -10,6 +10,12 @@
 
   const courier = $derived(match.sections["Courier"])
 
+  // Most formats carry the check digit last, but not all: an ASTRA barcode keeps four
+  // more characters after it, so a near miss there has to say where the digit sits
+  // rather than claim the number ends in it.
+  const checkDigit = $derived(match.parts.find((part) => part.name === "CheckDigit"))
+  const checkDigitIsLast = $derived(!checkDigit || checkDigit.end === match.number.length)
+
   const elsewhere = $derived(
     [
       ["Track this package", match.trackingUrl],
@@ -53,7 +59,9 @@
 
   {#if match.checksumValid === false}
     <p class="explain">
-      The pattern fits, but the check digit does not: the number ends in <code>{match.checkDigit}</code>
+      The pattern fits, but the check digit does not:
+      {#if checkDigitIsLast}the number ends in{:else}position {checkDigit.start + 1} holds{/if}
+      <code>{match.checkDigit}</code>
       where the check over its serial comes to <code>{match.expectedCheckDigit}</code>.
     </p>
   {/if}

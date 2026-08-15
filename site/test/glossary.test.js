@@ -20,7 +20,7 @@ describe("the glossary and the patterns agree", () => {
   })
 
   it("lists every part the pattern names", () => {
-    const usps = definitions.find((definition) => definition.key === "usps/usps_91")
+    const usps = definitions.find((definition) => definition.key === "usps/usps_impb_c")
 
     expect(usps.groupNames).toEqual(
       expect.arrayContaining(["RoutingApplicationId", "DestinationZip", "SerialNumber"])

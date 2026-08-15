@@ -90,20 +90,17 @@ test.describe("decoding a number", () => {
     await expect(page.getByText("Not recognized")).toBeVisible()
   })
 
-  test("joins the halves of a partnership into one shipment", async ({ page }) => {
+  test("reads a number the courier formats used to claim as USPS alone", async ({ page }) => {
     await page.goto("/420112139261290983497923666238")
 
-    const shipment = page.locator(".shipment")
-    await expect(shipment).toHaveCount(1)
-    await expect(shipment.locator(".shipment-join")).toBeAttached()
-    await expect(shipment).toContainText("Shipped by")
-    await expect(shipment).toContainText("Delivered by")
-    await expect(shipment).toContainText("FedEx SmartPost")
-    await expect(shipment).toContainText("USPS 91")
-    await expect(shipment).not.toContainText("[object Object]")
-    await expect(shipment.locator(".shipment-shared .note").first()).toHaveText("Brooklyn, NY")
+    const card = page.locator(".card")
+    await expect(card).toHaveCount(1)
+    await expect(card).toContainText("USPS IMpb C")
+    await expect(card).not.toContainText("FedEx")
+    await expect(card).not.toContainText("[object Object]")
+    await expect(card.locator(".note").first()).toHaveText("Brooklyn, NY")
 
-    const zip = shipment.locator(".shipment-shared tr", { hasText: "Destination ZIP" })
+    const zip = card.locator("tr", { hasText: "Destination ZIP" })
     await expect(zip.locator(".term")).toHaveAttribute("data-term", /postal code/)
   })
 
@@ -147,10 +144,9 @@ test.describe("decoding a number", () => {
     ])
   })
 
-  test("leaves an unpartnered number as a single card", async ({ page }) => {
+  test("leaves an unambiguous number as a single card", async ({ page }) => {
     await page.goto("/1Z879E930346834440")
 
-    await expect(page.locator(".shipment")).toHaveCount(0)
     await expect(page.locator(".card")).toHaveCount(1)
   })
 

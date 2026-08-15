@@ -1,18 +1,25 @@
-import { definitions, definitionByKey } from "$lib/dataset.js"
+import { redirect } from "@sveltejs/kit"
+import { definitions, definitionByKey, renamedFrom } from "$lib/dataset.js"
+import { pathFor } from "$lib/paths.js"
 
-// Every format in the dataset gets a page of its own. An address that names one that is
-// not there still has to open, and the page says so itself.
+// An address naming a format that is not in the dataset still has to open.
 export const prerender = "auto"
 
-export const entries = () =>
-  definitions.map((definition) => {
-    const [courier, key] = definition.key.split("/")
+export const entries = () => {
+  const current = definitions.map((definition) => definition.key)
 
-    return { courier, key }
+  return [...current, ...Object.keys(renamedFrom)].map((key) => {
+    const [courier, format] = key.split("/")
+
+    return { courier, key: format }
   })
+}
 
 export const load = ({ params }) => {
   const definitionKey = `${params.courier}/${params.key}`
+  const renamed = renamedFrom[definitionKey]
+
+  if (renamed) redirect(308, pathFor.format(renamed))
 
   return { definitionKey, definition: definitionByKey(definitionKey) }
 }

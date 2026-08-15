@@ -50,7 +50,7 @@ describe("decoding", () => {
   })
 
   it("prepends to the serial only when the definition says to", () => {
-    const usps = definitionByKey("usps/usps_91")
+    const usps = definitionByKey("usps/usps_legacy")
 
     const prepended = decode(usps, "71969010756003077385")
     expect(prepended.groups.SerialNumber.startsWith("91")).toBe(false)
@@ -67,20 +67,29 @@ describe("decoding", () => {
     expect(found.map((match) => match.number).sort()).toEqual(["1Z879E930346834440", "9611020987654312345672"])
   })
 
-  it("recognizes both halves of a partnership", () => {
-    const smartpost = matches("420112139261290983497923666238")
-    const carrier = smartpost.find((match) => match.role === "carrier")
-    const shipper = smartpost.find((match) => match.definition.key === "fedex/fedex_smartpost")
+  it("reads a number the courier-specific formats used to claim as USPS", () => {
+    const smartpost = matches("9261292700768711948021")
+    const ecommerce = matches("420902459261290336128704042634")
 
-    expect(carrier.definition.key).toBe("usps/usps_91")
-    expect(carrier.partner.key).toBe("fedex/fedex_smartpost")
-    expect(shipper.role).toBe("shipper")
-    expect(shipper.partner.key).toBe("usps/usps_91")
-    expect(smartpost[0].role).toBe("carrier")
+    expect(smartpost.map((match) => match.definition.key)).toEqual(["usps/usps_impb_c"])
+    expect(ecommerce.map((match) => match.definition.key)).toEqual(["usps/usps_impb_c"])
   })
 
-  it("leaves an ordinary number without a partnership", () => {
-    expect(detect("1Z879E930346834440").role).toBeUndefined()
+  it("names one courier for a number three formats used to claim", () => {
+    const parcelSelect = matches("420112139261290983497923666238")
+
+    expect(parcelSelect.map((match) => match.definition.key)).toEqual(["usps/usps_impb_c"])
+    expect(parcelSelect[0].courierName).toBe("United States Postal Service")
+  })
+
+  it("says a commercial mailer's number may have been carried by someone else", () => {
+    const commercial = detect("420112139261290983497923666238")
+    const online = detect("9400111206206406260787")
+
+    expect(commercial.sections["Application Identifier"].name).toBe("Commercial mailer")
+    expect(commercial.sections["Application Identifier"].description).toMatch(/carried by another company/)
+    expect(online.sections["Application Identifier"].name).toBe("Online or vendor label")
+    expect(online.sections["Application Identifier"].description).not.toMatch(/carried by another company/)
   })
 
   it("returns nothing for unrecognizable input", () => {

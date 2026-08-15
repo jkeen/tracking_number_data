@@ -34,7 +34,7 @@ describe("describing what a definition does", () => {
   })
 
   it("explains a serial that is rewritten before checking", () => {
-    const usps = definitionByKey("usps/usps_91")
+    const usps = definitionByKey("usps/usps_legacy")
 
     expect(describeSerialRule(usps.spec.validation)).toMatch(/^91 is prepended before the check runs, because/)
     expect(describeSerialRule(definitionByKey("ups/ups").spec.validation)).toBeNull()

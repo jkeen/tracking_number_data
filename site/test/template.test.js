@@ -52,7 +52,7 @@ describe("how wide each part can be", () => {
 
   it("reports a range where the pattern allows one", () => {
     expect(partsOf("dhl/dhl_express").SerialNumber).toMatchObject({ min: 9, max: 10, variable: true })
-    expect(partsOf("usps/usps_91").SerialNumber).toMatchObject({ min: 19, max: 25, variable: true })
+    expect(partsOf("usps/usps_impb_c").SerialNumber).toMatchObject({ min: 21, max: 25, variable: true })
   })
 
   it("does not call a field variable because a neighbour can absorb a character", () => {
