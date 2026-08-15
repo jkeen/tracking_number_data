@@ -1,5 +1,13 @@
 tracking_number_data changelog
 
+# [1.13.0](https://github.com/jkeen/tracking_number_data/compare/v1.12.0...v1.13.0) (2026-08-15)
+
+
+### Features
+
+* Add FedEx ASTRA detection ([5b14885](https://github.com/jkeen/tracking_number_data/commit/5b1488509449475464a062d3c553350ae7807771)), closes [#24](https://github.com/jkeen/tracking_number_data/issues/24)
+* Add Yodel tracking number detection ([15fabeb](https://github.com/jkeen/tracking_number_data/commit/15fabeb985bbae6f0f69b67425ca663048cd9216)), closes [#91](https://github.com/jkeen/tracking_number_data/issues/91)
+
 # [1.12.0](https://github.com/jkeen/tracking_number_data/compare/v1.11.1...v1.12.0) (2026-08-13)
 
 
