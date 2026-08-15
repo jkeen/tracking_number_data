@@ -22,28 +22,31 @@
   const choices = inUse().sort((one, other) => labelFor(one).localeCompare(labelFor(other)))
   const example = $derived(isAlgorithm(name) ? workedExample(name) : null)
 
-  // A number arriving from a format page is split by the format that knows it. Anything
-  // else is taken as a serial with its last character as the check digit, which the two
-  // fields then let you correct.
-  const partsOf = (value) => {
+  // The format that knows a number sets both how it splits and which constants it is
+  // checked against, so the sum on show is the one that number is really checked by.
+  // Anything no format claims is taken as a serial with its last character as the check
+  // digit, which the two fields then let you correct.
+  const openedWith = (value) => {
     for (const definition of formats) {
       const match = decode(definition, value)
-      if (match) return { serial: match.serialNumber, check: match.checkDigit ?? "" }
+      if (match) return { definition, serial: match.serialNumber, check: match.checkDigit ?? "" }
     }
 
-    return { serial: value.slice(0, -1), check: value.slice(-1) }
+    return { definition: null, serial: value.slice(0, -1), check: value.slice(-1) }
   }
+
+  const opened = $derived(
+    number
+      ? openedWith(normalize(number))
+      : { definition: example?.definition ?? null, serial: example?.match.serialNumber ?? "", check: example?.match.checkDigit ?? "" }
+  )
 
   let serial = $state("")
   let check = $state("")
 
   $effect(() => {
-    const start = number
-      ? partsOf(normalize(number).slice(0, LONGEST))
-      : { serial: example?.match.serialNumber ?? "", check: example?.match.checkDigit ?? "" }
-
-    serial = normalize(settings.serial ?? start.serial).slice(0, LONGEST)
-    check = normalize(settings.check ?? start.check).slice(0, 1)
+    serial = normalize(settings.serial ?? opened.serial).slice(0, LONGEST)
+    check = normalize(settings.check ?? opened.check).slice(0, 1)
   })
 
   // Which numbers a format may set, in the order they read on the page.
@@ -93,7 +96,7 @@
   }
 
   $effect(() => {
-    config = asked(constantsFrom(example?.definition ?? formats[0]))
+    config = asked(constantsFrom(opened.definition ?? example?.definition ?? formats[0]))
   })
 
   const queryOf = (constants) => {

@@ -74,6 +74,23 @@ test.describe("a page for each check digit algorithm", () => {
     expect((await serialIn(page)) + (await checkBox(page).inputValue())).toBe("5R89390357567127")
   })
 
+  test("checks a number against the constants of the format that splits it", async ({ page }) => {
+    await page.goto("/algorithm/mod10/9611020987654312345672")
+
+    await expect.poll(() => serialIn(page)).toContain("98765431234567")
+    await expect(settings(page).nth(0)).toHaveValue("1")
+    await expect(settings(page).nth(1)).toHaveValue("3")
+    await expect(page.locator(".verdict.is-ok")).toContainText(/checks out/)
+  })
+
+  test("splits a number longer than the serial the calculator holds", async ({ page }) => {
+    await page.goto("/algorithm/sum_product_with_weightings_and_modulo/1001921334250001000300779017972697")
+
+    await expect.poll(() => serialIn(page)).toBe("0077901797269")
+    await expect(checkBox(page)).toHaveValue("7")
+    await expect(page.locator(".verdict.is-ok")).toContainText(/checks out/)
+  })
+
   test("runs the sum again when a constant is changed", async ({ page }) => {
     await page.goto("/algorithm/s10")
     await expect(page.locator(".verdict.is-ok")).toBeVisible()

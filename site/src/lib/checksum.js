@@ -251,10 +251,11 @@ export const trace = (config, sequence) => {
     }
 
     const value = characterValue(character)
+    const position = config.reverse ? characters.length - 1 - index : index
     const multiplier =
-      config.odds_multiplier !== undefined && index % 2 === 1
+      config.odds_multiplier !== undefined && position % 2 === 1
         ? config.odds_multiplier
-        : config.evens_multiplier !== undefined && index % 2 === 0
+        : config.evens_multiplier !== undefined && position % 2 === 0
           ? config.evens_multiplier
           : 1
 

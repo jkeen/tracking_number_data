@@ -15,12 +15,12 @@ jobs:
         ruby: ['3.2', '3.3' ]
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v7
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
-    - uses: actions/cache@v3
+    - uses: actions/cache@v6
       with:
         path: vendor/bundle
         key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
@@ -35,7 +35,7 @@ jobs:
       run: bundle exec rspec -f j -o tmp/rspec_results.json -f p
 
     - name: RSpec Report
-      uses: SonicGarden/rspec-report-action@v2
+      uses: SonicGarden/rspec-report-action@v8
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         json-path: tmp/rspec_results.json

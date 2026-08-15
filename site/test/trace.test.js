@@ -28,6 +28,16 @@ describe("showing the working", () => {
     expect(shown.total).toBe(shown.cells.reduce((sum, cell) => sum + cell.product, 0))
   })
 
+  it("counts positions from the right when the format reverses", () => {
+    const config = { name: "mod10", evens_multiplier: 3, odds_multiplier: 1, modulo: 10, reverse: true }
+    const shown = trace(config, "96110209876543123456")
+
+    expect(shown.cells.map((cell) => cell.multiplier)).toEqual([1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3])
+    expect(shown.total).toBe(172)
+    expect(shown.steps.map(written)).toEqual(["180 − 172 = 8"])
+    expect(shown.expected).toBe(expectedCheckDigit(config, "96110209876543123456"))
+  })
+
   it("weights the S10 digits from the dataset", () => {
     const shown = trace({ name: "s10", weightings: [8, 6, 4, 2, 3, 5, 9, 7], modulo: 11 }, "12345678")
 
