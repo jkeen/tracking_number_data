@@ -29,7 +29,7 @@ end
 
             if tracking_info[:validation][:checksum]
               it 'fails on check digit changes' do
-                should_fail_on_check_digit_changes(valid_number)
+                should_fail_on_check_digit_changes(valid_number, klass)
               end
             end
 
