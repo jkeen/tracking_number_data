@@ -26,15 +26,18 @@ jobs:
           cache: npm
           cache-dependency-path: site/package-lock.json
       - run: npm ci
+      - run: npx playwright install --with-deps chromium webkit
       # Asserts the decoder agrees with every test number in couriers/*.json, so a data
       # change that breaks the site fails here rather than after it deploys.
-      - run: npm test
+      - run: npm run test:unit
       # Served from the root of trackingnumber.fyi, so no base path to prefix assets with.
       - run: npm run build
+      # Drives the built site in a real browser, desktop and phone.
+      - run: npm run test:e2e
       - uses: actions/upload-pages-artifact@v3
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
         with:
-          path: site/dist
+          path: site/build
 
   deploy:
     needs: test

@@ -57,7 +57,7 @@
   --system-font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* One step per size. Anything not on the scale is a mistake, not a nuance. */
-  --system-text-xs: 0.72rem;
+  --system-text-xs: 0.78rem;
   --system-text-sm: 0.82rem;
   --system-text-md: 0.9rem;
   --system-text-lg: 1.15rem;
@@ -166,19 +166,25 @@ td:first-child {
   padding-left: 0;
 }
 
+/* Whatever follows a table draws its own line, and two together read as a mistake. */
+tbody tr:last-child > th,
+tbody tr:last-child > td {
+  border-bottom: none;
+}
+
 /* -------------------------------------------------------------- patterns -- */
 
 /* Small capitals above a thing, naming it. */
 .courier-of,
-.leg-label,
+.shipment-leg-label,
 .explore h3,
 .facts dt,
 .format dt,
 .format-facts dt,
 .examples .section th,
 .parts-list .section th,
-.tag,
-.span-label {
+.breakdown-tag,
+.breakdown-span-label {
   font-size: var(--system-text-xs);
   letter-spacing: var(--system-tracking-wide);
   text-transform: uppercase;
@@ -187,7 +193,7 @@ td:first-child {
 
 .lede,
 .empty,
-.legend,
+.schematic-legend,
 .says,
 .detail,
 .note,
@@ -204,7 +210,7 @@ td:first-child {
   font-size: var(--system-text-md);
 }
 
-.legend,
+.schematic-legend,
 .detail,
 .note {
   font-size: var(--system-text-sm);
@@ -257,153 +263,7 @@ button.tracking-number:hover {
   padding-right: var(--system-space-6);
 }
 
-/* --------------------------------------------------------------- masthead -- */
-
-/* Eighteen characters set solid: at a fixed size this is what decides how narrow the
-   masthead can get, and it is wider than a phone. It gives up size rather than room. */
-.wordmark {
-  grid-column: 1;
-  grid-row: 1;
-  display: inline-block;
-  justify-self: start;
-  min-width: 0;
-  margin: 0;
-  font-size: clamp(1.25rem, 6.6vw, var(--system-text-2xl));
-  letter-spacing: 0.02em;
-  text-transform: lowercase;
-  text-decoration: none;
-}
-
-.wordmark .tracking,
-.wordmark .number {
-  font-weight: 600;
-}
-
-.wordmark .tracking {
-  color: var(--system-color-ink);
-}
-
-.wordmark .number {
-  color: var(--system-color-muted);
-}
-
-.wordmark .tld {
-  color: var(--system-color-ink);
-}
-
-/* --------------------------------------------------------------- menu -- */
-
-.menu {
-  grid-column: 2;
-  grid-row: 1;
-  display: flex;
-  align-items: center;
-  gap: var(--system-space-4);
-}
-
-.menu-link {
-  color: var(--system-color-muted);
-  font-size: var(--system-text-md);
-  text-decoration: none;
-}
-
-.menu-link:hover {
-  color: var(--system-color-accent);
-}
-
-.menu-link.is-current {
-  color: var(--system-color-ink);
-  font-weight: 500;
-}
-
-/* Sized to its placeholder rather than to the longest courier in the list. */
-.menu-select {
-  width: 5.5rem;
-  padding: 0;
-  border: none;
-  background: none;
-  color: var(--system-color-muted);
-  font: inherit;
-  font-size: var(--system-text-md);
-  cursor: pointer;
-}
-
-.menu-select:hover {
-  color: var(--system-color-accent);
-}
-
-.menu-select:focus-visible,
-.choice.mod-preset:focus-visible {
-  outline: 2px solid var(--system-color-accent);
-  outline-offset: 2px;
-}
-
-/* A select is as wide as its widest option unless the browser is asked to fit the text,
-   so the fixed widths above are what everywhere else falls back to. */
-@supports (field-sizing: content) {
-  .menu-select,
-  .choice.mod-preset {
-    width: auto;
-    field-sizing: content;
-  }
-}
-
-/* ------------------------------------------------------------------ field -- */
-
-/* The number stays put while you read what was read out of it. */
-.field {
-  position: sticky;
-  top: 0;
-  z-index: 3;
-  margin-top: var(--system-space-5);
-  padding-bottom: var(--system-space-3);
-  border-bottom: var(--system-border);
-  background: var(--system-color-paper);
-}
-
-.ask {
-  display: block;
-  margin-bottom: var(--system-space-1);
-  font-size: var(--system-text-md);
-  color: var(--system-color-muted);
-}
-
-.field .frame {
-  position: relative;
-  padding: var(--system-space-2) var(--system-field-pad);
-  border: var(--system-border);
-  background: var(--system-color-fade);
-  transition: border-color var(--system-transition-quick), background var(--system-transition-quick);
-}
-
-.field .frame:focus-within {
-  border-color: var(--system-color-accent);
-  background: var(--system-color-paper);
-}
-
-.field input {
-  width: 100%;
-  padding: var(--system-space-2) 0;
-  border: none;
-  background: none;
-  color: var(--system-color-ink);
-  font-family: var(--system-font-mono);
-  font-size: var(--field-size);
-  line-height: 1.2;
-  letter-spacing: var(--system-field-space);
-}
-
-.field input:focus {
-  outline: none;
-}
-
-.field input::placeholder {
-  color: var(--system-color-line);
-}
-
-.field input::selection {
-  background: color-mix(in oklab, var(--system-color-accent) 35%, transparent);
-}
+/* ----------------------------------------------------------------- rulers -- */
 
 /* Hidden text measured to place the rules under the right characters. It is set at sizes
    no viewport is as wide as, so it is kept in a box with no size: a hidden box still has
@@ -428,109 +288,20 @@ button.tracking-number:hover {
   letter-spacing: var(--system-field-space);
 }
 
-.ruler.plain {
+.ruler.mod-plain {
   letter-spacing: 0;
 }
 
 /* These measure the field, so they have to be set in the field's own type. */
-.field .frame .ruler,
-.schematic .ruler {
+.field-frame .ruler,
+.annotated-frame .ruler {
   font-size: var(--field-size);
-}
-
-.glow {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  opacity: 0.3;
-  pointer-events: none;
-}
-
-/* -------------------------------------------------------------- breakdown -- */
-
-.breakdown {
-  position: relative;
-  overflow-x: clip;
-  margin: 0 calc(var(--system-field-pad) + 1px);
-  height: calc(var(--system-space-4) + var(--rows) * var(--system-breakdown-row-height) + var(--tiers) * var(--system-breakdown-tier-height));
-  font-family: var(--system-font-mono);
-  font-size: var(--field-size);
-  letter-spacing: var(--system-field-space);
-}
-
-.rule {
-  position: absolute;
-  top: 0;
-  height: 3px;
-  transition: opacity var(--system-transition-quick);
-}
-
-/* A part whose width the format lets vary trails off rather than stopping. */
-.rule.variable::after {
-  content: "";
-  position: absolute;
-  left: 100%;
-  top: 0;
-  width: 1.4em;
-  height: 100%;
-  background: repeating-linear-gradient(to right, currentColor 0 3px, transparent 3px 7px);
-  opacity: 0.55;
-}
-
-.tag {
-  position: absolute;
-  top: calc(0.55rem + var(--row) * var(--system-breakdown-row-height));
-  font-family: inherit;
-  white-space: nowrap;
-  cursor: default;
-  transition: opacity var(--system-transition-quick);
-}
-
-.tag::before {
-  content: "";
-  position: absolute;
-  left: var(--tick, 0);
-  bottom: 100%;
-  height: 0.8rem;
-  border-left: 1px solid currentColor;
-  opacity: 0.45;
-}
-
-.range {
-  margin-left: var(--system-space-1);
-  font-size: 0.92em; /* relative to the label it trails */
-  opacity: 0.65;
-}
-
-/* A part that wraps other parts gets a span of its own beneath them. */
-.span {
-  position: absolute;
-  top: calc(var(--system-space-4) + var(--rows) * var(--system-breakdown-row-height) + var(--tier) * var(--system-breakdown-tier-height));
-  height: var(--system-space-2);
-  border: 2px solid;
-  border-top: none;
-  opacity: 0.85;
-  cursor: default;
-  transition: opacity var(--system-transition-quick);
-}
-
-/* Centred under its span by the measurement that also keeps it inside the number's
-   width, so there is nothing left here to centre. */
-.span-label {
-  position: absolute;
-  top: calc(100% + var(--system-space-1));
-  font-family: var(--system-font-mono);
-  white-space: nowrap;
-}
-
-.dim {
-  opacity: 0.75;
 }
 
 /* --------------------------------------------------------------- results -- */
 
 .card {
-  margin: var(--system-space-4) 0;
+  margin: var(--system-space-6) 0;
   padding: var(--system-space-5);
   border: var(--system-border);
 }
@@ -543,16 +314,6 @@ button.tracking-number:hover {
   border-left: 4px solid var(--system-color-bad);
 }
 
-/* Columns rather than a wrapping row, so the toggles keep the top right corner at every
-   width and only the wordmark gives up room. The menu and the toggles share the
-   wordmark's line, which is what they line up against; the lede has the row below. */
-.masthead {
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  align-items: center;
-  column-gap: var(--system-space-4);
-}
-
 /* An auto track is max-content, which is a floor a flex-wrap cannot get under: the badges
    have to be in a row that wraps, not a column that refuses to. */
 .card header,
@@ -562,26 +323,6 @@ button.tracking-number:hover {
   align-items: start;
   justify-content: space-between;
   gap: var(--system-space-3);
-}
-
-/* The gap under the masthead belongs to the masthead, not to whichever block each view
-   happens to open with: the field carried one, the format page carried none. */
-.masthead {
-  margin-bottom: var(--system-space-7);
-}
-
-.masthead-tools {
-  grid-column: 3;
-  grid-row: 1;
-  display: flex;
-  align-items: center;
-  gap: var(--system-space-3);
-}
-
-.masthead .lede {
-  grid-column: 1 / -1;
-  grid-row: 2;
-  margin: var(--system-space-1) 0 0;
 }
 
 .card h2 {
@@ -601,10 +342,11 @@ button.tracking-number:hover {
   margin: 0;
 }
 
-/* Free to be narrower than the pills laid end to end, which is what lets them wrap. */
+/* Narrower than the pills laid end to end is what lets them wrap. Not wider, or the row
+   fills and they sit against the name instead of the far edge. */
 .card header .badges,
 .pane header .badges {
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   min-width: 0;
 }
 
@@ -693,16 +435,15 @@ button.tracking-number:hover {
   padding: var(--system-space-3) 0 var(--system-space-2);
 }
 
-.mod-verify .tape {
+.mod-verify .ledger {
   margin-bottom: var(--system-space-3);
 }
 
 /* Formats that fit the same digits just as well. Set apart so the first result does not
-   read as the answer and the rest as runners-up. */
+   read as the answer and the rest as runners-up. The card above closes with its own
+   border, so this needs room rather than a line of its own. */
 .alternates {
-  margin-top: var(--system-space-6);
-  padding-top: var(--system-space-5);
-  border-top: var(--system-border);
+  margin-top: var(--system-space-7);
 }
 
 .alternates h2 {
@@ -735,60 +476,6 @@ button.tracking-number:hover {
   margin-bottom: var(--system-space-2);
 }
 
-/* -------------------------------------------------------------- shipment -- */
-
-/* A partnership is one shipment, so its halves share a single card. */
-/* Not clipped: every part in the table below names itself in a tooltip that has to be
-   able to open past the card's edge. */
-.shipment {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: stretch;
-  margin: var(--system-space-4) 0;
-  border: var(--system-border);
-}
-
-.shipment.single {
-  grid-template-columns: 1fr;
-}
-
-.shipment .leg {
-  padding: var(--system-space-5);
-  min-width: 0;
-}
-
-.leg-label {
-  margin: 0 0 var(--system-space-3);
-}
-
-.shipment .shared {
-  grid-column: 1 / -1;
-  min-width: 0;
-  padding: 0 var(--system-space-5) var(--system-space-5);
-}
-
-.join {
-  position: relative;
-  width: 1px;
-  background: var(--system-color-line);
-}
-
-.join span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: grid;
-  place-items: center;
-  width: 1.6rem;
-  height: 1.6rem;
-  border: var(--system-border);
-  border-radius: var(--system-radius-pill);
-  background: var(--system-color-paper);
-  color: var(--system-color-muted);
-  font-size: var(--system-text-sm);
-}
-
 .pane {
   padding: 0;
   border: none;
@@ -806,14 +493,6 @@ button.tracking-number:hover {
 
 .pane .facts {
   gap: var(--system-space-4);
-}
-
-/* Where two definitions read the same number differently. */
-.reading {
-  display: inline-flex;
-  align-items: baseline;
-  gap: var(--system-space-1);
-  margin-right: var(--system-space-5);
 }
 
 .whose {
@@ -891,11 +570,11 @@ button.tracking-number:hover {
 
 .format-facts {
   display: grid;
-  gap: var(--system-space-3);
+  gap: var(--system-space-4);
   margin: 0 0 var(--system-space-5);
 }
 
-.legend {
+.schematic-legend {
   margin: 0 0 var(--system-space-6);
 }
 
@@ -974,8 +653,8 @@ button.tracking-number:hover {
   margin-top: var(--system-space-6);
 }
 
-/* The bench has the width for a bigger number than a result card does. */
-.algorithm .tape {
+/* The calculator has the width for a bigger number than a result card does. */
+.algorithm .ledger {
   --cell: 2.5rem;
   --digit: var(--system-text-2xl);
   --figure: var(--system-text-md);
@@ -988,7 +667,13 @@ button.tracking-number:hover {
   color: var(--system-color-muted);
 }
 
-/* Which algorithm the bench is set up for. */
+.algorithm-aside {
+  margin: var(--system-space-6) 0 0;
+  font-size: var(--system-text-sm);
+  color: var(--system-color-muted);
+}
+
+/* Which algorithm the calculator is set up for. */
 .choices {
   display: flex;
   flex-wrap: wrap;
@@ -1080,7 +765,7 @@ button.tracking-number:hover {
   text-align: center;
 }
 
-.legend .link {
+.schematic-legend .link {
   margin-left: var(--system-space-3);
 }
 
@@ -1105,8 +790,8 @@ button.tracking-number:hover {
 
 /* Every row is its own grid on one shared template, so the columns line up by construction. */
 /* The columns divide whatever width there is, so a long number narrows rather than
-   scrolling — a scrolling tape would clip the tooltips that explain it. */
-.tape {
+   scrolling — a scrolling ledger would clip the tooltips that explain it. */
+.ledger {
   --cell: 1.9rem;
   --sum: 7rem;
   --digit: var(--system-text-lg);
@@ -1115,25 +800,25 @@ button.tracking-number:hover {
   margin-bottom: var(--system-space-5);
 }
 
-.tape-grid {
+.ledger-grid {
   font-family: var(--system-font-mono);
 }
 
 /* A name centred over a narrow span of cells is wider than the span, and the one at the
    end has nothing to spill into. Only this row clips: the rows below carry the tooltips. */
-.tape-row.mod-marks {
+.ledger-row.mod-marks {
   overflow-x: clip;
 }
 
 /* The arithmetic ends in the last column, so its tooltips open back into the page the
    way a badge's does rather than off the right edge. */
-.tape-total .term::after,
-.tape-step .term::after {
+.ledger-total .term::after,
+.ledger-step .term::after {
   left: auto;
   right: 0;
 }
 
-.tape-row {
+.ledger-row {
   display: grid;
   grid-template-columns:
     repeat(var(--columns), minmax(0, min(var(--cell), 100cqw)))
@@ -1141,14 +826,14 @@ button.tracking-number:hover {
 }
 
 /* Room at the end for a field of its own, past the sum and everything it says. */
-.tape.mod-trailing .tape-row {
+.ledger.mod-trailing .ledger-row {
   grid-template-columns:
     repeat(var(--columns), minmax(0, min(var(--cell), 100cqw)))
     minmax(var(--sum), max-content)
     var(--cell);
 }
 
-.tape-digit {
+.ledger-digit {
   width: 100%;
   padding: var(--system-space-2) 0;
   font-size: min(var(--digit), calc(100cqw / var(--columns) * 0.62));
@@ -1162,24 +847,31 @@ button.tracking-number:hover {
   text-align: center;
 }
 
+/* A character that moves between the numbers says nothing on its own. */
+.ledger-digit.mod-varies {
+  color: var(--system-color-muted);
+  opacity: 0.55;
+}
+
 /* Only the serial is added up, so everything else all but disappears. */
-.tape-digit.mod-ignored,
-.tape-digit.mod-spare {
+.ledger-digit.mod-ignored,
+.ledger-digit.mod-folded,
+.ledger-digit.mod-spare {
   color: var(--system-color-muted);
   opacity: 0.3;
 }
 
-.tape-digit:last-of-type {
+.ledger-digit:last-of-type {
   border-right: 1px solid var(--system-color-line);
 }
 
-.tape-digit:focus {
+.ledger-digit:focus {
   outline: none;
   background: var(--system-color-paper);
   box-shadow: inset 0 -2px 0 var(--system-color-accent);
 }
 
-.tape-mark {
+.ledger-mark {
   display: flex;
   justify-content: center;
   padding-bottom: var(--system-space-1);
@@ -1191,7 +883,7 @@ button.tracking-number:hover {
   white-space: nowrap;
 }
 
-.tape-cell {
+.ledger-cell {
   padding: 0.15rem 0;
   border-left: 1px solid var(--system-color-line);
   color: var(--system-color-muted);
@@ -1199,28 +891,28 @@ button.tracking-number:hover {
   text-align: center;
 }
 
-.tape-cell.is-striped,
-.tape-digit.is-striped {
+.ledger-cell.is-striped,
+.ledger-digit.is-striped {
   background: var(--system-color-stripe);
 }
 
-.tape-cell.is-last {
+.ledger-cell.is-last {
   border-right: 1px solid var(--system-color-line);
 }
 
-.tape-cell.mod-value {
+.ledger-cell.mod-value {
   padding-top: var(--system-space-2);
 }
 
-.tape-cell.mod-product,
-.tape-total {
+.ledger-cell.mod-product,
+.ledger-total {
   position: relative;
   border-top: 1px solid var(--system-color-line);
   color: var(--system-color-ink);
 }
 
 /* Products are added, so they read joined by plus signs. A running value is not. */
-.tape-cell.mod-added + .tape-cell::before {
+.ledger-cell.mod-added + .ledger-cell::before {
   content: "+";
   position: absolute;
   left: 0;
@@ -1229,7 +921,7 @@ button.tracking-number:hover {
 }
 
 /* Each row is named at its end, rather than in a key elsewhere. */
-.tape-legend {
+.ledger-legend {
   padding: 0.15rem 0 0 var(--system-space-2);
   color: var(--system-color-muted);
   font-family: var(--system-font-sans);
@@ -1237,7 +929,7 @@ button.tracking-number:hover {
   white-space: nowrap;
 }
 
-.tape-total {
+.ledger-total {
   display: inline-flex;
   align-items: baseline;
   gap: 0.35em;
@@ -1248,7 +940,7 @@ button.tracking-number:hover {
 }
 
 /* The steps carry on from the total they follow, rather than starting again on the left. */
-.tape-step {
+.ledger-step {
   display: inline-flex;
   align-items: baseline;
   gap: 0.35em;
@@ -1258,49 +950,49 @@ button.tracking-number:hover {
 }
 
 /* A step under a total lines up with the total's number, past its equals sign. */
-.mod-products ~ .mod-step .tape-step {
+.mod-products ~ .mod-step .ledger-step {
   padding-left: calc(var(--system-space-2) + 1ch + 0.35em);
 }
 
-/* At the right edge of the tape, a tooltip has room to its left rather than its right. */
-.tape-step :global(.term)::after {
+/* At the right edge of the ledger, a tooltip has room to its left rather than its right. */
+.ledger-step :global(.term)::after {
   left: auto;
   right: 0;
 }
 
-.tape-sign {
+.ledger-sign {
   color: var(--system-color-muted);
 }
 
-.tape-answer {
+.ledger-answer {
   padding: 0 var(--system-space-1);
   border-radius: var(--system-radius-sm);
   color: var(--system-color-ink);
 }
 
-.tape-answer.is-ok {
+.ledger-answer.is-ok {
   background: var(--system-color-good-fade);
   color: var(--system-color-good);
 }
 
-.tape-answer.is-bad {
+.ledger-answer.is-bad {
   background: var(--system-color-bad-fade);
   color: var(--system-color-bad);
 }
 
-.tape-caption {
+.ledger-caption {
   margin: var(--system-space-2) 0 0;
   font-size: var(--system-text-sm);
   color: var(--system-color-muted);
 }
 
 /* The check digit and the digit the arithmetic lands on, answering each other. */
-.tape-digit.is-ok {
+.ledger-digit.is-ok {
   background: var(--system-color-good-fade);
   color: var(--system-color-good);
 }
 
-.tape-digit.is-bad {
+.ledger-digit.is-bad {
   background: var(--system-color-bad-fade);
   color: var(--system-color-bad);
 }
@@ -1330,23 +1022,27 @@ button.tracking-number:hover {
     padding-inline: var(--system-space-4);
   }
 
-  .card,
-  .shipment .leg {
+  .card {
     padding: var(--system-space-4);
   }
 
-  .shipment .shared {
-    padding: 0 var(--system-space-4) var(--system-space-4);
-  }
-
-  /* Headings that never wrap and a gutter wide enough to read across are what the table
-     is as wide as, and the table is what the card is as wide as. */
+  /* A gutter wide enough to read across is width the card has to find from somewhere. */
   .groups th,
   .parts-list th,
   .parts-list .width,
   .examples td:nth-child(2) {
-    white-space: normal;
     padding-right: var(--system-space-3);
+  }
+
+  .parts-list th,
+  .parts-list .width,
+  .examples td:nth-child(2) {
+    white-space: normal;
+  }
+
+  /* The name of a part reads as one thing. The digits beside it are what may break. */
+  .groups td {
+    overflow-wrap: anywhere;
   }
 
   /* A number has nowhere to break, so it is told it may break anywhere rather than
@@ -1354,25 +1050,6 @@ button.tracking-number:hover {
   .tracking-number,
   td code {
     overflow-wrap: anywhere;
-  }
-
-  .menu {
-    grid-column: 1 / -1;
-    grid-row: 3;
-    justify-content: space-between;
-    margin-top: var(--system-space-3);
-    padding-top: var(--system-space-3);
-    border-top: var(--system-border);
-  }
-
-  .shipment {
-    grid-template-columns: 1fr;
-  }
-
-  .join {
-    width: auto;
-    height: 1px;
-    margin: 0 var(--system-space-5);
   }
 }
 

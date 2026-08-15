@@ -5,6 +5,3 @@ globalThis.ResizeObserver ??= class {
   unobserve() {}
   disconnect() {}
 }
-
-// jsdom has no layout, so scrolling is not implemented.
-globalThis.scrollTo ??= () => {}

@@ -3,3 +3,9 @@
 .idea
 node_modules/
 dist/
+build/
+.svelte-kit/
+
+# Playwright
+site/test-results/
+site/playwright-report/
