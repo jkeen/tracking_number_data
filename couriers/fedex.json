@@ -92,6 +92,41 @@
       }
     },
     {
+      "name": "FedEx ASTRA (32)",
+      "id": "fedex_astra_32",
+      "description": "The legacy ASTRA barcode. Positions 17 through 28 hold a FedEx Express tracking number, and its check digit is the only one the barcode carries. What the other fields mean is not yet known.",
+      "regex": [
+        "\\s*3\\s*",
+        "(?:[0-9]\\s*){5}",
+        "(?:[0-9]\\s*){3}",
+        "(?:[0-9]\\s*){7}",
+        "(?<SerialNumber>(?:[0-9]\\s*){11})",
+        "(?<CheckDigit>[0-9]\\s*)",
+        "(?:[0-9]\\s*){4}"
+      ],
+      "validation": {
+        "checksum": {
+          "name": "sum_product_with_weightings_and_modulo",
+          "weightings": [3, 1, 7, 3, 1, 7, 3, 1, 7, 3, 1],
+          "modulo1": 11,
+          "modulo2": 10
+        }
+      },
+      "test_numbers": {
+        "valid": [
+          "32971514560102447849175802862014",
+          "32971510360102447848540980802018",
+          "32971508360102447847941133172013",
+          "33810799560000004380417923803212",
+          "3 29715 145 6010244 784917580286 2014"
+        ],
+        "invalid": [
+          "32971514560102447849175802852014",
+          "3297151456010244784917580286201"
+        ]
+      }
+    },
+    {
       "name": "FedEx SmartPost",
       "id": "fedex_smartpost",
       "description": "Shipped by FedEx, Delivered by USPS",
