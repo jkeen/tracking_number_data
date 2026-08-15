@@ -18,13 +18,11 @@ This repository contains json files that programatically describe how to detect,
 |  | DHL Express (Piece ID) | 13-14 | [`JJD0099999999`](https://trackingnumber.fyi/JJD0099999999) [`JVGL0999999990`](https://trackingnumber.fyi/JVGL0999999990) | `SerialNumber` |
 |  | DHL E-Commerce | 18-22 | [`GM2951173225174494`](https://trackingnumber.fyi/GM2951173225174494) [`GM295117494011169042`](https://trackingnumber.fyi/GM295117494011169042) [`GM9E44608A27984866BA2D`](https://trackingnumber.fyi/GM9E44608A27984866BA2D) | `SerialNumber` |
 |  | DHL E-Commerce (14) | 14 | [`60120172242323`](https://trackingnumber.fyi/60120172242323) [`51087693037816`](https://trackingnumber.fyi/51087693037816) [`60120174971147`](https://trackingnumber.fyi/60120174971147) | `SerialNumber` |
-|  | DHL E-Commerce (30) | 30 | [`420902459261290336128704042634`](https://trackingnumber.fyi/420902459261290336128704042634) [`420941179261290336128704062441`](https://trackingnumber.fyi/420941179261290336128704062441) [`420926029261290336128704067248`](https://trackingnumber.fyi/420926029261290336128704067248) | `RoutingApplicationId` `DestinationZip` `SerialNumber` `ServiceType` `ShipperId` `PackageId` `CheckDigit` |
 | DPD | DPD (28) | 28 | [`008182709980000020033350276C`](https://trackingnumber.fyi/008182709980000020033350276C) [`008182709980000020045327276N`](https://trackingnumber.fyi/008182709980000020045327276N) | `SerialNumber` `DestinationZip` `ServiceType` `CountryCode` `CheckDigit` |
 |  | DPD (14) | 15 | [`09980000020033F`](https://trackingnumber.fyi/09980000020033F) [`09980000020034D`](https://trackingnumber.fyi/09980000020034D) | `SerialNumber` `CheckDigit` |
 | FedEx | FedEx Express (12) | 12 | [`986578788855`](https://trackingnumber.fyi/986578788855) [`477179081230`](https://trackingnumber.fyi/477179081230) [`799531274483`](https://trackingnumber.fyi/799531274483) | `SerialNumber` `CheckDigit` |
 |  | FedEx Express (34) | 34 | [`1001921334250001000300779017972697`](https://trackingnumber.fyi/1001921334250001000300779017972697) [`1001921380360001000300639585804382`](https://trackingnumber.fyi/1001921380360001000300639585804382) [`1001901781990001000300617767839437`](https://trackingnumber.fyi/1001901781990001000300617767839437) | `DestinationZip` `SerialNumber` `CheckDigit` |
 |  | FedEx ASTRA (32) | 32 | [`32971514560102447849175802862014`](https://trackingnumber.fyi/32971514560102447849175802862014) [`32971510360102447848540980802018`](https://trackingnumber.fyi/32971510360102447848540980802018) [`32971508360102447847941133172013`](https://trackingnumber.fyi/32971508360102447847941133172013) | `SerialNumber` `CheckDigit` |
-|  | FedEx SmartPost | 22-30 | [`9261292700768711948021`](https://trackingnumber.fyi/9261292700768711948021) [`420112139261290983497923666238`](https://trackingnumber.fyi/420112139261290983497923666238) [`9261290983497923666238`](https://trackingnumber.fyi/9261290983497923666238) | `RoutingApplicationId` `DestinationZip` `ApplicationIdentifier` `SerialNumber` `SCNC` `ServiceType` `ShipperId` `PackageId` `CheckDigit` |
 |  | FedEx Ground | 15 | [`041441760228964`](https://trackingnumber.fyi/041441760228964) [`568283610012000`](https://trackingnumber.fyi/568283610012000) [`568283610012734`](https://trackingnumber.fyi/568283610012734) | `SerialNumber` `CheckDigit` |
 |  | FedEx Ground (SSCC-18) | 18 | [`000123450000000027`](https://trackingnumber.fyi/000123450000000027) | `ShippingContainerType` `SerialNumber` `CheckDigit` |
 |  | FedEx Ground 96 (22) | 22 | [`9611020987654312345672`](https://trackingnumber.fyi/9611020987654312345672) | `ApplicationIdentifier` `SCNC` `ServiceType` `SerialNumber` `ShipperId` `PackageId` `CheckDigit` |
@@ -44,9 +42,9 @@ This repository contains json files that programatically describe how to detect,
 | S10 International Standard | S10 | 13 | [`RB123456785GB`](https://trackingnumber.fyi/RB123456785GB) [`RB123456785US`](https://trackingnumber.fyi/RB123456785US) [`RB123456785CV`](https://trackingnumber.fyi/RB123456785CV) | `ServiceType` `SerialNumber` `CheckDigit` `CountryCode` |
 | Spee-Dee Delivery | Spee-Dee (20) | 20 | [`SP029692510000920746`](https://trackingnumber.fyi/SP029692510000920746) [`SP029692510000901479`](https://trackingnumber.fyi/SP029692510000901479) [`SP029692510000688332`](https://trackingnumber.fyi/SP029692510000688332) | `SerialNumber` |
 | United States Postal Service | USPS 20 | 20 | [`03071790000523483741`](https://trackingnumber.fyi/03071790000523483741) [`71123456789123456787`](https://trackingnumber.fyi/71123456789123456787) | `SerialNumber` `ServiceType` `ShipperId` `PackageId` `CheckDigit` |
-|  | USPS 22 | 22-30 | [`420787459400111206206406260787`](https://trackingnumber.fyi/420787459400111206206406260787) [`9400111206206406260787`](https://trackingnumber.fyi/9400111206206406260787) [`9434611206206406227577`](https://trackingnumber.fyi/9434611206206406227577) | `RoutingApplicationId` `DestinationZip` `SerialNumber` `ServiceType` `ShipperId` `PackageId` `CheckDigit` |
-|  | USPS 34v2 | 34 | [`4201002334249200190132607600833457`](https://trackingnumber.fyi/4201002334249200190132607600833457) [`4201028200009261290113185417468510`](https://trackingnumber.fyi/4201028200009261290113185417468510) | `RoutingApplicationId` `DestinationZip` `RoutingNumber` `SerialNumber` `ApplicationIdentifier` `ShipperId` `PackageId` `CheckDigit` |
-|  | USPS 91 | 20-30 | [`420221539101026837331000039521`](https://trackingnumber.fyi/420221539101026837331000039521) [`71969010756003077385`](https://trackingnumber.fyi/71969010756003077385) [`9505511069605048600624`](https://trackingnumber.fyi/9505511069605048600624) | `RoutingApplicationId` `DestinationZip` `SerialNumber` `ApplicationIdentifier` `SCNC` `ServiceType` `ShipperId` `PackageId` `CheckDigit` |
+|  | USPS IMpb N | 22-30 | [`420787459400111206206406260787`](https://trackingnumber.fyi/420787459400111206206406260787) [`9400111206206406260787`](https://trackingnumber.fyi/9400111206206406260787) [`9400111201080805483016`](https://trackingnumber.fyi/9400111201080805483016) | `RoutingApplicationId` `DestinationZip` `SerialNumber` `ApplicationIdentifier` `ServiceType` `MailerId` `PackageId` `CheckDigit` |
+|  | USPS Legacy | 20-30 | [`420221539101026837331000039521`](https://trackingnumber.fyi/420221539101026837331000039521) [`9101123456789000000013`](https://trackingnumber.fyi/9101123456789000000013) [`71969010756003077385`](https://trackingnumber.fyi/71969010756003077385) | `RoutingApplicationId` `DestinationZip` `SerialNumber` `ApplicationIdentifier` `ServiceType` `ShipperId` `PackageId` `CheckDigit` |
+|  | USPS IMpb C | 22-34 | [`4201002334249200190132607600833457`](https://trackingnumber.fyi/4201002334249200190132607600833457) [`4201028200009261290113185417468510`](https://trackingnumber.fyi/4201028200009261290113185417468510) [`9505511069605048600624`](https://trackingnumber.fyi/9505511069605048600624) | `RoutingApplicationId` `DestinationZip` `SerialNumber` `ApplicationIdentifier` `ServiceType` `MailerId` `PackageId` `CheckDigit` |
 | UPS | UPS | 18 | [`1Z5R89390357567127`](https://trackingnumber.fyi/1Z5R89390357567127) [`1Z879E930346834440`](https://trackingnumber.fyi/1Z879E930346834440) [`1Z410E7W0392751591`](https://trackingnumber.fyi/1Z410E7W0392751591) | `SerialNumber` `ShipperId` `ServiceType` `PackageId` `CheckDigit` |
 |  | UPS Waybill | 11 | [`K1506235620`](https://trackingnumber.fyi/K1506235620) [`K2479825491`](https://trackingnumber.fyi/K2479825491) [`J4603636537`](https://trackingnumber.fyi/J4603636537) | `ServiceType` `SerialNumber` `CheckDigit` |
 | Yodel | Yodel | 18-19 | [`JJD0002257639032011`](https://trackingnumber.fyi/JJD0002257639032011) [`JJD0002255380054291`](https://trackingnumber.fyi/JJD0002255380054291) [`JD0002242617644732`](https://trackingnumber.fyi/JD0002242617644732) | `SerialNumber` |
@@ -150,34 +148,12 @@ This repository contains json files that programatically describe how to detect,
     Each hash in the `lookup` array should contain a key called `matches` or `matces_regex`, specifying how the value of `regex_group_name` should be compared.
 
 
-    - `partners` - Each entry of the partners array describes a possible partnership between carriers. A partnership is only valid if both ends of the partnership pass the checks. If the tracking number passes both sets of validation, this indicates that the shipment was handled by both parties, usually one acting as the _shipper_, and the other as the last mile _carrier_. Each item in the partners array should have:
+    - `partners` - Each entry describes a possible partnership between carriers, where one party is the _shipper_ and the other the last mile _carrier_. A partnership only holds if both ends pass their checks against the same number. Each item in the partners array should have:
       -  `partner_id`: (required) reference indicating the related definition
-      -  `partner_type`: (required) indicating the type of relationship. Currently the two supported relationship types are `shipper` and `carrier`.
+      -  `partner_type`: (required) the relationship, either `shipper` or `carrier`
       -  `description`: (optional) mainly for humans reading this
-      -  `validation`: (optional) a validation block that determins if this partnership applies
-        -  `matches_all` or `matches_any`: array of match conditions. Each match condition must have a `regex_group_name` indicating the name of the regex group to match against, and then either a `matches` key or a `matches_regex` key with a string or a regex to match against
-
-        ```json
-            //usps.json
-
-            "partners": [{
-              "partner_id": "fedex_smartpost",
-              "partner_type": "origin",
-              "description": "FedEx SmartPost uses USPS for last mile delivery, but not all USPS91 numbers are SmartPosts",
-              "validation": {
-                "matches_all": [
-                   {
-                     "regex_group_name": "ServiceType",
-                     "matches": "29"
-                   },
-                   {
-                     "regex_group_name": "SCNC",
-                     "matches": "62"
-                   }
-                ]
-              }
-            }],
-        ```
+      -  `validation`: (optional) a validation block deciding whether this partnership applies
+        -  `matches_all` or `matches_any`: array of match conditions, each with a `regex_group_name` and either a `matches` or a `matches_regex`
 
 
 ### Making a contribution

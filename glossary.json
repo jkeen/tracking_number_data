@@ -15,6 +15,10 @@
     "label": "Destination ZIP",
     "description": "The postal code the package is addressed to."
   },
+  "DestinationZipPlus4": {
+    "label": "Destination ZIP+4",
+    "description": "The four digits that narrow the destination ZIP to a smaller delivery area."
+  },
   "PackageId": {
     "label": "Package ID",
     "description": "Identifies the package within the shipper's own numbering."
@@ -25,7 +29,7 @@
   },
   "SCNC": {
     "label": "SCNC",
-    "description": "The Serial Container Numeric Code, two digits identifying the carrier."
+    "description": "The standard carrier number code, two digits identifying the carrier."
   },
   "SerialNumber": {
     "label": "Serial Number",
@@ -37,7 +41,7 @@
   },
   "ShipperId": {
     "label": "Shipper ID",
-    "description": "Identifies the account that shipped the package."
+    "description": "Identifies the account the package was shipped under."
   },
   "ShippingContainerType": {
     "label": "Container Type",

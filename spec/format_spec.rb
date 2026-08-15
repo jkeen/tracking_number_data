@@ -90,7 +90,7 @@ courier_files.each do |file|
 
       it 'only includes character groups with agreed upon keys' do
         regex = Regexp.new(pattern)
-        valid_keys = %w[SerialNumber CheckDigit ServiceType CountryCode DestinationZip PackageId
+        valid_keys = %w[SerialNumber CheckDigit ServiceType CountryCode DestinationZip DestinationZipPlus4 PackageId
                         ShipperId SSID ShippingContainerType ApplicationIdentifier RoutingApplicationId SCNC GSN RoutingNumber OriginId]
         regex.names.each { |name| expect(valid_keys.include?(name)).to(eq(true)) }
       end
