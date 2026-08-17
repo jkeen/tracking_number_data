@@ -1,214 +1,215 @@
 [![Tests](https://github.com/jkeen/tracking_number_data/actions/workflows/tests.yml/badge.svg)](https://github.com/jkeen/tracking_number_data/actions/workflows/tests.yml)
+[![Release](https://img.shields.io/github/v/release/jkeen/tracking_number_data?sort=semver&label=release)](https://github.com/jkeen/tracking_number_data/releases)
+[![Semantic versioning](https://img.shields.io/badge/semver-2.0.0-blue)](https://semver.org/spec/v2.0.0.html)
+[![Semantic release](https://img.shields.io/badge/semantic--release-conventional_commits-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
-# About
+# Tracking Number Data
 
-This repository contains json files that programatically describe how to detect, validate, and decode the following types of tracking numbers:
+This repository contains json files that programmatically describe how to detect, validate, and decode tracking numbers. The collection started in the [tracking_number](https://github.com/jkeen/tracking_number) ruby gem in 2010, and split out here in 2017 so that any language could use it.
 
-## Supported Tracking Numbers. Illustrated in depth on [trackingnumber.fyi](https://trackingnumber.fyi)
+**[trackingnumber.fyi](https://trackingnumber.fyi)** consumes the latest release of this data. Paste a number in and it will tell you which carrier it belongs to and illustrate, digit by digit, what each part of that number means.
+
+## Libraries built on this data
+
+| Language | Library | |
+| --- | --- | --- |
+| Ruby | [tracking_number](https://github.com/jkeen/tracking_number) | [![Stars](https://img.shields.io/github/stars/jkeen/tracking_number?label=%20&logo=github)](https://github.com/jkeen/tracking_number/stargazers) |
+| JavaScript / TypeScript | [ts-tracking-number](https://github.com/rjbrooksjr/ts-tracking-number) | [![Stars](https://img.shields.io/github/stars/rjbrooksjr/ts-tracking-number?label=%20&logo=github)](https://github.com/rjbrooksjr/ts-tracking-number/stargazers) |
+| Python | [tracking-numbers](https://github.com/jcomo/tracking-numbers/) | [![Stars](https://img.shields.io/github/stars/jcomo/tracking-numbers?label=%20&logo=github)](https://github.com/jcomo/tracking-numbers/stargazers) |
+| Java | [MysteryTrackingNumber](https://github.com/adgaudio/MysteryTrackingNumber) | [![Stars](https://img.shields.io/github/stars/adgaudio/MysteryTrackingNumber?label=%20&logo=github)](https://github.com/adgaudio/MysteryTrackingNumber/stargazers) |
+| Go | [go-package-tracking](https://github.com/Freespoke/go-package-tracking) | [![Stars](https://img.shields.io/github/stars/Freespoke/go-package-tracking?label=%20&logo=github)](https://github.com/Freespoke/go-package-tracking/stargazers) |
+| Rust | [rs-tracking-numbers](https://github.com/richid/rs-tracking-numbers) | [![Stars](https://img.shields.io/github/stars/richid/rs-tracking-numbers?label=%20&logo=github)](https://github.com/richid/rs-tracking-numbers/stargazers) |
+
+Written one for a language that isn't listed? Open a PR to get it added to this list.
+
+## Supported carriers
 
 <!-- generated: supported tracking numbers -->
 
-| Carrier | Type | Length | Examples | Data |
-| --- | --- | --- | --- | --- |
-| Amazon | Amazon Logistics | 15 | [`TBA000000000000`](https://trackingnumber.fyi/TBA000000000000) [`TBA010000000000`](https://trackingnumber.fyi/TBA010000000000) [`TBC000000000000`](https://trackingnumber.fyi/TBC000000000000) | `SerialNumber` |
-|  | Amazon International | 11 | [`C1004444443`](https://trackingnumber.fyi/C1004444443) [`C1004444444`](https://trackingnumber.fyi/C1004444444) | `SerialNumber` |
-| Canada Post | Canada Post (16) | 16 | [`0073938000549297`](https://trackingnumber.fyi/0073938000549297) [`7035114477138472`](https://trackingnumber.fyi/7035114477138472) [`4002847016405018`](https://trackingnumber.fyi/4002847016405018) | `SerialNumber` `OriginId` `CheckDigit` |
-| Canpar | Canpar (22) | 22 | [`D576002440000001718010`](https://trackingnumber.fyi/D576002440000001718010) [`D576002440000001428004`](https://trackingnumber.fyi/D576002440000001428004) [`D576002440000002496001`](https://trackingnumber.fyi/D576002440000002496001) | `SerialNumber` |
-| DHL | DHL Express | 10-11 | [`3318810025`](https://trackingnumber.fyi/3318810025) [`73891051146`](https://trackingnumber.fyi/73891051146) [`8487135506`](https://trackingnumber.fyi/8487135506) | `SerialNumber` `CheckDigit` |
-|  | DHL Express (Piece ID) | 13-14 | [`JJD0099999999`](https://trackingnumber.fyi/JJD0099999999) [`JVGL0999999990`](https://trackingnumber.fyi/JVGL0999999990) | `SerialNumber` |
-|  | DHL E-Commerce | 18-22 | [`GM2951173225174494`](https://trackingnumber.fyi/GM2951173225174494) [`GM295117494011169042`](https://trackingnumber.fyi/GM295117494011169042) [`GM9E44608A27984866BA2D`](https://trackingnumber.fyi/GM9E44608A27984866BA2D) | `SerialNumber` |
-|  | DHL E-Commerce (14) | 14 | [`60120172242323`](https://trackingnumber.fyi/60120172242323) [`51087693037816`](https://trackingnumber.fyi/51087693037816) [`60120174971147`](https://trackingnumber.fyi/60120174971147) | `SerialNumber` |
-| DPD | DPD (28) | 28 | [`008182709980000020033350276C`](https://trackingnumber.fyi/008182709980000020033350276C) [`008182709980000020045327276N`](https://trackingnumber.fyi/008182709980000020045327276N) | `SerialNumber` `DestinationZip` `ServiceType` `CountryCode` `CheckDigit` |
-|  | DPD (14) | 15 | [`09980000020033F`](https://trackingnumber.fyi/09980000020033F) [`09980000020034D`](https://trackingnumber.fyi/09980000020034D) | `SerialNumber` `CheckDigit` |
-| FedEx | FedEx Express (12) | 12 | [`986578788855`](https://trackingnumber.fyi/986578788855) [`477179081230`](https://trackingnumber.fyi/477179081230) [`799531274483`](https://trackingnumber.fyi/799531274483) | `SerialNumber` `CheckDigit` |
-|  | FedEx Express (34) | 34 | [`1001921334250001000300779017972697`](https://trackingnumber.fyi/1001921334250001000300779017972697) [`1001921380360001000300639585804382`](https://trackingnumber.fyi/1001921380360001000300639585804382) [`1001901781990001000300617767839437`](https://trackingnumber.fyi/1001901781990001000300617767839437) | `DestinationZip` `SerialNumber` `CheckDigit` |
-|  | FedEx ASTRA (32) | 32 | [`32971514560102447849175802862014`](https://trackingnumber.fyi/32971514560102447849175802862014) [`32971510360102447848540980802018`](https://trackingnumber.fyi/32971510360102447848540980802018) [`32971508360102447847941133172013`](https://trackingnumber.fyi/32971508360102447847941133172013) | `SerialNumber` `CheckDigit` |
-|  | FedEx Ground | 15 | [`041441760228964`](https://trackingnumber.fyi/041441760228964) [`568283610012000`](https://trackingnumber.fyi/568283610012000) [`568283610012734`](https://trackingnumber.fyi/568283610012734) | `SerialNumber` `CheckDigit` |
-|  | FedEx Ground (SSCC-18) | 18 | [`000123450000000027`](https://trackingnumber.fyi/000123450000000027) | `ShippingContainerType` `SerialNumber` `CheckDigit` |
-|  | FedEx Ground 96 (22) | 22 | [`9611020987654312345672`](https://trackingnumber.fyi/9611020987654312345672) | `ApplicationIdentifier` `SCNC` `ServiceType` `SerialNumber` `ShipperId` `PackageId` `CheckDigit` |
-|  | FedEx Ground GSN | 34 | [`9622001900000000000000776632517510`](https://trackingnumber.fyi/9622001900000000000000776632517510) [`9622001560000000000000794808390594`](https://trackingnumber.fyi/9622001560000000000000794808390594) [`9622001560001234567100794808390594`](https://trackingnumber.fyi/9622001560001234567100794808390594) | `ApplicationIdentifier` `SCNC` `GSN` `SerialNumber` `CheckDigit` |
-| GOFO Express | GOFO Express (US) | 18 | [`GFUS01011884214464`](https://trackingnumber.fyi/GFUS01011884214464) [`GFUS01011884214272`](https://trackingnumber.fyi/GFUS01011884214272) | `SerialNumber` |
-| Landmark Global LTN | Landmark Global LTN | 13 | [`LTN74207623N1`](https://trackingnumber.fyi/LTN74207623N1) [`LTN74209518N1`](https://trackingnumber.fyi/LTN74209518N1) [`LTN74224021N1`](https://trackingnumber.fyi/LTN74224021N1) | `SerialNumber` |
-| LaserShip | LaserShip LX | 10 | [`LX17635036`](https://trackingnumber.fyi/LX17635036) [`LX17635035`](https://trackingnumber.fyi/LX17635035) [`LX17635034`](https://trackingnumber.fyi/LX17635034) | `SerialNumber` |
-|  | LaserShip 1LS7 (15) | 15 | [`1LS717793482164`](https://trackingnumber.fyi/1LS717793482164) [`1LS724505321754`](https://trackingnumber.fyi/1LS724505321754) [`1LS720000000000`](https://trackingnumber.fyi/1LS720000000000) | `SerialNumber` |
-|  | LaserShip 1LS7 (18) | 18 | [`1LS7119013618127-1`](https://trackingnumber.fyi/1LS7119013618127-1) | `SerialNumber` |
-|  | LaserShip 1LSCX (15) | 15 | [`1LSCXVE0058631Y`](https://trackingnumber.fyi/1LSCXVE0058631Y) [`1LSCXVE005BUEFX`](https://trackingnumber.fyi/1LSCXVE005BUEFX) | `SerialNumber` |
-| Old Dominion Freight Line | Old Dominion | 11 | [`07209562763`](https://trackingnumber.fyi/07209562763) [`77767553207`](https://trackingnumber.fyi/77767553207) [`77806528897`](https://trackingnumber.fyi/77806528897) | `SerialNumber` `CheckDigit` |
-|  | Old Dominion Guaranteed Shipment | 11 | [`80003280379`](https://trackingnumber.fyi/80003280379) [`80993847369`](https://trackingnumber.fyi/80993847369) | `SerialNumber` `CheckDigit` |
-| OnTrac | OnTrac | 15 | [`C11031500001879`](https://trackingnumber.fyi/C11031500001879) [`C10999911320231`](https://trackingnumber.fyi/C10999911320231) [`C11121552953069`](https://trackingnumber.fyi/C11121552953069) | `SerialNumber` `CheckDigit` |
-|  | OnTrac D | 15 | [`D10011354453707`](https://trackingnumber.fyi/D10011354453707) [`D10011345983010`](https://trackingnumber.fyi/D10011345983010) [`D10011342332145`](https://trackingnumber.fyi/D10011342332145) | `SerialNumber` `CheckDigit` |
-| Purolator | Purolator (12) | 12 | [`320595463938`](https://trackingnumber.fyi/320595463938) [`320606146993`](https://trackingnumber.fyi/320606146993) [`287809468872`](https://trackingnumber.fyi/287809468872) | `SerialNumber` `CheckDigit` |
-|  | Purolator (alpha + 9) | 12 | [`KYV009956937`](https://trackingnumber.fyi/KYV009956937) [`CGK002986959`](https://trackingnumber.fyi/CGK002986959) [`JFV247545960`](https://trackingnumber.fyi/JFV247545960) | `SerialNumber` |
-| S10 International Standard | S10 | 13 | [`RB123456785GB`](https://trackingnumber.fyi/RB123456785GB) [`RB123456785US`](https://trackingnumber.fyi/RB123456785US) [`RB123456785CV`](https://trackingnumber.fyi/RB123456785CV) | `ServiceType` `SerialNumber` `CheckDigit` `CountryCode` |
-| Spee-Dee Delivery | Spee-Dee (20) | 20 | [`SP029692510000920746`](https://trackingnumber.fyi/SP029692510000920746) [`SP029692510000901479`](https://trackingnumber.fyi/SP029692510000901479) [`SP029692510000688332`](https://trackingnumber.fyi/SP029692510000688332) | `SerialNumber` |
-| United States Postal Service | USPS 20 | 20 | [`03071790000523483741`](https://trackingnumber.fyi/03071790000523483741) [`71123456789123456787`](https://trackingnumber.fyi/71123456789123456787) | `SerialNumber` `ServiceType` `ShipperId` `PackageId` `CheckDigit` |
-|  | USPS IMpb N | 22-30 | [`420787459400111206206406260787`](https://trackingnumber.fyi/420787459400111206206406260787) [`9400111206206406260787`](https://trackingnumber.fyi/9400111206206406260787) [`9400111201080805483016`](https://trackingnumber.fyi/9400111201080805483016) | `RoutingApplicationId` `DestinationZip` `DestinationZipPlus4` `SerialNumber` `ApplicationIdentifier` `ServiceType` `ShipperId` `PackageId` `CheckDigit` |
-|  | USPS Legacy | 20-30 | [`420221539101026837331000039521`](https://trackingnumber.fyi/420221539101026837331000039521) [`9101123456789000000013`](https://trackingnumber.fyi/9101123456789000000013) [`71969010756003077385`](https://trackingnumber.fyi/71969010756003077385) | `RoutingApplicationId` `DestinationZip` `DestinationZipPlus4` `SerialNumber` `ApplicationIdentifier` `ServiceType` `ShipperId` `PackageId` `CheckDigit` |
-|  | USPS IMpb C | 22-34 | [`4201002334249200190132607600833457`](https://trackingnumber.fyi/4201002334249200190132607600833457) [`4201028200009261290113185417468510`](https://trackingnumber.fyi/4201028200009261290113185417468510) [`9505511069605048600624`](https://trackingnumber.fyi/9505511069605048600624) | `RoutingApplicationId` `DestinationZip` `DestinationZipPlus4` `SerialNumber` `ApplicationIdentifier` `ServiceType` `ShipperId` `PackageId` `CheckDigit` |
-| UPS | UPS | 18 | [`1Z5R89390357567127`](https://trackingnumber.fyi/1Z5R89390357567127) [`1Z879E930346834440`](https://trackingnumber.fyi/1Z879E930346834440) [`1Z410E7W0392751591`](https://trackingnumber.fyi/1Z410E7W0392751591) | `SerialNumber` `ShipperId` `ServiceType` `PackageId` `CheckDigit` |
-|  | UPS Waybill | 11 | [`K1506235620`](https://trackingnumber.fyi/K1506235620) [`K2479825491`](https://trackingnumber.fyi/K2479825491) [`J4603636537`](https://trackingnumber.fyi/J4603636537) | `ServiceType` `SerialNumber` `CheckDigit` |
-| Yodel | Yodel | 18-19 | [`JJD0002257639032011`](https://trackingnumber.fyi/JJD0002257639032011) [`JJD0002255380054291`](https://trackingnumber.fyi/JJD0002255380054291) [`JD0002242617644732`](https://trackingnumber.fyi/JD0002242617644732) | `SerialNumber` |
-| YunExpress | YunExpress | 18 | [`YT2229521272164446`](https://trackingnumber.fyi/YT2229521272164446) [`YT2229521272164447`](https://trackingnumber.fyi/YT2229521272164447) | `SerialNumber` |
+| Carrier | Formats |
+| --- | --- |
+| Amazon | [Amazon Logistics](https://trackingnumber.fyi/format/amazon/amazon_logistics) · [Amazon International](https://trackingnumber.fyi/format/amazon/amazon_international) |
+| Canada Post | [Canada Post (16)](https://trackingnumber.fyi/format/canada_post/canada_post) |
+| Canpar | [Canpar (22)](https://trackingnumber.fyi/format/canpar/canpar_22) |
+| DHL | [DHL Express](https://trackingnumber.fyi/format/dhl/dhl_express) · [DHL Express (Piece ID)](https://trackingnumber.fyi/format/dhl/dhl_express_piece_id) · [DHL E-Commerce](https://trackingnumber.fyi/format/dhl/dhl_ecommerce) · [DHL E-Commerce (14)](https://trackingnumber.fyi/format/dhl/dhl_ecommerce_14) |
+| DPD | [DPD (28)](https://trackingnumber.fyi/format/dpd/dpd) · [DPD (14)](https://trackingnumber.fyi/format/dpd/dpd_14) |
+| FedEx | [FedEx Express (12)](https://trackingnumber.fyi/format/fedex/fedex_12) · [FedEx Express (34)](https://trackingnumber.fyi/format/fedex/fedex_34) · [FedEx ASTRA (32)](https://trackingnumber.fyi/format/fedex/fedex_astra_32) · [FedEx Ground](https://trackingnumber.fyi/format/fedex/fedex_ground) · [FedEx Ground (SSCC-18)](https://trackingnumber.fyi/format/fedex/fedex_ground_sscc_18) · [FedEx Ground 96 (22)](https://trackingnumber.fyi/format/fedex/fedex_ground_96) · [FedEx Ground GSN](https://trackingnumber.fyi/format/fedex/fedex_ground_gsn) |
+| GOFO Express | [GOFO Express (US)](https://trackingnumber.fyi/format/gofo/gofo_us) |
+| Landmark Global LTN | [Landmark Global LTN](https://trackingnumber.fyi/format/landmark/landmark_global) |
+| LaserShip | [LaserShip LX](https://trackingnumber.fyi/format/lasership/lasership_lx) · [LaserShip 1LS7 (15)](https://trackingnumber.fyi/format/lasership/lasership_1ls7) · [LaserShip 1LS7 (18)](https://trackingnumber.fyi/format/lasership/lasership-1ls7-18) · [LaserShip 1LSCX (15)](https://trackingnumber.fyi/format/lasership/lasership_1lscx) |
+| Old Dominion Freight Line | [Old Dominion](https://trackingnumber.fyi/format/old_dominion/old-dominion) · [Old Dominion Guaranteed Shipment](https://trackingnumber.fyi/format/old_dominion/old-dominion-guaranteed-shipment) |
+| OnTrac | [OnTrac](https://trackingnumber.fyi/format/ontrac/ontrac_c) · [OnTrac D](https://trackingnumber.fyi/format/ontrac/ontrac_d) |
+| Purolator | [Purolator (12)](https://trackingnumber.fyi/format/purolator/purolator_numeric) · [Purolator (alpha + 9)](https://trackingnumber.fyi/format/purolator/purolator_alpha) |
+| S10 International Standard | [S10](https://trackingnumber.fyi/format/s10/s10) |
+| Spee-Dee Delivery | [Spee-Dee (20)](https://trackingnumber.fyi/format/speedee/speedee) |
+| United States Postal Service | [USPS 20](https://trackingnumber.fyi/format/usps/usps_20) · [USPS IMpb N](https://trackingnumber.fyi/format/usps/usps_impb_n) · [USPS Legacy](https://trackingnumber.fyi/format/usps/usps_legacy) · [USPS IMpb C](https://trackingnumber.fyi/format/usps/usps_impb_c) |
+| UPS | [UPS](https://trackingnumber.fyi/format/ups/ups) · [UPS Waybill](https://trackingnumber.fyi/format/ups/ups-waybill) |
+| Yodel | [Yodel](https://trackingnumber.fyi/format/yodel/yodel) |
+| YunExpress | [YunExpress](https://trackingnumber.fyi/format/yunexpress/yunexpress) |
 
 <!-- /generated -->
 
 ## JSON Format
 
-- **glossary.json** - what each part name means, wherever it appears
+### couriers/*.json
 
-  Keyed by the regex group name, so any implementation reading `couriers/*.json` can say the same thing about a `SerialNumber` as any other. Each entry carries a `label` for showing the name to a person, and a `description` of what that part of a number is. A definition's own `glossary` overrides the description where it has something more exact to say.
+Identifies the standard couriers that might send mail. Here is `couriers/s10.json`, shortened:
 
-  ```json
-  "CheckDigit": {
-    "label": "Check Digit",
-    "description": "A digit derived from the serial number, used to catch a misread number."
+```json
+{
+  "name": "S10 International Standard",
+  "courier_code": "s10",
+  "tracking_numbers": [
+    {
+      "id": "s10",
+      "name": "S10",
+      "description": "The UPU format every postal service uses for international items",
+      "regex": "\\s*(?<ServiceType>([A-Z]\\s*){2})(?<SerialNumber>([0-9]\\s*){8})(?<CheckDigit>([0-9]\\s*))(?<CountryCode>([A-Z]\\s*){2})",
+      "validation": {
+        "checksum": { "name": "s10", "weightings": [8, 6, 4, 2, 3, 5, 9, 7], "modulo": 11 }
+      },
+      "glossary": {
+        "SerialNumber": { "description": "Eight digits assigned by the issuing postal service." }
+      },
+      "tracking_url": null,
+      "test_numbers": {
+        "valid": ["RB123456785GB", "RB123456785US"],
+        "invalid": ["RB123456786US", "RB123456785XX"]
+      }
+    }
+  ]
+}
+```
+
+#### Courier keys
+
+| Key | What it is |
+| --- | --- |
+| `name` | Identifies the courier |
+| `courier_code` | Short code to identify the courier. Alphanumeric only, no spaces. |
+| `tracking_numbers` | An array of possible tracking number formats for this courier |
+
+#### Tracking number keys
+
+| Key | What it is |
+| --- | --- |
+| `id` | Identifies this format no matter what it gets renamed to. Both `partner_id` and the format's address on the site point back at this |
+| `name` | A name to identify this type of tracking number. Usually includes the carrier in the name, i.e. `FedExGround` |
+| `regex` | A pcre compatible regular expression that identifies the tracking number regardless of spaces in-between characters. Either a string, or an array of strings to be concatenated (to help with readability). |
+| `description` | (optional) A note about the format itself, such as `"USPS now calls this the IMpb barcode format"` |
+| `glossary` | (optional) What this format's named groups mean when the general description isn't specific enough, keyed by group name |
+| `validation` | Specifies how the tracking number is validated |
+| `additional` | (optional) Further information relating to a named regex group, such as a lookup table for the `ServiceType` group |
+| `partners` | (optional) A possible partnership between carriers, where one party is the shipper and the other the last mile carrier |
+| `tracking_url` | A url that we can use to find the tracking history for a particular tracking number. It assumes the tracking number can be entered using python style string formatting `"www.courier.com?trackingnumber=%s"` |
+| `test_numbers` | `valid`: an array of valid tracking numbers for testing, and `invalid`: an array of invalid tracking numbers for testing |
+
+Every regex must contain the named groups `SerialNumber` and `CheckDigit` and depending on the tracking number can optionally contain the following common attributes:
+
+- `ServiceType`: indicating the type of delivery service
+- `ShipperId`: indicating the shipper id
+- `PackageId`: indicating the package id
+- `DestinationZip`: indicating the destination zip code
+
+##### validation
+
+`checksum`: if the tracking number has a checksum, include a `checksum` key with the details. `name` specifies the algorithm. Supported algorithms are `mod10`, `mod7`, `s10`, `luhn`, `mod_37_36` and `sum_product_with_weightings_and_modulo`.
+
+```json
+"validation": {
+  "checksum": {
+    "name": "mod10",
+    "evens_multiplier": 1,
+    "odds_multiplier": 2
   }
-  ```
-  
-- **couriers/*.json** - identifies the standard couriers that might send mail
-  - Each courier is defined by json hash with the following keys
+}
+```
 
-    - `name` - Identifies the courier
-    - `courier_code` - short code to identify the courier. Alphanumeric only, no spaces.
-    - `tracking_numbers` - an array of possible tracking number formats for this courier
+Each checksum carries the constants its algorithm uses. Look at existing examples for parameters, or at [CHECKSUM_ALGORITHMS.md](CHECKSUM_ALGORITHMS.md) for how each one works.
 
-  - Each tracking number type is defined by a json hash with the following keys:
-    - `name` - A name to identify this type of tracking number. Usually includes the carrier in the name, i.e. `FedExGround`
+`serial_number_format`: some tracking numbers require some modification of the `SerialNumber` group before validation. In the example below, the serial number needs a "91" prepended before validation unless the number starts with a 91, 92, 93, 94, or 95
 
-    - `regex` - A pcre compatible regular expression that identifies the tracking number regardless of spaces in-between characters.
+```json
+"serial_number_format": {
+  "prepend_if": {
+    "matches_regex": "^(?!9[1-5]).+",
+    "content": "91"
+  }
+}
+```
 
-      Every regex must contain the named groups `SerialNumber` and `CheckDigit` and depending on the tracking number can optionally contain the following common attributes:
+`additional`: some tracking numbers are only valid if one of their `additional` lookups finds a match. S10 requires a `Courier`, so a country code no postal service uses is invalid even with the right check digit.
 
-        - `ServiceType`: indicating the type of delivery service
-        - `ShipperId`: indicating the shipper id
-        - `PackageId`: indicating the package id
-        - `DestinationZip`: indicating the destination zip code
+```json
+"validation": {
+  "additional": { "exists": ["Courier"] }
+}
+```
 
-    - `glossary` - (optional) anything this format can say about its named groups that the group name cannot, keyed by group name. Only for the specific: `s10` says its serial is eight digits assigned by the issuing postal service. What `SerialNumber` means in general belongs in the top level `glossary.json`, not repeated on every definition.
+##### additional
 
-        ```json
-        "glossary": {
-          "ServiceType": "Two letters naming the postal service class.",
-          "SerialNumber": "Eight digits assigned by the issuing postal service."
-        }
-        ```
+A lookup table for the `ServiceType` regex group, relating the two digit letter code with the type of service:
 
-    - `description` - (optional) a note about the format itself, such as `"USPS now calls this the IMpd barcode format"`.
+```json
+"additional": [
+  {
+    "name": "Service Type",
+    "regex_group_name": "ServiceType",
+    "lookup": [
+      { "matches": "01", "name": "UPS United States Next Day Air (Red)" },
+      { "matches": "02", "name": "UPS United States Second Day Air (Blue)" }
+    ]
+  }
+]
+```
 
-    - `validation` - Specifies how the tracking number is validated
-      - `checksum`: if the tracking number has a checksum, include a `checksum` key with the details.
-        - `name`: specifies the algorithm. Supported algorithms are `mod10`, `mod7`, `s10`, `luhn`, `mod_37_36` and `sum_product_with_weightings_and_modulo`.
+Each hash in the `lookup` array should contain a key called `matches` or `matches_regex`, specifying how the value of `regex_group_name` should be compared.
 
-        Each checksum carries the constants its algorithm uses, so an implementation does not have to hardcode them and two implementations cannot quietly disagree: `weightings` and `modulo` for `s10`, `modulo` for `mod7` and `luhn`, `modulo` and `alphabet` for `mod_37_36`, `evens_multiplier` and `odds_multiplier` for `mod10`, and `weightings` with `modulo1` and `modulo2` for the weighted sum. An implementation that hardcodes them keeps working; the keys are there to be read, not to be required.
-        ```JSON
-        "validation": {
-            "checksum": {
-              "name": "mod10",
-              "evens_multiplier": 1,
-              "odds_multiplier": 2
-            }
-          }
-        ```
-      - `serial_number_format`: some tracking numbers require some modification of the <SerialNumber> group before validation. In the example below, the serial number needs a "91" prepended before validation unless the number starts with a 91, 92, 93, 94, or 95
-        ```json
-        "serial_number_format": {
-            "prepend_if": {
-              "matches_regex": "^(?!9[1-5]).+",
-              "content": "91"
-            }
-          }
-        ```
-    - `tracking_url` - A url that we can use to find the tracking history for a particular tracking number. It assumes the tracking number can be entered using python style string formatting "www.courier.com?trackingnumber=%s".
+##### partners
 
-    - `test_numbers`:
-      - `valid`: an array of valid tracking numbers for testing
-      - `invalid`: an array of invalid tracking numbers for testing
+Each entry describes a possible partnership between carriers, where one party is the _shipper_ and the other the last mile _carrier_. A partnership only holds if both ends pass their checks against the same number. Each item in the partners array should have:
 
-    - `additional` - (optional) further information relating to a named regex group can be specified. For instance, a lookup table for the `ServiceType` regex group, relating the two digit letter code with the type of service.
+- `partner_id`: (required) reference indicating the related definition
+- `partner_type`: (required) the relationship, either `shipper` or `carrier`
+- `description`: (optional) mainly for humans reading this
+- `validation`: (optional) a validation block deciding whether this partnership applies, either `matches_all` or `matches_any`, an array of match conditions each with a `regex_group_name` and either a `matches` or a `matches_regex`
 
-    ```json
-        "additional": [
-          {
-            "name": "Service Type",
-            "regex_group_name": "ServiceType",
-            "lookup": [
-              {
-                "matches": "01",
-                "name": "UPS United States Next Day Air (Red)"
-              },
-              {
-                "matches": "02",
-                "name": "UPS United States Second Day Air (Blue)"
-              }
-            ]
-          }
-        ]
-    ```
+### glossary.json
 
-    Each hash in the `lookup` array should contain a key called `matches` or `matces_regex`, specifying how the value of `regex_group_name` should be compared.
+What each part means, keyed by the regex group name. Anything reading `couriers/*.json` can then describe a `SerialNumber` the same way everything else does.
 
+```json
+"ServiceType": {
+  "label": "Service Type",
+  "description": "A code for the delivery service used."
+}
+```
 
-    - `partners` - Each entry describes a possible partnership between carriers, where one party is the _shipper_ and the other the last mile _carrier_. A partnership only holds if both ends pass their checks against the same number. Each item in the partners array should have:
-      -  `partner_id`: (required) reference indicating the related definition
-      -  `partner_type`: (required) the relationship, either `shipper` or `carrier`
-      -  `description`: (optional) mainly for humans reading this
-      -  `validation`: (optional) a validation block deciding whether this partnership applies
-        -  `matches_all` or `matches_any`: array of match conditions, each with a `regex_group_name` and either a `matches` or a `matches_regex`
+A definition's own `glossary` overrides the description when it can be more specific. For `s10`, the service type is two letters and the serial is eight digits assigned by the issuing postal service.
 
+```json
+"glossary": {
+  "ServiceType": {
+    "description": "Two letters for the class of postal service, the first of which identifies the service and the second the variant."
+  },
+  "SerialNumber": {
+    "description": "Eight digits assigned by the issuing postal service."
+  }
+}
+```
 
-### Making a contribution
-- Modify or add definitions in the couriers/*.json files. Take a look at the existing ones, and follow the guidance above.
+## Making a contribution
+
+### I'm adding or fixing a definition
+- Open an issue and specify the tracking numbers and courier service.
+- Modify or add definitions in the couriers/*.json files. Take a look at the existing ones, and follow the guidance above. Use https://trackingnumber.fyi for guidance on check digit algorithms if needed.
+- Run `./utils/lint_json.sh` to clean up and validate the json file (you may need jq or other dependencies).
 - Run the tests locally. `bundle exec rake` If they pass, it's good, submit a PR!
 
+The supported carriers table above is generated by CI and will update after a PR has been merged.
 
-### Standard implementations of
+## Reference
 
-- [Check digit algorithms](https://github.com/adgaudio/MysteryTrackingNumber/blob/master/src/main/java/com/adgaudio/mysterytrackingnumber/CheckDigitAlgorithms.java)
-- [Serial number parsers](https://github.com/adgaudio/MysteryTrackingNumber/blob/master/src/main/java/com/adgaudio/mysterytrackingnumber/SerialNumberParsers.java)
-
-
-# Using this repo:
-
-### List of Libraries using this repository, by Language
-
-We suggest you check these out before rolling your own implementation.
-
-Ruby:
-  - [tracking_number](https://github.com/jkeen/tracking_number)
-
-JS/TS:
-  - [ts-tracking-number](https://github.com/rjbrooksjr/ts-tracking-number)
-
-Java:
-  - [MysteryTrackingNumber](https://github.com/adgaudio/MysteryTrackingNumber)
-
-Python:
-  - [TrackingNumbers](https://github.com/jcomo/tracking-numbers/)
-
-Go:
-  - [go-package-tracking](https://github.com/Freespoke/go-package-tracking)
-
-Rust:
-  - [rs-tracking-numbers](https://github.com/richid/rs-tracking-numbers)
-
-### I am creating a new library
-
-If you are using this repo, it is most likely because you are writing a
-library to get information out of tracking numbers.
-
-1. Please check that your chosen programming language does not already have an
-   implementation of a tracking number parser that uses these json files.
-2. If you are creating a new library, great!  Open an issue and let us
-   know.  We're happy to help!
-
-### I found a bug or missing couriers.
-
-- Open an issue and specify the tracking numbers and courier service.
-- PRs: Feel free to modify any json file that does not specify it is
-   auto-generated by a script.  Run `./lint_json.sh` to clean up and
-   validate the json file (you may need jq or other dependencies).
-
----
-
-# Reference Documents
-Located/uploaded to the [wiki](https://github.com/jkeen/tracking_number_data/wiki/Reference-Documents/) for preservation
+- Standard implementations of [check digit algorithms](https://github.com/jkeen/tracking_number/blob/main/lib/tracking_number/checksum_validations.rb) and [serial number parsing](https://github.com/jkeen/tracking_number/blob/main/lib/tracking_number/base.rb)
+- [CHECKSUM_ALGORITHMS.md](CHECKSUM_ALGORITHMS.md) - how each checksum in this repo works
+- Reference documents, located/uploaded to the [wiki](https://github.com/jkeen/tracking_number_data/wiki/) for preservation
