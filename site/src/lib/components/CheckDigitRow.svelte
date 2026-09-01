@@ -3,8 +3,7 @@
   import { rolesIn } from "$lib/ledger.js"
   import Ledger from "$lib/components/Ledger.svelte"
 
-  /** The arithmetic behind a number's check digit, as a row of the table it belongs to.
-   * @type {{ match: import("../lib/shapes.js").Match, whose?: string }} */
+  /** @type {{ match: import("../lib/shapes.js").Match, whose?: string }} */
   let { match, whose = "" } = $props()
 
   const checksum = $derived(match.definition.spec.validation?.checksum)

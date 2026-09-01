@@ -4,6 +4,7 @@
   import { base } from "$app/paths"
   import { definitions } from "$lib/dataset.js"
   import { pathFor } from "$lib/paths.js"
+  import { ModeWatcher } from "mode-watcher"
   import Theme from "$lib/components/Theme.svelte"
   import Repository from "$lib/components/Repository.svelte"
   import Explore from "$lib/components/Explore.svelte"
@@ -15,8 +16,6 @@
   const section = $derived(page.url.pathname.slice(base.length))
   const decoding = $derived(!section.startsWith("/format/") && !section.startsWith("/algorithm/"))
 
-  // Formats under the courier that carries them, which is how anyone looking for one
-  // would think of it.
   const couriers = $derived.by(() => {
     const carried = new Map()
 
@@ -28,14 +27,14 @@
     return [...carried].map(([name, formats]) => ({ name, formats }))
   })
 
-  // The page names the format it is showing, so the menu stays a way in rather than a
-  // record of where you are.
-  const visit = (event) => {
+  const visitFormat = (event) => {
     const key = event.currentTarget.value
     event.currentTarget.value = ""
     if (key) goto(pathFor.format(key))
   }
 </script>
+
+<ModeWatcher modeStorageKey="theme" />
 
 <header class="masthead">
   <a class="wordmark" href={base || "/"}
@@ -44,7 +43,7 @@
 
   <nav class="menu">
     <a class="menu-link" class:is-current={decoding} href={pathFor.decode("")}>Decode</a>
-    <select class="menu-select" aria-label="Formats" value="" onchange={visit}>
+    <select class="menu-select" aria-label="Formats" value="" onchange={visitFormat}>
       <option value="">Formats</option>
       {#each couriers as courier (courier.name)}
         <optgroup label={courier.name}>
@@ -78,9 +77,6 @@
 <Colophon />
 
 <style>
-  /* Columns rather than a wrapping row, so the toggles keep the top right corner at every
-     width and only the wordmark gives up room. The menu and the toggles share the
-     wordmark's line; the lede has the row below. */
   .masthead {
     display: grid;
     grid-template-columns: 1fr auto auto;
@@ -89,8 +85,6 @@
     margin-bottom: var(--system-space-7);
   }
 
-  /* Eighteen characters set solid: at a fixed size this is what decides how narrow the
-     masthead can get, and it is wider than a phone. It gives up size rather than room. */
   .wordmark {
     grid-column: 1;
     grid-row: 1;
@@ -98,7 +92,7 @@
     justify-self: start;
     min-width: 0;
     margin: 0;
-    font-size: clamp(1.25rem, 6.6vw, var(--system-text-2xl));
+    font-size: clamp(var(--system-text-lg), 6.6vw, var(--system-text-2xl));
     letter-spacing: 0.02em;
     text-transform: lowercase;
     text-decoration: none;

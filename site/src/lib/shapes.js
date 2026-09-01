@@ -1,7 +1,4 @@
 /**
- * The shapes shared across the site, described so editors can help.
- * The courier JSON is documented in the repository README.
- *
  * @typedef {object} Checksum
  * @property {string} name
  * @property {number} [evens_multiplier]
@@ -63,10 +60,7 @@
  * @property {boolean} valid
  * @property {number} confidence
  * @property {string} [serviceType]
- * @property {string} [serviceDescription]
- * @property {string} [packageType]
  * @property {string} [destinationZip]
- * @property {string} [shipperId]
  * @property {string} [trackingUrl]
  * @property {'shipper'|'carrier'} [role]
  * @property {Definition} [partner]

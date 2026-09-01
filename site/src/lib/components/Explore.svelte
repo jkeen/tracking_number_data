@@ -54,7 +54,6 @@
     margin-top: var(--system-space-5);
   }
 
-  /* A step up from the shared small capitals, since this list is the way in. */
   .explore h3 {
     margin: 0 0 var(--system-space-2);
     font-size: var(--system-text-sm);

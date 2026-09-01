@@ -1,56 +1,35 @@
 <script>
   import Breakdown from "$lib/components/Breakdown.svelte"
   import Ruler from "$lib/components/Ruler.svelte"
+  import Sizer from "$lib/components/Sizer.svelte"
   import { highlight } from "$lib/highlight.svelte.js"
-  import { fitSize } from "$lib/fit.js"
+  import { measure } from "$lib/measure.svelte.js"
   import { place } from "$lib/layout.js"
   import { positionsIn } from "$lib/segments.js"
 
   /** @type {{ value: string, parts?: import("../lib/shapes.js").Match["parts"] }} */
   let { value = $bindable(), parts = [] } = $props()
 
-  const REFERENCE = 100
-  const SAMPLE = "0000000000"
   const MIN = 10
   const MAX = 76
   const PLACEHOLDER = "1Z879E930346834440"
 
-  let frame = $state(null)
-  let sizer = $state(null)
-
-  let size = $state(null)
-  let advance = $state(0)
-  let gap = $state(0)
-
   const characters = $derived((value.trim() || PLACEHOLDER).length)
 
-  $effect(() => {
-    if (!frame || !sizer) return
+  const type = measure(() => ({ characters, min: MIN, max: MAX }))
 
-    const fit = () => {
-      size = fitSize({ frame, sizer, characters, reference: REFERENCE, sample: SAMPLE, min: MIN, max: MAX })
-    }
-
-    fit()
-    const observer = new ResizeObserver(fit)
-    observer.observe(frame)
-    return () => observer.disconnect()
-  })
-
-  const placed = $derived(place(parts, { advance, gap, positions: positionsIn(value) }))
+  const placed = $derived(place(parts, { advance: type.advance, gap: type.gap, positions: positionsIn(value) }))
 
   const lit = $derived(placed.find((field) => field.name === highlight.name))
 </script>
 
-<div class="field" style="--characters: {characters}; {size ? `--field-size: ${size}px` : ''}">
+<div class="field" style="--characters: {characters}; {type.size ? `--field-size: ${type.size}px` : ''}">
   <label class="field-ask" for="number">Decode a tracking number:</label>
 
-  <span class="rulers" aria-hidden="true">
-    <span class="ruler" bind:this={sizer} style="font-size: {REFERENCE}px">{SAMPLE}</span>
-  </span>
+  <Sizer bind:element={type.sizer} />
 
-  <div class="field-frame" bind:this={frame}>
-    <Ruler bind:advance bind:gap />
+  <div class="field-frame" bind:this={type.frame}>
+    <Ruler bind:advance={type.advance} bind:gap={type.gap} />
 
     {#if lit}
       <span
@@ -70,20 +49,17 @@
   </div>
 
   {#if placed.length}
-    <Breakdown {placed} ready={advance > 0} />
+    <Breakdown {placed} ready={type.advance > 0} />
   {/if}
 </div>
 
 <style>
-
-  /* The number stays put while you read what was read out of it. */
   .field {
     position: sticky;
     top: 0;
     z-index: 3;
     margin-top: var(--system-space-5);
     padding-bottom: var(--system-space-3);
-    /* border-bottom: var(--system-border); */
     background: var(--system-color-paper);
   }
 
@@ -99,6 +75,7 @@
     padding: var(--system-space-2) var(--system-field-pad);
     border: var(--system-border);
     background: var(--system-color-fade);
+    container-type: inline-size;
     transition: border-color var(--system-transition-quick), background var(--system-transition-quick);
   }
 
@@ -113,12 +90,6 @@
     bottom: 0;
     opacity: 0.3;
     pointer-events: none;
-  }
-
-  /* Sized from the room and the count before any of it is measured, so the number is
-     set right in the first frame the server's HTML paints rather than after. */
-  .field-frame {
-    container-type: inline-size;
   }
 
   input {
@@ -138,7 +109,7 @@
   }
 
   input::placeholder {
-    color: var(--system-color-line);
+    color: var(--system-color-muted);
   }
 
   input::selection {

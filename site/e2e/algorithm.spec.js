@@ -128,13 +128,12 @@ test.describe("a page for each check digit algorithm", () => {
 
     await page.goto("/algorithm/mod10?serial=12345678&check=5&evens=7&odds=1&modulo=11")
 
-    expect(await serialIn(page)).toBe("12345678")
+    // A query cannot be prerendered, so these are applied as the page comes alive.
+    await expect.poll(() => serialIn(page)).toBe("12345678")
     await expect(checkBox(page)).toHaveValue("5")
-    expect(await settings(page).evaluateAll((fields) => fields.map((field) => field.value))).toEqual([
-      "7",
-      "1",
-      "11",
-    ])
+    await expect
+      .poll(() => settings(page).evaluateAll((fields) => fields.map((field) => field.value)))
+      .toEqual(["7", "1", "11"])
   })
 
   test("switches algorithm from the row of choices", async ({ page }) => {

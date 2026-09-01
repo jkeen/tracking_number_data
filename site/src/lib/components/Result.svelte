@@ -10,9 +10,6 @@
 
   const courier = $derived(match.sections["Courier"])
 
-  // Most formats carry the check digit last, but not all: an ASTRA barcode keeps four
-  // more characters after it, so a near miss there has to say where the digit sits
-  // rather than claim the number ends in it.
   const checkDigit = $derived(match.parts.find((part) => part.name === "CheckDigit"))
   const checkDigitIsLast = $derived(!checkDigit || checkDigit.end === match.number.length)
 

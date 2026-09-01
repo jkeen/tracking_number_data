@@ -1,6 +1,5 @@
 <script>
-  /** Measures the field's type so rules can be positioned by character.
-   * @type {{ advance?: number, gap?: number }} */
+  /** @type {{ advance?: number, gap?: number }} */
   let { advance = $bindable(0), gap = $bindable(0) } = $props()
 
   const SAMPLE = "0000000000"
@@ -17,8 +16,7 @@
     }
 
     measure()
-    // Watching the ruler itself: changing the type size does not resize the container,
-    // so without this the advance stays measured at the previous size.
+    // The ruler, not the container: changing the type size does not resize the container.
     const observer = new ResizeObserver(measure)
     observer.observe(spaced)
     return () => observer.disconnect()

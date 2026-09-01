@@ -16,8 +16,6 @@
     ].filter((leg) => leg.matches.length)
   )
 
-  // Both halves check the same digits, and usually the same way, so the arithmetic is
-  // worth showing once. Where they differ it is worth showing whose is whose.
   const workings = $derived.by(() => {
     const byWorking = new Map()
 
@@ -35,9 +33,6 @@
     }))
   })
 
-  // Both halves read the same number, so most of their parts agree. Listing them per
-  // side duplicated nearly everything; the rows are merged and only genuine
-  // disagreements are split, which is where the two definitions get interesting.
   const rows = $derived.by(() => {
     const names = [...new Set(shipment.matches.flatMap((match) => match.parts.map((field) => field.name)))]
 
@@ -118,8 +113,6 @@
 
 <style>
 
-  /* A partnership is one shipment, so its halves share a single card. Not clipped: every
-     part in the table below names itself in a tooltip that has to open past the edge. */
   .shipment {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -169,7 +162,6 @@
     font-size: var(--system-text-sm);
   }
 
-  /* Where two definitions read the same number differently. */
   .shipment-reading {
     display: inline-flex;
     align-items: baseline;

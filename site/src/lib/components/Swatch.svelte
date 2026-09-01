@@ -1,8 +1,7 @@
 <script>
   import { colorFor } from "$lib/palette.js"
 
-  /** The colour a part keeps across every number it appears in.
-   * @type {{ name: string }} */
+  /** @type {{ name: string }} */
   let { name } = $props()
 </script>
 

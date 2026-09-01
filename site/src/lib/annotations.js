@@ -1,6 +1,5 @@
 import { areaFor } from "./places.js"
 
-// A part that feeds a lookup is worth reading back as the thing it looked up.
 const lookedUp = (field, match) => {
   const additional = (match?.definition.spec.additional ?? []).find(
     (entry) => entry.regex_group_name === field.name
@@ -9,7 +8,7 @@ const lookedUp = (field, match) => {
   return additional ? (match.sections[additional.name] ?? null) : null
 }
 
-/** A part said in words as well as characters. @returns {{text: string, detail?: string}|null} */
+/** @returns {{text: string, detail?: string}|null} */
 export const noteFor = (field, match) => {
   if (field.name === "DestinationZip") {
     const area = areaFor(field.text)

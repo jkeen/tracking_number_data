@@ -9,14 +9,7 @@ const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
 
 const substitute = (sample, index, character) => sample.slice(0, index) + character + sample.slice(index + 1)
 
-/**
- * The shape of a format rather than an example of it.
- *
- * Which positions are fixed is asked of the pattern rather than inferred from the test
- * numbers: a character is only fixed when no other character would match there. S10's
- * documented numbers all happen to share one serial, so anything counting shared
- * characters would call those digits fixed and imply the serial never changes.
- */
+/** Fixed positions are asked of the pattern: S10's documented numbers all share one serial. */
 export const templateFor = (definition) => {
   const samples = (definition.spec.test_numbers?.valid ?? []).map((number) => number.replace(/\s+/g, "").toUpperCase())
   if (!samples.length) return null
@@ -56,19 +49,7 @@ const stretch = (sample, field, by) => {
   return sample.slice(0, field.start) + grown + sample.slice(field.end)
 }
 
-/**
- * How wide a field is allowed to be, asked of the pattern by lengthening and shortening
- * it. The test numbers only show the widths someone happened to document, which is not
- * the same as the widths the format permits.
- *
- * A width counts only where the group landed on it, since a stretched field still matches
- * when a neighbouring serial number absorbs the extra character. Every width is tried
- * because a serial number jumping from 19 to 21 rejects the ones in between.
- *
- * Every documented number is stretched rather than one, because a mailer ID starting with
- * 9 is nine digits and one starting with 0-8 is six, so growing a six-digit one never
- * reaches the nine-digit branch.
- */
+/** Every sample is stretched: a mailer ID starting 9 is nine digits where one starting 0-8 is six. */
 const widthOf = (definition, samples, name) => {
   const widths = new Set()
 
@@ -77,6 +58,7 @@ const widthOf = (definition, samples, name) => {
     if (!field) continue
 
     const length = field.end - field.start
+    if (length === 0) continue
 
     for (let by = 1 - length; by <= LONGEST; by += 1) {
       const parsed = stretch(sample, field, by).match(definition.verify)
@@ -85,6 +67,8 @@ const widthOf = (definition, samples, name) => {
       if (range && range[1] - range[0] === length + by) widths.add(length + by)
     }
   }
+
+  if (!widths.size) return {}
 
   return { min: Math.min(...widths), max: Math.max(...widths), variable: widths.size > 1 }
 }

@@ -1,27 +1,28 @@
 <script>
-  /** A pill stating an outcome, with the evidence behind it on hover when there is any.
-   * @type {{ tone?: "" | "good" | "bad" | "warn", hint?: string, children: import("svelte").Snippet, evidence?: import("svelte").Snippet }} */
+  import { Tooltip } from "melt/builders"
+
+  /** @type {{ tone?: "" | "good" | "bad" | "warn", hint?: string, children: import("svelte").Snippet, evidence?: import("svelte").Snippet }} */
   let { tone = "", hint = "", children, evidence } = $props()
 
   const hinted = $derived(Boolean(hint || evidence))
+  const tooltip = new Tooltip({ openDelay: 0, closeDelay: 0, floatingConfig: { computePosition: { placement: "bottom-start" }, offset: { mainAxis: 8 } } })
 </script>
 
-<!-- Focusable on purpose, so the evidence behind the pill is reachable by keyboard. -->
 <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 <span
   class="badge mod-{tone}"
   class:mod-hinted={hinted}
   tabindex={hinted ? 0 : undefined}
-  role={hinted ? "button" : undefined}
+  {...hinted ? tooltip.trigger : {}}
 >
   {@render children()}
-
-  {#if evidence}
-    <span class="hint">{@render evidence()}</span>
-  {:else if hint}
-    <span class="hint">{hint}</span>
-  {/if}
 </span>
+
+{#if hinted}
+  <span class="hint" {...tooltip.content}>
+    {#if evidence}{@render evidence()}{:else}{hint}{/if}
+  </span>
+{/if}
 
 <style>
   .badge {
@@ -51,17 +52,12 @@
   }
 
   .badge.mod-hinted {
-    position: relative;
     cursor: help;
   }
 
-  /* A child of the pill, so moving onto the pattern to select it keeps it open. */
-  .badge .hint {
-    display: none;
-    position: absolute;
-    top: calc(100% + var(--system-space-2));
-    right: 0;
-    z-index: 5;
+  .hint {
+    inset: auto;
+    margin: 0;
     width: max-content;
     max-width: min(44rem, 80vw);
     padding: var(--system-space-3);
@@ -76,12 +72,6 @@
     text-align: left;
     white-space: pre-wrap;
     overflow-wrap: anywhere;
-    cursor: auto;
-  }
-
-  .badge.mod-hinted:hover .hint,
-  .badge.mod-hinted:focus .hint,
-  .badge.mod-hinted:focus-within .hint {
-    display: block;
+    overflow: visible;
   }
 </style>

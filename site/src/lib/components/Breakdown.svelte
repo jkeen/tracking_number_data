@@ -7,30 +7,23 @@
   const LABEL_GAP = 12
   const ESTIMATE = 8
 
-  // Guessing label widths packed them into rows they did not fit in, so they are
-  // measured once rendered and the packing settles on the second pass.
   let tags = $state({})
   let measured = $state({})
 
   $effect(() => {
     const widths = Object.fromEntries(
-      Object.entries(tags).filter(([, element]) => element).map(([label, element]) => [label, element.offsetWidth])
+      Object.entries(tags).filter(([, element]) => element).map(([name, element]) => [name, element.offsetWidth])
     )
 
-    if (Object.entries(widths).some(([label, width]) => measured[label] !== width)) measured = widths
+    if (Object.entries(widths).some(([name, width]) => measured[name] !== width)) measured = widths
   })
 
-  const widthOf = (label) => measured[label] ?? label.length * ESTIMATE
+  const widthOf = (field) => measured[field.name] ?? field.label.length * ESTIMATE
 
   let width = $state(0)
 
-  // A label is wider than the part it names, so one anchored near the end of the number
-  // would sit off the edge. It slides back to the last place it fits and the tick that
-  // joins it to its characters takes up the difference.
-  const fitted = (left, label) => Math.max(0, Math.min(left, (width || Infinity) - widthOf(label)))
+  const fitted = (left, field) => Math.max(0, Math.min(left, (width || Infinity) - widthOf(field)))
 
-  // Leaf parts tile the number left to right; each label drops to the first row it
-  // fits on, which relies on them being packed in that order.
   const leaves = $derived.by(() => {
     const ends = []
 
@@ -38,11 +31,11 @@
       .filter((field) => !field.wraps)
       .sort((a, b) => a.start - b.start)
       .map((field) => {
-        const at = fitted(field.left, field.label)
+        const at = fitted(field.left, field)
         const free = ends.findIndex((end) => at >= end)
         const row = free === -1 ? ends.length : free
 
-        ends[row] = at + widthOf(field.label) + LABEL_GAP
+        ends[row] = at + widthOf(field) + LABEL_GAP
         return { ...field, row, labelLeft: at, tick: field.left - at }
       })
   })
@@ -52,9 +45,9 @@
       .filter((field) => field.wraps)
       .sort((a, b) => b.depth - a.depth)
       .map((field) => {
-        const centred = field.left + field.width / 2 - widthOf(field.label) / 2
+        const centred = field.left + field.width / 2 - widthOf(field) / 2
 
-        return { ...field, labelLeft: fitted(centred, field.label) - field.left }
+        return { ...field, labelLeft: fitted(centred, field) - field.left }
       })
   )
   const rows = $derived(Math.max(1, ...leaves.map((field) => field.row + 1)))
@@ -78,7 +71,7 @@
       class="breakdown-tag"
       class:mod-dim={dimmed(field.name)}
       style="left: {field.labelLeft}px; --row: {field.row}; --tick: {field.tick}px; color: {field.color}"
-      bind:this={tags[field.label]}
+      bind:this={tags[field.name]}
       onmouseenter={() => light(field.name)}
       onmouseleave={clear}
       role="presentation"
@@ -97,16 +90,13 @@
       <span
         class="breakdown-span-label"
         style="left: {field.labelLeft}px; color: {field.color}"
-        bind:this={tags[field.label]}
+        bind:this={tags[field.name]}
       >{field.label}</span>
     </span>
   {/each}
 </div>
 
 <style>
-
-  /* Held back until the type has been measured: the rules are placed by character, and
-     before that they would all be drawn on top of each other at the left edge. */
   .breakdown.mod-measuring {
     visibility: hidden;
   }
@@ -128,7 +118,6 @@
     transition: opacity var(--system-transition-quick);
   }
 
-  /* A part whose width the format lets vary trails off rather than stopping. */
   .breakdown-rule.mod-variable::after {
     content: "";
     position: absolute;
@@ -161,11 +150,9 @@
 
   .breakdown-tag-range {
     margin-left: var(--system-space-1);
-    font-size: 0.92em; /* relative to the label it trails */
     opacity: 0.65;
   }
 
-  /* A part that wraps other parts gets a span of its own beneath them. */
   .breakdown-span {
     position: absolute;
     top: calc(var(--system-space-4) + var(--rows) * var(--system-breakdown-row-height) + var(--tier) * var(--system-breakdown-tier-height));
@@ -177,8 +164,6 @@
     transition: opacity var(--system-transition-quick);
   }
 
-  /* Centred under its span by the measurement that also keeps it inside the number's
-     width, so there is nothing left here to centre. */
   .breakdown-span-label {
     position: absolute;
     top: calc(100% + var(--system-space-1));

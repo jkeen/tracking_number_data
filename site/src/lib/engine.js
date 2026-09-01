@@ -29,10 +29,7 @@ export const candidates = (input, against = definitions) =>
 
 export const matches = (input, against) => candidates(input, against).filter((match) => match.valid)
 
-export const nearMisses = (input, against) => candidates(input, against).filter((match) => !match.valid)
-
-export const detect = (input, against) =>
-  matches(input, against).reduce((best, match) => (!best || match.confidence > best.confidence ? match : best), null)
+export const detect = (input, against) => matches(input, against)[0] ?? null
 
 export const search = (body, against = definitions) => {
   const found = new Map()

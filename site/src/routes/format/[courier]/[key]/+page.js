@@ -2,7 +2,6 @@ import { redirect } from "@sveltejs/kit"
 import { definitions, definitionByKey, renamedFrom } from "$lib/dataset.js"
 import { pathFor } from "$lib/paths.js"
 
-// An address naming a format that is not in the dataset still has to open.
 export const prerender = "auto"
 
 export const entries = () => {

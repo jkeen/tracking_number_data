@@ -13,7 +13,6 @@ const UNWEIGHTED = MODULOS.flatMap((modulo) => [
   { name: "mod_37_36", modulo },
 ])
 
-// Weights repeat along the serial: FedEx runs 3, 1, 7 over eleven characters.
 const PATTERNS = [
   [3, 1, 7],
   [1, 3, 7],
@@ -55,11 +54,7 @@ export const numbersIn = (text) =>
 
 const SHORTEST_NESTED = 8
 
-/**
- * A barcode is often a known number with fields wrapped around it, so the first thing
- * worth asking is whether one is already in here. Formats with no check digit are left
- * out: they match anything of the right length and so are evidence of nothing.
- */
+/** Formats with no check digit are left out: they match anything of the right length. */
 export const findNested = (numbers, definitions, decode) => {
   const lengths = new Set(numbers.map((number) => number.length))
   if (numbers.length < 2 || lengths.size !== 1) return []
@@ -93,10 +88,6 @@ export const findNested = (numbers, definitions, decode) => {
 const SHORTEST_SERIAL = 4
 const LONGEST_SERIAL = 22
 
-/**
- * A check digit usually follows the run it was worked out from, and that run is often a
- * field inside a longer barcode rather than the whole of what comes before it.
- */
 const splitsFor = (length) =>
   Array.from({ length }, (_, at) => at).flatMap((at) => {
     const runs = []
@@ -127,7 +118,6 @@ const splitsFor = (length) =>
 
 const same = (values) => new Set(values).size === 1
 
-/** Which positions hold the same character in every number, and which move. */
 export const columnsOf = (numbers) => {
   if (!numbers.length) return []
 
@@ -138,18 +128,14 @@ export const columnsOf = (numbers) => {
   })
 }
 
-/**
- * Every place a check digit could sit, against every algorithm and set of constants, kept
- * only where it explains all the numbers. A split whose check digit never changes is
- * dropped: the numbers are not testing it.
- */
 export const findCheckDigit = (numbers) => {
   const lengths = new Set(numbers.map((number) => number.length))
   if (numbers.length < 2 || lengths.size !== 1) {
-    return { fits: [], tried: 0, expected: 0, lengths: [...lengths] }
+    return { fits: [], tried: 0, expected: 0, lengths: [...lengths], placements: [] }
   }
 
   const fits = []
+  const readingsTried = new Set()
   let tried = 0
   let expected = 0
 
@@ -158,6 +144,10 @@ export const findCheckDigit = (numbers) => {
     if (parts.some(({ serial }) => serial.length < SHORTEST_SERIAL)) continue
     if (same(parts.map(({ check }) => check))) continue
     if (same(parts.map(({ serial }) => serial))) continue
+
+    const reading = `${split.at}:${parts.map(({ serial }) => serial).join("|")}`
+    if (readingsTried.has(reading)) continue
+    readingsTried.add(reading)
 
     for (const config of configsFor(parts[0].serial.length)) {
       tried += 1
@@ -172,11 +162,6 @@ export const findCheckDigit = (numbers) => {
   return { fits, tried, expected, lengths: [...lengths], placements: placementsOf(fits) }
 }
 
-/**
- * Where the check digit sits is the finding. What it reads and which arithmetic agrees
- * hang off it. Ordered by position, which says nothing about which is likeliest, because
- * with a handful of numbers nothing here does.
- */
 const placementsOf = (fits) => {
   const byPosition = new Map()
 

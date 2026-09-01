@@ -1,19 +1,16 @@
 import { labelPart } from "./glossary.js"
 
-// The glossary names the parts it knows, and a format may name one of its own differently.
-// Anything else is spelled out of its camel case.
+const namedSpans = (indices) =>
+  Object.entries(indices ?? {})
+    .filter(([, range]) => range)
+    .map(([name, [start, end]]) => ({ name, start, end }))
+
 export const labelFor = (name, definition) =>
   labelPart(definition, name) ?? name.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/\bId\b/, "ID").replace(/\bZip\b/, "ZIP")
 
-/**
- * Splits a number into the parts its pattern names. Groups that merely contain other
- * groups are skipped — UPS wraps shipper, service and package inside SerialNumber, and
- * showing both would label the same characters twice.
- */
+/** Leaves only: UPS wraps shipper, service and package inside SerialNumber. */
 export const segmentsFrom = (number, indices, definition) => {
-  const spans = Object.entries(indices ?? {})
-    .filter(([, range]) => range)
-    .map(([name, [start, end]]) => ({ name, start, end }))
+  const spans = namedSpans(indices)
 
   const leaves = spans
     .filter(
@@ -44,14 +41,9 @@ export const segmentsFrom = (number, indices, definition) => {
   return segments.filter((segment) => segment.text.length)
 }
 
-/**
- * Every named group, not just the leaves — a serial number that wraps a shipper,
- * service and package is worth showing as the span it is.
- */
+/** Every named group, wrappers included. */
 export const partsFrom = (number, indices, definition) => {
-  const spans = Object.entries(indices ?? {})
-    .filter(([, range]) => range)
-    .map(([name, [start, end]]) => ({ name, start, end }))
+  const spans = namedSpans(indices)
 
   const contains = (outer, inner) =>
     outer !== inner &&
@@ -72,10 +64,6 @@ export const partsFrom = (number, indices, definition) => {
     .sort((a, b) => a.depth - b.depth || a.start - b.start)
 }
 
-/**
- * Where each character of the normalized number sits in the text as it was typed, so
- * a number written with spaces can still be annotated in place.
- */
 export const positionsIn = (value) =>
   [...String(value)].reduce((positions, character, index) => {
     if (!/\s/.test(character)) positions.push(index)

@@ -88,10 +88,7 @@ const read = (definition, input) => {
     checksumValid,
     optionalChecksValid,
     serviceType: sections["Service Type"]?.name,
-    serviceDescription: sections["Service Type"]?.description,
-    packageType: sections["Container Type"]?.name,
     destinationZip: groups.DestinationZip,
-    shipperId: groups.ShipperId,
     trackingUrl: trackingUrl?.replace("%s", number),
     confidence: (checksum ? CHECKSUM_WEIGHT : 0) + number.length * LENGTH_WEIGHT,
     valid: (checksum ? checksumValid === true : checksumValid !== false) && optionalChecksValid,
@@ -103,7 +100,7 @@ const findPartner = (definition, reading, wanted) => {
 
   for (const entry of entries) {
     const candidate = definition.siblings.get(entry.partner_id)
-    if (!candidate) return null
+    if (!candidate) continue
 
     if (!read(candidate, reading.number)?.valid) continue
 
@@ -117,8 +114,7 @@ const findPartner = (definition, reading, wanted) => {
   return null
 }
 
-// A partnership only holds if both definitions name each other for this number.
-const partnership = (definition, reading) => {
+const mutualPartnership = (definition, reading) => {
   const hit = findPartner(definition, reading)
   if (!hit) return null
 
@@ -139,7 +135,7 @@ export const decode = (definition, input) => {
   const reading = read(definition, input)
   if (!reading) return null
 
-  const partners = partnership(definition, reading)
+  const partners = mutualPartnership(definition, reading)
 
   return { ...reading, role: partners?.role, partner: partners?.partner }
 }

@@ -40,7 +40,8 @@ test.describe("decoding a number", () => {
     await expect(serviceType.locator(".note")).toHaveText("UPS United States Ground")
     await expect(checkDigit.locator(".note")).toContainText("Verified with")
     await expect(checkDigit.locator(".note a")).toHaveAttribute("href", "/algorithm/mod10/1Z879E930346834440")
-    await expect(serviceType.locator(".term")).toHaveAttribute("data-term", /delivery service/)
+    await serviceType.locator(".term").hover()
+    await expect(page.getByRole("tooltip")).toContainText(/delivery service/)
   })
 
   test("works the check digit out in place, under the row it belongs to", async ({ page }) => {
@@ -101,7 +102,8 @@ test.describe("decoding a number", () => {
     await expect(card.locator(".note").first()).toHaveText("Brooklyn, NY")
 
     const zip = card.locator("tr", { hasText: "Destination ZIP" })
-    await expect(zip.locator(".term")).toHaveAttribute("data-term", /postal code/)
+    await zip.locator(".term").hover()
+    await expect(page.getByRole("tooltip")).toContainText(/postal code/)
   })
 
   test("annotates the field with a rule and label per named part", async ({ page }) => {

@@ -1,11 +1,6 @@
 /** @import { Match } from "./shapes.js" */
 
 /**
- * Collects matches that describe the same shipment. A definition listing several possible
- * partners takes the first whose conditions hold, so the pairing is whichever one both
- * halves chose. Another format claiming the same partner is a rival reading of the same
- * digits rather than a third leg of the journey, and is left to stand on its own.
- *
  * @param {Match[]} matches
  * @returns {{ partnership: boolean, shippers: Match[], carriers: Match[], matches: Match[] }[]}
  */
@@ -43,7 +38,6 @@ export const group = (matches) => {
       pending.push(...linkedTo(next))
     }
 
-    // A shipper whose partner went to someone else is just a match, not half a journey.
     shipments.push({
       partnership: members.length > 1,
       shippers: members.filter((member) => member.role === "shipper"),

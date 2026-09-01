@@ -1,5 +1,3 @@
-// What each algorithm is called, kept apart from the dataset so anything that only
-// needs the name does not have to load every definition to get it.
 const LABELS = {
   mod10: "Mod 10",
   mod7: "Mod 7",

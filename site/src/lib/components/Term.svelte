@@ -1,35 +1,30 @@
 <script>
-  /** A word or figure with its meaning on hover, since the tooltip is the only place
-   * that meaning is written down.
-   * @type {{ meaning: string, class?: string, children: import("svelte").Snippet }} */
+  import { Tooltip } from "melt/builders"
+
+  /** @type {{ meaning: string, class?: string, children: import("svelte").Snippet }} */
   let { meaning, class: extra = "", children } = $props()
 
+  const tooltip = new Tooltip({ openDelay: 0, closeDelay: 0, floatingConfig: { computePosition: { placement: "bottom-start" }, offset: { mainAxis: 8 } } })
 </script>
 
 <!-- Focusable on purpose: a keyboard has to be able to reach the meaning too. -->
 <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
-<span class="term {extra}" tabindex="0" data-term={meaning}>{@render children()}</span>
+<span class="term {extra}" tabindex="0" {...tooltip.trigger}>{@render children()}</span>
+
+<span class="meaning" {...tooltip.content}>{meaning}</span>
 
 <style>
   .term {
-    position: relative;
     border-bottom: 1px dotted var(--system-color-muted);
     cursor: help;
   }
 
-  /* Out of the layout rather than merely invisible: a hidden box this wide, on every
-     labelled part in a table, is width the page is then obliged to find. */
-  .term::after {
-    content: attr(data-term);
-    display: none;
-    position: absolute;
-    top: calc(100% + var(--system-space-2));
-    left: 0;
-    z-index: 2;
+  /* Reset what the browser dresses a popover in before setting our own. */
+  .meaning {
+    inset: auto;
+    margin: 0;
     width: max-content;
-    /* It opens from the left of the word it belongs to, and a word this deep into a
-       narrow screen has less room to its right than the screen is wide. */
-    max-width: min(18rem, 100vw - 6rem);
+    max-width: min(18rem, 100vw - 2rem);
     padding: var(--system-space-2) var(--system-space-3);
     border: var(--system-border);
     border-radius: var(--system-radius-md);
@@ -40,11 +35,10 @@
     font-size: var(--system-text-sm);
     font-weight: 400;
     line-height: 1.4;
+    text-align: left;
+    letter-spacing: normal;
+    text-transform: none;
     white-space: normal;
-  }
-
-  .term:hover::after,
-  .term:focus-visible::after {
-    display: block;
+    overflow: visible;
   }
 </style>

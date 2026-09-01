@@ -10,10 +10,7 @@
 </div>
 
 <p class="schematic-legend">
-  Fixed characters are shown as they are. <code>#</code> stands for any digit,
-  <code>A</code> for any letter and <code>X</code> for either. The number after each part is how
-  many characters it takes, written as a range with a rule that trails off where the format
-  allows more than one width.
+  Fixed characters are shown as they are. <code>#</code> stands for any digit, <code>A</code> for any letter and <code>X</code> for either. 
 </p>
 
 <style>

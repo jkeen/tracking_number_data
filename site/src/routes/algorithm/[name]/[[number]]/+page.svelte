@@ -1,19 +1,17 @@
 <script>
   import { untrack } from "svelte"
+  import { browser } from "$app/environment"
   import { page } from "$app/state"
   import { labelFor, usedBy } from "$lib/algorithms.js"
   import Algorithm from "$lib/components/Algorithm.svelte"
 
   let { data } = $props()
 
-  // The address is where the calculator writes what it is set to, so reading it back as it
-  // changes would feed the page its own output. Read once per algorithm opened.
-  let settings = $state({})
-
-  $effect(() => {
+  // The calculator writes to the address, so reading it back as it changes would loop.
+  const settings = $derived.by(() => {
     data.name
     data.number
-    settings = untrack(() => Object.fromEntries(page.url.searchParams))
+    return browser ? untrack(() => Object.fromEntries(page.url.searchParams)) : {}
   })
 
   const label = $derived(labelFor(data.name))
@@ -30,4 +28,6 @@
   <meta property="og:type" content="article" />
 </svelte:head>
 
-<Algorithm name={data.name} number={data.number} {settings} />
+{#key `${data.name}/${data.number}`}
+  <Algorithm name={data.name} number={data.number} {settings} />
+{/key}

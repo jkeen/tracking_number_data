@@ -1,6 +1,5 @@
 import { labelFor } from "./names.js"
-
-const S10_WEIGHTS = [8, 6, 4, 2, 3, 5, 9, 7]
+import { S10_WEIGHTS } from "./checksum.js"
 
 const describeMod10 = (config) => {
   const evens = config.evens_multiplier ?? 1
@@ -18,10 +17,6 @@ const describeWeighted = (config) => {
   return `digits × ${weights}, ${moduli}`
 }
 
-// Read back from the constants in hand rather than the ones the standard publishes, so
-// the sentence still describes the sum after someone has changed them.
-
-/** How one format sets an algorithm up, without naming the algorithm again. */
 export const describeVariant = (config) => {
   switch (config?.name) {
     case "mod10":
@@ -49,8 +44,6 @@ export const describeChecksum = (config) => {
   return variant ? `${labelFor(config.name)} (${variant})` : config.name
 }
 
-// Only shown when the rule actually fired, so "because" is the accurate word: the
-// serial is rewritten when it matches, not when it fails to.
 export const describeSerialRule = (validation) => {
   const prepend = validation?.serial_number_format?.prepend_if
   if (!prepend) return null
@@ -58,10 +51,6 @@ export const describeSerialRule = (validation) => {
   return `${prepend.content} is prepended before the check runs, because the serial matches ${prepend.matches_regex}`
 }
 
-/**
- * Formats with no checksum can only ever be pattern-matched, so a mistyped one still
- * reads as a tracking number. Said in both places a format is shown, hence once here.
- */
 export const describeMissingChecksum = (definition) =>
   definition?.spec?.validation?.checksum
     ? null

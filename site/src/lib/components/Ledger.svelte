@@ -1,11 +1,9 @@
 <script>
   import Working from "$lib/components/Working.svelte"
 
-  /** The number in columns, with the arithmetic continuing down from the characters it
-   * ran over. Pass `entry` to make those characters editable.
-   * @type {{ characters: string[], roles: string[], offset?: number, shown: any,
+  /** @type {{ characters: string[], roles: string[], offset?: number, shown: any,
    *   marks?: {role: string, start: number, length: number}[], labels?: Record<string, string>,
-   *   outcome?: string, columns: number, caption?: string, entry?: import("svelte").Snippet }} */
+   *   outcome?: string, columns: number, entry?: import("svelte").Snippet }} */
   let {
     characters = [],
     roles = [],
@@ -15,7 +13,6 @@
     labels = {},
     outcome = "",
     columns,
-    caption = "",
     trailing = false,
     entry,
   } = $props()
@@ -31,8 +28,6 @@
     return count
   })
 
-  // The characters the sum passed over are worth showing, but not at the price of the
-  // ones it added up. Past what fits, the run in front is folded into one cell.
   const folded = $derived.by(() => {
     if (entry || !width || leadingIgnored < 4) return 0
 
@@ -42,20 +37,19 @@
     return Math.min(columns - affordable, leadingIgnored - 1)
   })
 
-  const shownCharacters = $derived(characters.slice(folded))
-  const shownRoles = $derived(roles.slice(folded))
-  const columnOf = (index) => index + (folded ? 2 : 1)
+  const shift = $derived(folded ? folded - 1 : 0)
+  const gridColumn = (at) => at - shift + 1
 </script>
 
 <div class="ledger" class:mod-trailing={trailing} bind:clientWidth={width}>
-  <div class="ledger-grid" style="--columns: {columns - folded + (folded ? 1 : 0)}">
+  <div class="ledger-grid" style="--columns: {columns - shift}">
     {#if marks.length}
       <div class="ledger-row mod-marks">
         {#each marks as span (span.start)}
           <span
             class="ledger-mark"
             style="grid-column: {span.column ??
-              `${Math.max(1, span.start - folded + (folded ? 2 : 1))} / span ${span.length}`}"
+              `${Math.max(1, gridColumn(span.start))} / span ${span.length}`}"
           >
             {labels[span.role]}
           </span>
@@ -71,11 +65,12 @@
           <span class="ledger-digit mod-folded" style="grid-column: 1" title="{folded} more characters the check does not read">…</span>
         {/if}
 
-        {#each shownCharacters as character, index (index)}
+        {#each characters.slice(folded) as character, index (index)}
+          {@const at = index + folded}
           <span
-            class="ledger-digit mod-{shownRoles[index] ?? 'spare'} {shownRoles[index] === 'check' ? outcome : ''}"
-            class:is-striped={(index + folded) % 2 === 1}
-            style="grid-column: {columnOf(index)}"
+            class="ledger-digit mod-{roles[at] ?? 'spare'} {roles[at] === 'check' ? outcome : ''}"
+            class:is-striped={at % 2 === 1}
+            style="grid-column: {gridColumn(at)}"
           >
             {character}
           </span>
@@ -83,10 +78,6 @@
       </div>
     {/if}
 
-    <Working {shown} offset={offset - folded + (folded ? 1 : 0)} {outcome} {trailing} />
+    <Working {shown} offset={offset - shift} {outcome} {trailing} />
   </div>
 </div>
-
-{#if caption}
-  <p class="ledger-caption">{caption}</p>
-{/if}

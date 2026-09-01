@@ -1,10 +1,4 @@
-/* ---------------------------------------------------------------- tokens -- */
-
 :root {
-  /* Four hues carry the whole palette: one for every neutral, one each for pass, fail
-     and warning. OKLCH throughout, so a colour's lightness is the same promise at every
-     hue and the two themes differ in lightness rather than in a second set of colours. */
-  /* Native controls take their cue from this, so spinners and scrollbars follow suit. */
   color-scheme: light;
 
   --system-hue-neutral: 264;
@@ -12,27 +6,20 @@
   --system-hue-bad: 12;
   --system-hue-warn: 80;
 
-  /* Nord's Snow Storm and Polar Night, read back as lightness on the neutral hue. */
   --system-color-ink: oklch(0.324 0.023 var(--system-hue-neutral));
   --system-color-muted: oklch(0.452 0.035 var(--system-hue-neutral));
   --system-color-line: oklch(0.899 0.016 var(--system-hue-neutral));
   --system-color-paper: oklch(0.951 0.007 var(--system-hue-neutral));
   --system-color-fade: oklch(0.933 0.01 var(--system-hue-neutral));
   --system-color-accent: oklch(0.52 0.183 var(--system-hue-neutral));
-  /* What text sits on a filled colour: the paper of the other theme. */
   --system-color-on-solid: oklch(0.951 0.007 var(--system-hue-neutral));
   --system-color-good: oklch(0.527 0.125 var(--system-hue-good));
   --system-color-good-fade: oklch(0.93 0.05 var(--system-hue-good));
   --system-color-bad: oklch(0.616 0.168 var(--system-hue-bad));
   --system-color-bad-fade: oklch(1 0.05 var(--system-hue-bad));
   --system-color-warn: oklch(0.508 0.108 var(--system-hue-warn));
-  --system-color-warn-fade: oklch(0.94 0.055 var(--system-hue-warn));
-  /* Translucent, so a stripe reads the same over paper and over a fade. */
   --system-color-stripe: oklch(0.7 0.06 var(--system-hue-neutral) / 0.12);
 
-  /* One colour per part of a number. OKLCH so that one lightness and one chroma are the
-     same weight at every hue, which HSL is not: nine of these sit side by side on a USPS
-     91 number and no one of them may shout. */
   --system-lightness: 0.62;
   --system-chroma: 0.15;
 
@@ -40,13 +27,12 @@
   --system-part-origin-id: oklch(var(--system-lightness) var(--system-chroma) 40);
   --system-part-package-id: oklch(var(--system-lightness) var(--system-chroma) 60);
   --system-part-application-identifier: oklch(var(--system-lightness) var(--system-chroma) 90);
-  --system-part-routing-number: oklch(var(--system-lightness) var(--system-chroma) 105);
   --system-part-routing-application-id: oklch(var(--system-lightness) var(--system-chroma) 140);
   --system-part-gsn: oklch(var(--system-lightness) var(--system-chroma) 155);
   --system-part-service-type: oklch(var(--system-lightness) var(--system-chroma) 170);
   --system-part-shipping-container-type: oklch(var(--system-lightness) var(--system-chroma) 185);
-  --system-part-mailer-id: oklch(var(--system-lightness) var(--system-chroma) 200);
   --system-part-destination-zip: oklch(var(--system-lightness) var(--system-chroma) 220);
+  --system-part-destination-zip-plus4: oklch(var(--system-lightness) var(--system-chroma) 235);
   --system-part-serial-number: oklch(var(--system-lightness) var(--system-chroma) 255);
   --system-part-scnc: oklch(var(--system-lightness) var(--system-chroma) 290);
   --system-part-shipper-id: oklch(var(--system-lightness) var(--system-chroma) 315);
@@ -56,12 +42,11 @@
   --system-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --system-font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  /* One step per size. Anything not on the scale is a mistake, not a nuance. */
-  --system-text-xs: 0.78rem;
-  --system-text-sm: 0.82rem;
-  --system-text-md: 0.9rem;
-  --system-text-lg: 1.15rem;
-  --system-text-xl: 1.35rem;
+  --system-text-xs: 0.8rem;
+  --system-text-sm: 0.9rem;
+  --system-text-md: 1rem;
+  --system-text-lg: 1.2rem;
+  --system-text-xl: 1.4rem;
   --system-text-2xl: 2.5rem;
 
   --system-tracking-tight: -0.02em;
@@ -81,17 +66,13 @@
   --system-border: 1px solid var(--system-color-line);
   --system-transition-quick: 0.12s;
 
-  /* The annotated number sets its own type size from its width; these are the parts
-     of its geometry that do not. */
   --system-field-pad: var(--system-space-4);
   --system-field-space: 0.22em;
   --system-breakdown-row-height: 1.5rem;
   --system-breakdown-tier-height: 2.5rem;
 }
 
-/* The toggle sets data-theme on the document; index.html seeds it from the last choice
-   or the system preference before the page paints. */
-:root[data-theme="dark"] {
+:root.dark {
   color-scheme: dark;
 
   --system-color-ink: oklch(0.951 0.007 var(--system-hue-neutral));
@@ -106,15 +87,10 @@
   --system-color-bad: oklch(0.738 0.13 var(--system-hue-bad));
   --system-color-bad-fade: oklch(0.32 0.08 var(--system-hue-bad));
   --system-color-warn: oklch(0.783 0.122 var(--system-hue-warn));
-  --system-color-warn-fade: oklch(0.34 0.07 var(--system-hue-warn));
 
-  /* A part has to hold its own against a dark surface, where the same lightness reads
-     dimmer than it does on a light one. */
   --system-lightness: 0.76;
-  --system-part-c: 0.14;
+  --system-chroma: 0.14;
 }
-
-/* ------------------------------------------------------------------ base -- */
 
 * {
   box-sizing: border-box;
@@ -166,20 +142,14 @@ td:first-child {
   padding-left: 0;
 }
 
-/* Whatever follows a table draws its own line, and two together read as a mistake. */
 tbody tr:last-child > th,
 tbody tr:last-child > td {
   border-bottom: none;
 }
 
-/* -------------------------------------------------------------- patterns -- */
-
-/* Small capitals above a thing, naming it. */
 .courier-of,
 .shipment-leg-label,
 .explore h3,
-.facts dt,
-.format dt,
 .format-facts dt,
 .examples .section th,
 .parts-list .section th,
@@ -216,9 +186,9 @@ tbody tr:last-child > td {
   font-size: var(--system-text-sm);
 }
 
-/* A tracking number, wherever one appears. */
 .tracking-number {
   font-family: var(--system-font-mono);
+  overflow-wrap: anywhere;
 }
 
 a.tracking-number,
@@ -232,16 +202,6 @@ button.tracking-number:hover {
   border-bottom-color: currentColor;
 }
 
-.link {
-  padding: 0;
-  border: none;
-  background: none;
-  color: var(--system-color-accent);
-  font: inherit;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 .button {
   display: inline-block;
   margin-top: var(--system-space-4);
@@ -253,22 +213,18 @@ button.tracking-number:hover {
   text-decoration: none;
 }
 
-/* Columns that should be no wider than their contents. */
 .groups th,
 .parts-list th,
-.parts-list .width,
-.examples td:nth-child(2) {
+.parts-list .width {
   width: 1%;
   white-space: nowrap;
   padding-right: var(--system-space-6);
 }
 
-/* ----------------------------------------------------------------- rulers -- */
+.examples td:nth-child(2) {
+  padding-right: var(--system-space-6);
+}
 
-/* Hidden text measured to place the rules under the right characters. It is set at sizes
-   no viewport is as wide as, so it is kept in a box with no size: a hidden box still has
-   a width for the page to have to find, and clipping it higher up would take the
-   tooltips with it. */
 .rulers {
   position: absolute;
   top: 0;
@@ -292,13 +248,10 @@ button.tracking-number:hover {
   letter-spacing: 0;
 }
 
-/* These measure the field, so they have to be set in the field's own type. */
 .field-frame .ruler,
 .annotated-frame .ruler {
   font-size: var(--field-size);
 }
-
-/* --------------------------------------------------------------- results -- */
 
 .card {
   margin: var(--system-space-6) 0;
@@ -314,8 +267,6 @@ button.tracking-number:hover {
   border-left: 4px solid var(--system-color-bad);
 }
 
-/* An auto track is max-content, which is a floor a flex-wrap cannot get under: the badges
-   have to be in a row that wraps, not a column that refuses to. */
 .card header,
 .pane header {
   display: flex;
@@ -342,8 +293,6 @@ button.tracking-number:hover {
   margin: 0;
 }
 
-/* Narrower than the pills laid end to end is what lets them wrap. Not wider, or the row
-   fills and they sit against the name instead of the far edge. */
 .card header .badges,
 .pane header .badges {
   flex: 0 1 auto;
@@ -355,17 +304,6 @@ button.tracking-number:hover {
   border-radius: var(--system-radius-md);
   background: var(--system-color-bad-fade);
   font-size: var(--system-text-md);
-}
-
-.facts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--system-space-5);
-  margin: var(--system-space-4) 0;
-}
-
-.facts dd {
-  margin: 0.15rem 0 0;
 }
 
 .detail {
@@ -383,7 +321,6 @@ button.tracking-number:hover {
   flex-wrap: wrap;
 }
 
-/* The button carries its own top margin for use on its own; in a row it would tip it. */
 .card footer .button,
 .pane footer .button {
   margin-top: 0;
@@ -394,8 +331,6 @@ button.tracking-number:hover {
   font-size: var(--system-text-sm);
 }
 
-/* Hovering a part in a result lights the characters it was read from. */
-/* The header used to be followed by the pattern line, which set this gap. */
 .card .groups {
   margin-top: var(--system-space-4);
 }
@@ -429,7 +364,6 @@ button.tracking-number:hover {
   margin-top: var(--system-space-1);
 }
 
-/* A wide number narrows inside the cell rather than stretching the table it sits in. */
 .mod-verify td {
   max-width: 1px;
   padding: var(--system-space-3) 0 var(--system-space-2);
@@ -439,9 +373,6 @@ button.tracking-number:hover {
   margin-bottom: var(--system-space-3);
 }
 
-/* Formats that fit the same digits just as well. Set apart so the first result does not
-   read as the answer and the rest as runners-up. The card above closes with its own
-   border, so this needs room rather than a line of its own. */
 .alternates {
   margin-top: var(--system-space-7);
 }
@@ -491,10 +422,6 @@ button.tracking-number:hover {
   font-size: var(--system-text-lg);
 }
 
-.pane .facts {
-  gap: var(--system-space-4);
-}
-
 .whose {
   font-size: var(--system-text-xs);
 }
@@ -503,36 +430,9 @@ button.tracking-number:hover {
   margin-left: var(--system-space-3);
 }
 
-/* --------------------------------------------------- how a format works -- */
-
-.format {
-  margin-top: var(--system-space-5);
-  padding-top: var(--system-space-3);
-  border-top: var(--system-border);
-}
-
-.format summary {
-  font-size: var(--system-text-sm);
-  color: var(--system-color-muted);
-  cursor: pointer;
-}
-
-.format dl {
-  display: grid;
-  gap: var(--system-space-3);
-  margin: var(--system-space-4) 0 var(--system-space-1);
-}
-
-.format dd,
 .format-facts dd {
   margin: var(--system-space-1) 0 0;
   font-size: var(--system-text-md);
-}
-
-.format .working {
-  margin: var(--system-space-1) 0 0;
-  font-size: var(--system-text-sm);
-  color: var(--system-color-muted);
 }
 
 .pattern {
@@ -547,8 +447,6 @@ button.tracking-number:hover {
   overflow-wrap: anywhere;
 }
 
-/* ---------------------------------------------------------- format page -- */
-
 .courier-of {
   margin: 0 0 var(--system-space-1);
 }
@@ -557,13 +455,7 @@ button.tracking-number:hover {
   margin: 0.1rem 0 var(--system-space-4);
 }
 
-/* h2 is flush by default because a result card sets it in a flex header. Where one
-   opens a section of a page it needs the gap a section break implies. */
 .definition h2,
-.algorithm h2 {
-  margin-top: var(--system-space-6);
-}
-
 .says {
   margin: calc(var(--system-space-2) * -1) 0 var(--system-space-5);
 }
@@ -638,8 +530,6 @@ button.tracking-number:hover {
   margin-top: var(--system-space-1);
 }
 
-/* ------------------------------------------------------------ algorithm -- */
-
 .steps {
   margin: var(--system-space-3) 0 var(--system-space-6);
   padding-left: var(--system-space-4);
@@ -653,14 +543,12 @@ button.tracking-number:hover {
   margin-top: var(--system-space-6);
 }
 
-/* The calculator has the width for a bigger number than a result card does. */
 .algorithm .ledger {
   --cell: 2.5rem;
   --digit: var(--system-text-2xl);
   --figure: var(--system-text-md);
 }
 
-/* A line of voice under a title, which is not the same thing as a heading. */
 .deck {
   margin: var(--system-space-2) 0 var(--system-space-5);
   font-size: var(--system-text-lg);
@@ -673,7 +561,6 @@ button.tracking-number:hover {
   color: var(--system-color-muted);
 }
 
-/* Which algorithm the calculator is set up for. */
 .choices {
   display: flex;
   flex-wrap: wrap;
@@ -708,7 +595,6 @@ button.tracking-number:hover {
   color: var(--system-color-paper);
 }
 
-/* The constants, set rather than read. */
 .settings {
   display: flex;
   flex-wrap: wrap;
@@ -731,7 +617,6 @@ button.tracking-number:hover {
 }
 
 .setting-value {
-  /* The steppers eat half the width of a field this small, and a constant is typed. */
   appearance: textfield;
   width: 3.5rem;
   padding: var(--system-space-1) var(--system-space-2);
@@ -765,32 +650,12 @@ button.tracking-number:hover {
   text-align: center;
 }
 
-.schematic-legend .link {
-  margin-left: var(--system-space-3);
-}
-
-.algorithm-list {
-  margin: var(--system-space-2) 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.algorithm-list li {
-  display: flex;
-  align-items: baseline;
-  gap: var(--system-space-2);
-  padding: 0.2rem 0;
-}
-
 .algorithm-link {
   display: block;
   margin-top: var(--system-space-1);
   font-size: var(--system-text-sm);
 }
 
-/* Every row is its own grid on one shared template, so the columns line up by construction. */
-/* The columns divide whatever width there is, so a long number narrows rather than
-   scrolling — a scrolling ledger would clip the tooltips that explain it. */
 .ledger {
   --cell: 1.9rem;
   --sum: 7rem;
@@ -804,18 +669,8 @@ button.tracking-number:hover {
   font-family: var(--system-font-mono);
 }
 
-/* A name centred over a narrow span of cells is wider than the span, and the one at the
-   end has nothing to spill into. Only this row clips: the rows below carry the tooltips. */
 .ledger-row.mod-marks {
   overflow-x: clip;
-}
-
-/* The arithmetic ends in the last column, so its tooltips open back into the page the
-   way a badge's does rather than off the right edge. */
-.ledger-total .term::after,
-.ledger-step .term::after {
-  left: auto;
-  right: 0;
 }
 
 .ledger-row {
@@ -825,7 +680,6 @@ button.tracking-number:hover {
     minmax(var(--sum), max-content);
 }
 
-/* Room at the end for a field of its own, past the sum and everything it says. */
 .ledger.mod-trailing .ledger-row {
   grid-template-columns:
     repeat(var(--columns), minmax(0, min(var(--cell), 100cqw)))
@@ -847,13 +701,11 @@ button.tracking-number:hover {
   text-align: center;
 }
 
-/* A character that moves between the numbers says nothing on its own. */
 .ledger-digit.mod-varies {
   color: var(--system-color-muted);
   opacity: 0.55;
 }
 
-/* Only the serial is added up, so everything else all but disappears. */
 .ledger-digit.mod-ignored,
 .ledger-digit.mod-folded,
 .ledger-digit.mod-spare {
@@ -911,7 +763,6 @@ button.tracking-number:hover {
   color: var(--system-color-ink);
 }
 
-/* Products are added, so they read joined by plus signs. A running value is not. */
 .ledger-cell.mod-added + .ledger-cell::before {
   content: "+";
   position: absolute;
@@ -920,7 +771,6 @@ button.tracking-number:hover {
   color: var(--system-color-muted);
 }
 
-/* Each row is named at its end, rather than in a key elsewhere. */
 .ledger-legend {
   padding: 0.15rem 0 0 var(--system-space-2);
   color: var(--system-color-muted);
@@ -939,7 +789,6 @@ button.tracking-number:hover {
   white-space: nowrap;
 }
 
-/* The steps carry on from the total they follow, rather than starting again on the left. */
 .ledger-step {
   display: inline-flex;
   align-items: baseline;
@@ -949,15 +798,8 @@ button.tracking-number:hover {
   white-space: nowrap;
 }
 
-/* A step under a total lines up with the total's number, past its equals sign. */
 .mod-products ~ .mod-step .ledger-step {
   padding-left: calc(var(--system-space-2) + 1ch + 0.35em);
-}
-
-/* At the right edge of the ledger, a tooltip has room to its left rather than its right. */
-.ledger-step :global(.term)::after {
-  left: auto;
-  right: 0;
 }
 
 .ledger-sign {
@@ -980,13 +822,6 @@ button.tracking-number:hover {
   color: var(--system-color-bad);
 }
 
-.ledger-caption {
-  margin: var(--system-space-2) 0 0;
-  font-size: var(--system-text-sm);
-  color: var(--system-color-muted);
-}
-
-/* The check digit and the digit the arithmetic lands on, answering each other. */
 .ledger-digit.is-ok {
   background: var(--system-color-good-fade);
   color: var(--system-color-good);
@@ -1010,14 +845,11 @@ button.tracking-number:hover {
   color: var(--system-color-bad);
 }
 
-/* ------------------------------------------------------------ narrow -- */
-
 @media (max-width: 44rem) {
   :root {
     --system-breakdown-row-height: 1.3rem;
   }
 
-  /* Every side margin here is width the number cannot be set in. */
   body {
     padding-inline: var(--system-space-4);
   }
@@ -1026,7 +858,6 @@ button.tracking-number:hover {
     padding: var(--system-space-4);
   }
 
-  /* A gutter wide enough to read across is width the card has to find from somewhere. */
   .groups th,
   .parts-list th,
   .parts-list .width,
@@ -1035,29 +866,19 @@ button.tracking-number:hover {
   }
 
   .parts-list th,
-  .parts-list .width,
-  .examples td:nth-child(2) {
+  .parts-list .width {
     white-space: normal;
   }
 
-  /* The name of a part reads as one thing. The digits beside it are what may break. */
   .groups td {
     overflow-wrap: anywhere;
   }
 
-  /* A number has nowhere to break, so it is told it may break anywhere rather than
-     deciding on its own how wide the table around it has to be. */
-  .tracking-number,
   td code {
     overflow-wrap: anywhere;
   }
 }
 
-/* --------------------------------------------------------- very narrow -- */
-
-/* Both of these tables name a thing, say something short about it, and then explain it in
-   a sentence. A third column leaves the sentence a gutter to be read down, so it goes
-   under the other two, which between them want far less room than prose does. */
 @media (max-width: 32rem) {
   .parts-list,
   .parts-list tbody,
@@ -1090,14 +911,11 @@ button.tracking-number:hover {
     border-bottom: none;
   }
 
-  /* Shrink-to-fit columns are what a table wants and a stack of rows does not. */
   .parts-list th,
-  .parts-list .width,
-  .examples td:nth-child(2) {
+  .parts-list .width {
     width: auto;
   }
 
-  /* A width is two figures and a dash, and has a column of its own to sit in. */
   .parts-list .width {
     white-space: nowrap;
   }

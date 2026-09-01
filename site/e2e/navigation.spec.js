@@ -69,16 +69,17 @@ test.describe("moving around", () => {
     await page.goto("/")
 
     const toggle = page.getByLabel("Dark mode")
-    const was = await page.evaluate(() => document.documentElement.dataset.theme)
+    // The mode is applied on an animation frame, so the class follows the click.
+    const isDark = () => page.evaluate(() => document.documentElement.classList.contains("dark"))
+    const was = await isDark()
 
     await toggle.click()
-    const now = await page.evaluate(() => document.documentElement.dataset.theme)
+    await expect.poll(isDark).toBe(!was)
 
-    expect(now).not.toBe(was)
-    expect(await page.evaluate(() => localStorage.getItem("theme"))).toBe(now)
+    expect(await page.evaluate(() => localStorage.getItem("theme"))).toBe(was ? "light" : "dark")
 
     await page.reload()
-    expect(await page.evaluate(() => document.documentElement.dataset.theme)).toBe(now)
+    await expect.poll(isDark).toBe(!was)
   })
 
   test("says what it is part of", async ({ page }) => {

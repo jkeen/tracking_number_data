@@ -3,7 +3,7 @@ export const ALGORITHMS = ["mod10", "mod7", "s10", "luhn", "mod_37_36", "sum_pro
 const DIGITS = "0123456789".split("")
 const ALPHANUMERIC = DIGITS.concat("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""))
 // Defaults for datasets published before the constants moved into the definitions.
-const S10_WEIGHTS = [8, 6, 4, 2, 3, 5, 9, 7]
+export const S10_WEIGHTS = [8, 6, 4, 2, 3, 5, 9, 7]
 const S10_MODULO = 11
 const MOD_37_36 = 36
 const BASE36 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -39,7 +39,7 @@ const mod10 = (sequence, checkDigit, config) => {
   return complementOf(total, config.modulo ?? 10) === leadingInteger(checkDigit)
 }
 
-// Ruby's String#to_i is arbitrary precision and these sequences overflow a double.
+// These sequences overflow a double, and Ruby's String#to_i does not.
 const mod7 = (sequence, checkDigit, config) => {
   const digits = sequence.match(/^\s*(\d+)/)
   if (!digits) return false
@@ -88,8 +88,6 @@ const mod3736 = (sequence, checkDigit, config) => {
 const sumProduct = (sequence, checkDigit, config) =>
   ((weightedSum(sequence, config.weightings ?? []) % config.modulo1) % config.modulo2) === leadingInteger(checkDigit)
 
-// What each algorithm reads off its config, and what it assumes when the format leaves
-// one out. Two formats set the same sum when these agree, whatever the JSON spells out.
 const DEFAULTS = {
   mod10: { evens_multiplier: 1, odds_multiplier: 1, modulo: 10, reverse: false },
   mod7: { modulo: 7 },
@@ -116,7 +114,7 @@ export const alphabetFor = (algorithm) => (algorithm === "mod_37_36" ? ALPHANUME
 /**
  * @param {import("./shapes.js").Checksum|undefined} config
  * @returns {boolean|null} null when the check could not be run, which is not the same
- *   as a wrong check digit — a half configured checksum in the lab reads as unknown.
+ *   as a wrong check digit.
  */
 export const validates = (config, sequence, checkDigit) => {
   if (!config || !sequence || !checkDigit || !isSupported(config.name)) return null
@@ -156,7 +154,6 @@ const operator = (text) => ({ text })
 const CHECK_DIGIT = "The check digit this works out to."
 const PRODUCTS = "Everything in the row above, added together."
 
-// Past nine the answer is a letter, so the position it came from is worth showing too.
 const alphabetStep = (modulo, running, alphabet, expected) => {
   const position = modulo + 1 - running === modulo ? 0 : modulo + 1 - running
 
@@ -176,11 +173,6 @@ const alphabetStep = (modulo, running, alphabet, expected) => {
   }
 }
 
-/**
- * The same arithmetic as above, kept rather than thrown away, so a page can show how a
- * check digit was arrived at. Tests hold every trace to the answer `validates` gives,
- * which is what stops the two drifting apart.
- */
 export const trace = (config, sequence) => {
   if (!config || !sequence || !isSupported(config.name)) return null
 

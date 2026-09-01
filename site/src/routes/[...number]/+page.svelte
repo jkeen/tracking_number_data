@@ -11,21 +11,14 @@
 
   let { data } = $props()
 
-  let number = $state(data.number)
+  let number = $state(untrack(() => data.number))
 
-  // Only what the path says is worth reacting to, so the field is left alone while it is
-  // being typed into. The spaces a number is written with are the typist's, not the
-  // number's, so a path that matches the field is not the same as one equal to it.
   const takeNumberFromPath = () => {
     const written = untrack(() => number)
 
     if (pathFor.decode(data.number) !== pathFor.decode(written)) number = data.number
   }
 
-  // Replacing rather than pushing: an eighteen character number should not leave
-  // eighteen entries in the back button. Going through the router rather than the
-  // history API, so that coming back to one of these addresses reads the number out of
-  // it again instead of restoring an entry that never held one.
   const putNumberInPath = () => {
     const path = pathFor.decode(number)
 
@@ -40,8 +33,6 @@
   const results = $derived(number.trim() ? candidates(number) : [])
   const shipments = $derived(group(results))
   const accepted = $derived(shipments.filter((shipment) => shipment.matches.some((match) => match.valid)))
-  // Only worth folding away once something has actually been identified; when nothing
-  // matches, a near miss is the most useful thing on the page.
   const rejected = $derived(accepted.length ? shipments.filter((shipment) => !accepted.includes(shipment)) : [])
   const shown = $derived(accepted.length ? accepted : shipments)
   const best = $derived(results[0])

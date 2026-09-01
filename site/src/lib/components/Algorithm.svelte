@@ -1,15 +1,17 @@
 <script>
-  import { tick } from "svelte"
+  import { untrack } from "svelte"
   import { goto, replaceState } from "$app/navigation"
   import { page } from "$app/state"
   import { base } from "$app/paths"
-  import { inUse, isAlgorithm, labelFor, stepsFor, usedBy, workedExample } from "$lib/algorithms.js"
+  import { inUse, labelFor, stepsFor, usedBy, workedExample } from "$lib/algorithms.js"
   import { describeChecksum } from "$lib/format.js"
-  import { sameSettings, trace } from "$lib/checksum.js"
+  import { isSupported, sameSettings, trace } from "$lib/checksum.js"
   import { decode, normalize } from "$lib/decode.js"
   import { definitionByKey } from "$lib/dataset.js"
   import { pathFor } from "$lib/paths.js"
+  import { configFrom, constantsFor, isWeighted, queryFrom } from "$lib/settings.js"
   import Ledger from "$lib/components/Ledger.svelte"
+  import SerialEntry from "$lib/components/SerialEntry.svelte"
 
   /** @type {{ name: string, number?: string, settings?: Record<string, string> }} */
   let { name, number = "", settings = {} } = $props()
@@ -17,22 +19,19 @@
   const LONGEST = 30
   const LABELS = { serial: "serial", check: "check digit" }
 
-  const formats = $derived(isAlgorithm(name) ? usedBy(name) : [])
-  // By name, so the row reads as a list to pick from rather than as a ranking.
+  const formats = $derived(isSupported(name) ? usedBy(name) : [])
   const choices = inUse().sort((one, other) => labelFor(one).localeCompare(labelFor(other)))
-  const example = $derived(isAlgorithm(name) ? workedExample(name) : null)
+  const example = $derived(isSupported(name) ? workedExample(name) : null)
 
-  // The format that knows a number sets both how it splits and which constants it is
-  // checked against, so the sum on show is the one that number is really checked by.
-  // Anything no format claims is taken as a serial with its last character as the check
-  // digit, which the two fields then let you correct.
   const openedWith = (value) => {
-    for (const definition of formats) {
-      const match = decode(definition, value)
-      if (match) return { definition, serial: match.serialNumber, check: match.checkDigit ?? "" }
-    }
+    const readings = formats
+      .map((definition) => ({ definition, match: decode(definition, value) }))
+      .filter(({ match }) => match)
 
-    return { definition: null, serial: value.slice(0, -1), check: value.slice(-1) }
+    const read = readings.find(({ match }) => match.valid) ?? readings[0]
+    if (!read) return { definition: null, serial: value.slice(0, -1), check: value.slice(-1) }
+
+    return { definition: read.definition, serial: read.match.serialNumber, check: read.match.checkDigit ?? "" }
   }
 
   const opened = $derived(
@@ -41,80 +40,20 @@
       : { definition: example?.definition ?? null, serial: example?.match.serialNumber ?? "", check: example?.match.checkDigit ?? "" }
   )
 
-  let serial = $state("")
-  let check = $state("")
+  const checksumOf = (definition) => ({ ...definition?.spec.validation?.checksum })
 
-  $effect(() => {
-    serial = normalize(settings.serial ?? opened.serial).slice(0, LONGEST)
-    check = normalize(settings.check ?? opened.check).slice(0, 1)
-  })
+  const seed = untrack(() => ({
+    serial: normalize(settings.serial ?? opened.serial).slice(0, LONGEST),
+    check: normalize(settings.check ?? opened.check).slice(0, 1),
+    config: configFrom(settings, checksumOf(opened.definition ?? example?.definition ?? formats[0])),
+  }))
 
-  // Which numbers a format may set, in the order they read on the page.
-  const CONSTANTS = {
-    mod10: [
-      { key: "evens_multiplier", label: "even positions", fallback: 1 },
-      { key: "odds_multiplier", label: "odd positions", fallback: 1 },
-      { key: "modulo", label: "modulo", fallback: 10 },
-    ],
-    luhn: [{ key: "modulo", label: "modulo", fallback: 10 }],
-    mod7: [{ key: "modulo", label: "modulo", fallback: 7 }],
-    s10: [{ key: "modulo", label: "modulo", fallback: 11 }],
-    mod_37_36: [{ key: "modulo", label: "modulo", fallback: 36 }],
-    sum_product_with_weightings_and_modulo: [
-      { key: "modulo1", label: "first modulo", fallback: 10 },
-      { key: "modulo2", label: "second modulo", fallback: 10 },
-    ],
-  }
+  let serial = $state(seed.serial)
+  let check = $state(seed.check)
+  let config = $state(seed.config)
 
-  const WEIGHTED = ["s10", "sum_product_with_weightings_and_modulo"]
+  const query = $derived(queryFrom(config, { serial, check }))
 
-  let config = $state({})
-
-  const constantsFrom = (definition) => ({ ...definition?.spec.validation?.checksum })
-
-  // Query names, so a shared URL reads as the calculator it sets rather than as the JSON.
-  const NAMES = {
-    evens_multiplier: "evens",
-    odds_multiplier: "odds",
-    modulo: "modulo",
-    modulo1: "modulo1",
-    modulo2: "modulo2",
-  }
-
-  const numbersIn = (value) => value.split(",").map(Number).filter(Number.isFinite)
-
-  const asked = (base) => {
-    const wanted = { ...base }
-
-    for (const [key, query] of Object.entries(NAMES)) {
-      if (settings[query] !== undefined) wanted[key] = Number(settings[query])
-    }
-
-    if (settings.weights !== undefined) wanted.weightings = numbersIn(settings.weights)
-
-    return wanted
-  }
-
-  $effect(() => {
-    config = asked(constantsFrom(opened.definition ?? example?.definition ?? formats[0]))
-  })
-
-  const queryOf = (constants) => {
-    const asQuery = { serial, check }
-
-    for (const [key, name] of Object.entries(NAMES)) {
-      if (constants[key] !== undefined) asQuery[name] = String(constants[key])
-    }
-
-    if (constants.weightings) asQuery.weights = constants.weightings.join(",")
-
-    return Object.fromEntries(Object.entries(asQuery).filter(([, value]) => value !== ""))
-  }
-
-  const query = $derived(queryOf(config))
-
-  // Written when something is changed rather than watched, so that opening a page never
-  // writes over the address it was opened with.
   const record = () => {
     const asked = new URLSearchParams(query).toString()
     const path = `${page.url.pathname}${asked ? `?${asked}` : ""}`
@@ -122,8 +61,8 @@
     if (path !== page.url.pathname + page.url.search) replaceState(path, {})
   }
 
-  const constants = $derived(CONSTANTS[name] ?? [])
-  const weighted = $derived(WEIGHTED.includes(name))
+  const constants = $derived(constantsFor(name))
+  const weighted = $derived(isWeighted(name))
   const weights = $derived(config.weightings ?? [])
 
   const shown = $derived(config.name ? trace(config, serial) : null)
@@ -141,7 +80,6 @@
     record()
   }
 
-  // Every format in the dataset, under the algorithm it uses, so one choice sets both.
   const presets = $derived(choices.map((algorithm) => ({ algorithm, definitions: usedBy(algorithm) })))
 
   const pick = (event) => {
@@ -149,20 +87,18 @@
     event.currentTarget.value = ""
     if (!definition) return
 
-    const constants = constantsFrom(definition)
+    const chosen = checksumOf(definition)
 
-    if (constants.name === name) {
-      config = constants
+    if (chosen.name === name) {
+      config = chosen
       record()
     } else {
-      goto(pathFor.algorithm(constants.name, "", queryOf(constants)))
+      goto(pathFor.algorithm(chosen.name, "", queryFrom(chosen, { serial, check })))
     }
   }
 
-  // Formats that agree with the calculator, then ones using the algorithm another way.
   const users = $derived.by(() => {
-    const settings = (definition) => definition.spec.validation.checksum
-    const shares = (definition) => sameSettings(settings(definition), config)
+    const shares = (definition) => sameSettings(definition.spec.validation.checksum, config)
 
     return [
       { title: "With these constants", formats: formats.filter(shares) },
@@ -170,116 +106,18 @@
     ]
   })
 
-  const characters = $derived([...serial])
-
-  // Both ends of the check carry the answer as a colour, rather than a label each.
   const outcome = $derived(!check || !shown ? "" : shown.expected === check ? "is-ok" : "is-bad")
 
-  const boxes = $derived(Math.min(characters.length + 1, LONGEST))
-  const positions = $derived([...Array(boxes).keys()])
+  const boxes = $derived(Math.min(serial.length + 1, LONGEST))
   const columns = $derived(Math.max(boxes, shown?.cells?.length ?? 0))
 
-  // The check digit waits at the far end, past everything the algorithm has to say.
   const marks = $derived([
-    { role: "serial", start: 0, length: Math.max(characters.length, 1) },
+    { role: "serial", start: 0, length: Math.max(serial.length, 1) },
     { role: "check", column: "-2 / -1" },
   ])
-
-  let fields = $state([])
-
-  const clean = (text) => text.replace(/\s+/g, "").toUpperCase()
-
-  // Safari puts the caret back after the click that focused the box, so the selection
-  // has to be made again once the click has finished.
-  const selectAll = (event) => {
-    const field = event.currentTarget
-    field.select()
-    setTimeout(() => field.select())
-  }
-
-  const focusOn = async (index) => {
-    await tick()
-    const field = fields[Math.min(Math.max(index, 0), boxes - 1)]
-    field?.focus()
-    field?.select()
-  }
-
-  const replaceAt = (index, character) => {
-    serial = [...characters.slice(0, index), character, ...characters.slice(index + 1)].join("").slice(0, LONGEST)
-    record()
-  }
-
-  const pasteFrom = (index, text) => {
-    serial = [...characters.slice(0, index), ...text].join("").slice(0, LONGEST)
-    record()
-  }
-
-  const removeAt = (index) => {
-    serial = [...characters.slice(0, index), ...characters.slice(index + 1)].join("")
-    record()
-  }
-
-  const onCheck = (event) => {
-    const added = clean(event.currentTarget.value)
-    check = added.slice(-1)
-    event.currentTarget.value = check
-    record()
-  }
-
-  const onInput = (index) => (event) => {
-    const field = event.currentTarget
-    const added = clean(field.value)
-
-    if (!added) {
-      field.value = characters[index] ?? ""
-      return
-    }
-
-    if (added.length === 1) replaceAt(index, added)
-    else pasteFrom(index, added)
-
-    // The character it is about to hold, not the one it held: writing the old one back
-    // leaves Safari agreeing with what Svelte is about to render, which then skips it.
-    field.value = added[0]
-    focusOn(index + added.length)
-  }
-
-  const onPaste = (index) => (event) => {
-    event.preventDefault()
-    const added = clean(event.clipboardData?.getData("text") ?? "")
-    if (!added) return
-
-    pasteFrom(index, added)
-    focusOn(index + added.length)
-  }
-
-  const onKeydown = (index) => (event) => {
-    if (event.metaKey || event.ctrlKey) return
-
-    if (event.key === "Backspace") {
-      event.preventDefault()
-      const target = characters[index] === undefined ? index - 1 : index
-      if (target < 0) return
-
-      removeAt(target)
-      focusOn(target)
-    } else if (event.key === "Delete") {
-      event.preventDefault()
-      removeAt(index)
-      focusOn(index)
-    } else if (event.key === "ArrowLeft") {
-      event.preventDefault()
-      focusOn(index - 1)
-    } else if (event.key === "ArrowRight") {
-      event.preventDefault()
-      focusOn(index + 1)
-    }
-  }
-
-  // The constants can differ per format, so they belong beside the format that sets them.
 </script>
 
-{#if !isAlgorithm(name)}
+{#if !isSupported(name)}
   <p class="empty">No check digit algorithm called <code>{name}</code>.</p>
 {:else}
   <article class="algorithm">
@@ -341,8 +179,6 @@
       {/if}
     </div>
 
-
-
     <p class="lede">
       Type a serial number and see the check digit get calculated. Clear the check digit to see what the algorithm gives on its
       own, or fill it in to check a number against it.
@@ -357,41 +193,7 @@
       trailing
     >
       {#snippet entry()}
-        <div class="ledger-row mod-entry" role="group" aria-label="Serial and check digit">
-          {#each positions as index (index)}
-            <input
-              class="ledger-digit mod-{characters[index] === undefined ? 'spare' : 'serial'}"
-              class:is-striped={index % 2 === 1}
-              style="grid-column: {index + 1}"
-              bind:this={fields[index]}
-              value={characters[index] ?? ""}
-              maxlength="1"
-              spellcheck="false"
-              autocomplete="off"
-              autocapitalize="characters"
-              aria-label="Serial character {index + 1}"
-              oninput={onInput(index)}
-              onpaste={onPaste(index)}
-              onkeydown={onKeydown(index)}
-              onfocus={selectAll}
-              onclick={selectAll}
-            />
-          {/each}
-
-          <input
-            class="ledger-digit mod-check {outcome}"
-            style="grid-column: -2 / -1"
-            value={check}
-            maxlength="1"
-            spellcheck="false"
-            autocomplete="off"
-            autocapitalize="characters"
-            aria-label="Check digit"
-            oninput={onCheck}
-            onfocus={selectAll}
-            onclick={selectAll}
-          />
-        </div>
+        <SerialEntry bind:serial bind:check {boxes} longest={LONGEST} {outcome} onchange={record} />
       {/snippet}
     </Ledger>
 

@@ -1,7 +1,7 @@
 <script>
-  import { theme, toggle } from "$lib/theme.svelte.js"
+  import { mode, toggleMode } from "mode-watcher"
 
-  const dark = $derived(theme.name === "dark")
+  const dark = $derived(mode.current === "dark")
 </script>
 
 <button
@@ -10,9 +10,8 @@
   aria-pressed={dark}
   aria-label="Dark mode"
   title={dark ? "Switch to light" : "Switch to dark"}
-  onclick={toggle}
+  onclick={toggleMode}
 >
-  <!-- Lucide sun and moon, drawn here rather than pulled in as a dependency. -->
   <svg
     class="icon"
     viewBox="0 0 24 24"

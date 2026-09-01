@@ -7,6 +7,7 @@
   import { decode } from "$lib/decode.js"
   import { columnsOf, findCheckDigit, findNested, numbersIn } from "$lib/discover.js"
   import { pathFor } from "$lib/paths.js"
+  import { queryFrom } from "$lib/settings.js"
 
   const SUMMARY =
     "Paste tracking numbers of a format nobody has written down, and see where a check digit could be hiding and which arithmetic would produce it."
@@ -18,20 +19,14 @@
   const roles = $derived(columns.map((column) => (column.constant ? "fixed" : "varies")))
 
   const nested = $derived(numbers.length > 1 ? findNested(numbers, definitions, decode) : [])
-  // Two orders of magnitude dearer than the search above, so with a known number found it
-  // waits to be asked. With nothing found there is nothing else to go on, so it runs.
   let opened = $state(false)
   const sweeping = $derived(numbers.length > 1 && (opened || nested.length === 0))
   const found = $derived(sweeping ? findCheckDigit(numbers) : null)
   const lengths = $derived([...new Set(numbers.map((number) => number.length))])
   const ragged = $derived(numbers.length > 1 && lengths.length > 1)
 
-  // Fits are only worth reading against how many the same search would turn up on numbers
-  // with no check digit at all.
-  const telling = $derived(found && found.expected > 0 ? found.fits.length / found.expected : 0)
+  const fitsAgainstChance = $derived(found && found.expected > 0 ? found.fits.length / found.expected : 0)
 
-  // What a validating window shows is the run the sum read and the character it checked
-  // against. The format's own fields inside that run are the guess, not the finding.
   const CERTAIN = ["SerialNumber", "CheckDigit"]
 
   const checksumOf = (hit) => hit.definition.spec.validation.checksum
@@ -47,22 +42,13 @@
         depth: 0,
       }))
 
-  const constantsOf = ({ name, weightings, ...rest }) => ({
-    ...rest,
-    ...(weightings ? { weights: weightings.join(",") } : {}),
-  })
+  const linkTo = (span, config) => pathFor.algorithm(config.name, "", queryFrom(config, span.parts[0]))
 
-  const linkTo = (place, config) =>
-    pathFor.algorithm(config.name, "", {
-      serial: place.parts[0].serial,
-      check: place.parts[0].check,
-      ...Object.fromEntries(
-        Object.entries(constantsOf(config)).map(([key, value]) => [
-          { evens_multiplier: "evens", odds_multiplier: "odds" }[key] ?? key,
-          String(value),
-        ])
-      ),
-    })
+  const algorithmsIn = (place) => [
+    ...new Map(
+      place.spans.flatMap((span) => span.configs.map((config) => [labelFor(config.name), { span, config }]))
+    ).values(),
+  ]
 </script>
 
 <svelte:head>
@@ -92,18 +78,18 @@
     <p class="empty">One number proves nothing. Add more.</p>
   {:else if ragged}
     <p class="empty">
-      These are {lengths.sort((one, other) => one - other).join(" and ")} characters long. Paste one format at a time.
+      These are {[...lengths].sort((one, other) => one - other).join(" and ")} characters long. Paste one format at a time.
     </p>
   {:else if numbers.length > 1}
     <h2>What holds still</h2>
-    <p class="legend">
+    <p class="lede">
       A character that never changes is a fixed field, not something the check digit reads.
     </p>
     <Ledger characters={columns.map((column) => column.shown)} {roles} columns={columns.length} />
 
     {#if nested.length}
       <h2>Numbers we already know, inside these</h2>
-      <p class="legend">
+      <p class="lede">
         Each of these contains a shorter number this site already knows. Only its serial and check digit are marked. Whether the rest of that format fits is still a guess.
       </p>
 
@@ -134,11 +120,11 @@
       <summary>Try every algorithm against every position</summary>
 
     {#if found}
-    <p class="legend">
+    <p class="lede">
       {found.fits.length}
       {found.fits.length === 1 ? "combination explains" : "combinations explain"} all
       {numbers.length} numbers, out of {found.tried.toLocaleString()} tried.
-      {#if telling < 3}
+      {#if fitsAgainstChance < 3}
         Numbers with no check digit at all would turn up about {Math.round(found.expected)} on their own, so
         this is not yet worth believing. Add more numbers.
       {:else}
@@ -167,8 +153,8 @@
                 <span class="analyze-check">{place.best.parts[0].check}</span>
               </td>
               <td>
-                {#each [...new Map(place.spans.flatMap((span) => span.configs).map((config) => [labelFor(config.name), config])).values()] as config, index}
-                  {index ? ", " : ""}<a href={linkTo(place.best, config)}>{labelFor(config.name)}</a>
+                {#each algorithmsIn(place) as { span, config }, index (config.name)}
+                  {index ? ", " : ""}<a href={linkTo(span, config)}>{labelFor(config.name)}</a>
                 {/each}
                 <span class="analyze-count">{place.settings} of {place.spans.length > 1 ? `${place.spans.length} spans` : "1 span"}</span>
               </td>
@@ -238,7 +224,6 @@
     border-bottom: var(--system-border);
   }
 
-  /* The sweep below draws its own line, and two together read as a mistake. */
   .analyze-nested li:last-child {
     border-bottom: none;
   }

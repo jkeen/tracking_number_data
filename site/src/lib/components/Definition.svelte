@@ -2,7 +2,7 @@
   import { decode } from "$lib/decode.js"
   import { definitionByKey } from "$lib/dataset.js"
   import { describeMissingChecksum, describeRequirements } from "$lib/format.js"
-  import { describe, describeField } from "$lib/glossary.js"
+  import { describeField } from "$lib/glossary.js"
   import { labelFor } from "$lib/segments.js"
   import { pathFor } from "$lib/paths.js"
   import { labelFor as algorithmLabel } from "$lib/algorithms.js"
@@ -17,11 +17,6 @@
   const definition = $derived(definitionByKey(definitionKey))
   const template = $derived(definition && templateFor(definition))
 
-  // Every group the pattern names, not just the ones the example number happens to
-  // carry: USPS 91's routing prefix and destination are optional, and a page about the
-  // format should list them even when the number it drew does not have them.
-  // What a part means, said where the part is listed rather than in a separate block
-  // of facts above it.
   const algorithm = $derived(definition?.spec.validation?.checksum?.name)
 
   const parts = $derived(
@@ -54,7 +49,6 @@
     { title: "Should be rejected", examples: examples.filter((example) => !example.expected) },
   ].filter((list) => list.examples.length))
 
-  // Listed twice in the file, which is worth saying out loud rather than hiding.
   const repeated = $derived(
     [...new Set(examples.map((example) => example.number))].filter(
       (number) => examples.filter((example) => example.number === number).length > 1
@@ -152,7 +146,7 @@
             <tr class:ok={example.accepted === example.expected} class:bad={example.accepted !== example.expected}>
               <td class="mark">{example.accepted === example.expected ? "✓" : "✗"}</td>
               <td>
-                <a class="tracking-number" href={pathFor.decode(example.number)} onclick={(event) => pick(event, example.number)}>
+                <a class="tracking-number" href={pathFor.decode(example.number)}>
                   {example.number}
                 </a>
               </td>
