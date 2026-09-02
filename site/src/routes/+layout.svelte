@@ -4,6 +4,7 @@
   import { base } from "$app/paths"
   import { definitions } from "$lib/dataset.js"
   import { pathFor } from "$lib/paths.js"
+  import { reportablePath, trackPageview } from "$lib/analytics.js"
   import { ModeWatcher } from "mode-watcher"
   import Theme from "$lib/components/Theme.svelte"
   import Repository from "$lib/components/Repository.svelte"
@@ -25,6 +26,10 @@
     }
 
     return [...carried].map(([name, formats]) => ({ name, formats }))
+  })
+
+  $effect(() => {
+    trackPageview(`${page.url.origin}${reportablePath(page.url.pathname)}`)
   })
 
   const visitFormat = (event) => {
